@@ -1,12 +1,10 @@
-# Obsidian
-.obsidian/
-.obsidian-git/
+# Obsidian workspace cache and local state
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/hotkeys.json
+.obsidian/appearance.json
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# Temp
-*.tmp
-*~

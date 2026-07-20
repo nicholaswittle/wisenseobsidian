@@ -8,19 +8,18 @@ aliases: [Dashboard, Index]
 
 Personal vault for cross-project decisions, launch planning, vendor research, and lessons learned. Kept separate from code repos on purpose — this is for thinking, not for shipping files.
 
-## Vault structure (Karpathy 3-folder)
+## 🧠 MindStudio 7-Folder AI Second Brain Architecture
 
-- **Root notes** — wiki-level knowledge (governance, project references, decisions, vendor docs, daily logs)
-- **raw/** — staging area for unprocessed research, pasted sources, stream of consciousness
-- **output/** — final deliverables (audit reports, launch checklists, completed plans)
-- **CLAUDE.md** — instructions for Claude Code when working in this vault
+- **`raw/`** — Intake queue for clipped articles, video transcripts, and prompt drops.
+- **`raw/processed/`** — Audit trail for ingested source clips (deduplication mechanism).
+- **`wiki/`** — AI-generated atomic concept notes, specs, and cross-linked knowledge.
+- **`journal/`** — Grounded daily reflections and decision logs.
+- **`crm/`** — Contact & relationship records per founder, advisor, or vendor.
+- **[[agents]]** — Master prompt instruction file governing all AI operations.
+- **[[index]]** — Pointer catalog read first before retrieval.
+- **[[log]]** — Append-only audit trail of AI agent actions.
 
-## Daily working stack (read first)
-
-- [[Working Stack — Claude CLI and Ollama]] — **current path**: Claude CLI + Ollama; no more custom agent platforms
-- [[Abandoned Projects — Lessons]] — what was killed 2026-07-19 and what ideas to keep
-
-## AI Agent Entrypoint & Context Maps
+## 🤖 AI Agent Entrypoint & Context Maps
 
 - [[00_AI_AGENT_MANIFEST]] — 1-page AI agent manifest & Karpathy operating rules
 - [[ENVIRONMENT_MAP]] — local port registry & environment key map
