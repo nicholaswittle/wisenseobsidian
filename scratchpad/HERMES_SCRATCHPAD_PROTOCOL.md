@@ -21,7 +21,7 @@ aliases: [Scratchpad Protocol, Hermes Monologue]
    </scratch_pad>
    ```
 2. **Persistence Location**: Save long multi-step reasoning logs to `scratchpad/YYYY-MM-DD_[task_id].md`.
-3. **Audit Cross-Linking**: Link the scratchpad note to the final output note in `wiki/` and record the action in `log.md`.
+3. **Audit Cross-Linking**: Link the scratchpad note to the final **root note** (or `output/` deliverable) and record the action in `log.md`.
 
 ---
 

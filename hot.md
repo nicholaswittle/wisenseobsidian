@@ -25,12 +25,12 @@ updated: 2026-07-20T00:00:00
 - **DELETED (not active):** wisense-os, my_ai, local-agent-work-center, command_center.
 
 ## Recent Changes
+- **Fork Reconciliation COMPLETE (2026-07-20)** — vendored wisense_core (47 files, full travel engine) and wisense_ui (19 files) promoted to canonical at `C:\development\packages\`. New Horizon switched to path deps (`../../packages/`). Vendored `packages/` dir removed. All tests green: core 69/69, UI 21/21, NH 117/117, HV2 7/7.
 - **DECISION EXECUTED (2026-07-20):** Vault formally declared a **curated static reference**. Retired the dormant MindStudio synthesis pipeline — deleted empty `wiki/`, `journal/`, `crm/` folders.
 - Reconciled topology drift across all governance files: [[CLAUDE]], [[agents]], [[Home]], [[index]] now agree on `raw/ → root notes` (manual codification), no auto-synthesis loop. [[agents]] is the canonical protocol; codification collapsed to one on-request section.
 - Updated: [[index]] — struck deleted `wisense-os` from Live Codebase; added [[hot]] to boot order.
 - Created: this [[hot]] cache (was empty before today).
 
 ## Active Threads
-- Open: [[Fork Reconciliation]] (wisense_new_horizon vendored packages diverged from canonical).
 - Open: `WiSenseVaultAutoSync` task is unregistered — now consistent with the static-reference decision, but the two sync scripts in `C:\development\scripts\` are dead code; retire them if you want full cleanup.
 - Boot order for any agent: [[hot]] → [[index]] → relevant note.

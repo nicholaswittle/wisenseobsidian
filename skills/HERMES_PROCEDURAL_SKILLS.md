@@ -38,8 +38,13 @@ outputs: [output_artifact]
 
 ## 📚 Installed Hermes Skills
 
-1. **`git-vault-sync`**: Auto-commit and push vault Markdown notes to GitHub.
-2. **`flutter-test-gate`**: Run `flutter analyze` and `flutter test` across Apex/Horizon projects.
-3. **`wisense-engine-probe`**: Probe local Python backend daemon on port `5050`.
+Each maps to a real, runnable command. Prefer the existing scripts in `C:\development\scripts\` over ad-hoc commands.
+
+1. **`vault-commit`**: Stage + commit vault changes with an auditable message (`git add -A && git commit`). Manual/on-request — the old auto-sync task was retired 2026-07-20. Push only on explicit approval.
+2. **`workspace-analyze`**: Run `.\scripts\analyze_workspace.ps1` — flutter/dart analyze across all projects.
+3. **`flutter-test-gate`**: Run `.\scripts\run_tests.ps1` — all package tests must pass before commit (`--update-goldens` to regenerate baselines).
+4. **`apex-diagnose`**: Run `.\scripts\diagnose_apex.ps1` — environment checks, analysis, and tests for Apex Scheduler.
+
+> ⚠️ Removed 2026-07-20: `wisense-engine-probe` (targeted deleted `wisense-os` on port 5050 — service no longer exists).
 
 Related: [[agents]], [[00_AI_AGENT_MANIFEST]], [[Hermes 3 Agent Memory Architecture]]

@@ -14,6 +14,8 @@ aliases: [index.md, Vault Catalog]
 - [[hot]] — recent-context cache (~500 words), read first for fast boot
 - [[00_AI_AGENT_MANIFEST]] — 1-page AI agent entrypoint & Karpathy rules
 - [[agents]] — Master prompt instructions governing AI agent operations
+- [[AGENTS_REGISTRY]] — who-does-what routing table (Hermes reads this to delegate)
+- [[DECISIONS]] — append-only register of settled decisions + rationale (check before re-opening a question)
 - [[OBSIDIAN_PLUGINS_MANIFEST]] — Community plugin governance & release registry
 - [[skills/HERMES_PROCEDURAL_SKILLS]] — Hermes 3 procedural skill specification (`skills/`)
 - [[scratchpad/HERMES_SCRATCHPAD_PROTOCOL]] — Hermes 3 internal monologue protocol (`scratchpad/`)

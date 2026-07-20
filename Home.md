@@ -32,6 +32,8 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 ## Governance — rules, protocols, and delegations
 
 - [[WiSense Governance — Rules and Protocols]] — root index of all governance
+- [[AGENTS_REGISTRY]] — agent routing table: who does what, how Hermes delegates
+- [[DECISIONS]] — append-only register of settled decisions + rationale
 - [[Mythos 5.5 Persona]] — the agent persona every session uses
 - [[Head of Team Directive]] — role assignments + conflict resolution + human veto
 - [[Team Workflow]] — 8-step session structure
