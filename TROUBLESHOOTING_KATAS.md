@@ -19,7 +19,7 @@ A catalog of known error signatures across Windows, PowerShell, Python, and Flut
 ### Error: `Execution of scripts is disabled on this system.`
 - **Fix**: Run script with bypass policy:
   ```powershell
-  powershell -ExecutionPolicy Bypass -File .\start_wisense_os.ps1
+  powershell -ExecutionPolicy Bypass -File .\script.ps1
   ```
 
 ---

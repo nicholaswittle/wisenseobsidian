@@ -10,42 +10,9 @@ Canonical JSON payload specifications and data model contracts across all WiSens
 
 ---
 
-## 1. WiSense OS Engine API (`http://127.0.0.1:5050`)
+## 1. ~~WiSense OS Engine API~~ (DELETED 2026-07-19)
 
-### `GET /api/v1/health`
-```json
-{
-  "status": "ok",
-  "version": "0.1.0",
-  "engine": "wisense-os-native"
-}
-```
-
-### `POST /api/v1/tasks` (Submit Task)
-```json
-{
-  "request": "Fix billing calculation",
-  "project_root": "C:\\development\\projects\\apex\\apex",
-  "mode": "ask_before_changes",
-  "chat_model": "gemma4:31b-cloud",
-  "builder_model": "gemma4:31b-cloud",
-  "offline": false
-}
-```
-
-### `POST /api/v1/tasks/<task_id>/propose` (Prepare Proposal Response)
-```json
-{
-  "task_id": "uuid",
-  "proposal": {
-    "digest": "a1b2c3d4e5f6...",
-    "summary": "Updated billing logic in lib/billing.dart",
-    "files": {
-      "lib/billing.dart": "diff content..."
-    }
-  }
-}
-```
+> WiSense OS was deleted. This section retained for historical reference only. See [[Abandoned Projects — Lessons]].
 
 ---
 

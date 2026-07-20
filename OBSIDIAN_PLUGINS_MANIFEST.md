@@ -30,18 +30,19 @@ aliases: [OBSIDIAN_PLUGINS_MANIFEST, Plugin Registry]
 
 ---
 
-## 🛠 Custom WiSense Plugin Manifest Spec (`manifest.json`)
+## Custom Plugin Spec
 
+Custom plugins must include a valid `manifest.json` adhering to Obsidian's official schema:
 ```json
 {
-  "id": "wisense-os-bridge",
-  "name": "WiSense OS Native Bridge",
+  "id": "plugin-id",
+  "name": "Plugin Name",
   "version": "1.0.0",
   "minAppVersion": "1.0.0",
-  "description": "Native bridge connecting Obsidian notes to WiSense OS local AI engine on port 5050.",
-  "author": "WiSense AI Team",
   "isDesktopOnly": true
 }
 ```
+
+> **Note:** The `wisense-os-bridge` plugin was removed when wisense-os was deleted (2026-07-19). No custom WiSense plugins are currently installed.
 
 Related: [[00_AI_AGENT_MANIFEST]], [[agents]], [[ENVIRONMENT_MAP]]

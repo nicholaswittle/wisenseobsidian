@@ -39,7 +39,7 @@ aliases: [index.md, Vault Catalog]
 - [[Apex Scheduler — Code Reference]] — 39 Dart files, Supabase + FCM, swipeable calendar
 - [[New Horizon — Code Reference]] — 60+ Dart files, ToolRegistry, Duffel proxy
 - [[Code Reuse Analysis]] — Cross-project code reuse and extraction plan
-- [[Fork Reconciliation]] — Package divergence resolution plan
+- [[Fork Reconciliation]] — ~~Package divergence resolution plan~~ **COMPLETE (2026-07-20)** — vendored packages promoted to canonical
 
 ---
 
@@ -67,5 +67,6 @@ aliases: [index.md, Vault Catalog]
 ## 📝 Activity & Audit Log
 - [[log]] — Append-only audit log of AI vault operations
 - [[Audit Findings Loop]] — Claude ↔ Codex handoff audit trail
+- [[2026-07-19 Vault Architecture Audit]] — initial vault topology audit
 
 Related: [[Home]], [[agents]], [[log]]

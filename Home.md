@@ -54,11 +54,11 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 
 - [[COMMS LINK]] — on-device decompression, zero cloud. Push `main` + store assets.
 - [[Apex Scheduler]] — Jigsy's Brewpub staff scheduling. **Launch blocker: tenancy/RLS + claim/clock races** — see [[Apex Security Audit 2026-07-19]].
-- [[New Horizon]] — travel Alignment Engine, Duffel + Supabase. README + fork decision open.
+- [[New Horizon]] — travel Alignment Engine, Duffel + Supabase. README boilerplate still needs replacing. Fork reconciliation COMPLETE.
 
 ## Cross-project decisions
 
-- [[Fork Reconciliation]] — New Horizon's vendored wisense_core/wisense_ui vs canonical.
+- [[Fork Reconciliation]] — ~~New Horizon's vendored wisense_core/wisense_ui vs canonical~~ **COMPLETE (2026-07-20)** — promoted to canonical, path deps in place.
 - [[Parent Repo Cleanup]] — C:\development parent git hygiene after project kills.
 
 ## Vendors
@@ -66,6 +66,7 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 - [[Duffel]] — flight booking API (Horizon V2, New Horizon)
 - [[Supabase]] — auth + database (Apex, Horizon V2, New Horizon)
 - [[Stripe]] — billing, deferred for Apex pilot
+- [[WiSense LLC — About Page]] — company info & about page content
 
 ## Code reference (for AI agents + quick lookup)
 
@@ -93,3 +94,4 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 ## Daily log
 
 - [[2026-07-19]] — vault created; projects audited; agent platforms abandoned; Claude CLI + Ollama chosen; Apex security audit captured.
+- [[2026-07-20]] — fork reconciliation complete; vault audit & cleanup.

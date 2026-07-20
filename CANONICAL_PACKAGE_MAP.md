@@ -2,43 +2,39 @@
 title: Canonical Package Map & Shared Code Sync
 tags: [packages, wisense_ui, wisense_core, refactoring, sync]
 aliases: [Canonical Packages, Shared Code Map]
+date: 2026-07-20
 ---
 
-# 📦 CANONICAL PACKAGE MAP & SHARED CODE SYNC
+# CANONICAL PACKAGE MAP & SHARED CODE SYNC
 
-Specification for shared Dart packages (`wisense_core`, `wisense_ui`) across New Horizon, Apex Scheduler, and WiSense OS to prevent fork divergence.
-
----
-
-## 🏛 Master Package Source
-
-| Package Name | Canonical Path | Description | Vendored In |
-|---|---|---|---|
-| **`wisense_core`** | `C:\development\packages\wisense_core` | Core models, AI bridge, auth contracts | `wisense_new_horizon`, `apex` |
-| **`wisense_ui`** | `C:\development\packages\wisense_ui` | Glassmorphism UI tokens, spacing, buttons | `wisense_new_horizon`, `apex` |
+Specification for shared Dart packages (`wisense_core`, `wisense_ui`) across WiSense apps.
 
 ---
 
-## ⚠️ Divergence Safeguards & Rules
+## Master Package Source
+
+| Package | Canonical Path | Files | Description | Used By |
+|---|---|---|---|---|
+| **`wisense_core`** | `C:\development\packages\wisense_core` | 47 | Core models, Result type, Duffel client, affiliate deep links, unified travel providers, search intent, hydration, provider proxy | `wisense_new_horizon`, `wisense_horizon_v2` |
+| **`wisense_ui`** | `C:\development\packages\wisense_ui` | 19 | Glassmorphism UI tokens, spacing, flight cards, affiliate redirect handler, loading overlay | `wisense_new_horizon`, `wisense_horizon_v2` |
+
+All apps reference these via relative path dependencies in `pubspec.yaml`:
+```yaml
+dependencies:
+  wisense_core:
+    path: ../../packages/wisense_core
+  wisense_ui:
+    path: ../../packages/wisense_ui
+```
+
+No vendored copies exist. The fork reconciliation (2026-07-20) promoted New Horizon's vendored packages to canonical and removed the duplicates. See [[Fork Reconciliation]].
+
+---
+
+## Modification Rules
 
 1. **Master Modification First**: Always make changes to `wisense_core` or `wisense_ui` inside `C:\development\packages\` first.
-2. **Never Overwrite Upstream**: Do NOT edit vendored copies inside `projects/wisense_new_horizon/packages/` directly without copying changes back to `C:\development\packages\`.
-3. **Relative Dependency Path**: In `pubspec.yaml`, reference shared packages using canonical relative paths:
-   ```yaml
-   dependencies:
-     wisense_ui:
-       path: ../../packages/wisense_ui
-   ```
-
----
-
-## 🔄 Package Sync Command
-
-Run in PowerShell to sync canonical package changes into target project:
-
-```powershell
-# Sync wisense_ui to new_horizon
-Copy-Item -Path "C:\development\packages\wisense_ui\*" -Destination "C:\development\projects\wisense_new_horizon\packages\wisense_ui\" -Recurse -Force
-```
+2. **No Vendored Copies**: Do not create vendored copies inside project repos. Use path dependencies only.
+3. **Test After Changes**: Run `flutter test` in the canonical package and any affected app after modifications.
 
 Related: [[00_AI_AGENT_MANIFEST]], [[Fork Reconciliation]], [[Code Reuse Analysis]]
