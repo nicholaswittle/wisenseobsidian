@@ -8,16 +8,18 @@ aliases: [Dashboard, Index]
 
 Personal vault for cross-project decisions, launch planning, vendor research, and lessons learned. Kept separate from code repos on purpose — this is for thinking, not for shipping files.
 
-## 🧠 MindStudio 7-Folder AI Second Brain Architecture
+## 🧠 Vault Architecture (curated static reference)
 
-- **`raw/`** — Intake queue for clipped articles, video transcripts, and prompt drops.
-- **`raw/processed/`** — Audit trail for ingested source clips (deduplication mechanism).
-- **`wiki/`** — AI-generated atomic concept notes, specs, and cross-linked knowledge.
-- **`journal/`** — Grounded daily reflections and decision logs.
-- **`crm/`** — Contact & relationship records per founder, advisor, or vendor.
-- **[[agents]]** — Master prompt instruction file governing all AI operations.
+Hand-written, cross-linked knowledge — not an automated intake machine. The 7-folder synthesis pipeline (`wiki/`, `journal/`, `crm/`) was retired 2026-07-20 (never used). See [[agents]] for the full protocol.
+
+- **`raw/`** — Intake inbox for clipped articles, transcripts, and prompt drops awaiting manual codification.
+- **`raw/processed/`** — Sources moved here after they've been codified into root notes.
+- **`output/`** — Final deliverables (audit reports, launch checklists, decision docs).
+- **Root notes** — The knowledge layer: governance, project refs, manifests, decisions, daily logs.
+- **[[hot]]** — ~500-word recent-context cache; read first for fast boot.
+- **[[agents]]** — Master protocol governing all AI operations in this vault.
 - **[[index]]** — Pointer catalog read first before retrieval.
-- **[[log]]** — Append-only audit trail of AI agent actions.
+- **[[log]]** — Append-only audit trail of structural changes.
 
 ## 🤖 AI Agent Entrypoint & Context Maps
 

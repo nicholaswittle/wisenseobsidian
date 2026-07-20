@@ -6,11 +6,12 @@ aliases: [index.md, Vault Catalog]
 
 # 📚 Master Vault Index
 
-> **AI Pointer Layer**: Read this index first before searching individual vault notes.
+> **AI Pointer Layer**: Read [[hot]] first (recent context, ~500 words), then this index, before searching individual vault notes.
 
 ---
 
 ## 🤖 AI Core & System Manifests
+- [[hot]] — recent-context cache (~500 words), read first for fast boot
 - [[00_AI_AGENT_MANIFEST]] — 1-page AI agent entrypoint & Karpathy rules
 - [[agents]] — Master prompt instructions governing AI agent operations
 - [[OBSIDIAN_PLUGINS_MANIFEST]] — Community plugin governance & release registry
@@ -40,19 +41,15 @@ aliases: [index.md, Vault Catalog]
 
 ---
 
-## 🌾 Gardener Intake Queue (`/raw`)
-- **Queue Status**: `raw/` intake directory ready for clips and prompt notes.
-- **Audit Storage**: Ingested sources moved to `raw/processed/`.
-
----
-
-## 🧠 Synthesized Knowledge Layer (`/wiki`)
-- **Architecture & System Design**: Concept notes generated automatically from raw clips and user queries.
+## 🌾 Intake Inbox (`/raw`)
+- **Queue Status**: `raw/` inbox ready for clips and prompt notes awaiting manual codification into root notes.
+- **Audit Storage**: Codified sources moved to `raw/processed/`.
+- **Note**: Codification is a manual, on-request operation — there is no automatic synthesis loop. The `/wiki`, `/journal`, `/crm` pipeline folders were retired 2026-07-20; synthesized knowledge now lives as **root notes**.
 
 ---
 
 ## 💻 Live Codebase & Project Repo Index
-- **WiSense OS Engine**: `C:\development\projects\wisense-os` (Python 3.14 · Flask daemon · Port `5050`)
+- ~~**WiSense OS Engine**: `C:\development\projects\wisense-os`~~ — **DELETED 2026-07-19**, do not treat as live. See [[Abandoned Projects — Lessons]] and [[00_AI_AGENT_MANIFEST]].
 - **COMMS LINK**: `C:\development\projects\wisense_decompression` (Flutter · On-Device Gemma 2B-IT · 59/59 tests pass)
 - **Apex Scheduler**: `C:\development\projects\apex\apex` (Flutter · Supabase · FCM · Sentry)
 - **New Horizon**: `C:\development\projects\wisense_new_horizon` (Flutter · ToolRegistry · Duffel Proxy · 117/117 tests pass)

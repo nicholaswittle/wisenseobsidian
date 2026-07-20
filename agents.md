@@ -12,26 +12,31 @@ aliases: [agents.md, Vault Agent Instructions]
 
 ## 📂 Vault Architecture & Folder Roles
 
-1. `/raw` — **Intake Queue**: Unprocessed web clips, transcripts, research, and prompt drops land here.
-2. `/raw/processed` — **Audit Trail**: After ingesting a file from `/raw`, move it here to prevent duplicate processing.
-3. `/wiki` — **AI Knowledge Layer**: Atomic concept notes, architecture specs, and tool pages cross-linked to source clips.
-4. `/journal` — **Grounded Reflection**: Daily session logs and decision reflections, grounded in vault context.
-5. `/crm` — **Contacts & Relationships**: Markdown files per founder, team member, advisor, or vendor contact.
-6. `index.md` — **Master Index Pointer**: Catalog of all vault contents, read first before querying.
-7. `log.md` — **Append-Only Audit Trail**: History of every AI ingest, query, and synthesis action.
+This vault is a **curated static reference**, not an automated intake machine. The earlier MindStudio 7-folder synthesis pipeline (`/wiki`, `/journal`, `/crm` + auto-sync) was retired 2026-07-20 — it never ran in practice and its folders sat empty. Knowledge here is hand-written and hand-linked. See [[hot]] and the [[log]] entry for that date.
+
+**Live topology:**
+
+- `raw/` — **Intake inbox**: unprocessed clips, transcripts, research, and prompt drops land here for a human/agent to read and codify into root notes.
+- `raw/processed/` — **Audit trail**: sources moved here after they've been codified, to prevent re-processing.
+- `output/` — **Deliverables**: finished audit reports, launch checklists, decision docs — things you'd hand to someone else.
+- **Root notes** — **The knowledge layer**: governance, project references, manifests, decisions, daily logs. Codified, linked, cross-referenced. This is where synthesized knowledge lives now (not a separate `/wiki`).
+- `skills/`, `scratchpad/` — Hermes 3 procedural recipes and scratchpad logs (see section 8).
+- `index.md` — **Master pointer**: catalog of all vault contents, read first before querying.
+- `hot.md` — **Hot cache**: ~500-word recent-context summary, read first for fast boot.
+- `log.md` — **Append-only audit trail**: history of every structural change and codification.
 
 ---
 
 ## ⚙️ AI Agent Operating Rules
 
 ### 1. The Gardener & Soil Paradigm
-- **Human User (Gardener)**: Drops raw thoughts, articles, YouTube clips, and prompt notes into `/raw`.
-- **AI Agent (Soil)**: Handles structure, atomic note synthesis in `/wiki/`, deduplication into `/raw/processed/`, indexing in `index.md`, and logging in `log.md`.
+- **Human User (Gardener)**: Drops raw thoughts, articles, YouTube clips, and prompt notes into `raw/`.
+- **AI Agent (Soil)**: When asked, reads `raw/`, codifies durable knowledge into a cross-linked **root note**, moves the source into `raw/processed/`, and updates `index.md`, `hot.md`, and `log.md`. This is a **manual, on-request** operation — there is no automatic synthesis loop.
 
 ### 2. Obsidian Native Syntax Standards (`kepano/obsidian-skills`)
 - **Wikilinks**: Always link notes using `[[Note Name]]` or `[[Note Name|Alias]]` instead of raw URL markdown links.
 - **Callouts**: Use GitHub / Obsidian callouts (`> [!NOTE]`, `> [!WARNING]`, `> [!TIP]`, `> [!IMPORTANT]`) for visual callouts.
-- **YAML Frontmatter**: Every note created in `/wiki/` MUST begin with valid YAML frontmatter:
+- **YAML Frontmatter**: Every note created MUST begin with valid YAML frontmatter:
   ```yaml
   ---
   title: Note Title
@@ -42,42 +47,40 @@ aliases: [agents.md, Vault Agent Instructions]
   ```
 - **Dataview Compatibility**: Use standard key-value pairs (`key:: value`) or YAML fields for queryability.
 
-### 3. Intake & Ingestion Pipeline (`/raw` → `/wiki`)
-1. Scan `/raw` for unprocessed `.md` files.
-2. Extract core concepts, tools, architectures, and entities into atomic pages in `/wiki/`.
-3. Ensure all generated `/wiki/` pages contain explicit back-links `[[source-clip-name]]`.
-4. Move processed raw files from `/raw/` to `/raw/processed/`.
-5. Append an event entry to `log.md` and update `index.md`.
-6. Create a Git commit (`git commit -m "feat(vault): ingest [clip-name]"`) to preserve an auditable diff.
+### 3. Manual Codification (on request)
+When the user asks you to ingest/codify a source in `raw/`:
+1. Read the source and extract durable concepts, entities, and decisions.
+2. Write or update a cross-linked **root note** with explicit `[[back-links]]` to related notes.
+3. Move the source from `raw/` to `raw/processed/`.
+4. Update `index.md` (catalog), `hot.md` (recent context), and append to `log.md`.
+5. Stage a Git commit (`git commit -m "feat(vault): codify [source-name]"`) for an auditable diff.
 
-### 4. Continuous Synthesis
-- When responding to complex user queries, check if the response contains reusable architectural insights.
-- If so, automatically synthesize a new note in `/wiki/` capturing the insight, cross-linking it to related notes so the vault grows from every question asked!
+Do **not** run this automatically or synthesize a note from every query — codification is a deliberate, requested act. This keeps the vault curated rather than bloated.
 
-### 5. Karpathy 4 Core Rules Enforcement
+### 4. Karpathy 4 Core Rules Enforcement
 - **Think Before Coding**: State all assumptions explicitly before taking action.
 - **Simplicity First**: Implement the simplest solution. Avoid speculative abstractions.
 - **Surgical Changes**: Restrict edits strictly to target files.
 - **Goal-Driven Execution**: Verify acceptance criteria and tests pass before committing.
 
-### 6. Obsidian AI Plugin Integration Standards (Smart Connections / Copilot / Smart Composer)
-- **Local Embedding Compatibility**: Keep notes in `/wiki/` clean and frontmatter-compliant so Smart Connections can vectorize them locally.
+### 5. Obsidian AI Plugin Integration Standards (Smart Connections / Copilot / Smart Composer)
+- **Local Embedding Compatibility**: Keep root notes clean and frontmatter-compliant so Smart Connections can vectorize them locally.
 - **Provider Routing**: All Obsidian community AI plugins (Copilot, Smart Composer, Local GPT) MUST route through local Ollama (`http://localhost:11434`) or authenticated local proxies. No raw unencrypted cloud sync without consent.
 - **Diff Verification**: In-editor AI edits generated by Smart Composer or Copilot must be reviewed and verified before git commits.
 
-### 7. Persona-Scoped Subagent Routing
+### 6. Persona-Scoped Subagent Routing
 When assuming or delegating tasks, AI agents MUST adopt the appropriate persona directives:
 - **`[Persona: System Architect]`**: Focuses on shared packages (`wisense_core`, `wisense_ui`), modular abstraction, zero code duplication, and strict design systems.
 - **`[Persona: Security Auditor]`**: Enforces secret redaction, token isolation (`engine.token`), local-first privacy, and safe credential handling.
 - **`[Persona: Travel Engine Analyst]`**: Specializes in Duffel flight APIs, Viator experience hydration, consensus deck alignment, and price integrity.
 - **`[Persona: Flutter Specialist]`**: Focuses on MVVM architecture, widget immutability, clean state management, and 100% passing test gates (`flutter test`).
 
-### 8. Obsidian Releases Verification Protocol (`obsidianmd/obsidian-releases`)
+### 7. Obsidian Releases Verification Protocol (`obsidianmd/obsidian-releases`)
 - **Vetted Plugin Enforcement**: AI agents must only recommend or integrate community plugins listed in the official `obsidianmd/obsidian-releases` registry.
 - **Manifest Tracking**: Maintain [[OBSIDIAN_PLUGINS_MANIFEST]] as the source of truth for plugin IDs, version numbers, and security profiles.
 - **Custom Plugin Packaging**: Any custom WiSense plugins must follow official Obsidian manifest schemas (`id`, `name`, `version`, `minAppVersion`, `isDesktopOnly: true`).
 
-### 9. Hermes 3 Agent Memory & Scratchpad Protocol
+### 8. Hermes 3 Agent Memory & Scratchpad Protocol
 - **Procedural Skills**: Load specialized execution recipes dynamically from `skills/` (`[[HERMES_PROCEDURAL_SKILLS]]`).
 - **Scratchpad Logging**: Capture Hermes 3 internal monologues (`<scratch_pad>`) into `scratchpad/` for complex multi-session task auditability (`[[HERMES_SCRATCHPAD_PROTOCOL]]`).
 

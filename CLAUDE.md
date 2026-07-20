@@ -11,15 +11,19 @@ Cross-project decisions, governance, launch planning, audit history, vendor rese
 ```
 C:\Users\nikwi\Notes\
 ├── CLAUDE.md              ← you are here (this file)
-├── Home.md                ← start here — the index
+├── hot.md                 ← READ FIRST — ~500-word recent-context cache
+├── index.md / Home.md     ← master pointer catalog + dashboard
+├── agents.md              ← canonical AI operating protocol (personas, syntax, codification rules)
 ├── raw/                   ← dumping ground for unprocessed research, stream of consciousness, pasted sources
 ├── output/                ← final deliverables (audit reports, launch checklists, decision docs)
-├── (40+ wiki notes)       ← codified knowledge, governance, project references, decisions
+├── (40+ root notes)       ← codified knowledge, governance, project references, decisions
 ```
+
+Boot order: **[[hot]] → [[index]] → relevant note**. This vault is a **curated static reference** — knowledge is hand-written, not auto-synthesized. The old `wiki/journal/crm` intake pipeline was retired 2026-07-20.
 
 ### Folder rules
 
-- **raw/** — anything unprocessed. Paste URLs, dump research, stream of consciousness. Claude reads these and writes wiki articles from them.
+- **raw/** — anything unprocessed. Paste URLs, dump research, stream of consciousness. When asked, Claude reads these and codifies them into root notes (manual, on-request — not automatic).
 - **output/** — final deliverables. Audit reports, launch checklists, completed plans. Things you'd hand to someone else.
 - **Root notes** — wiki-level knowledge. Governance, project references, decisions, vendor docs, daily logs. These are the codified, linked, cross-referenced notes.
 
