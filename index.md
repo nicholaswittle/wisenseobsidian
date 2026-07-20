@@ -14,6 +14,8 @@ aliases: [index.md, Vault Catalog]
 - [[00_AI_AGENT_MANIFEST]] — 1-page AI agent entrypoint & Karpathy rules
 - [[agents]] — Master prompt instructions governing AI agent operations
 - [[OBSIDIAN_PLUGINS_MANIFEST]] — Community plugin governance & release registry
+- [[skills/HERMES_PROCEDURAL_SKILLS]] — Hermes 3 procedural skill specification (`skills/`)
+- [[scratchpad/HERMES_SCRATCHPAD_PROTOCOL]] — Hermes 3 internal monologue protocol (`scratchpad/`)
 - [[ENVIRONMENT_MAP]] — Port registry & security environment key map
 - [[API_CONTRACT_REGISTRY]] — Cross-app JSON data payload & schema contracts
 - [[TROUBLESHOOTING_KATAS]] — Known error signatures & 1-line resolution recipes

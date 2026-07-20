@@ -77,6 +77,10 @@ When assuming or delegating tasks, AI agents MUST adopt the appropriate persona 
 - **Manifest Tracking**: Maintain [[OBSIDIAN_PLUGINS_MANIFEST]] as the source of truth for plugin IDs, version numbers, and security profiles.
 - **Custom Plugin Packaging**: Any custom WiSense plugins must follow official Obsidian manifest schemas (`id`, `name`, `version`, `minAppVersion`, `isDesktopOnly: true`).
 
+### 9. Hermes 3 Agent Memory & Scratchpad Protocol
+- **Procedural Skills**: Load specialized execution recipes dynamically from `skills/` (`[[HERMES_PROCEDURAL_SKILLS]]`).
+- **Scratchpad Logging**: Capture Hermes 3 internal monologues (`<scratch_pad>`) into `scratchpad/` for complex multi-session task auditability (`[[HERMES_SCRATCHPAD_PROTOCOL]]`).
+
 ---
 
-Related: [[00_AI_AGENT_MANIFEST]], [[OBSIDIAN_PLUGINS_MANIFEST]], [[index]], [[log]]
+Related: [[00_AI_AGENT_MANIFEST]], [[OBSIDIAN_PLUGINS_MANIFEST]], [[HERMES_PROCEDURAL_SKILLS]], [[HERMES_SCRATCHPAD_PROTOCOL]], [[index]], [[log]]
