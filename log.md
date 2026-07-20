@@ -11,6 +11,7 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 ---
 
 ## 2026-07-20
+- **[LAUNCH PLAN]**: Created [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] — grounded against live repos. COMMS LINK: clean, 10 commits ahead, no code blockers → Android packaging. Apex: Gate A stuck merge (`cursor/apex-store-launch-447c`, conflicts hand-resolved but un-`git add`-ed) → Gate B security blockers (RLS/org-scoping, claim/clock races, timezone) → Gate C packaging. Strategy: Android-first (no Mac), iOS via Codemagic later.
 - **[HERMES FIX]**: Corrected stale [[Hermes 3 Agent Memory Architecture]] matrix (rows 4/7/11 referenced deleted `wiki/`, sync scripts, auto-sync task). Repointed [[HERMES_PROCEDURAL_SKILLS]] to real scripts + removed dead `wisense-engine-probe` (port 5050 / deleted wisense-os). Fixed [[HERMES_SCRATCHPAD_PROTOCOL]] `wiki/` → root/output link.
 - **[NEW]**: Created [[AGENTS_REGISTRY]] — machine-readable routing table for the 6-agent system (Hermes reads it to delegate).
 - **[NEW]**: Created [[DECISIONS]] — append-only decision register with rationale (fork reconciliation, static-reference, dead-project deletions, working stack, Stripe deferral).

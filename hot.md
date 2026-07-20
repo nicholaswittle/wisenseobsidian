@@ -29,6 +29,7 @@ updated: 2026-07-20T01:00:00
 - **DECISION EXECUTED (2026-07-20):** Vault formally declared a **curated static reference**. Retired dormant MindStudio synthesis pipeline — deleted empty `wiki/`, `journal/`, `crm/` folders.
 
 ## Active Threads
+- **LAUNCH PLAN (2026-07-20):** [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] — Android-first, no Mac yet. COMMS LINK: push + package (no code blockers). Apex: Gate A = finish stuck merge (`cursor/apex-store-launch-447c`; conflicts hand-resolved, un-`git add`-ed) → Gate B = security (RLS/org-scoping, claim/clock races, timezone) → Gate C = package. iOS via Codemagic later.
 - Open: New Horizon untracked `AGENTS.md`, `CLAUDE.md`, `.cursor/mcp.json` — commit or .gitignore.
 - Open: New Horizon `main` ahead of `origin/main` by 1 commit — needs push.
 - Boot order for any agent: [[hot]] -> [[index]] -> relevant note.

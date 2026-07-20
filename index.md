@@ -64,6 +64,11 @@ aliases: [index.md, Vault Catalog]
 
 ---
 
+## 🚀 Launch Plans (`output/`)
+- [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] — Android-first (no-Mac) launch plan + blockers for both apps
+
+---
+
 ## 📝 Activity & Audit Log
 - [[log]] — Append-only audit log of AI vault operations
 - [[Audit Findings Loop]] — Claude ↔ Codex handoff audit trail
