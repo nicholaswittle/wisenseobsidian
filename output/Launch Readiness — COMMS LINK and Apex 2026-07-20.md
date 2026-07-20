@@ -10,7 +10,7 @@ status: active
 
 > Grounded against the live repos on 2026-07-20 (git state, merge status, security audit), **not** the vault's summary notes. Constraint: **no Mac access yet** → Android-first, iOS via cloud CI later.
 
-> **⏱️ Progress (2026-07-20):** COMMS LINK gate verified (analyze clean, 59/59) and **10 commits pushed to `origin/main`** ✅. Apex **Gate A merge finished** — dropped import fixed, analyze clean, 7/7 tests, committed `13971b0` (local, not pushed) ✅. **Next:** COMMS LINK Android packaging (steps 3–7) and Apex **Gate B security** (RLS + races + timezone).
+> **⏱️ Progress (2026-07-20):** COMMS LINK gate verified (59/59) and **pushed** ✅. Apex **code-complete & pushed** ✅ — Gate A merge (`13971b0`), Gate B races/timezone (`9f723a5`), Gate B **RLS migration authored** (`a66b039`). All green (analyze clean, 7/7). **One human step remains for Apex:** apply `supabase/migrations/20260720000000_launch_blockers_rls.sql` to **Supabase staging → smoke-test → prod** (RLS is default-deny; only you have DB access). Then both apps → Android packaging (Gate C).
 
 ## Strategy — Android first, iOS via cloud
 

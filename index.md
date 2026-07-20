@@ -48,6 +48,10 @@ aliases: [index.md, Vault Catalog]
 - **Audit Storage**: Codified sources moved to `raw/processed/`.
 - **Note**: Codification is a manual, on-request operation — there is no automatic synthesis loop. The `/wiki`, `/journal`, `/crm` pipeline folders were retired 2026-07-20; synthesized knowledge now lives as **root notes**.
 
+## 💼 Business & Strategy (`/business`)
+- [[business/Young Zhao - 2026 AI Startup Playbook]] — $215M OpusClip CEO Playbook (Service as a Software, SaaS 2.0, Niche Selection, Retention)
+- [[business/WiSense Service as a Software Execution Strategy]] — 30-Day commercial execution roadmap for Apex, COMMS LINK, and New Horizon
+
 ---
 
 ## 💻 Live Codebase & Project Repo Index
@@ -80,6 +84,7 @@ aliases: [index.md, Vault Catalog]
 - [[business/Business Hub]] — central index
 - [[business/Business Model Canvas]] — value proposition + revenue streams
 - [[business/Startup Playbook]] — what makes a great startup + lessons
+- [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] — 2026 IT trends → WiSense actions
 - [[business/Ideas Log]] — ranked product + growth ideas
 - [[business/Pricing Strategy]] — per-app pricing
 - [[business/Market Positioning]] — competitive landscape

@@ -13,6 +13,7 @@ Central index for startup strategy, business model refinement, and growth playbo
 
 - [[business/Business Model Canvas]] — current WiSense business model breakdown + iterations
 - [[business/Startup Playbook]] — what makes a great startup (patterns, anti-patterns, lessons)
+- [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] — eight 2026 IT trends mapped to WiSense actions (resilience, purpose-built, outcome pricing)
 - [[business/Pricing Strategy]] — how to price Flutter apps (freemium, subscription, one-time)
 - [[business/Market Positioning]] — where WiSense sits vs competitors
 

@@ -68,7 +68,9 @@ date: 2026-07-20
 
 - [ ] Should COMMS LINK be freemium (free basic, paid pro) or one-time purchase?
 - [ ] Apex: per-seat or flat org pricing for brewpubs?
+- [ ] Apex: move messaging toward outcome pricing (conflict-free published weeks) — see [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] #8?
 - [ ] New Horizon: pure affiliate or add subscription for premium features?
 - [ ] Cross-app bundle discount strategy?
+- [ ] Document vendor escape hatches (Duffel / Supabase) for supply-chain resilience (#1)?
 
-Related: [[business/Startup Playbook]], [[business/Pricing Strategy]], [[DECISIONS]]
+Related: [[business/Startup Playbook]], [[business/Pricing Strategy]], [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]], [[DECISIONS]]

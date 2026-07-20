@@ -46,22 +46,27 @@ Patterns, anti-patterns, and principles for building WiSense into a sustainable 
 - COMMS LINK to Google Play internal testing
 - Learn the store flow, signing, assets
 - Zero code blockers — just packaging
+- Lead with purpose-built privacy (Info-Tech 2026 #7)
 
 ### Stage 2: Prove multi-tenancy (Apex)
-- Fix RLS + claim races
+- Fix RLS + claim races ([[Apex Security Audit 2026-07-19]]) — resilience is the product (Info-Tech #2 / #5)
 - Get Jigsy's Brewpub as pilot customer
-- Validate subscription pricing
+- Validate subscription pricing; test outcome language (conflict-free week) per Info-Tech #8
 
 ### Stage 3: Expand the portfolio
-- New Horizon to web (Vercel) — affiliate revenue
+- New Horizon to web (Vercel) — affiliate revenue = Service as Software already
 - Cross-promote between apps
 - Bundle strategy
+- Vendor diversification notes for Duffel/Supabase (Info-Tech #1)
 
 ### Stage 4: Scale
 - Cloud CI for iOS
 - Paid Supabase tier
 - Content marketing + app store optimization
 - Evaluate which apps earn enough to justify continued dev
+- Only then consider narrow outcome agents (Info-Tech #3) — never another agent OS
+
+Trend source: [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]]
 
 ## Metrics That Matter
 

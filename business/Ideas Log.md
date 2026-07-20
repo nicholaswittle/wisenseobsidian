@@ -32,6 +32,8 @@ Running list of product + growth ideas for WiSense. Rank by impact/effort. Strik
 | 5 | Product Hunt launch for COMMS LINK | High | Low | Pending |
 | 6 | Reddit r/veterans, r/firstresponders posts | Med | Low | Backlog |
 | 7 | App store screenshots with real use cases, not generic UI | High | Low | Pending |
+| 8 | Purpose-built messaging (Info-Tech #7): market each app as one job done right vs generic SaaS | High | Low | Pending — see [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] |
+| 9 | Apex as "resilience for the schedule" (Info-Tech #2): sell conflict-free weeks + no cross-org leaks | High | Med | Pending — after RLS |
 
 ## Pricing Experiments
 
@@ -40,6 +42,8 @@ Running list of product + growth ideas for WiSense. Rank by impact/effort. Strik
 | 1 | Free 7-day trial -> $7.99 one-time | COMMS LINK | Low friction, privacy premium | Concept |
 | 2 | Free for 1 org, $9/mo per additional org | Apex | Solo free, teams pay | Pending |
 | 3 | Free + affiliate-only revenue | New Horizon | No paywall, affiliate covers cost | Active |
+| 4 | Service-as-Software (Info-Tech #8): Apex fee tied to published conflict-free weeks / labor-budget adherence | Apex | Outcome pricing converts better than seats | Concept |
+| 5 | New Horizon: lean harder into "pay for booked trip outcomes" (affiliate) in copy | New Horizon | Aligns with Service as Software | Pending |
 
 ## Notes
 

@@ -73,6 +73,7 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 - [[business/Business Hub]] — central index for strategy, models, playbooks
 - [[business/Business Model Canvas]] — WiSense value proposition, revenue streams, cost structure
 - [[business/Startup Playbook]] — what makes a great startup + lessons from failures
+- [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] — 2026 IT trends → WiSense actions
 - [[business/Ideas Log]] — ranked product + growth ideas
 - [[business/Pricing Strategy]] — how to price each app
 - [[business/Market Positioning]] — competitive landscape + brand pillars
