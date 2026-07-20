@@ -37,6 +37,17 @@ aliases: [index.md, Vault Catalog]
 
 ---
 
+## 🌾 Gardener Intake Queue (`/raw`)
+- **Queue Status**: `raw/` intake directory ready for clips and prompt notes.
+- **Audit Storage**: Ingested sources moved to `raw/processed/`.
+
+---
+
+## 🧠 Synthesized Knowledge Layer (`/wiki`)
+- **Architecture & System Design**: Concept notes generated automatically from raw clips and user queries.
+
+---
+
 ## 👥 CRM Contacts (`/crm`)
 - [[Advisor Profile]] — Nicholas's founder profile & virtual board of advisors
 
