@@ -10,6 +10,8 @@ status: active
 
 > Grounded against the live repos on 2026-07-20 (git state, merge status, security audit), **not** the vault's summary notes. Constraint: **no Mac access yet** → Android-first, iOS via cloud CI later.
 
+> **⏱️ Progress (2026-07-20):** COMMS LINK gate verified (analyze clean, 59/59) and **10 commits pushed to `origin/main`** ✅. Apex **Gate A merge finished** — dropped import fixed, analyze clean, 7/7 tests, committed `13971b0` (local, not pushed) ✅. **Next:** COMMS LINK Android packaging (steps 3–7) and Apex **Gate B security** (RLS + races + timezone).
+
 ## Strategy — Android first, iOS via cloud
 
 No Mac is required for **Google Play**: build the `.aab` on Windows or GitHub Actions. iOS/TestFlight needs macOS *somewhere* — a **GitHub Actions macOS runner** or **Codemagic**, not a local laptop. Apex already has `build-ios.yml` + `build-android.yml` scaffolded. Target for both: **Play Store internal testing**; defer iOS to cloud CI once the Apple Developer account ($99/yr) exists.
@@ -22,8 +24,8 @@ On-device Gemma 2B-IT, no backend, no auth → simplest launch. Working tree cle
 
 | # | Task | Type |
 |---|------|------|
-| 1 | **Push `main`** (10 local commits) | ship |
-| 2 | Verify `flutter analyze` + `flutter test` green | gate |
+| 1 | ~~**Push `main`** (10 local commits)~~ **DONE 2026-07-20** — pushed to `origin/main` | ship |
+| 2 | ~~Verify `flutter analyze` + `flutter test` green~~ **DONE** — analyze clean, 59/59 pass | gate |
 | 3 | Android release signing: `upload-keystore.jks` + `key.properties` | launch |
 | 4 | Finalize app icon, name, version in `pubspec.yaml` | launch |
 | 5 | Build `.aab` → Play Console → internal testing | launch |
@@ -36,15 +38,17 @@ On-device Gemma 2B-IT, no backend, no auth → simplest launch. Working tree cle
 
 ## Apex Scheduler — two gates before packaging ⚠️
 
-### Gate A — finish the stuck merge (~30 min, do first)
-Mid-merge of `cursor/apex-store-launch-447c`. Conflicts in 6 files (`auth_page.dart`, `billing_page.dart`, `calendar_page.dart`, `main.dart`, `supabase/functions/create-payment-intent/index.ts`, `vercel.json`) were **already hand-resolved — zero conflict markers remain** — but never `git add`-ed, so the merge is frozen (`.git/MERGE_HEAD` present).
-- **Do:** review resolutions → `git add` the 6 files → `flutter analyze` → commit the merge.
+### Gate A — finish the stuck merge ✅ DONE 2026-07-20
+Mid-merge of `cursor/apex-store-launch-447c`. Conflicts in 6 files (`auth_page.dart`, `billing_page.dart`, `calendar_page.dart`, `main.dart`, `supabase/functions/create-payment-intent/index.ts`, `vercel.json`) were already hand-resolved (marker-free) but never `git add`-ed.
+- **Done:** staged the 6 files; found + fixed a dropped import (`staff_repository.dart` now imports `core/profile_session.dart` for `defaultOrganizationId` — was 2 analyze errors); `flutter analyze` clean; `flutter test` 7/7; committed merge **`13971b0`** (local, **not pushed** — holds until Gate B security work is in).
 
-### Gate B — security blockers (the real work)
+### Gate B — security blockers (the real work) — **PARTIAL 2026-07-20**
 From the GLM audit ([[output/Apex Security Audit 2026-07-19]]) — launch blockers, not polish:
-1. **RLS not enforced** — queries filter by date, not `organization_id`; the RLS migrations the README names are **absent from `supabase/migrations/`**. Cross-org data leak. → commit RLS SQL, verify live on Supabase, add `.eq('organization_id', orgId)` to every stream/query.
-2. **Claim / clock races** — `claimOpenShift` has no `.eq('staff','Open')` guard (double-booking); swap approval non-transactional; `clockIn` can double-insert open `time_entries`.
-3. **Timezone** — naive local ISO strings vs `timestamptz` → wrong payroll day boundaries. Use UTC / server `now()`.
+1. **RLS not enforced** — ⛔ **BLOCKED, needs your input.** `shifts.organization_id` exists (indexed in `user_id_backfill`), but the RLS migrations (`launch_blockers_rls_and_auth`, `_hotfix`) are **not in `supabase/migrations/`**, and the two repo docs **contradict**: `supabase/migrations/README.md` lists them as *"applied to remote"*, while `docs/pillar0/MIGRATION_INVENTORY.md` marks M2/M3/M5 as *"Documented, SQL pending."* Cannot tell from the repo whether RLS is actually live. I won't guess-write multi-tenant security SQL blind. **Decision needed:** confirm live RLS state on Supabase (or grant a session that can), then either commit the real policies or author them fresh. Until then, per-query `.eq('organization_id', orgId)` scoping is deferred (it's defense-in-depth *behind* RLS).
+2. **Claim / clock races** — ✅ **FIXED** (commit `9f723a5`). `claimOpenShift` now has `.eq('staff','Open')` + `select()` result check (no more last-write-wins); `clockIn` returns any existing open entry instead of duplicating; *(swap-approval transactionality still an RPC-level TODO)*.
+3. **Timezone** — ✅ **FIXED** (`9f723a5`). `clockOut` writes `toUtc()` ISO against `timestamptz`. *(The `loadActiveEntriesForToday` "today" boundary is venue-timezone-dependent — left for the RLS session since the right behavior is a policy call, not a guess.)*
+
+**Remaining for Gate B:** resolve RLS (item 1, blocked on live-DB truth), swap-approval atomicity (RPC), partial unique index on `time_entries(user_id, shift_id) WHERE clock_out IS NULL`, and the active-entries timezone boundary.
 
 ### Gate C — Android packaging
 Same as COMMS LINK (keystore, `.aab`, store listing). Infra scaffold already written by Cursor: `docs/LAUNCH_WITHOUT_MAC.md`, `docs/PRIVACY_POLICY.md`, `docs/LAUNCH_CHECKLIST.md`, CI workflows.

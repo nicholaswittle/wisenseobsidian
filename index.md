@@ -74,4 +74,16 @@ aliases: [index.md, Vault Catalog]
 - [[Audit Findings Loop]] — Claude ↔ Codex handoff audit trail
 - [[2026-07-19 Vault Architecture Audit]] — initial vault topology audit
 
+---
+
+## 💼 Business & Startup Strategy (`business/`)
+- [[business/Business Hub]] — central index
+- [[business/Business Model Canvas]] — value proposition + revenue streams
+- [[business/Startup Playbook]] — what makes a great startup + lessons
+- [[business/Ideas Log]] — ranked product + growth ideas
+- [[business/Pricing Strategy]] — per-app pricing
+- [[business/Market Positioning]] — competitive landscape
+- [[business/Launch Playbook]] — app store launch checklist
+- [[business/Go-to-Market]] — first 100 users strategy
+
 Related: [[Home]], [[agents]], [[log]]

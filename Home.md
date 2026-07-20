@@ -68,6 +68,17 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 - [[Stripe]] — billing, deferred for Apex pilot
 - [[WiSense LLC — About Page]] — company info & about page content
 
+## Business & Startup Strategy
+
+- [[business/Business Hub]] — central index for strategy, models, playbooks
+- [[business/Business Model Canvas]] — WiSense value proposition, revenue streams, cost structure
+- [[business/Startup Playbook]] — what makes a great startup + lessons from failures
+- [[business/Ideas Log]] — ranked product + growth ideas
+- [[business/Pricing Strategy]] — how to price each app
+- [[business/Market Positioning]] — competitive landscape + brand pillars
+- [[business/Launch Playbook]] — app store launch checklist
+- [[business/Go-to-Market]] — first 100 users strategy per app
+
 ## Code reference (for AI agents + quick lookup)
 
 - [[COMMS LINK — Code Reference]]
