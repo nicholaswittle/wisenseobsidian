@@ -70,6 +70,7 @@ aliases: [index.md, Vault Catalog]
 
 ## 🚀 Launch Plans (`output/`)
 - [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] — Android-first (no-Mac) launch plan + blockers for both apps
+- [[output/Gate C — Android Packaging & Store Listings 2026-07-20]] — keystore + build commands + Play Console store copy for both apps
 
 ---
 

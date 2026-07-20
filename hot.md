@@ -19,7 +19,7 @@ updated: 2026-07-20T01:00:00
 
 ## Active Project Status (per [[00_AI_AGENT_MANIFEST]])
 - **COMMS LINK** (`wisense_decompression`) — 59/59 tests pass; **pushed to origin/main 2026-07-20 (in sync)**. Next: Android packaging (keystore, .aab, store assets).
-- **Apex Scheduler** (`apex\apex`) — merge finished (`13971b0`) + **race/timezone fixes** (`9f723a5`), both local. Gate B **BLOCKED on RLS**: repo docs contradict (README "applied to remote" vs MIGRATION_INVENTORY "SQL pending"); RLS SQL not in repo; needs live Supabase truth before writing multi-tenant policies. See [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[output/Apex Security Audit 2026-07-19]].
+- **Apex Scheduler** (`apex\apex`) — **code-complete & pushed** (origin/main in sync): merge `13971b0`, races+timezone `9f723a5`, **RLS migration `a66b039`** (`20260720000000_launch_blockers_rls.sql` — per-org RLS + atomic clock-in index, idempotent). All green. **ONLY remaining step: apply that migration on Supabase staging→prod** (default-deny; needs Nicholas's DB access). Then Android packaging. See [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]].
 - **New Horizon** (`wisense_new_horizon`) — 117/117 tests pass; fork reconciliation COMPLETE; README still boilerplate.
 - **DELETED (not active):** wisense-os, my_ai, local-agent-work-center, command_center.
 
@@ -29,7 +29,7 @@ updated: 2026-07-20T01:00:00
 - **DECISION EXECUTED (2026-07-20):** Vault formally declared a **curated static reference**. Retired dormant MindStudio synthesis pipeline — deleted empty `wiki/`, `journal/`, `crm/` folders.
 
 ## Active Threads
-- **LAUNCH PLAN (2026-07-20):** [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] — Android-first, no Mac yet. **COMMS LINK pushed ✅** (next = Android packaging). **Apex:** Gate A merge ✅ (`13971b0`), Gate B races+timezone ✅ (`9f723a5`), **RLS ⛔ blocked — awaiting Nicholas to confirm live Supabase RLS state** (repo docs contradict). Then per-query org-scoping + Gate C package. iOS via Codemagic later.
+- **LAUNCH PLAN (2026-07-20):** [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] + [[output/Gate C — Android Packaging & Store Listings 2026-07-20]]. Android-first, no Mac yet. **COMMS LINK & Apex both code-complete & pushed ✅.** Both apps have release signing wired. **Remaining is ops/human-only:** (1) apply Apex RLS migration on Supabase staging→prod; (2) Gate C = run keystore + `flutter build appbundle`, supply graphic assets (icon 512, feature 1024×500, screenshots), host privacy URLs, Play Console listing (copy already written in the Gate C note); (3) iOS via Codemagic once Apple account exists.
 - Open: New Horizon untracked `AGENTS.md`, `CLAUDE.md`, `.cursor/mcp.json` — commit or .gitignore.
 - Open: New Horizon `main` ahead of `origin/main` by 1 commit — needs push.
 - Boot order for any agent: [[hot]] -> [[index]] -> relevant note.

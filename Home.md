@@ -100,6 +100,7 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 ## Final deliverables (output/ folder)
 
 - [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]] — no-Mac Android-first launch plan + blockers
+- [[output/Gate C — Android Packaging & Store Listings 2026-07-20]] — keystore, build commands, Play Console store copy (both apps)
 - [[output/Apex Security Audit 2026-07-19]] — Apex multi-tenancy + claim/clock race findings
 - [[output/Apex — Merge Conflict Resolution Plan]] — 13 conflicts across 6 files, High risk
 - [[output/COMMS LINK — Commit Plan]] — 9 atomic commits, Judicial PASS, executed
