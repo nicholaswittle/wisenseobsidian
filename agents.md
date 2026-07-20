@@ -72,6 +72,11 @@ When assuming or delegating tasks, AI agents MUST adopt the appropriate persona 
 - **`[Persona: Travel Engine Analyst]`**: Specializes in Duffel flight APIs, Viator experience hydration, consensus deck alignment, and price integrity.
 - **`[Persona: Flutter Specialist]`**: Focuses on MVVM architecture, widget immutability, clean state management, and 100% passing test gates (`flutter test`).
 
+### 8. Obsidian Releases Verification Protocol (`obsidianmd/obsidian-releases`)
+- **Vetted Plugin Enforcement**: AI agents must only recommend or integrate community plugins listed in the official `obsidianmd/obsidian-releases` registry.
+- **Manifest Tracking**: Maintain [[OBSIDIAN_PLUGINS_MANIFEST]] as the source of truth for plugin IDs, version numbers, and security profiles.
+- **Custom Plugin Packaging**: Any custom WiSense plugins must follow official Obsidian manifest schemas (`id`, `name`, `version`, `minAppVersion`, `isDesktopOnly: true`).
+
 ---
 
-Related: [[00_AI_AGENT_MANIFEST]], [[index]], [[log]]
+Related: [[00_AI_AGENT_MANIFEST]], [[OBSIDIAN_PLUGINS_MANIFEST]], [[index]], [[log]]
