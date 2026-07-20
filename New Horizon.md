@@ -23,9 +23,9 @@ Travel booking Alignment Engine — ToolRegistry, Duffel proxy, Consensus Deck. 
 
 ## Launch blockers
 
-- [ ] **README is still "A new Flutter project" boilerplate** — needs a real one matching Apex/COMMS LINK format
+- [x] **README boilerplate** — replaced with real README matching Apex/COMMS LINK format (2026-07-20)
 - [x] **Fork Reconciliation COMPLETE (2026-07-20)** — vendored packages promoted to canonical; New Horizon now uses path deps on `../../packages/wisense_core` and `../../packages/wisense_ui`
-- 28 cursor branches accumulated — most likely merged, need cleanup
+- [x] **28 cursor branches pruned (2026-07-20)** — 25 merged deleted, 3 unmerged archived as tags
 - Untracked `AGENTS.md`, `CLAUDE.md`, `.cursor/mcp.json` — commit or .gitignore
 - Push local `main` branch to `origin/main` (ahead by 1 commit)
 

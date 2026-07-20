@@ -29,7 +29,6 @@ updated: 2026-07-20T01:00:00
 - **DECISION EXECUTED (2026-07-20):** Vault formally declared a **curated static reference**. Retired dormant MindStudio synthesis pipeline — deleted empty `wiki/`, `journal/`, `crm/` folders.
 
 ## Active Threads
-- Open: Dead sync scripts in `C:\development\scripts\` — candidates for cleanup (WiSenseVaultAutoSync never registered).
-- Open: New Horizon README still boilerplate — needs real one matching Apex/COMMS LINK format.
-- Open: 28 cursor branches accumulated in New Horizon — most likely merged, need cleanup.
+- Open: New Horizon untracked `AGENTS.md`, `CLAUDE.md`, `.cursor/mcp.json` — commit or .gitignore.
+- Open: New Horizon `main` ahead of `origin/main` by 1 commit — needs push.
 - Boot order for any agent: [[hot]] -> [[index]] -> relevant note.
