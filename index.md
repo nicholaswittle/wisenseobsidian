@@ -48,6 +48,15 @@ aliases: [index.md, Vault Catalog]
 
 ---
 
+## 💻 Live Codebase & Project Repo Index
+- **WiSense OS Engine**: `C:\development\projects\wisense-os` (Python 3.14 · Flask daemon · Port `5050`)
+- **COMMS LINK**: `C:\development\projects\wisense_decompression` (Flutter · On-Device Gemma 2B-IT · 59/59 tests pass)
+- **Apex Scheduler**: `C:\development\projects\apex\apex` (Flutter · Supabase · FCM · Sentry)
+- **New Horizon**: `C:\development\projects\wisense_new_horizon` (Flutter · ToolRegistry · Duffel Proxy · 117/117 tests pass)
+- **Shared Packages**: `C:\development\packages\` (`wisense_core`, `wisense_ui`)
+
+---
+
 ## 👥 CRM Contacts (`/crm`)
 - [[Advisor Profile]] — Nicholas's founder profile & virtual board of advisors
 
