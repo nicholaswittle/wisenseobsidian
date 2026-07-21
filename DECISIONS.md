@@ -13,6 +13,16 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ---
 
+## 2026-07-21 · Apex vendors its own `wisense_ui` — fork NOT fully reconciled — `ACTIVE`
+- **Finding** (not yet a decision — needs ratification): Apex's `pubspec.yaml` depends on `packages/wisense_ui` (v1.0.0, **2 files**: `spacing.dart`, `loading_indicator.dart`), not canonical `C:\development\packages\wisense_ui` (v0.1.0, **18 files** incl. `text_styles.dart`, `error_banner.dart`). This is a **second fork**, separate from New Horizon's.
+- **Why it matters**: [[SYSTEM_ARCHITECT_DIRECTIVE]] §2 mandates `WiSenseTextStyles` as the text-scale base for all apps. `WiSenseTextStyles` **does not exist in Apex's dependency**, so §2 is unsatisfiable there and every Apex widget hardcodes `fontSize`. The 2026-07-20 entry below is marked SUPERSEDED because its consequence line ("the Known fork caveat is now historical") is false — it reconciled New Horizon only.
+- **Not fixed deliberately**: canonical `WiSenseTextStyles` derives from `WiSenseThemeText` (travel-app theme), semantically wrong for Apex's brewpub palette. Switching Apex to the canonical package is a Phase 2 refactor, not a drive-by. **Open decision.**
+
+## 2026-07-21 · Tripartite Protocol breached on the Apex feature branch — `ACTIVE`
+- **What happened**: Section 0 + Features B/C were designed, implemented, committed **and pushed** without the protocol. Skipped: startup read of [[SYSTEM_ARCHITECT_DIRECTIVE]] + `global_status.md`; the Judicial audit (Claude self-reviewed with `flutter analyze`, which the protocol explicitly forbids); the Completion Report and Delivery Gate.
+- **Root cause**: no reachable auditor. There is no audit tooling in `C:\development\scripts\`, no `secrets\` directory, and no Gemini/Groq/OpenRouter credential path — the Judicial branch is currently unimplementable by the agent, so it silently degrades to self-audit.
+- **Consequences**: `feat/apex-plan-2026-07-21` is **unaudited and unmerged**; a Completion Report exists marked BLOCKED with MCA/MDT NOT RUN. Remediation commit `594b4be` fixed the Directive §2 conformance defects that self-review missed. **`main` must not take this branch until an external audit runs.** Also: `global_status.md` is stale (2026-07-03, describes deleted `my_ai`), so the Directive's hand-off chain is broken.
+
 ## 2026-07-21 · Apex iOS bundle ID = `com.nicholaswittle.apex` — `ACTIVE`
 - **Decision**: iOS `PRODUCT_BUNDLE_IDENTIFIER` (6 spots) + the `Info.plist` Supabase auth redirect scheme become `com.nicholaswittle.apex`. Android `applicationId` **stays** `com.wisense.apex`.
 - **Rationale**: `com.wisense.apex` was registered to another Apple team; the Mac was building with a throwaway `com.nicholaswittle.apex.local` under a free Personal Team. Android's ID is a separate namespace already registered with Firebase — changing it would break push for no gain.
@@ -33,7 +43,7 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 - **Rationale**: The `raw→wiki` loop never ran in 6 months; all real value came from hand-written manifests. Empty scaffolding actively misled agents.
 - **Consequences**: Codification is manual/on-request. Knowledge lives as **root notes**. Boot order extended by AI performance layer decision above. `WiSenseVaultAutoSync` + sync scripts removed. See [[log]] 2026-07-20.
 
-## 2026-07-20 · Fork reconciliation complete — `ACTIVE`
+## 2026-07-20 · Fork reconciliation complete — `SUPERSEDED` (see 2026-07-21 · Apex vendors its own wisense_ui)
 - **Decision**: Promote New Horizon's vendored `wisense_core` (47 files) + `wisense_ui` (19 files) to canonical `C:\development\packages\`; New Horizon consumes canonical via path deps; delete the vendored copies.
 - **Rationale**: Ends the long-standing package divergence documented in [[Fork Reconciliation]].
 - **Consequences**: All green — core 69/69, UI 21/21, NH 117/117, HV2 7/7. `CLAUDE.md`'s "Known fork" caveat is now historical.

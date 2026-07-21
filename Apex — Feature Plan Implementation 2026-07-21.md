@@ -24,8 +24,12 @@ Repo: `C:\development\projects\apex\apex`. Work sits on branch **`feat/apex-plan
 |--------|-------|
 | `0fabf68` | `build(ios)`: Section 0 — canonical Mac build |
 | `b469b6c` | `feat(schedule)`: Features B + C |
+| `594b4be` | `refactor(schedule)`: Directive §2 conformance remediation |
 
 Verification: `flutter analyze` clean, 7/7 tests pass. **Nothing has been run on a device yet** — Features B and C are unverified on the iPhone.
+
+> [!warning] Unaudited — do not merge to `main`
+> This branch was built and pushed **outside the Tripartite Protocol**: no Judicial audit, no Completion Report, no Delivery Gate. See [[DECISIONS]] 2026-07-21. The Completion Report is issued **BLOCKED / MCA+MDT NOT RUN**. Self-review missed real Directive §2 defects, fixed in `594b4be` — treat the remaining diff as unverified for the same reason.
 
 ---
 
@@ -76,8 +80,20 @@ Realtime recompute is wired into the existing `listenNewShifts` stream, so addin
 
 ---
 
+## Design-system conformance (`594b4be`)
+
+Directive §2 requires `WiSenseSpacing` for spacing and app brand colors in the app's own theme file. The original Feature B/C diff violated both; self-review did not catch it.
+
+- The booked-staff warning used raw `Color(0xFFD97706)` — **byte-identical to the existing `UniversalTheme.accent`** — and `0xFF92400E`, now `UniversalTheme.warningText`.
+- The four availability state colors moved to `AvailabilityPalette` in `lib/theme.dart`; `vacationAccent`/`vacationText` reference the `UniversalTheme` constants instead of a third copy of the same values.
+- Spacing I introduced now uses tokens. **Three gaps shift by 2px** (6→4, 6→8, 2→4) because the vendored scale has no 2px or 6px step. Colors are unchanged byte-for-byte.
+- Pre-existing raw values elsewhere in those files were left alone — scope containment is itself an MCA check.
+
+**Font sizes cannot conform.** `WiSenseTextStyles` does not exist in Apex's vendored `wisense_ui` (see [[DECISIONS]] 2026-07-21). Feature B's `fontSize: 17/16/15` stays hardcoded, consistent with every other Apex widget.
+
 ## Known gaps
 
+- **Unaudited.** No Judicial (external) audit has run. This is the blocking gap.
 - **Not merged.** Branch is pushed but `main` is untouched.
 - **Not device-verified.** B and C have not been seen on the iPhone.
 - **Feature C has no test coverage.** `AvailabilityService` takes a live `SupabaseClient` and the existing suite is pure-utility tests with no mocking infrastructure. Adding a test for the booked-set derivation means introducing that infrastructure first.
