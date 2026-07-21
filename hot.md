@@ -10,7 +10,7 @@ updated: 2026-07-20T20:40:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-07-20 (evening). Vault AI performance layer implemented (NOW, customers, experiments, lint, thin CLAUDE, status sync).
+2026-07-21. Apex feature plan executed — Section 0 (iOS build) + Features B/C on an unpushed branch.
 
 ## Key Recent Facts
 - **Vault = curated static reference** — no auto-wiki. Boot: [[hot]] → [[NOW]] → [[index]] → note.
@@ -20,7 +20,7 @@ updated: 2026-07-20T20:40:00
 
 ## Active Project Status
 - **COMMS LINK** (`wisense_decompression`) — ⏸️ **PARKED 2026-07-20 (deliberate):** ~1.5 GB model download is too heavy for a first launch + model quality unverified. Full state in [[COMMS LINK]]. Do not treat as a launch candidate. Previously: ⚠️ **NOT ready to ship.** The on-device model has **never actually run**. The hardcoded HF URL (`google/gemma-1.1-2b-it-gpu-int4`) is licence-gated and returns **401 to every user** — verified 2026-07-20. 59/59 tests stayed green because none of them touch Gemma. Fixed in `94cecea` + `750a275`: **default model switched to ungated Qwen2.5-1.5B** (Apache-2.0, verified HTTP 200 no token — no self-hosting/R2 needed), swappable `ModelPreset` (qwen15 / qwen05 521MB / gemma2b gated), CPU fallback, `integration_test/model_smoke_test.dart`. **On-device verification still pending** — needs iPhone 15 run (Mac + Xcode, which is FREE; $99 is only for distribution). Gate C BLOCKED until the smoke test passes. Also unverified: Qwen vs Gemma reply quality — the persona prompt was written for Gemma.
-- **Apex Scheduler** (`apex\apex`) — **code-complete & pushed**: merge `13971b0`, races+tz `9f723a5`, RLS `a66b039`. **ONLY human step:** apply `20260720000000_launch_blockers_rls.sql` on Supabase staging→prod. Then Gate C. See [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]].
+- **Apex Scheduler** (`apex\apex`) — pushed through RLS `a66b039`. **NEW 2026-07-21:** branch `feat/apex-plan-2026-07-21` (`0fabf68` + `b469b6c`) implements Section 0 + Features B/C of [[Apex — Feature Plan 2026-07-21]] — **pushed to origin, not merged to `main`, not device-verified**. iOS bundle ID is now `com.nicholaswittle.apex` (Android stays `com.wisense.apex`); **Sentry removed → no crash reporting**; both in [[DECISIONS]]. Feature A (photo import) not started. Full record: [[Apex — Feature Plan Implementation 2026-07-21]]. **Still the only human launch step:** apply `20260720000000_launch_blockers_rls.sql` on Supabase staging→prod, then Gate C. See [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]].
 - **New Horizon** (`wisense_new_horizon`) — 117/117; fork reconciliation COMPLETE. Open: untracked agent files; may need push.
 - **DELETED:** wisense-os, my_ai, local-agent-work-center, command_center.
 

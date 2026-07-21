@@ -13,6 +13,16 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ---
 
+## 2026-07-21 · Apex iOS bundle ID = `com.nicholaswittle.apex` — `ACTIVE`
+- **Decision**: iOS `PRODUCT_BUNDLE_IDENTIFIER` (6 spots) + the `Info.plist` Supabase auth redirect scheme become `com.nicholaswittle.apex`. Android `applicationId` **stays** `com.wisense.apex`.
+- **Rationale**: `com.wisense.apex` was registered to another Apple team; the Mac was building with a throwaway `com.nicholaswittle.apex.local` under a free Personal Team. Android's ID is a separate namespace already registered with Firebase — changing it would break push for no gain.
+- **Consequences**: iOS and Android bundle IDs legitimately differ; `docs/LAUNCH_CHECKLIST.md` records the split. Firebase iOS registration must use the new ID. **Supabase auth must allow `com.nicholaswittle.apex://` as a redirect or iOS login will not return to the app.** Xcode signing needs re-selecting after pulling. See [[Apex — Feature Plan Implementation 2026-07-21]].
+
+## 2026-07-21 · Sentry dropped from Apex — `ACTIVE`
+- **Decision**: Remove `sentry_flutter` entirely rather than upgrade to 9.x — out of `pubspec.yaml`, `sentryDsn` out of `app_config.dart`, `error_monitoring.dart` reduced to a plain `FlutterError.onError` handler.
+- **Rationale**: It had no `SENTRY_DSN`, so it reported nothing in production, and 8.x does not build under current Xcode. Upgrading would have paid a migration cost for a feature that was inert.
+- **Consequences**: **Apex currently has no crash reporting** — re-evaluate before store launch if crash visibility matters. Sentry also dropped out of the Linux/macOS/Windows generated plugin registrants. Pods must be regenerated on the Mac. See [[Apex — Feature Plan Implementation 2026-07-21]].
+
 ## 2026-07-20 · Vault AI performance layer — `ACTIVE`
 - **Decision**: Add execution + founder-memory layer without reviving auto-wiki: [[NOW]], `customers/`, [[business/Experiment Log]], [[VAULT_LINT]]; thin [[CLAUDE]] to point at [[agents]]; single boot chain.
 - **Rationale**: Research (Karpathy LLM Wiki + founder OS) showed status drift and missing tasks/customer truth hurt agents more than missing folders. See research canvas / [[log]] 2026-07-20.

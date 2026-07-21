@@ -37,6 +37,8 @@ updated: 2026-07-20
 2. [ ] Gate C assets: app icon 512, feature graphic 1024×500, screenshots (both apps)
 3. [ ] Host privacy policy URLs (COMMS LINK + Apex)
 4. [ ] Create Android upload keystores (commands in Gate C note)
+5. [ ] **Apex iOS bundle ID changed** → add `com.nicholaswittle.apex://` to Supabase allowed redirect URLs, or iOS login will not return to the app ([[DECISIONS]] 2026-07-21)
+6. [ ] QA branch `feat/apex-plan-2026-07-21` on the iPhone (`flutter clean && pub get`, `pod install`, re-select signing team) — then decide whether to push/merge. See [[Apex — Feature Plan Implementation 2026-07-21]]
 
 ### Agent-ready (when asked)
 

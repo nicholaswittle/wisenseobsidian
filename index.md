@@ -41,6 +41,8 @@ aliases: [index.md, Vault Catalog]
 ## 📚 Code References & Architectural Maps
 - [[COMMS LINK — Code Reference]] — 23 Dart files, Gemma 2B-IT, crisis system
 - [[Apex Scheduler — Code Reference]] — 39 Dart files, Supabase + FCM, swipeable calendar
+- [[Apex — Feature Plan 2026-07-21]] — photo import, bigger shift cards, booked availability + iOS build prerequisites
+- [[Apex — Feature Plan Implementation 2026-07-21]] — execution record: Section 0 + Features B/C on branch `feat/apex-plan-2026-07-21`
 - [[New Horizon — Code Reference]] — 60+ Dart files, ToolRegistry, Duffel proxy
 - [[Code Reuse Analysis]] — Cross-project code reuse and extraction plan
 - [[Fork Reconciliation]] — ~~Package divergence resolution plan~~ **COMPLETE (2026-07-20)** — vendored packages promoted to canonical
@@ -62,7 +64,7 @@ aliases: [index.md, Vault Catalog]
 ## 💻 Live Codebase & Project Repo Index
 - ~~**WiSense OS Engine**: `C:\development\projects\wisense-os`~~ — **DELETED 2026-07-19**, do not treat as live. See [[Abandoned Projects — Lessons]] and [[00_AI_AGENT_MANIFEST]].
 - **COMMS LINK**: `C:\development\projects\wisense_decompression` (Flutter · On-Device Gemma 2B-IT · 59/59 tests pass)
-- **Apex Scheduler**: `C:\development\projects\apex\apex` (Flutter · Supabase · FCM · Sentry)
+- **Apex Scheduler**: `C:\development\projects\apex\apex` (Flutter · Supabase · FCM — Sentry removed 2026-07-21)
 - **New Horizon**: `C:\development\projects\wisense_new_horizon` (Flutter · ToolRegistry · Duffel Proxy · 117/117 tests pass)
 - **Shared Packages**: `C:\development\packages\` (`wisense_core`, `wisense_ui`)
 
