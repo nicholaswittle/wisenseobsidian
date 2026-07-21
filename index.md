@@ -22,6 +22,7 @@ aliases: [index.md, Vault Catalog]
 - [[OBSIDIAN_PLUGINS_MANIFEST]] — Community plugin governance & release registry
 - [[skills/HERMES_PROCEDURAL_SKILLS]] — Hermes 3 procedural skill specification (`skills/`)
 - [[scratchpad/HERMES_SCRATCHPAD_PROTOCOL]] — Hermes 3 internal monologue protocol (`scratchpad/`)
+- [[xcode_notes]] — Mac + Xcode + Flutter setup, step by step (read this on the Mac)
 - [[ENVIRONMENT_MAP]] — Port registry & security environment key map
 - [[API_CONTRACT_REGISTRY]] — Cross-app JSON data payload & schema contracts
 - [[TROUBLESHOOTING_KATAS]] — Known error signatures & 1-line resolution recipes
@@ -89,6 +90,7 @@ aliases: [index.md, Vault Catalog]
 
 ## 💼 Business & Startup Strategy (`business/`)
 - [[business/Business Hub]] — central index
+- [[business/Plan of Attack — Build While Mac-Blocked 2026-07-20]] — **current plan**: Apex web-first (no Mac needed), Stripe-sold, Compliance Checker wedge
 - [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]] — researched B2B revenue plays ranked by time-to-first-dollar
 - [[business/Business Model Canvas]] — value proposition + revenue streams
 - [[business/Startup Playbook]] — what makes a great startup + lessons

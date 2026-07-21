@@ -18,6 +18,8 @@ No Mac is required for **Google Play**: build the `.aab` on Windows or GitHub Ac
 
 ---
 
+> ⚠️ **CORRECTION (2026-07-20, later):** COMMS LINK is **NOT ready**. Its on-device model never ran — the hardcoded HuggingFace URL is licence-gated and returns **401 for every user**. The 59/59 suite never touched Gemma. Fixed in `94cecea`; **on-device verification still pending** (iPhone 15 + Mac + free Xcode). Gate C is blocked for this app until `integration_test/model_smoke_test.dart` passes on a physical device. The table below described packaging readiness, not functional readiness.
+
 ## COMMS LINK — closest to ready ✅
 
 On-device Gemma 2B-IT, no backend, no auth → simplest launch. **`main` in sync with `origin/main`** (pushed 2026-07-20). Next = Gate C packaging.

@@ -19,6 +19,7 @@ Central index for startup strategy, business model refinement, and growth playbo
 
 ## Ideas & Brainstorm
 
+- [[business/Plan of Attack — Build While Mac-Blocked 2026-07-20]] — **⚡ current plan**: Apex ships web NOW (no Mac needed); web-first, Stripe-sold; Compliance Checker as the wedge
 - [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]] — **researched B2B revenue plays** ranked by time-to-first-dollar (Tier 0 services fund Tier 1 Apex-first products)
 - [[business/2026 Commercial B2B Software Ideas]] — 10 High-ARR B2B software products built on the "Service as a Software" (SaaS 2.0) paradigm using the WiSense tech stack
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
