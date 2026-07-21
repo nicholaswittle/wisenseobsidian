@@ -25,8 +25,9 @@ Repo: `C:\development\projects\apex\apex`. Work sits on branch **`feat/apex-plan
 | `0fabf68` | `build(ios)`: Section 0 — canonical Mac build |
 | `b469b6c` | `feat(schedule)`: Features B + C |
 | `594b4be` | `refactor(schedule)`: Directive §2 conformance remediation |
+| `44adeac` | `feat(suggestions)`: staff ranking for Smart Suggestions (beyond the plan) |
 
-Verification: `flutter analyze` clean, 7/7 tests pass. **Nothing has been run on a device yet** — Features B and C are unverified on the iPhone.
+Verification: `flutter analyze` clean, **19/19 tests pass** (7 before this session). **Nothing has been run on a device yet** — none of this is verified on the iPhone.
 
 > [!warning] Unaudited — do not merge to `main`
 > This branch was built and pushed **outside the Tripartite Protocol**: no Judicial audit, no Completion Report, no Delivery Gate. See [[DECISIONS]] 2026-07-21. The Completion Report is issued **BLOCKED / MCA+MDT NOT RUN**. Self-review missed real Directive §2 defects, fixed in `594b4be` — treat the remaining diff as unverified for the same reason.
@@ -91,12 +92,43 @@ Directive §2 requires `WiSenseSpacing` for spacing and app brand colors in the 
 
 **Font sizes cannot conform.** `WiSenseTextStyles` does not exist in Apex's vendored `wisense_ui` (see [[DECISIONS]] 2026-07-21). Feature B's `fontSize: 17/16/15` stays hardcoded, consistent with every other Apex widget.
 
+## Staff ranking for Smart Suggestions (`44adeac`) — beyond the plan
+
+Not part of [[Apex — Feature Plan 2026-07-21]]. Added after a conversation about where AI belongs in Apex (see [[DECISIONS]] 2026-07-21 · *AI in Apex*): this is the **no-AI** half of that answer, shipped first because it needs no dependency, no API, and no privacy decision.
+
+**The gap it closes:** `SuggestionEngine` (pre-existing, rules-based) surfaced which shift *titles* recur on a given weekday over the last 4 weeks — but not **who works them**. The admin still had to remember that Ana works Bar on Fridays.
+
+**`lib/features/smart_suggestions/staff_ranker.dart`** scores each staffer for a role on a date:
+
+| Signal | Effect |
+|---|---|
+| Approved vacation | **hard exclusion** |
+| Self-declared unavailable | **hard exclusion** |
+| Worked this exact title in the last 4 weeks | +10 each |
+| …on the same weekday | +5 each |
+| Already on a shift that day | −15 (demote, not exclude) |
+| ≥35h already scheduled that week | −20 |
+| ≥30h | −8 |
+
+Ties break toward the staffer with fewer hours (spreads work), then by name (stable UI ordering). Split shifts and heavy weeks stay selectable — same soft-warning principle as Feature C.
+
+**`rankStaff()` is a pure function** over already-fetched data — no `SupabaseClient`, no async. That is the whole design point: it made 12 real tests possible (vacation never ranks, another role's history doesn't count, `'Open'` never becomes a candidate, a near-full week loses to an equal peer). **Suite went 7 → 19**, which closes the coverage gap flagged against Feature C for this feature at least.
+
+**Explainability is the feature.** Each candidate carries the reasons that produced its rank — `Worked Bar 2× · 1 on Fridays · 18h this week` — rendered as tap-to-assign chips (top 3) under each suggestion. Tapping fills role, zone, times **and** person; the plain *Apply* button uses the top-ranked candidate. Booked candidates render amber rather than being hidden. A ranking the admin can't audit is one they won't trust.
+
+Also extracted `parseShiftRange` / `hoursFromNotes` into `lib/core/shift_hours_util.dart` — the notes→times parse was inlined in `_applySuggestion` and this would have been its third copy.
+
+**Deliberately excluded: labor cost.** `hourly_rate` is available and `LaborCostPanel` already displays it, so ranking by cost is a one-line change. Left out of the score on purpose — ranking people by how cheap they are is a decision for the human, not a default the app makes silently. Reversible if Nicholas decides otherwise.
+
+**Caveats:** worthless until ~4 weeks of published history exist, so Jigsy's sees no value on day one (it degrades to hours-spreading). The scoring weights are engineering judgment, **not measured** — they are constants at the top of the file, easy to tune. `AnalyticsService.logEvent('smart_suggestion_applied')` still logs only the title; measuring whether admins keep the top pick or override it needs a rank param, and that should come *before* tuning the weights.
+
 ## Known gaps
 
 - **Unaudited.** No Judicial (external) audit has run. This is the blocking gap.
 - **Not merged.** Branch is pushed but `main` is untouched.
 - **Not device-verified.** B and C have not been seen on the iPhone.
-- **Feature C has no test coverage.** `AvailabilityService` takes a live `SupabaseClient` and the existing suite is pure-utility tests with no mocking infrastructure. Adding a test for the booked-set derivation means introducing that infrastructure first.
+- **Feature C still has no test coverage.** `AvailabilityService` takes a live `SupabaseClient` and the suite has no mocking infrastructure. `44adeac` sidestepped this for the ranker by making the logic pure — **the same refactor would make the booked-set derivation testable**, and is the cheapest path to covering Feature C.
+- **The ranking weights are unmeasured judgment**, and the analytics event doesn't record whether the top pick was kept.
 - **Feature A untouched** — new dependency, new screen, and the parsing problem. Its open decision (on-device ML Kit vs LLM vision, i.e. privacy vs robustness for staff names) is still unmade.
 
 ## First Mac build after pulling this branch

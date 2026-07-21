@@ -13,6 +13,18 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ---
 
+## 2026-07-21 · AI in Apex = parsing, not scheduling optimization — `ACTIVE`
+- **Decision**: LLMs in Apex are for turning **unstructured input into structure** (photo of a paper schedule → rows; later, free-text availability). They are **not** for building or optimizing schedules. Assignment logic stays deterministic in `SuggestionEngine` / `staff_ranker.dart`.
+- **Rationale**: scheduling is a constraint problem — LLMs are non-deterministic and weak at it, while rules are testable and free. Extraction from messy real-world input is the opposite: exactly what vision models are best at and what no amount of Dart solves. Cost is **not** the constraint — ~1 schedule photo/week on Opus 4.8 (`$5/$25` per MTok, high-res vision at 2576px) is roughly **$0.08/photo ≈ $4/year**. The real constraints are privacy and engineering time.
+- **Consequences**: `44adeac` shipped the deterministic half (staff ranking) first — no dep, no API, no privacy question. Feature A (photo import) remains the only planned LLM surface. **Privacy middle path preferred**: run on-device ML Kit OCR, then send only the *recognized text* — never the photo — to the LLM for structuring. Cheaper, and no image of a staff board leaves the device, which matters given WiSense's on-device/zero-retention positioning on [[COMMS LINK]].
+- **Sequencing (agreed)**: (1) ship what's built — RLS → phone QA → Gate C; (2) staff ranking *(done, `44adeac`)*; (3) Feature A last. **Kill criterion**: if the OCR+verify flow doesn't cut a week's entry below ~5 minutes, drop the photo path and keep `copyPreviousWeek` + suggestions.
+- **Related risk**: [[COMMS LINK]] was parked because an AI dependency made it unshippable. Do not repeat that on Apex before it has a paying user.
+
+## 2026-07-21 · Labor cost excluded from staff ranking — `ACTIVE`
+- **Decision**: `staff_ranker.dart` does **not** factor `hourly_rate` into its score, though the field is available and `LaborCostPanel` already displays it.
+- **Rationale**: ranking people by how cheap they are is a judgment for the human, not a default the app makes silently. The admin can see cost in the existing panel and weigh it themselves.
+- **Consequences**: one-line change to reverse if Nicholas decides margin should drive ranking. Flagged as an open question rather than assumed.
+
 ## 2026-07-21 · Apex vendors its own `wisense_ui` — fork NOT fully reconciled — `ACTIVE`
 - **Finding** (not yet a decision — needs ratification): Apex's `pubspec.yaml` depends on `packages/wisense_ui` (v1.0.0, **2 files**: `spacing.dart`, `loading_indicator.dart`), not canonical `C:\development\packages\wisense_ui` (v0.1.0, **18 files** incl. `text_styles.dart`, `error_banner.dart`). This is a **second fork**, separate from New Horizon's.
 - **Why it matters**: [[SYSTEM_ARCHITECT_DIRECTIVE]] §2 mandates `WiSenseTextStyles` as the text-scale base for all apps. `WiSenseTextStyles` **does not exist in Apex's dependency**, so §2 is unsatisfiable there and every Apex widget hardcodes `fontSize`. The 2026-07-20 entry below is marked SUPERSEDED because its consequence line ("the Known fork caveat is now historical") is false — it reconciled New Horizon only.
