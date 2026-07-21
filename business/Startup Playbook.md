@@ -84,4 +84,4 @@ Trend source: [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]]
 - [ ] Zero to One — Peter Thiel
 - [ ] Hooked — Nir Eyal
 
-Related: [[business/Business Model Canvas]], [[business/Ideas Log]], [[Abandoned Projects — Lessons]], [[DECISIONS]]
+Related: [[business/Business Model Canvas]], [[business/Ideas Log]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/2026 Commercial B2B Software Ideas]], [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]], [[Abandoned Projects — Lessons]], [[DECISIONS]]

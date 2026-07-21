@@ -97,4 +97,4 @@ Businesses in 2026 reject horizontal "AI wrappers" that require manual chat prom
 2. **Rank 2: `HorizonConcierge` (New Horizon)** — 117/117 tests pass; Duffel + Viator integrations ready for B2B white-labeling.
 3. **Rank 3: `DecompressSecure` (COMMS LINK)** — 59/59 tests pass; zero-cloud privacy architecture ready for security/legal B2B licensing.
 
-Related: [[WiSense Service as a Software Execution Strategy]], [[Young Zhao - 2026 AI Startup Playbook]], [[index]]
+Related: [[WiSense Service as a Software Execution Strategy]], [[Young Zhao - 2026 AI Startup Playbook]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/Ideas Log]], [[business/Business Hub]], [[index]]

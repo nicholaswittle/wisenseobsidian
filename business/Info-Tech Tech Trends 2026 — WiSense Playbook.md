@@ -176,4 +176,4 @@ Extracted for **WiSense success only** — not a full report summary. Source the
 - Press summary of eight trends: [Info-Tech release](https://www.infotech.com/research/tech-trends-2026-report-released-eight-emerging-trends-redefining-the-future-of-it-according-to-findings-by-info-tech-research-group)
 - Research hub: [Tech Trends 2026](https://www.infotech.com/research/ss/tech-trends-2026)
 
-Related: [[business/Business Hub]], [[business/Business Model Canvas]], [[business/Startup Playbook]], [[business/Ideas Log]], [[Apex Security Audit 2026-07-19]], [[Working Stack — Claude CLI and Ollama]], [[Abandoned Projects — Lessons]]
+Related: [[business/Business Hub]], [[business/Business Model Canvas]], [[business/Startup Playbook]], [[business/Ideas Log]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/2026 Commercial B2B Software Ideas]], [[Apex Security Audit 2026-07-19]], [[Working Stack — Claude CLI and Ollama]], [[Abandoned Projects — Lessons]]

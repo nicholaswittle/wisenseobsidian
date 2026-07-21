@@ -52,4 +52,4 @@ Running list of product + growth ideas for WiSense. Rank by impact/effort. Strik
 - Test the cheapest hypothesis first (Mom Test approach)
 - Kill ideas that don't serve the current 3 apps (no 4th app until 3 are shipping)
 
-Related: [[business/Business Model Canvas]], [[business/Startup Playbook]], [[business/Go-to-Market]]
+Related: [[business/Business Model Canvas]], [[business/Startup Playbook]], [[business/Go-to-Market]], [[business/2026 Commercial B2B Software Ideas]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/Business Hub]]

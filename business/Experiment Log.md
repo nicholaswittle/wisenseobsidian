@@ -41,4 +41,4 @@ date: 2026-07-20
 3. When done: fill Result + Decision (**Keep** / **Kill** / **Pivot**).
 4. Update [[NOW]] scorecard if it was the week’s bet.
 
-Related: [[business/Business Hub]], [[business/Ideas Log]], [[NOW]], [[DECISIONS]]
+Related: [[business/Business Hub]], [[business/Ideas Log]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/2026 Commercial B2B Software Ideas]], [[NOW]], [[DECISIONS]]
