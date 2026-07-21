@@ -89,6 +89,7 @@ aliases: [index.md, Vault Catalog]
 
 ## 💼 Business & Startup Strategy (`business/`)
 - [[business/Business Hub]] — central index
+- [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]] — researched B2B revenue plays ranked by time-to-first-dollar
 - [[business/Business Model Canvas]] — value proposition + revenue streams
 - [[business/Startup Playbook]] — what makes a great startup + lessons
 - [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] — 2026 IT trends → WiSense actions

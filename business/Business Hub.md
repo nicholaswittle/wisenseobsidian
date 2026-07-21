@@ -19,6 +19,7 @@ Central index for startup strategy, business model refinement, and growth playbo
 
 ## Ideas & Brainstorm
 
+- [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]] — **researched B2B revenue plays** ranked by time-to-first-dollar (Tier 0 services fund Tier 1 Apex-first products)
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
 - [[business/Experiment Log]] — hypothesis → result → keep/kill
 - [[business/Lessons from Failed Projects]] — what wisense-os/my_ai taught us (see [[Abandoned Projects — Lessons]])

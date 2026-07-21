@@ -26,5 +26,6 @@ updated: 2026-07-20T20:40:00
 
 ## Active Threads
 - **LAUNCH:** Both apps code-complete. Remaining = ops/human: (1) Apex RLS apply; (2) Gate C keystore/AAB/graphics/privacy/Play listing — [[output/Gate C — Android Packaging & Store Listings 2026-07-20]]; (3) iOS later via Codemagic.
+- **REVENUE:** [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]] — 12 researched plays ranked by time-to-first-dollar. Thesis: **distribution is the constraint, not ideas**; Jigsy's + working Apex code = the unfair advantage. Sequence: ship Apex to Jigsy's → Tier 0 services for cash → Apex multi-tenant + Stripe + Fair Workweek compliance add-on → only then a second front (COMMS LINK B2B). Kill criteria: no 2nd paying venue by ~wk 12 = stop building, go sell.
 - **This week board:** [[NOW]]
 - Working stack: Claude CLI + Ollama — [[Working Stack — Claude CLI and Ollama]]
