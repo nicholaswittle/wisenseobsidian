@@ -16,14 +16,19 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 - **`raw/processed/`** — Sources moved here after they've been codified into root notes.
 - **`output/`** — Final deliverables (audit reports, launch checklists, decision docs).
 - **Root notes** — The knowledge layer: governance, project refs, manifests, decisions, daily logs.
-- **[[hot]]** — ~500-word recent-context cache; read first for fast boot.
+- **[[hot]]** — ~500-word recent-context cache; agents read first.
+- **[[NOW]]** — weekly scorecard + task board; agents read second.
 - **[[agents]]** — Master protocol governing all AI operations in this vault.
-- **[[index]]** — Pointer catalog read first before retrieval.
+- **[[index]]** — Pointer catalog (after hot + NOW).
+- **[[VAULT_LINT]]** — monthly health checklist.
 - **[[log]]** — Append-only audit trail of structural changes.
+
+**Agent boot order:** [[hot]] → [[NOW]] → [[index]] → note. Human dashboard can start here.
 
 ## 🤖 AI Agent Entrypoint & Context Maps
 
-- [[00_AI_AGENT_MANIFEST]] — 1-page AI agent manifest & Karpathy operating rules
+- [[00_AI_AGENT_MANIFEST]] — path map & Karpathy rules (live status → hot/NOW)
+- [[CLAUDE]] — thin always-on schema
 - [[ENVIRONMENT_MAP]] — local port registry & environment key map
 - [[API_CONTRACT_REGISTRY]] — cross-app JSON payload & data model contracts
 - [[TROUBLESHOOTING_KATAS]] — known error signatures & 1-line resolution commands
@@ -52,9 +57,10 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 
 ## Priority launches
 
-- [[COMMS LINK]] — on-device decompression, zero cloud. Push `main` + store assets.
-- [[Apex Scheduler]] — Jigsy's Brewpub staff scheduling. **Launch blocker: tenancy/RLS + claim/clock races** — see [[Apex Security Audit 2026-07-19]].
-- [[New Horizon]] — travel Alignment Engine, Duffel + Supabase. README boilerplate still needs replacing. Fork reconciliation COMPLETE.
+- [[NOW]] — **this week’s board** (human blockers + scorecard).
+- [[COMMS LINK]] — on-device decompression, zero cloud. Code-complete & pushed → Gate C packaging.
+- [[Apex Scheduler]] — Jigsy's Brewpub. Code-complete & pushed → **apply RLS on Supabase**, then Gate C. Audit history: [[Apex Security Audit 2026-07-19]].
+- [[New Horizon]] — travel Alignment Engine. Fork reconciliation COMPLETE; README still boilerplate.
 
 ## Cross-project decisions
 
@@ -75,6 +81,8 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 - [[business/Startup Playbook]] — what makes a great startup + lessons from failures
 - [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] — 2026 IT trends → WiSense actions
 - [[business/Ideas Log]] — ranked product + growth ideas
+- [[business/Experiment Log]] — hypothesis → result → keep/kill
+- [[customers/_Index]] — customer / pilot truth log
 - [[business/Pricing Strategy]] — how to price each app
 - [[business/Market Positioning]] — competitive landscape + brand pillars
 - [[business/Launch Playbook]] — app store launch checklist
@@ -108,4 +116,4 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 ## Daily log
 
 - [[2026-07-19]] — vault created; projects audited; agent platforms abandoned; Claude CLI + Ollama chosen; Apex security audit captured.
-- [[2026-07-20]] — fork reconciliation complete; vault audit & cleanup.
+- [[2026-07-20]] — fork reconciliation complete; vault audit & cleanup; vault AI performance layer (NOW, customers, lint, thin CLAUDE).

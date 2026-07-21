@@ -24,20 +24,21 @@ date: 2026-07-20
 ## 📈 2. The 30-Day Execution Roadmap
 
 ### Phase 1: Jigsy's Brewpub Pilot Lock-In (Days 1–10)
-- Resolve Apex merge conflicts in `main.dart`.
-- Deploy Apex to Jigsy's pub owner and staff.
-- Measure **Shift Swap Resolution Time** and **Owner Time Saved** (Target: >5 hrs/week saved).
+- ~~Resolve Apex merge conflicts / security code~~ **DONE (2026-07-20)** — code-complete & pushed.
+- **Next:** Apply Apex RLS migration on Supabase staging→prod (human); then deploy to Jigsy's owner/staff.
+- Measure **Shift Swap Resolution Time** and **Owner Time Saved** (Target: >5 hrs/week saved). Log in [[customers/Jigsys Brewpub]].
+- Track on [[NOW]].
 
 ### Phase 2: COMMS LINK App Store Launch (Days 11–20)
-- Push local 10 main commits to `origin/main`.
-- Host privacy policy URL & generate App Store screenshots.
+- ~~Push local main commits to `origin/main`~~ **DONE (2026-07-20)** — in sync.
+- Host privacy policy URL; generate Play Store graphics/screenshots (Gate C — Android-first).
 - Position COMMS LINK as a **Zero-Cloud, On-Device Decompression Service**.
 
 ### Phase 3: New Horizon Commercial Alignment (Days 21–30)
 - Complete Duffel + Viator live API integration.
 - Replace boilerplate README with full AI Travel Concierge spec.
-- Run 117 unit/widget test gates to guarantee booking transaction safety.
+- Keep 117 unit/widget test gates green for booking transaction safety.
 
 ---
 
-Related: [[Young Zhao - 2026 AI Startup Playbook]], [[Apex Scheduler]], [[COMMS LINK]], [[New Horizon]], [[index]]
+Related: [[Young Zhao - 2026 AI Startup Playbook]], [[Apex Scheduler]], [[COMMS LINK]], [[New Horizon]], [[NOW]], [[business/Experiment Log]], [[index]]

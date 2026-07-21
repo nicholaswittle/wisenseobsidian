@@ -13,10 +13,15 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ---
 
+## 2026-07-20 · Vault AI performance layer — `ACTIVE`
+- **Decision**: Add execution + founder-memory layer without reviving auto-wiki: [[NOW]], `customers/`, [[business/Experiment Log]], [[VAULT_LINT]]; thin [[CLAUDE]] to point at [[agents]]; single boot chain.
+- **Rationale**: Research (Karpathy LLM Wiki + founder OS) showed status drift and missing tasks/customer truth hurt agents more than missing folders. See research canvas / [[log]] 2026-07-20.
+- **Consequences**: Boot order is now [[hot]] → [[NOW]] → [[index]] → note. Live status only in hot/NOW (not duplicated in CLAUDE). Monthly lint via [[VAULT_LINT]]. Customer truth replaces retired `/crm`.
+
 ## 2026-07-20 · Vault is a curated static reference — `ACTIVE`
 - **Decision**: Treat this vault as hand-written, cross-linked knowledge. Retire the MindStudio auto-synthesis pipeline; delete empty `wiki/`, `journal/`, `crm/` folders and the sync scripts/task.
 - **Rationale**: The `raw→wiki` loop never ran in 6 months; all real value came from hand-written manifests. Empty scaffolding actively misled agents.
-- **Consequences**: Codification is manual/on-request. Knowledge lives as **root notes**. Boot order: [[hot]] → [[index]] → note. `WiSenseVaultAutoSync` + `sync_obsidian_vault.ps1` + `register_vault_task_scheduler.ps1` removed. See [[log]] 2026-07-20.
+- **Consequences**: Codification is manual/on-request. Knowledge lives as **root notes**. Boot order extended by AI performance layer decision above. `WiSenseVaultAutoSync` + sync scripts removed. See [[log]] 2026-07-20.
 
 ## 2026-07-20 · Fork reconciliation complete — `ACTIVE`
 - **Decision**: Promote New Horizon's vendored `wisense_core` (47 files) + `wisense_ui` (19 files) to canonical `C:\development\packages\`; New Horizon consumes canonical via path deps; delete the vendored copies.

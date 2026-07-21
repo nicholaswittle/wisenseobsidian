@@ -11,9 +11,12 @@ aliases: [index.md, Vault Catalog]
 ---
 
 ## 🤖 AI Core & System Manifests
-- [[hot]] — recent-context cache (~500 words), read first for fast boot
-- [[00_AI_AGENT_MANIFEST]] — 1-page AI agent entrypoint & Karpathy rules
+- [[hot]] — recent-context cache (~500 words), read **first** for fast boot
+- [[NOW]] — weekly scorecard + task board (read **second**)
+- [[00_AI_AGENT_MANIFEST]] — path map & Karpathy rules (status → hot/NOW)
 - [[agents]] — Master prompt instructions governing AI agent operations
+- [[CLAUDE]] — thin always-on schema (points here; not a second status table)
+- [[VAULT_LINT]] — monthly vault health checklist
 - [[AGENTS_REGISTRY]] — who-does-what routing table (Hermes reads this to delegate)
 - [[DECISIONS]] — append-only register of settled decisions + rationale (check before re-opening a question)
 - [[OBSIDIAN_PLUGINS_MANIFEST]] — Community plugin governance & release registry
@@ -27,9 +30,9 @@ aliases: [index.md, Vault Catalog]
 ---
 
 ## 🚀 Active Project Status & Launch Blockers
-- [[COMMS LINK]] — On-device AI decompression assistant (59/59 tests pass)
-- [[Apex Scheduler]] — Jigsy's Brewpub scheduling (Merge conflicts in progress)
-- [[New Horizon]] — Travel booking Alignment Engine (117/117 tests pass)
+- [[COMMS LINK]] — On-device AI decompression (code-complete & pushed; Gate C packaging)
+- [[Apex Scheduler]] — Jigsy's Brewpub scheduling (code-complete & pushed; **apply RLS on Supabase**, then Gate C)
+- [[New Horizon]] — Travel booking Alignment Engine (117/117 tests; fork reconciliation complete)
 - [[WiSense Governance — Rules and Protocols]] — Root governance index
 
 ---
@@ -49,6 +52,7 @@ aliases: [index.md, Vault Catalog]
 - **Note**: Codification is a manual, on-request operation — there is no automatic synthesis loop. The `/wiki`, `/journal`, `/crm` pipeline folders were retired 2026-07-20; synthesized knowledge now lives as **root notes**.
 
 ## 💼 Business & Strategy (`/business`)
+- [[business/2026 Commercial B2B Software Ideas]] — 10 High-ARR B2B SaaS 2.0 software companies & speed-to-revenue roadmap
 - [[business/Young Zhao - 2026 AI Startup Playbook]] — $215M OpusClip CEO Playbook (Service as a Software, SaaS 2.0, Niche Selection, Retention)
 - [[business/WiSense Service as a Software Execution Strategy]] — 30-Day commercial execution roadmap for Apex, COMMS LINK, and New Horizon
 
@@ -63,7 +67,9 @@ aliases: [index.md, Vault Catalog]
 
 ---
 
-## 👥 CRM Contacts (`/crm`)
+## 👥 Customers (`customers/`)
+- [[customers/_Index]] — customer truth log + template (replaces retired `/crm`)
+- [[customers/Jigsys Brewpub]] — Apex pilot account
 - [[Advisor Profile]] — Nicholas's founder profile & virtual board of advisors
 
 ---
@@ -87,9 +93,10 @@ aliases: [index.md, Vault Catalog]
 - [[business/Startup Playbook]] — what makes a great startup + lessons
 - [[business/Info-Tech Tech Trends 2026 — WiSense Playbook]] — 2026 IT trends → WiSense actions
 - [[business/Ideas Log]] — ranked product + growth ideas
+- [[business/Experiment Log]] — hypothesis → result → keep/kill
 - [[business/Pricing Strategy]] — per-app pricing
 - [[business/Market Positioning]] — competitive landscape
 - [[business/Launch Playbook]] — app store launch checklist
 - [[business/Go-to-Market]] — first 100 users strategy
 
-Related: [[Home]], [[agents]], [[log]]
+Related: [[Home]], [[NOW]], [[agents]], [[log]]

@@ -106,25 +106,20 @@ aliases: [jigsy, apex-code, jigsy-schedule]
 - **CSV export:** Platform-aware (csv_downloader_stub.dart + csv_downloader_web.dart)
 - **Billing:** Stripe deferred (`AppConfig.billingEnabled = false`)
 
-## Git state
+## Git state (updated 2026-07-20)
 
-- **Branch:** `cursor/apex-store-launch-447c` (not main — store launch prep branch)
-- **Repo:** Has its own `.git` + GitHub remote (`nicholaswittle/apex.git`). NOT tracked by parent repo — earlier audit was wrong.
-- **Last commit:** `a5d7f93` — "fix: malformed shift times yield zero hours, never fabricated hours"
-- **main:** `53df855` — "Add minimal org/workspace model for multi-tenancy readiness"
-- **10 commits ahead of main** on the store-launch branch
-- **Uncommitted:** 7 files (6 generated plugin registrants + build_web.sh, 1 untracked audit/ dir)
-- **flutter analyze:** No issues found
-- **flutter test:** 8/8 passed
-- **Remote branches:** 16 cursor/* branches on origin (need cleanup)
+- **Repo:** Own `.git` + GitHub remote (`nicholaswittle/apex.git`). Not nested under other app repos.
+- **Branch:** `main` tracking `origin/main` (in sync after launch-blocker pushes)
+- **Key commits:** merge `13971b0`, races+timezone `9f723a5`, RLS migration `a66b039`
+- Live status: [[hot]] / [[NOW]] / [[Apex Scheduler]]
 
 ## Launch blockers
 
-- [ ] Merge store-launch branch → main (10 commits ahead)
-- [ ] Clean up 16 stale cursor/* branches on origin
-- [ ] Run `gate0_verify.sh` for Gate 0 exit criteria
-- [ ] Fill `JIGSYS_BASELINE.md` with owner metrics
-- [ ] 7-day clean run per `GATE0.md`
-- [ ] TestFlight + Play Store submission
+- [x] Merge + security code in-repo (claim/clock races, timezone, RLS SQL authored)
+- [ ] **Human:** Apply RLS migration on Supabase staging→prod
+- [ ] Fill `JIGSYS_BASELINE.md` + log pilot truth in [[customers/Jigsys Brewpub]]
+- [ ] Gate C Android packaging — [[output/Gate C — Android Packaging & Store Listings 2026-07-20]]
+- [ ] 7-day clean run per `GATE0.md` once pilot live
+- [ ] iOS / TestFlight later (Codemagic)
 
-Related: [[Apex Scheduler]], [[Code Reuse Analysis]], [[Parent Repo Cleanup]]
+Related: [[Apex Scheduler]], [[NOW]], [[Code Reuse Analysis]], [[Parent Repo Cleanup]]

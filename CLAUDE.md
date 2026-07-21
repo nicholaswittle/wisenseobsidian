@@ -1,90 +1,56 @@
-# WiSense AI Vault — Claude Code Instructions
+# WiSense AI Vault — Claude Entry
 
-You are the thinking partner and memory layer for the WiSense AI agentic OS. This vault is the central knowledge base for all WiSense work.
+Thin always-on schema. Full protocol lives in [[agents]]. Project status lives in [[hot]] and [[NOW]].
 
-## What this vault is for
+## Boot order (mandatory)
 
-Cross-project decisions, governance, launch planning, audit history, vendor research, and daily logs. Kept separate from code repos on purpose — this is for thinking and context, not for shipping files.
+1. [[hot]] — ~500-word recent-context cache  
+2. [[NOW]] — this week’s tasks, scorecard, human blockers  
+3. [[index]] — pointer catalog  
+4. Relevant note only after the above  
 
-## How memory is structured
+Do **not** start from [[Home]] alone — Home is a human dashboard; agents use hot → NOW → index.
 
-```
-C:\Users\nikwi\Notes\
-├── CLAUDE.md              ← you are here (this file)
-├── hot.md                 ← READ FIRST — ~500-word recent-context cache
-├── index.md / Home.md     ← master pointer catalog + dashboard
-├── agents.md              ← canonical AI operating protocol (personas, syntax, codification rules)
-├── raw/                   ← dumping ground for unprocessed research, stream of consciousness, pasted sources
-├── output/                ← final deliverables (audit reports, launch checklists, decision docs)
-├── (40+ root notes)       ← codified knowledge, governance, project references, decisions
-```
+## What this vault is
 
-Boot order: **[[hot]] → [[index]] → relevant note**. This vault is a **curated static reference** — knowledge is hand-written, not auto-synthesized. The old `wiki/journal/crm` intake pipeline was retired 2026-07-20.
+Curated static reference for cross-project decisions, launch planning, governance, and lessons. Not source code. Codification from `raw/` is **manual / on-request** only.
 
-### Folder rules
+## Canonical files
 
-- **raw/** — anything unprocessed. Paste URLs, dump research, stream of consciousness. When asked, Claude reads these and codifies them into root notes (manual, on-request — not automatic).
-- **output/** — final deliverables. Audit reports, launch checklists, completed plans. Things you'd hand to someone else.
-- **Root notes** — wiki-level knowledge. Governance, project references, decisions, vendor docs, daily logs. These are the codified, linked, cross-referenced notes.
+| File | Role |
+|------|------|
+| [[agents]] | Operating protocol (personas, syntax, codify rules) |
+| [[00_AI_AGENT_MANIFEST]] | Karpathy rules + project path map |
+| [[DECISIONS]] | Settled decisions — check before reopening |
+| [[VAULT_LINT]] | Monthly health checklist |
 
-## Who Nicholas is
+## Active apps (paths only — status in [[hot]])
 
-- Nicholas Wittle — the Architect. Pennsylvania State Trooper, USMC veteran, father of 5, founder of WiSense LLC.
-- 10 years from retirement. Building a financial legacy for his family.
-- Learns best via hands-on building, visual demonstrations, step-by-step instructions.
-- See [[Advisor Profile]] for full founder profile and virtual board of advisors.
+| App | Path |
+|-----|------|
+| COMMS LINK | `C:\development\projects\wisense_decompression` |
+| Apex Scheduler | `C:\development\projects\apex\apex` |
+| New Horizon | `C:\development\projects\wisense_new_horizon` |
+| Shared packages | `C:\development\packages\` |
 
-## Active projects (Layer 2 — the soldiers)
+Deleted — never treat as live: wisense-os, my_ai, local-agent-work-center, command_center. See [[Abandoned Projects — Lessons]].
 
-| App | Path | Status |
-|-----|------|--------|
-| COMMS LINK | `C:\development\projects\wisense_decompression` | 59/59 tests pass, main 10 commits ahead of origin (needs push) |
-| Apex Scheduler | `C:\development\projects\apex\apex` | Merge conflicts in progress + security audit findings (RLS, claim races) |
-| New Horizon | `C:\development\projects\wisense_new_horizon` | 117/117 tests pass, README is boilerplate, fork reconciliation open |
+## Governance (before code changes)
 
-Deleted (do not reference as active): wisense-os, my_ai, local-agent-work-center, command_center.
+[[WiSense Governance — Rules and Protocols]] — Builder proposes plan+diff; Reviewer (Gemini) for Medium/High; Architect (Nicholas) ratifies. No self-audit.
 
-## Governance — read before touching code
+## Write-back rules
 
-Every task follows the WiSense Tripartite Protocol. Read [[WiSense Governance — Rules and Protocols]] first.
+- Audits / launch checklists → `output/` + link from project note  
+- Decisions → [[DECISIONS]]  
+- Tasks / weekly focus → [[NOW]]  
+- Customer truth → `customers/`  
+- Experiments → [[business/Experiment Log]]  
+- Daily summary → `YYYY-MM-DD.md`  
+- After structural changes → update [[hot]], [[index]], append [[log]]
 
-Key rules:
-- **Builder** = Claude (you). Propose plan + diff before any file change.
-- **Reviewer** = Gemini. Mandatory partner — no delivery without sign-off.
-- **Architect** = Nicholas. Final ratification on all major decisions. Silence ≠ approval.
-- **Judicial audit** = external AI (Gemini → Groq → OpenRouter). Never self-audit.
-- Risk levels: Low (proceed after plan), Medium (Gemini review recommended), High (Gemini review required + explicit ratification).
+## Hard no
 
-See [[Tripartite Audit Chain]], [[MCA and MDT]], [[Travel Data Integrity]] for audit details.
-
-## How to work in this vault
-
-When Nicholas asks you to do work:
-1. Read [[Home.md]] first for the index
-2. Read the relevant project note (e.g. [[COMMS LINK]], [[Apex Scheduler]], [[New Horizon]])
-3. Read the relevant governance notes if the task involves code changes
-4. Do the work
-5. Write the result into the vault:
-   - Audit findings → `output/` folder + link from the project note
-   - Research → `raw/` folder, then codify into a wiki note
-   - Daily summary → update or create `YYYY-MM-DD.md`
-   - Decisions → create a decision note with `[[links]]` to related context
-
-## Other AI agents on this machine
-
-- **Claude Code** — Builder (implementation, this vault)
-- **Codex** — external auditor + audit_findings watcher
-- **Cursor** — UI polish, swipeable cards, map integration
-- **Antigravity (Gemini)** — research, dispatcher, rate-limit failover
-- **Groq** — secondary auditor (llama-3.3-70b-versatile)
-- **Hermes** — coordination, vault management, this knowledge base
-
-All agents can read and write this vault. The claude-obsidian plugin automates organization (entity extraction, cross-referencing, lint).
-
-## What NOT to do
-
-- Do not copy code into this vault — it's for knowledge, not source files
-- Do not put build artifacts or gigabyte-scale data here
-- Do not delete notes — mark them as deprecated with a strikethrough and link to the replacement
-- Do not skip the governance protocol — every code change needs a plan, audit, and ratification
-- Do not self-audit — the Judicial branch must always be an external AI
+- No code copies or secrets in the vault  
+- No deleting notes (deprecate + link replacement)  
+- No inventing live project status — read [[hot]] / [[NOW]]

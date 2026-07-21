@@ -21,9 +21,15 @@ This vault is a **curated static reference**, not an automated intake machine. T
 - `output/` — **Deliverables**: finished audit reports, launch checklists, decision docs — things you'd hand to someone else.
 - **Root notes** — **The knowledge layer**: governance, project references, manifests, decisions, daily logs. Codified, linked, cross-referenced. This is where synthesized knowledge lives now (not a separate `/wiki`).
 - `skills/`, `scratchpad/` — Hermes 3 procedural recipes and scratchpad logs (see section 8).
-- `index.md` — **Master pointer**: catalog of all vault contents, read first before querying.
-- `hot.md` — **Hot cache**: ~500-word recent-context summary, read first for fast boot.
+- `hot.md` — **Hot cache**: ~500-word recent-context summary — **read first**.
+- `NOW.md` — **Weekly scorecard + task board** — **read second** (execution layer).
+- `index.md` — **Master pointer**: catalog of vault contents — read third before deep search.
+- `CLAUDE.md` — **Thin always-on schema**: boot order + write-back rules; not a second status table.
+- `customers/` — **Customer truth**: pilot interviews and objections (not the retired `/crm`).
+- `VAULT_LINT.md` — **Monthly health checklist**: status drift, orphans, stale claims.
 - `log.md` — **Append-only audit trail**: history of every structural change and codification.
+
+**Boot order:** [[hot]] → [[NOW]] → [[index]] → relevant note.
 
 ---
 
@@ -52,7 +58,7 @@ When the user asks you to ingest/codify a source in `raw/`:
 1. Read the source and extract durable concepts, entities, and decisions.
 2. Write or update a cross-linked **root note** with explicit `[[back-links]]` to related notes.
 3. Move the source from `raw/` to `raw/processed/`.
-4. Update `index.md` (catalog), `hot.md` (recent context), and append to `log.md`.
+4. Update `index.md` (catalog), `hot.md` (recent context), `NOW.md` if tasks/metrics changed, and append to `log.md`.
 5. Stage a Git commit (`git commit -m "feat(vault): codify [source-name]"`) for an auditable diff.
 
 Do **not** run this automatically or synthesize a note from every query — codification is a deliberate, requested act. This keeps the vault curated rather than bloated.
@@ -86,4 +92,9 @@ When assuming or delegating tasks, AI agents MUST adopt the appropriate persona 
 
 ---
 
-Related: [[00_AI_AGENT_MANIFEST]], [[OBSIDIAN_PLUGINS_MANIFEST]], [[HERMES_PROCEDURAL_SKILLS]], [[HERMES_SCRATCHPAD_PROTOCOL]], [[index]], [[log]]
+### 9. Execution & lint
+- Weekly focus and human blockers live in [[NOW]] — update when work completes or focus shifts.
+- Customer feedback → `customers/` (see [[customers/_Index]]); experiments → [[business/Experiment Log]].
+- When asked to “lint the vault”, follow [[VAULT_LINT]] and append results to [[log]].
+
+Related: [[00_AI_AGENT_MANIFEST]], [[NOW]], [[VAULT_LINT]], [[OBSIDIAN_PLUGINS_MANIFEST]], [[HERMES_PROCEDURAL_SKILLS]], [[HERMES_SCRATCHPAD_PROTOCOL]], [[index]], [[log]]

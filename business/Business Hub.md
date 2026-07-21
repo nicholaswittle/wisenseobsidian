@@ -20,7 +20,14 @@ Central index for startup strategy, business model refinement, and growth playbo
 ## Ideas & Brainstorm
 
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
+- [[business/Experiment Log]] — hypothesis → result → keep/kill
 - [[business/Lessons from Failed Projects]] — what wisense-os/my_ai taught us (see [[Abandoned Projects — Lessons]])
+
+## Customers & execution
+
+- [[NOW]] — weekly scorecard + this week’s tasks
+- [[customers/_Index]] — pilot/customer truth log
+- [[customers/Jigsys Brewpub]] — Apex pilot account
 
 ## Growth Playbooks
 
@@ -34,4 +41,4 @@ Central index for startup strategy, business model refinement, and growth playbo
 - [[DECISIONS]] — settled business decisions (Stripe deferral, fork reconciliation, etc.)
 - [[WiSense LLC — About Page]] — company info
 
-Related: [[Home]], [[index]], [[00_AI_AGENT_MANIFEST]]
+Related: [[Home]], [[index]], [[00_AI_AGENT_MANIFEST]], [[VAULT_LINT]]
