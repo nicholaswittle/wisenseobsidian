@@ -27,4 +27,8 @@ stage: pilot
 - Keep / kill / pivot: _pending first pilot week_
 - Metric touched: _Shift Swap Resolution Time; Owner Time Saved (target >5 hrs/week)_ — from [[business/WiSense Service as a Software Execution Strategy]]
 
+## Related work
+
+- [[Jigsys Website Concept]] — independent redesign of Jigsy's public site (live at jigsyssite.vercel.app). Concept/portfolio piece for the same business; not the official site.
+
 Related: [[customers/_Index]], [[NOW]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[Apex Security Audit 2026-07-19]]
