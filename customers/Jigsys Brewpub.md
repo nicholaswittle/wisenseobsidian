@@ -29,6 +29,6 @@ stage: pilot
 
 ## Related work
 
-- [[Jigsys Website Concept]] — independent redesign of Jigsy's public site (live at jigsyssite.vercel.app). Concept/portfolio piece for the same business; not the official site.
+- [[Jigsys Website Concept]] — independent redesign of Jigsy's public site (live at https://jigsyssite.vercel.app · GitHub `nicholaswittle/jigsysite`). Passes A–D through 2026-07-22: Board menu, Google trust, What’s good here / FAQ, downstairs = skill games + TV lounge (no live music). Concept/portfolio piece; not the official site. Confirm peanut butter pie still served before client pitch.
 
 Related: [[customers/_Index]], [[NOW]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[Apex Security Audit 2026-07-19]]

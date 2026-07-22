@@ -1,8 +1,9 @@
 ---
 title: Jigsy's Website Concept
-tags: [jigsys, web, concept, portfolio, design, vercel]
+tags: [jigsys, web, concept, portfolio, design, vercel, github]
 aliases: [jigsysite, Jigsy Website, Jigsy's Pizza Site]
 date: 2026-07-22
+updated: 2026-07-22
 stage: concept-deployed
 ---
 
@@ -17,59 +18,113 @@ official Jigsy's site.
 
 | | |
 |---|---|
-| **Source** | `C:\development\projects\jigsys_site\` (single self-contained `index.html` + README) |
-| **Repo** | https://github.com/nicholaswittle/jigsysite |
-| **Live (Vercel)** | https://jigsyssite.vercel.app — deployed under the **wi-sense-llc** Vercel team |
-| **Artifact** | https://claude.ai/code/artifact/85f5d407-0824-480e-863b-dab0d6fedc65 (private) |
+| **Source** | `C:\development\projects\jigsys_site\` |
+| **GitHub** | https://github.com/nicholaswittle/jigsysite |
+| **Live (Vercel)** | https://jigsyssite.vercel.app — team **wi-sense-llc** |
+| **Vercel project** | `jigsys_site` (CLI deploy; not Git-integrated yet) |
 
-Deploy is a **direct Vercel CLI push, not a Git integration** — it does *not*
-auto-redeploy on `git push`. Re-run `vercel --cwd <dir> deploy --prod --yes
---scope wi-sense-llc`, or connect the repo in the Vercel dashboard for
-auto-deploys.
+Redeploy after local changes:
+
+```
+vercel --cwd C:\development\projects\jigsys_site deploy --prod --yes --scope wi-sense-llc
+```
+
+Or: push to GitHub once Git → Vercel is connected (still open).
 
 ## What it is
 
-Single static HTML file, no build step, no dependencies, no external assets
-(Artifact CSP blocks remote fonts/images, so everything is inline).
+Static site — single `index.html` + `images/` + README. No build step, no npm.
 
-- **Identity built on Old Forge style** — rectangular trays cut into squares,
-  red / single-white / double-white, 3/6/12 cuts. The tray-cut grid is the
-  structural system; hero art is a CSS/SVG top-down tray. Deliberately avoids
-  the red-green-white Italian cliché and the AI cream+serif+terracotta default.
-- **Real menu** (transcribed from Jigsy's published **Nov 2025** menu images
-  at `jigsyspizza.com/graphics/`): Old Forge pizza, 11 Specialty, 5 Gourmet,
-  Stromboli & Flatbreads, Wings (5/10/20/30 + all flavors), Starters, Salads,
-  Subs & Platters, soups, drinks, dressings. Prices real; subject to change.
-- **Live Open/Closed status** computed from the real Summer 2026 hours; hours
-  table auto-marks "today."
-- **"Call It In" section** — honest phone-order flow (see decision below).
-- Light/dark themes with toggle; all motion respects `prefers-reduced-motion`;
-  progressive-enhancement safe (visible with JS off).
+- **Identity = Old Forge style** — steel pan trays, square cuts, red / white /
+  double white, ordered **3 / 6 / 12**.
+- **The Board** (menu): tray matrix · specialty/gourmet ledgers · wings spotlight · plate lists · sticky jump nav
+- **Call It In** — phone-order / dine-in only (no cart)
+- Live Open/Closed from Summer 2026 hours
+- Head: title/meta/OG, favicon, `Restaurant` JSON-LD + `aggregateRating` (Google 4.5 · 553)
+- Light/dark theme toggle; reduced-motion safe
 
-## Decisions & feedback applied
+## Session changelog (2026-07-22)
 
-- **No "Build Your Tray" builder.** An earlier version had an interactive
-  tray builder. **Nicholas's call:** Jigsy's is *phone-order and dine-in
-  only* — a builder implies an online cart they don't offer, which misleads.
-  Replaced with a "Call It In" section (three steps + big tap-to-call number +
-  live status). Lesson: match the interaction to how the business actually
-  takes orders.
-- **Hero "hard to load" fixed** — removed the ambient steam canvas, the
-  load-fade that hid the hero until JS ran, and the sticky-bar backdrop blur
-  (mobile compositing cost). Hero now paints instantly.
+### Pass A — foundation
+- HTML5 head, schema, Call as primary CTA
+- Full-bleed photo hero (later replaced by food)
+- Pulled early assets from `jigsyspizza.com/graphics`
 
-## Open gap
+### Menu → The Board
+- Replaced generic cut-cards with tray matrix / ledger / plates so layout matches how Old Forge is ordered
 
-- **Photo-less.** No real food photography (CSP blocked remote images; none
-  supplied). Hero uses CSS/SVG tray art. This is the one thing between
-  "sharp concept" and "looks like the real site" — needs real photos wired in
-  (image slots or data-URI embeds).
+### Social proof (no scraped feeds)
+- **Neighborhood says** — short guest notes + TripAdvisor / Yelp / Google chips
+- **Chick Fil “J”** signature band
+- Visit amenity strip; Locals also order
+- TripAdvisor research: 4.5 · 76 · #3 of 26 Enola · ~78 photos (photo opportunity)
+
+### Pass C — Google pull
+- Google is strongest proof: **4.5 · 553** trust chip + schema rating
+- Sharper voice notes (family / house beer); kept Chick Fil J quote
+- **Peanut Butter Pie** dessert band (confirm still served — praise is older)
+- Locals strip by Google topics: Wings · Stromboli · Antipasto · Pierogi · Double White · Pie · Chick Fil J
+- **No live music** (outdated). Downstairs = **skill games + TV lounge** for sports / parties
+
+### Pass B — food-first (then corrected)
+- Tried Google guest food photos as hero + big photo band
+- Nicholas: tray/wings band shots were weak and too large → removed fat band
+- Hero kept as compressed pizza close-up (`hero_pizza.jpg`)
+- Story uses lounge (`band_lounge.jpg`); exterior backup kept
+
+### Pass D — Owner.com playbook
+Source: [21 Best Pizza Websites](https://www.owner.com/blog/best-pizza-websites)
+
+**Stole:** What’s good here · style education · FAQ · local SEO copy  
+**Skipped:** online cart, loyalty popups, Domino’s-style ordering
+
+Shipped:
+1. **What’s good here** — Chick Fil J · Wings · Peanut Butter Pie (text tiles → deep links)
+2. **Why Old Forge** — tightened explainer (not NY / not Chicago)
+3. **FAQ** — how to order, patio, downstairs, catering
+4. Killed photo band
+5. Amenity strip → 3-col grid; lone mobile item centered
+
+### Niche / portfolio angle
+Website refresh for local restaurants is a possible Fiverr/service niche.
+Pitch: before/after case study (old jigsyspizza.com → this concept),
+*phone-order first, no fake review widgets*. Food photos from owner are the
+real unlock for client handoff.
+
+## Current images (`images/`)
+
+| File | Use |
+|------|-----|
+| `hero_pizza.jpg` | Full-bleed hero (compressed) |
+| `band_lounge.jpg` | Story — downstairs TV / skill games |
+| `band_exterior.jpg` | Backup exterior (not in main flow) |
+| `banner_collage.png` | Backup venue collage |
+| `square-logo-full.png` | Favicon |
+| `img_2956.jpg` | Legacy catering shot (unused in main flow) |
+
+**Handoff rule:** Google guest photos are for concept demo only — replace with
+owner originals before any client delivery.
+
+## Review platform facts (research)
+
+| Platform | Rating | Count | Emily mentions |
+|----------|--------|-------|----------------|
+| Google | 4.5 | 553 | None |
+| TripAdvisor | 4.5 | 76 | None |
+| Yelp | 4.0 | ~107 | None |
+
+## Open gaps
+
+- Owner-approved tray / wings / pie / patio photos
+- Confirm peanut butter pie still on menu
+- Identity break (cream/terracotta/Georgia still AI-default-adjacent)
+- Theme persist (`localStorage`)
+- **Connect GitHub → Vercel** so `git push` redeploys
+- Custom domain later if they adopt the concept
 
 ## Why it matters
 
-Doubles as a **portfolio / service-line proof**: a real, deployed restaurant
-site for a business Nicholas already has a relationship with. Relevant to the
-web-design / Fiverr gig direction explored earlier. Also a reusable practice
-template for the "revamp a small-business site" play.
+Portfolio / service-line proof: a real deployed restaurant refresh for a
+business Nicholas already knows. Practice template for “revamp a small-business site.”
 
 Related: [[Jigsys Brewpub]], [[Apex Scheduler]], [[NOW]], [[index]]

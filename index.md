@@ -65,7 +65,7 @@ aliases: [index.md, Vault Catalog]
 - ~~**WiSense OS Engine**: `C:\development\projects\wisense-os`~~ — **DELETED 2026-07-19**, do not treat as live. See [[Abandoned Projects — Lessons]] and [[00_AI_AGENT_MANIFEST]].
 - **COMMS LINK**: `C:\development\projects\wisense_decompression` (Flutter · On-Device Gemma 2B-IT · 59/59 tests pass)
 - **Apex Scheduler**: `C:\development\projects\apex\apex` (Flutter · Supabase · FCM — Sentry removed 2026-07-21)
-- **Jigsy's Website Concept**: `C:\development\projects\jigsys_site` (static HTML · GitHub `jigsysite` · live at jigsyssite.vercel.app) — see [[Jigsys Website Concept]]
+- **Jigsy's Website Concept**: `C:\development\projects\jigsys_site` (static HTML + images · GitHub `jigsysite` · live https://jigsyssite.vercel.app · Passes A–D 2026-07-22) — see [[Jigsys Website Concept]]
 - **New Horizon**: `C:\development\projects\wisense_new_horizon` (Flutter · ToolRegistry · Duffel Proxy · 117/117 tests pass)
 - **Shared Packages**: `C:\development\packages\` (`wisense_core`, `wisense_ui`)
 
