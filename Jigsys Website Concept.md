@@ -127,4 +127,10 @@ owner originals before any client delivery.
 Portfolio / service-line proof: a real deployed restaurant refresh for a
 business Nicholas already knows. Practice template for “revamp a small-business site.”
 
+**Productized (2026-07-22):** this niche is now a live service on
+[wisensellc.com](https://wisensellc.com) — a **$1,499 72-Hour Web Redesign
+Sprint** plus a filterable Work showcase and an **anonymized** before/after
+(the pizzeria concept, *no Jigsy's branding*, to protect the pilot
+relationship). See [[log]] 2026-07-22.
+
 Related: [[Jigsys Brewpub]], [[Apex Scheduler]], [[NOW]], [[index]]
