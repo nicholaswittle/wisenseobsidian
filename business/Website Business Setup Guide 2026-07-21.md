@@ -144,10 +144,28 @@ Short, real, gives people exactly what they need to contact you.
 
 Total setup time: ~40 minutes (minus Vercel deploy + domain)
 
-## Hosting = Recurring Revenue (For Future Clients)
+## Hosting = Recurring Revenue ($79/mo model)
 
-- Vercel hosting: free for small sites
-- Charge clients $25-50/mo for "hosting and maintenance"
-- Pure profit — hosting costs nothing
-- 10 clients = $250-500/mo recurring
-- Updates (menu changes, photos, prices): $25-50 per update or 2/month in maintenance fee
+- Vercel Pro ($20/mo) required for commercial hosting — free Hobby plan is non-commercial per ToS
+- Pro hosts many client sites/domains under one account, cost stays ~$20 flat
+- Charge client $79/mo for "hosting + maintenance + content updates"
+- 10 clients = $790/mo revenue on ~$20 cost = near-pure margin
+- Cap maintenance: "up to 2 updates/month, 2 business day response"
+- Updates beyond cap: $25-50 per update
+
+## Operational Must-Dos
+
+1. **Vercel Pro** — upgrade before hosting first paying client ($20/mo)
+2. **Never touch MX records** — only change A/CNAME to Vercel. Breaking client email = losing client.
+3. **Code-ownership clause in writing** — "WiSense owns the build; monthly licenses use + hosting + maintenance."
+4. **Cap maintenance scope** — "up to 2 updates/month, 2 business day response" or it becomes unbounded free support.
+
+## Pricing
+
+**$299 setup + $79/month — single plan, no tiers**
+
+- Client keeps their domain (their name, SEO, email)
+- WiSense builds the site and hosts on WiSense's Vercel
+- WiSense owns the code; monthly fee licenses use + hosting + upkeep
+- Buyout option: client leaves → one-time fee, hand over repo
+- Introduce Essentials ($49) / Plus ($99) tiers later once there's a client base

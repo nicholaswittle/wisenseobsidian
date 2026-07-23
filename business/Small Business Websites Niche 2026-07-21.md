@@ -33,16 +33,35 @@ These businesses need a clean, fast, mobile-friendly website. They don't need a 
 - Optional: photo gallery
 - Optional: online ordering / cart (like Jigsy's)
 
-## Pricing
+## Pricing — Recurring Model (Claude's proposal 2026-07-23)
 
-**One-time build:**
-- Simple 1-3 page site: $500-800
-- Full 5-page site with menu/gallery: $800-1,200
-- E-commerce (menu ordering, cart): $1,200-2,000
+**$299 setup + $79/month — single plan, no tiers**
 
-**Monthly hosting + maintenance:** $25-50/mo (pure profit — hosting is free on Vercel/Netlify)
+- Setup: covers build labor without $1,499 sticker shock
+- $79/mo: hosting + maintenance + content updates (menus, specials, hours, events)
+- One plan = less decision friction for a beginner seller and buyer
+- Buyout option: client leaves and wants the code → one-time fee, hand over repo. Clean exit.
+- Introduce Essentials ($49) / Plus ($99) tiers later once there's a client base
 
-**Jigsy's reference point:** The React app built for Jigsy's (menu, cart, catering, custom UI) is worth $1,500-2,000 if charged for. Do not undersell.
+**Ownership model:**
+- Client keeps their domain (their name, SEO, email — the assets that matter to them)
+- WiSense builds the site and hosts on WiSense's Vercel
+- WiSense owns the code; monthly fee licenses use + hosting + upkeep
+- This is what makes the recurring model defensible
+
+**Why recurring beats one-time:**
+- Lower barrier than $800-1,500 upfront
+- Predictable MRR vs feast/famine
+- Restaurant niche fits — menus change constantly, "we keep it updated" is real value
+- Site lives on WiSense infra = low casual churn
+- $79/mo × 3 years = $2,844 per client vs one $800 check
+
+**Economics:**
+- Vercel Pro ($20/mo) required — free Hobby plan is non-commercial per ToS
+- Pro hosts many client sites/domains under one account, so hosting cost stays ~$20 flat
+- 10 clients = ~$790/mo revenue on ~$20 cost = near-pure margin
+
+**Jigsy's reference point:** Built as a gift/portfolio piece. Live at jigsyssite.vercel.app. NOT a paying client. Use as demo for cold pitches.
 
 ## How to Build Fast (2-4 hours per site)
 
@@ -102,18 +121,20 @@ At $800 per site and 2-4 hours build time, that's $200-400/hour.
 - Recurring revenue through hosting/maintenance retainers
 - Can scale to 20-30 clients without hiring anyone
 
-## Revenue Projection
+## Revenue Projection (Recurring Model: $299 setup + $79/mo)
 
-| Clients | One-time revenue | Monthly recurring (hosting) |
-|---|---|---|
-| 1 | $800 | $25-50 |
-| 5 | $4,000 | $125-250 |
-| 10 | $8,000 | $250-500 |
-| 20 | $16,000 | $500-1,000 |
+| Clients | Setup revenue (one-time) | Monthly recurring | Annual recurring |
+|---|---|---|---|
+| 1 | $299 | $79/mo | $948/yr |
+| 5 | $1,495 | $395/mo | $4,740/yr |
+| 10 | $2,990 | $790/mo | $9,480/yr |
+| 20 | $5,980 | $1,580/mo | $18,960/yr |
 
-First 3 months: 2-5 clients = $1,600-4,000 one-time + $50-250/mo recurring
-6 months: 10 clients = $8,000 one-time + $250-500/mo recurring
-12 months: 20 clients = $16,000 one-time + $500-1,000/mo recurring
+Cost: $20/mo Vercel Pro (flat, hosts all clients). Everything else is margin.
+
+First 3 months: 2-5 clients = $598-1,495 setup + $158-395/mo recurring
+6 months: 10 clients = $2,990 setup + $790/mo recurring
+12 months: 20 clients = $5,980 setup + $1,580/mo recurring
 
 ## Next Steps
 

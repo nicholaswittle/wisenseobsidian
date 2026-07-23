@@ -38,13 +38,27 @@ Target: ONE client. Not 10. Not 20. One person paying $300.
 3. Jigsy's social media post — when owner posts, first inquiry comes in
 4. Post in 1-2 local business Facebook groups
 
-### Pricing for the first client
+### Pricing — Recurring Model (Claude's proposal, adopted)
 
-- Option A: $300 one-time for a 3-page site (covers 1 month)
-- Option B: $300/month retainer — website + hosting + maintenance + review responses (covers every month, recurring)
-- Option C: $800 one-time for full site (covers 2.5 months)
+**$299 setup + $79/month — single plan, no tiers**
 
-Recommend Option B once you have the first client. One-time gets you the first $300. Retainer keeps it coming.
+- Client keeps their domain. WiSense builds + hosts on Vercel.
+- $79/mo covers hosting + maintenance + content updates (menus, hours, specials)
+- WiSense owns the code; monthly fee licenses use + hosting + upkeep
+- Buyout option: client leaves → one-time fee, hand over repo
+
+### Operational must-dos (from Claude's note)
+
+1. **Vercel Pro ($20/mo) required** — free Hobby plan is non-commercial per ToS. First client's $79/mo covers this.
+2. **Never touch MX records** — only change A/CNAME to Vercel. Breaking client email = losing the client.
+3. **Code-ownership clause in writing** — "WiSense owns the build; monthly licenses use + hosting + maintenance."
+4. **Cap maintenance scope** — e.g. "up to 2 updates/month, 2 business day response" or it becomes unbounded free support.
+
+### $300/month target with this model
+
+- 4 clients at $79/mo = $316/mo → target hit
+- First client setup ($299) + first month ($79) = $378 → costs covered + ahead month 1
+- Vercel Pro ($20/mo) = only cost
 
 ## What Not to Do
 
@@ -53,7 +67,7 @@ Recommend Option B once you have the first client. One-time gets you the first $
 - Don't run Facebook ads
 - Don't cold call
 - Don't try to get 10 clients at once
-- Don't overthink pricing tiers
+- Don't overthink pricing tiers — one plan, $299 + $79/mo
 
 ## Milestone
 
