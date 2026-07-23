@@ -10,6 +10,9 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+## 2026-07-23
+- **[WISENSELLC.COM — pulled the web-redesign price]**: Removed the **$1,499** from the 72-Hour Web Redesign Sprint card — too high to anchor for a new business (Nicholas's call). Now reads "Free quote" with a **Get a Free Quote** CTA → quote-per-client funnel. Built, deployed prod (`vercel --prod`), pushed `main` `20e39fd`. Live verified. [[Jigsys Website Concept]].
+
 ## 2026-07-22
 - **[WISENSELLC.COM — repositioned full-service; web-redesign service line LIVE]**: Updated the company marketing site (Next.js, `C:\development\projects\wisense_horizon_v2\marketing`, Vercel project **wisense-horizon-v2** → wisensellc.com). Hero → "Custom Apps, SaaS & High-Converting Website Redesigns" + dual CTAs; new **filterable Work showcase** (All / Apps & SaaS / Website Redesigns); **before/after case study** — anonymized "local Old Forge pizzeria" concept, clearly labeled spec work, **no Jigsy's branding** (deliberate — protects the pilot relationship); **$1,499 72-Hour Web Redesign Sprint** + custom-SaaS quote. Deployed **live** via `vercel deploy --prod --scope wi-sense-llc` (preview-approved first). Turns the Jigsy niche angle into a real productized offering. Branch `feat/full-service-agency`.
   - **Fixed 2 pre-existing blockers:** (1) broken import in `api/providers/viator/route.js` (`../../../lib` → needed `../../../../lib`; on `main` too, commit 171f2fb) that made `next build` fail entirely; (2) Vercel project Output Directory pinned to `build/web` (Flutter leftover) — overrode with `outputDirectory: ".next"` in `marketing/vercel.json` instead of touching dashboard.
