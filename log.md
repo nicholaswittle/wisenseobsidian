@@ -11,6 +11,7 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 ---
 
 ## 2026-07-23
+- **[PROPOSAL — web-redesign → recurring model]**: Filed [[business/Web Redesign — Recurring Model Proposal 2026-07-23]] for a second opinion (other AI / advisor). Shape: **client keeps domain, WiSense hosts on its Vercel**, monthly = hosting + maintenance + updates. Recommended **$299 setup + $79/mo single plan** (tiers later), buyout option for clean exit. Rationale: lower barrier than one-time, MRR/predictability, fits restaurant content-churn, retention. Must-dos: **Vercel Pro** (Hobby = non-commercial ToS), **protect MX on DNS change**, code-ownership clause, cap "maintenance" scope. Not yet built on the site — awaiting confirmed numbers.
 - **[WISENSELLC.COM — pulled the web-redesign price]**: Removed the **$1,499** from the 72-Hour Web Redesign Sprint card — too high to anchor for a new business (Nicholas's call). Now reads "Free quote" with a **Get a Free Quote** CTA → quote-per-client funnel. Built, deployed prod (`vercel --prod`), pushed `main` `20e39fd`. Live verified. [[Jigsys Website Concept]].
 
 ## 2026-07-22
