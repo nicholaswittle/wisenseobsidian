@@ -26,6 +26,7 @@ Central index for startup strategy, business model refinement, and growth playbo
 - [[business/AI Side Hustles Remote Only 2026-07-21]] — 6 remote-only AI side hustles for a full-time-parent schedule (Fiverr, Etsy, YouTube, newsletter, affiliate blog, ReviewGuard)
 - [[business/Small Business Websites Niche 2026-07-21]] — **⚡ active play**: AI-built websites for small businesses. $500-1,500 per site. Jigsy's = live portfolio at jigsyssite.vercel.app
 - [[business/Website Business Setup Guide 2026-07-21]] — setup guide: business email, intake form, Vercel deploy, domain pointing, client workflow
+- [[business/Realistic Revenue Target 2026-07-21]] — **⚡ current goal**: $300/month to cover costs. One client. Build up from there.
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
 - [[business/Experiment Log]] — hypothesis -> result -> keep/kill
 - [[business/Lessons from Failed Projects]] — what wisense-os/my_ai taught us (see [[Abandoned Projects — Lessons]])
