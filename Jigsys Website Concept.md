@@ -113,6 +113,16 @@ owner originals before any client delivery.
 | TripAdvisor | 4.5 | 76 | None |
 | Yelp | 4.0 | ~107 | None |
 
+## Online-ordering pitch (2026-07-23)
+
+Separate deliverable: a research-backed **client PDF** arguing Jigsy's should add
+**online ordering** (owned, not marketplace) — competitive gap, cited uplift
+stats, and the owned-vs-marketplace **margin math** (~50% more margin/order).
+`jigsys_site/docs/Jigsys_Online_Ordering_Analysis.pdf`. Full record + reusable
+model: [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]].
+**Do a manual review pass before sending** (scraping was blocked, pain-points
+page is thin).
+
 ## Open gaps
 
 - Owner-approved tray / wings / pie / patio photos

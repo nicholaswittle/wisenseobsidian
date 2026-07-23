@@ -58,7 +58,8 @@ aliases: [index.md, Vault Catalog]
 - [[business/2026 Commercial B2B Software Ideas]] — 10 High-ARR B2B SaaS 2.0 software companies & speed-to-revenue roadmap
 - [[business/Young Zhao - 2026 AI Startup Playbook]] — $215M OpusClip CEO Playbook (Service as a Software, SaaS 2.0, Niche Selection, Retention)
 - [[business/WiSense Service as a Software Execution Strategy]] — 30-Day commercial execution roadmap for Apex, COMMS LINK, and New Horizon
-- [[business/Web Redesign — Recurring Model Proposal 2026-07-23]] — **for review**: switch web-redesign service to recurring (client keeps domain, WiSense hosts) — $299 setup + $79/mo proposed
+- [[business/Web Redesign — Recurring Model Proposal 2026-07-23]] — **ADOPTED/live**: recurring web-redesign care plan ($79/mo + $299 setup, client keeps domain, WiSense hosts)
+- [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]] — cited research + margin model + client PDF for pitching online ordering (Jigsy's flagship; reusable)
 
 ---
 
