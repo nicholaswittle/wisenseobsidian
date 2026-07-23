@@ -146,4 +146,4 @@ a second-opinion check. Plus a filterable Work showcase and an **anonymized**
 before/after (the pizzeria concept, *no Jigsy's branding*, to protect the pilot
 relationship). Model rationale: [[business/Web Redesign — Recurring Model Proposal 2026-07-23]].
 
-Related: [[Jigsys Brewpub]], [[Apex Scheduler]], [[NOW]], [[index]]
+Related: [[Jigsys Brewpub]], [[Apex Scheduler]], [[business/Jigsys Website & Direct Ordering Master Plan]], [[business/WiSense Operational Partner Plan — Jigsy's]], [[NOW]], [[index]]

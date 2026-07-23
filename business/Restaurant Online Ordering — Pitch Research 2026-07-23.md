@@ -15,7 +15,7 @@ the web-redesign / online-ordering service line).
 
 ## Deliverable
 
-- **PDF:** `C:\development\projects\jigsys_site\docs\Jigsys_Online_Ordering_Analysis.pdf`
+- **PDF:** `C:\Users\nikwi\Notes\business\Jigsys_Online_Ordering_Analysis.pdf` (and `C:\development\projects\jigsys_site\docs\Jigsys_Online_Ordering_Analysis.pdf`)
   (5 pages, fully sourced). Build script + renders in scratchpad.
 - Structure: Exec summary → Jigsy's Today → Competitive landscape → Opportunity
   (stats) → Case studies → **Margin math** → Pain points → How WiSense delivers
