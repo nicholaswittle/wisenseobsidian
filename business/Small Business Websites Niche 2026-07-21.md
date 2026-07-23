@@ -10,7 +10,7 @@ status: active
 
 > Discovered 2026-07-21. Nicholas built Jigsy's Brewpub a full React app (menu, cart, catering forms, custom UI). Wife showed the owner — she liked it. This is a sellable skill. Jigsy's is a test bed / portfolio piece, NOT a paying client.
 
-Related: [[business/AI Side Hustles Remote Only 2026-07-21]], [[business/Easy AI Money Plays 2026-07-21]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[Jigsys Brewpub]], [[NOW]]
+Related: [[business/AI Side Hustles Remote Only 2026-07-21]], [[business/Easy AI Money Plays 2026-07-21]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[customers/Jigsys Brewpub]], [[Jigsys Website Concept]], [[business/Website Business Setup Guide 2026-07-21]], [[NOW]]
 
 ---
 

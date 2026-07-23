@@ -21,7 +21,11 @@ Central index for startup strategy, business model refinement, and growth playbo
 
 - [[business/Plan of Attack — Build While Mac-Blocked 2026-07-20]] — **⚡ current plan**: Apex ships web NOW (no Mac needed); web-first, Stripe-sold; Compliance Checker as the wedge
 - [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]] — **researched B2B revenue plays** ranked by time-to-first-dollar (Tier 0 services fund Tier 1 Apex-first products)
-- [[business/2026 Commercial B2B Software Ideas]] — 10 High-ARR B2B software products built on the "Service as a Software" (SaaS 2.0) paradigm using the WiSense tech stack
+- [[business/2026 Commercial B2B Software Ideas]] — 10 High-ARR B2B software products built on the "Service as the Software" (SaaS 2.0) paradigm using the WiSense tech stack
+- [[business/Easy AI Money Plays 2026-07-21]] — 7 fast-cash AI plays with detailed execution plans (content repurposing, Google Profile, resumes, ReviewGuard, call summary, menu digitization, local SEO)
+- [[business/AI Side Hustles Remote Only 2026-07-21]] — 6 remote-only AI side hustles for a full-time-parent schedule (Fiverr, Etsy, YouTube, newsletter, affiliate blog, ReviewGuard)
+- [[business/Small Business Websites Niche 2026-07-21]] — **⚡ active play**: AI-built websites for small businesses. $500-1,500 per site. Jigsy's = live portfolio at jigsyssite.vercel.app
+- [[business/Website Business Setup Guide 2026-07-21]] — setup guide: business email, intake form, Vercel deploy, domain pointing, client workflow
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
 - [[business/Experiment Log]] — hypothesis -> result -> keep/kill
 - [[business/Lessons from Failed Projects]] — what wisense-os/my_ai taught us (see [[Abandoned Projects — Lessons]])

@@ -2,7 +2,7 @@
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
 aliases: [NOW, Weekly Scorecard, This Week]
-updated: 2026-07-20
+updated: 2026-07-21
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -39,6 +39,14 @@ updated: 2026-07-20
 4. [ ] Create Android upload keystores (commands in Gate C note)
 5. [ ] **Apex iOS bundle ID changed** → add `com.nicholaswittle.apex://` to Supabase allowed redirect URLs, or iOS login will not return to the app ([[DECISIONS]] 2026-07-21)
 6. [ ] QA branch `feat/apex-plan-2026-07-21` on the iPhone (`flutter clean && pub get`, `pod install`, re-select signing team) — then decide whether to push/merge. See [[Apex — Feature Plan Implementation 2026-07-21]]
+
+### Side income — revenue plays (2026-07-21)
+
+7. [ ] Fiverr: 2 gigs live (military resumes + website building) — add gig images from jigsyssite.vercel.app screenshots
+8. [ ] Jigsy's website: owner has the live URL (jigsyssite.vercel.app), waiting for her response. If approved → point domain, ask for social media post mentioning nicholaswittle@wisensellc.com
+9. [ ] Set up intake form (Google Forms) + auto-reply on nicholaswittle@wisensellc.com for website inquiries — see [[business/Website Business Setup Guide 2026-07-21]]
+10. [ ] Post in 3-5 veteran Facebook groups about resume service (free, zero-cost client acquisition)
+11. [ ] Next off-weekend: build a cold demo for a real business with a bad website → send live link as pitch
 
 ### Agent-ready (when asked)
 
