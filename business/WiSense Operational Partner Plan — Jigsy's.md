@@ -24,6 +24,17 @@ flowchart LR
 
 ---
 
+## 🤝 Commercial Structure: Option 1 + Option 3 Combined Model
+
+To protect family harmony at your spouse's workplace while creating a sustainable revenue stream for WiSense:
+
+1. **Free Core Website (100% Free):** Marketing site, menu, hours, and branding delivered free as agreed.
+2. **Direct Web Ordering ($0 Upfront Setup):** Web cart, thermal printer tickets, and staff portal installed at $0 out-of-pocket to the owner.
+3. **$0.99 Per-Order Convenience Fee:** Added at checkout (paid by customer or absorbed from DoorDash commission savings), generating **~$600/month in passive income** to WiSense LLC.
+4. **Flagship Marketing Rights:** Footer credit, social media post, and anonymized performance data used to land other paying restaurant clients ($1,500 + $149/mo).
+
+---
+
 ## 📋 The 4-Phase Operational Execution Plan
 
 ### Phase 1: Zero-Disruption Hardware & Ticket Printing

@@ -22,6 +22,30 @@ flowchart TD
 
 ---
 
+## 🤝 Commercial & Business Model: The Combined Option 1 + Option 3 Strategy
+
+> **The Flagship Performance Partner Model:** Combines a **100% Free Core Website** with a **$0 Upfront Online Ordering Engine** monetized via a **$0.99 Convenience Fee per Order**, in exchange for **Flagship Co-Marketing Rights & Case Study Data**.
+
+```mermaid
+flowchart TD
+    A["1. Core Website & Menu: 100% FREE Forever"] --> B["2. Direct Online Ordering: $0 Upfront Setup"]
+    B --> C["3. Revenue Engine: $0.99 Convenience Fee per Order"]
+    B --> D["4. Flagship Marketing: Footer Credit + Social Shoutout + Case Study Data"]
+    C --> E["💰 $300 - $800/mo Passive Income for WiSense"]
+    D --> F["🚀 Live Proof Asset to Land $1,500+ Paying Clients"]
+```
+
+### The 4 Pillars of the Combined Agreement:
+1. **Core Website = 100% Free (Promise Kept):** Single-page marketing site ([jigsyssite.vercel.app](https://jigsyssite.vercel.app)) with mobile menu, hours, story, and call-in CTAs is delivered 100% free as promised. Zero workplace awkwardness for spouse.
+2. **Direct Online Ordering = $0 Upfront to Jigsy's:** Web cart, kitchen topping rules, thermal printer ticket format, and staff portal built for $0 upfront cost to owner.
+3. **Passive Income via $0.99 Per-Order Fee:** A $0.99 convenience fee is added at checkout (paid by customer or absorbed from 25% DoorDash commission savings). At 20 orders/day, generates **~$600/month in passive income** to WiSense LLC without invoicing the restaurant.
+4. **Flagship Co-Marketing & Case Study Rights:** In exchange for the $0 upfront build, Jigsy's provides:
+   - Discreet footer credit: *"Powered by WiSense Direct Ordering"* linking to `wisensellc.com`.
+   - Social media launch announcement on Jigsy's Facebook & Instagram pages.
+   - Anonymized volume metrics (*"Processed $15,000 in direct takeout orders in Month 1 with 0 phone errors"*) to pitch other pizzerias & restaurants.
+
+---
+
 ## 🛠️ Phase 1: Core Website UX & Technical Polish (Codebase Baseline)
 
 - **Fix Anchor Scroll Offset:** Added `scroll-margin-top: 5.5rem` across all section IDs (`#board`, `#order`, `#voice`, `#story`, `#faq`, `#visit`). Nav link clicks no longer cover section headings.
