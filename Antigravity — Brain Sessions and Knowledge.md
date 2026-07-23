@@ -49,3 +49,43 @@ Antigravity has its own global agent rules:
 `~/.gemini/config/plugins/` — android-cli, chrome-devtools, firebase, flutter, google-antigravity-sdk, googlecloudtools, modern-web-guidance, science.
 
 Related: [[WiSense Governance — Rules and Protocols]], [[Master Status]], [[Audit Findings Loop]]
+
+---
+
+## Audit Chain Replacement (2026-07-21)
+
+Gemini CLI free tier died ~July 2026 (`IneligibleTierError: This client is no longer supported for Gemini Code Assist for individuals`). The CLI is still installed (`@google/gemini-cli@0.50.0`) and the Google account (`nicholaswittle@gmail.com`) is still configured, but it can't authenticate.
+
+**Antigravity (agy) is the replacement.** Same Google account, same OAuth, different client.
+
+### How to run agy for headless audits
+
+```bash
+# From within the workspace directory (so agy can read files)
+cd /path/to/project
+/c/Users/nikwi/AppData/Local/agy/bin/agy.exe \
+  --dangerously-skip-permissions \
+  --model gemini-2.5-flash \
+  --print-timeout 240s \
+  -p "Your audit prompt here. Tell agy to read a specific file in the workspace."
+```
+
+Key flags:
+- `--dangerously-skip-permissions` — auto-approve all tool calls (required for headless mode)
+- `--model gemini-2.5-flash` — same model as Gemini CLI, free tier via Antigravity
+- `--print-timeout 240s` — extend timeout for long prompts (default 5m)
+- `-p` — non-interactive print mode (headless)
+
+### Limitations
+
+- Argument list too long for large diffs passed inline. Solution: have agy read the diff from a file in the workspace (`-p "Read audit_diff_temp.txt and audit it..."`), then delete the temp file after.
+- No `--yolo` flag (use `--dangerously-skip-permissions` instead).
+- `--yolo` and `--approval-mode` are mutually exclusive — use one or the other.
+
+### Audit chain status
+
+1. Antigravity (agy) with gemini-2.5-flash — WORKING (primary)
+2. Groq (llama-3.3-70b-versatile) — no API key configured yet (fallback)
+3. OpenRouter (openrouter/auto) — no API key configured yet (fallback)
+
+To configure fallbacks: set `GROQ_API_KEY` and `OPENROUTER_API_KEY` environment variables.
