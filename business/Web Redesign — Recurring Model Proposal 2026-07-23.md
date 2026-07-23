@@ -2,16 +2,17 @@
 title: Web Redesign — Recurring Model Proposal
 tags: [business, pricing, web, recurring, mrr, proposal, for-review]
 date: 2026-07-23
-status: proposed · for second opinion
+status: ADOPTED · live on site 2026-07-23
 ---
 
 # Web Redesign — Recurring Model Proposal (2026-07-23)
 
-> **Status: proposal, not yet decided.** Written so another AI / advisor can
-> critique it cold. Nothing on [wisensellc.com](https://wisensellc.com) has
-> been changed to recurring yet — the site currently shows a "72-Hour Web
-> Redesign Sprint · **Free quote**" (the $1,499 one-time price was pulled
-> 2026-07-23 as too high to anchor for a new business).
+> **✅ ADOPTED (2026-07-23).** Second opinion confirmed the pay model. **Live on
+> [wisensellc.com](https://wisensellc.com)** as the "Website, Handled" care plan:
+> **$79/mo + $299 one-time setup**, client keeps their domain, WiSense hosts on
+> Vercel + maintains, cancel anytime. (Superseded the "72-Hour Sprint · Free
+> quote" card; the $1,499 one-time was pulled the same day.) Commit `dcce76e`.
+> The proposal detail below is retained as the rationale of record.
 
 ## The question
 

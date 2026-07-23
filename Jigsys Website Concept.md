@@ -127,12 +127,13 @@ owner originals before any client delivery.
 Portfolio / service-line proof: a real deployed restaurant refresh for a
 business Nicholas already knows. Practice template for “revamp a small-business site.”
 
-**Productized (2026-07-22):** this niche is now a live service on
-[wisensellc.com](https://wisensellc.com) — a **72-Hour Web Redesign Sprint**
-(quote-based; the $1,499 price was pulled 2026-07-23 — too high to anchor for a
-new business, moved to a "Free quote" funnel) plus a filterable Work showcase
-and an **anonymized** before/after
-(the pizzeria concept, *no Jigsy's branding*, to protect the pilot
-relationship). See [[log]] 2026-07-22.
+**Productized (2026-07-22 → recurring 2026-07-23):** this niche is now a live
+service on [wisensellc.com](https://wisensellc.com) — the **"Website, Handled"
+care plan ($79/mo + $299 setup**, client keeps domain, WiSense hosts +
+maintains). Pricing evolved fast: launched as a $1,499 one-time sprint →
+pulled the price (too high to anchor) → moved to the recurring care plan after
+a second-opinion check. Plus a filterable Work showcase and an **anonymized**
+before/after (the pizzeria concept, *no Jigsy's branding*, to protect the pilot
+relationship). Model rationale: [[business/Web Redesign — Recurring Model Proposal 2026-07-23]].
 
 Related: [[Jigsys Brewpub]], [[Apex Scheduler]], [[NOW]], [[index]]
