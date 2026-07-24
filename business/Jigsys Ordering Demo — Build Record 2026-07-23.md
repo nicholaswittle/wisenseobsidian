@@ -10,9 +10,10 @@ status: demo-deployed
 
 ## Outcome
 
-A separate, non-transactional clone of the Jigsy's website was built so new
-ordering features can be demonstrated without changing the original concept
-site or repository.
+A separate clone of the Jigsy's website was built so ordering features can be
+demonstrated without changing the original concept site or repository. It now
+includes a verified Square Sandbox delayed-capture checkout using fake cards
+and fake money only.
 
 | Resource | Location |
 |---|---|
@@ -25,6 +26,13 @@ site or repository.
 The new repository is public. The local demo checkout tracks
 `jigsysiteworking/main`; the original repository remains fetch-only with its
 push URL disabled in the demo workspace.
+
+> [!NOTE]
+> The original local-storage/pay-at-pickup demo described below has since been
+> upgraded to shared hosted orders, protected staff access, and optional Square
+> Sandbox checkout. See
+> [[Jigsys Square Sandbox Checkout — Completion Note 2026-07-24]] for the
+> verified current state.
 
 ## What was built
 
