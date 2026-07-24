@@ -18,6 +18,30 @@ stage: interested-demo-built
 
 ## Interviews / feedback
 
+### 2026-07-24 — owner presentation and hardware confirmation
+
+- Nicholas presented the owner deck and live customer/staff ordering demo in
+  person to two of the three ownership stakeholders.
+- Both owners appeared positive and are waiting for their son, the remaining
+  stakeholder, to review it.
+- The owners described online ordering as a local competitive gap and were
+  especially receptive to the ability to pause ordering during a rush.
+- They were comfortable using the existing iPad for a staff Home Screen web
+  app and with accepted orders printing as ordinary kitchen tickets.
+- The proposed 99-cent accepted-order fee was explained. They asked whether
+  online-order fees are normal but did not reject the proposal; exact approval
+  and wording remain pending.
+- On-site photos confirm an iPad running Square POS in a Square Stand. Square
+  showed both the Stand and Printer connected.
+- The printer is a Star Micronics **TSP100 futurePRNT-series** thermal printer.
+  The exact TSP143 variant and connection type still require a label/photo and
+  Square printer-settings check.
+- Overall feasibility remains positive. Push notifications are compatible
+  with an installed iPad web app, but automatic printing of an unpaid pickup
+  order through Square must be proven with the actual merchant setup.
+- No new printer purchase is recommended until that live validation is
+  complete.
+
 ### 2026-07-23 — website and online-ordering interest
 
 - Emily showed the owner the website concept; the owner liked it.
@@ -37,8 +61,9 @@ stage: interested-demo-built
   ordering during a slower period.
 - A revised five-page owner leave-behind and private planning pack are stored
   in `output/` and match the pay-at-pickup / 99-cent accepted-order model.
-- Current signal: **interest**, not approval. No formal pilot commitment,
-  printer decision, staff device, or production data connection exists yet.
+- Superseded by the 2026-07-24 meeting: two ownership stakeholders now show a
+  positive signal, but no formal pilot commitment or production connection
+  exists yet.
 
 ### 2026-07-20 — placeholder
 

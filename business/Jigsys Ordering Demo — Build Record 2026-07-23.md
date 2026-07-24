@@ -142,28 +142,118 @@ been identified and tested.
 
 ## Owner relationship status
 
-- Emily showed the owner the concept website; the owner liked it.
-- Nicholas later discussed it with the owner while helping at Jigsy's.
-- The owner said she liked the website.
-- The site visually suggested online ordering, which opened the conversation.
-- Nicholas explained that ordering was not live but could be added and planted
-  the idea.
-- Current state: interested, but no formal ordering-pilot approval yet.
+- Emily first showed the concept website to an owner, who liked it.
+- On 2026-07-24 Nicholas presented the owner deck and live customer/staff demo
+  in person to **two of the three ownership stakeholders**.
+- Both owners appeared positive. They are waiting for their son, the remaining
+  stakeholder, to review it before making a group decision.
+- The owners described online ordering as a competitive gap: in their view,
+  Jigsy's is the only restaurant in the immediate area without it.
+- The **pause online ordering** control was a particularly strong feature for
+  them because it lets staff turn ordering off during a rush and keep using the
+  site as a normal restaurant website.
+- They were comfortable with the staff console being a Home Screen web app on
+  their existing iPad and with accepted orders printing as ordinary kitchen
+  tickets.
+- Nicholas explained the proposed **$0.99 per accepted online order** model.
+  They asked whether online-order fees are normal but did not reject the fee.
+  Exact approval and customer-facing wording are still pending.
+- Current state: **two-owner positive signal; final stakeholder review and
+  formal pilot approval still pending**.
+
+## 2026-07-24 hardware evidence
+
+Two on-site photographs confirmed:
+
+- The checkout device is an **iPad running Square Point of Sale in a Square
+  Stand**.
+- Square's device bar showed both **Stand** and **Printer** connected.
+- The existing printer is a **Star Micronics TSP100 futurePRNT-series direct
+  thermal printer**.
+- The front branding identifies the printer family but not the exact model or
+  connection type. TSP100 variants can use USB, Ethernet, Wi-Fi, or Bluetooth.
+
+The original photographs remain local and were not added to the public vault
+repository.
+
+### Evidence still needed
+
+1. Photograph the printer's model label underneath or behind it without
+   unplugging it.
+2. Photograph Square's **More → Settings → Hardware → Printers** screen,
+   including the connection and printer profile.
+3. Check **Settings → General → About** for the iPad model and iPadOS version;
+   do not record or publish the serial number.
+
+## Feasibility after owner meeting
+
+**Overall assessment: feasible, with one unresolved integration risk.**
+
+Confirmed:
+
+- The owners accept the iPad web-app operating model.
+- A Home Screen web app can provide staff push notifications on iPadOS 16.4 or
+  later after staff explicitly enables notifications.
+- The existing Square station already has a working printer connection.
+- Pay at pickup, owner-controlled pause/reopen, accept/reject, and the
+  99-cent accepted-order accounting model remain compatible with the proposed
+  workflow.
+
+Still to validate:
+
+- A browser web app does not automatically inherit the printer configured
+  inside Square.
+- Square can create and manage fulfillment orders through its Orders API, but
+  the documented automatic Point of Sale visibility path emphasizes fully paid
+  fulfillment orders. Jigsy's proposed orders stay unpaid until pickup.
+- Therefore, **Accept & Print** must be tested against Jigsy's actual unpaid
+  pickup workflow before silent automatic printing is promised.
+
+### Printing paths, in preferred order
+
+1. **Square-managed path:** after acceptance, create or transfer the pickup
+   order into Square and let the existing Square printer profile produce the
+   ticket. This is the cleanest experience if an unpaid-order test succeeds.
+2. **Dedicated print bridge:** send the accepted ticket through a compatible
+   local/network print service after the exact TSP100 variant is known.
+3. **Pilot fallback:** staff accepts the request, then manually enters or
+   confirms it in Square while the automatic path is being validated.
+
+No new printer should be purchased until the existing model label, connection
+type, Square printer profile, and unpaid pickup behavior are tested.
+
+References:
+
+- [Apple: Sending web push notifications in web apps and browsers](https://developer.apple.com/documentation/UserNotifications/sending-web-push-notifications-in-web-apps-and-browsers)
+- [WebKit: Web Push for Web Apps on iOS and iPadOS](https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/)
+- [Square: Orders API](https://developer.squareup.com/docs/orders-api/what-it-does)
+- [Star Micronics: TSP100III specifications](https://starmicronics.com/Resources/UploadedDataSheet/TSP100IIIWLAN_LAN_BT_USB.pdf)
+
+## Notification plan
+
+- Install the staff console on each approved iPad as a Home Screen web app.
+- Add an explicit **Enable order alerts** setup step.
+- Send a push for every new request with the order number, total, and a link to
+  accept or reject.
+- Show an app-icon badge for waiting orders.
+- Add an in-console chime and prominent visual alert while the console is open.
+- Notify both approved staff iPads for redundancy.
+- During the pilot, escalate an unacknowledged order after 60–90 seconds; SMS
+  can be added later if the owners want a paid fallback channel.
 
 ## Next conversation
 
-Show the owner the isolated ordering demo and focus on:
+The remaining ownership stakeholder—the owners' son—needs to review the demo.
+Keep that walkthrough focused on:
 
-1. No upfront website cost to Jigsy's.
-2. Customers still pay at pickup.
-3. It is one complete website: when Jigsy's pauses ordering during a rush, the
-   ordering buttons disappear; staff can reopen them during a slower period.
-4. Staff only needs **Accept & Print**.
-5. The 99-cent fee applies only to accepted online orders.
-6. Ask what printer they currently use and where the staff screen would live.
+1. The website remains useful when ordering is paused.
+2. Staff receives a notification and accepts or rejects every request.
+3. Customers pay at pickup through the existing Square workflow.
+4. The proposed 99-cent fee applies only to accepted online orders.
+5. The first test is small and reversible.
 
-Do not frame the demo as production-ready. Ask for a small, reversible pilot
-only after confirming the staff device, printer, menu rules, and owner approval.
+Do not frame the demo as production-ready. After stakeholder approval, run a
+hardware/workflow validation before committing to a live pilot.
 
 ## Supporting materials
 
