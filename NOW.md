@@ -2,7 +2,7 @@
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
 aliases: [NOW, Weekly Scorecard, This Week]
-updated: 2026-07-23
+updated: 2026-07-24
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -46,7 +46,7 @@ updated: 2026-07-23
 8. [ ] Jigsy's: owner liked the website and the online-ordering idea has been
    planted. Next: show the isolated demo, ask what printer/device they use, and
    request a small reversible pilot only if interested. Demo:
-   https://jigsys-ordering-demo.vercel.app — see
+   https://jigsys-ordering-demo.nicholaswittle.chatgpt.site — see
    [[business/Jigsys Ordering Demo — Build Record 2026-07-23]]
 9. [ ] Set up intake form (Google Forms) + auto-reply on nicholaswittle@wisensellc.com for website inquiries — see [[business/Website Business Setup Guide 2026-07-21]]
 10. [ ] Post in 3-5 veteran Facebook groups about resume service (free, zero-cost client acquisition)

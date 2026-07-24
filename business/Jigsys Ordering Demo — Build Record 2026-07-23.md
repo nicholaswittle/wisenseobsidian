@@ -2,6 +2,7 @@
 title: Jigsy's Ordering Demo — Build Record
 tags: [jigsys, business, online-ordering, demo, printer, vercel, github]
 date: 2026-07-23
+updated: 2026-07-24
 status: demo-deployed
 ---
 
@@ -15,9 +16,9 @@ site or repository.
 
 | Resource | Location |
 |---|---|
-| **Customer demo** | https://jigsys-ordering-demo.vercel.app/order-demo.html |
-| **Staff screen** | https://jigsys-ordering-demo.vercel.app/staff-demo.html |
-| **Demo home** | https://jigsys-ordering-demo.vercel.app |
+| **Customer demo** | https://jigsys-ordering-demo.nicholaswittle.chatgpt.site/order-demo |
+| **Staff screen** | https://jigsys-ordering-demo.nicholaswittle.chatgpt.site/staff-demo |
+| **Demo home** | https://jigsys-ordering-demo.nicholaswittle.chatgpt.site |
 | **GitHub** | https://github.com/nicholaswittle/jigsysiteworking |
 | **Original concept** | https://github.com/nicholaswittle/jigsysite — unchanged |
 
@@ -26,6 +27,31 @@ The new repository is public. The local demo checkout tracks
 push URL disabled in the demo workspace.
 
 ## What was built
+
+### 2026-07-24 demo expansion
+
+- Expanded the customer ordering data to **52 priced items** across eight
+  categories: house trays, specialty trays, gourmet trays, wings, stromboli
+  and flatbreads, starters, salads, and subs and platters.
+- The staff **Menu availability** screen now mirrors that full priced menu with
+  category tabs. Switching an item off disables its customer order button.
+- Checkout is blocked if an item becomes sold out after entering the cart.
+- Staff can **Accept & Print** or **Reject** an order. Rejected orders remain in
+  the daily record and earn no 99-cent fee.
+- The active queue rolls over at midnight without deleting history. The Daily
+  report can select an archived date and print all received, accepted,
+  rejected, and still-waiting requests.
+- Replaced the confusing combined “Due at pickup” dashboard number with
+  **WiSense fees today**.
+- The staff pickup estimate is adjustable from 10–90 minutes in five-minute
+  steps. It is an estimate, not a countdown or expiration.
+- The customer page prominently mirrors the current staff-set estimate.
+- The latest customer request has a persistent **Waiting → Accepted / Not
+  accepted** status card. Production still requires shared storage and an SMS
+  notification so customers do not need to keep the page open.
+- Added a linked **Created by WiSense LLC** credit.
+- Restored the original Peanut Butter Pie feature and made all menu jump
+  buttons equal width.
 
 ### Customer ordering
 
@@ -85,6 +111,7 @@ Before a real pilot, build:
 - Hosted order database shared by customer and staff devices
 - Password-protected staff access
 - Live new-order notifications
+- Customer SMS for accepted/rejected confirmation
 - Durable accepted-order and monthly-fee reporting
 - Backup procedure for internet or printer failure
 

@@ -3,7 +3,7 @@ title: Jigsy's Brewpub
 tags: [customers, apex, pilot]
 aliases: [Jigsy, Jigsys]
 date: 2026-07-20
-updated: 2026-07-23
+updated: 2026-07-24
 app: Apex Scheduler + website ordering concept
 stage: interested-demo-built
 ---
@@ -27,7 +27,10 @@ stage: interested-demo-built
   that ordering was not live and said he could build it if she wanted, planting
   the idea without making a hard sale.
 - A separate customer/staff ordering demo is now live:
-  https://jigsys-ordering-demo.vercel.app
+  https://jigsys-ordering-demo.nicholaswittle.chatgpt.site
+- The demo now covers the full 52-item priced ordering menu, categorized
+  availability controls, accept/reject, printable daily archives, staff-set
+  pickup estimates, and customer accepted/rejected status.
 - Current signal: **interest**, not approval. No formal pilot commitment,
   printer decision, staff device, or production data connection exists yet.
 
