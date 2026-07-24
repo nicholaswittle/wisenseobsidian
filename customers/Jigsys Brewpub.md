@@ -31,6 +31,12 @@ stage: interested-demo-built
 - The demo now covers the full 52-item priced ordering menu, categorized
   availability controls, accept/reject, printable daily archives, staff-set
   pickup estimates, and customer accepted/rejected status.
+- The owner-facing position is now **one website, optional ordering**: staff
+  can pause during a rush and all public ordering buttons disappear while the
+  menu, hours, phone, directions, and restaurant site remain. Staff can reopen
+  ordering during a slower period.
+- A revised five-page owner leave-behind and private planning pack are stored
+  in `output/` and match the pay-at-pickup / 99-cent accepted-order model.
 - Current signal: **interest**, not approval. No formal pilot commitment,
   printer decision, staff device, or production data connection exists yet.
 

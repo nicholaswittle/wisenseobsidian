@@ -44,8 +44,10 @@ updated: 2026-07-24
 
 7. [ ] Fiverr: 2 gigs live (military resumes + website building) — add gig images from jigsyssite.vercel.app screenshots
 8. [ ] Jigsy's: owner liked the website and the online-ordering idea has been
-   planted. Next: show the isolated demo, ask what printer/device they use, and
-   request a small reversible pilot only if interested. Demo:
+   planted. Next: show the isolated demo as **one website with optional
+   ordering** - pause during a rush hides the ordering buttons; reopen during a
+   slower period. Leave the five-page owner handout, ask what printer/device
+   they use, and request a small reversible pilot only if interested. Demo:
    https://jigsys-ordering-demo.nicholaswittle.chatgpt.site — see
    [[business/Jigsys Ordering Demo — Build Record 2026-07-23]]
 9. [ ] Set up intake form (Google Forms) + auto-reply on nicholaswittle@wisensellc.com for website inquiries — see [[business/Website Business Setup Guide 2026-07-21]]

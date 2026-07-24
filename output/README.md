@@ -16,4 +16,10 @@ This folder holds final deliverables — audit reports, launch checklists, compl
 
 This is the third stage of the Karpathy 3-folder structure: raw → wiki → output.
 
+## Jigsy owner materials
+
+- [[Jigsys_Owner_Leave_Behind.pdf]] - five-page owner-facing handout.
+- [[Jigsys_Complete_Planning_Pack.pdf]] - private proposal, meeting guide, and
+  material audit.
+
 Related: [[Home]], [[Claude Code Agentic OS — Video Reference]]

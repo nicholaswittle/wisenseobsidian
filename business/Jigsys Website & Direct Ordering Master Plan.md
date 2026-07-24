@@ -19,6 +19,10 @@ work. The actual state is:
 - Customer menu, modifiers, 99-cent fee, pay-at-pickup request, staff
   **Accept & Print**, reprint, pause/reopen, prep-time, and sold-out controls
   are implemented.
+- The public site now behaves as one optional-ordering website: staff pause
+  hides every pickup-order button while the normal menu, hours, phone,
+  directions, and restaurant information remain; staff can reopen ordering
+  during a slower period.
 - Orders and settings still use browser-local storage. Separate customer and
   restaurant devices do **not** communicate yet.
 - No Stripe integration exists or is planned for the Jigsy pilot.
@@ -98,7 +102,10 @@ flowchart TD
 - **Printer pilot:** Current demo generates an 80 mm browser-print ticket.
   Direct ESC/POS output is not complete and must wait for the actual printer
   model and an on-site test.
-- **1-Tap 'Rush Mode' Counter Portal:** Built a simple tablet portal (`staff.html`) featuring a 1-tap button to add +15 mins prep delay or temporarily pause web orders if the dining room spikes.
+- **Staff rush control:** The staff console can adjust the pickup estimate,
+  mark items unavailable, or pause the ordering channel. Pausing removes the
+  public pickup-order buttons so the site falls back cleanly to phone ordering;
+  reopening restores them.
 
 ---
 
@@ -133,8 +140,8 @@ flowchart TD
 ## 🌐 Production Resources
 
 * **Demo home:** [https://jigsys-ordering-demo.vercel.app](https://jigsys-ordering-demo.vercel.app)
-* **Customer ordering:** [https://jigsys-ordering-demo.vercel.app/order-demo.html](https://jigsys-ordering-demo.vercel.app/order-demo.html)
-* **Staff screen:** [https://jigsys-ordering-demo.vercel.app/staff-demo.html](https://jigsys-ordering-demo.vercel.app/staff-demo.html)
+* **Customer ordering:** [https://jigsys-ordering-demo.vercel.app/order-demo](https://jigsys-ordering-demo.vercel.app/order-demo)
+* **Staff screen:** [https://jigsys-ordering-demo.vercel.app/staff-demo](https://jigsys-ordering-demo.vercel.app/staff-demo)
 * **GitHub:** [https://github.com/nicholaswittle/jigsysiteworking](https://github.com/nicholaswittle/jigsysiteworking)
 * **Client PDF Proposal:** [Jigsys_Online_Ordering_Analysis.pdf](file:///C:/Users/nikwi/Notes/business/Jigsys_Online_Ordering_Analysis.pdf) (also in `C:\development\projects\jigsys_site\docs\Jigsys_Online_Ordering_Analysis.pdf`)
 

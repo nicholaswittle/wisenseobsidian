@@ -10,6 +10,20 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+## 2026-07-24
+- **[JIGSY'S - ONE WEBSITE / OPTIONAL ORDERING + OWNER MATERIALS]**: Updated the
+  isolated ordering demo so pausing online ordering hides every public ordering
+  entry point while the menu, hours, phone, directions, and restaurant content
+  remain available. Staff can reopen ordering during a slower period. Corrected
+  the hero-button styling override, verified the live paused state, and synced
+  the demo repository/deployments. Regenerated the five-page owner leave-behind
+  and six-page private planning pack around the settled Jigsy model: website
+  free, ordering optional, pay at pickup, no Stripe, and $0.99 only per accepted
+  order through a separate monthly statement. Updated [[Jigsys Brewpub]],
+  [[business/Jigsys Ordering Demo — Build Record 2026-07-23]],
+  [[business/Jigsys Website & Direct Ordering Master Plan]], [[NOW]], and
+  [[hot]].
+
 ## 2026-07-23
 - **[DELIVERABLE — Jigsy's online-ordering pitch (research + PDF)]**: Dispatched a background research agent → compiled a **5-page client-ready PDF** (`C:\development\projects\jigsys_site\docs\Jigsys_Online_Ordering_Analysis.pdf`) arguing online ordering grows revenue and **owned beats marketplace**. Core = **margin math**: ~$45 ticket keeps ~$30 owned vs ~$20 via DoorDash/Grubhub (25% commission) → ~50% more margin, ~$70K/yr at 20 orders/day. Competitive finding: Jigsy's West Shore peers (Pizza Grille, Pizzatown, Nikoli's) **all have online ordering; Jigsy's has none**. Cited stats (18–40% bigger tickets, 67% more frequent, ¾ off-premise, 15–30% marketplace fees). **Caveats baked in:** case studies vendor-published (directional); Yelp/TA/Google blocked review scraping so pain-points thin — **manual review pass needed before sending**; Google 4.5/553 approximate. Reusable model for any restaurant pitch → full record [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]].
 - **[LIVE — web-redesign recurring model adopted]**: Second opinion confirmed the pay model → built + deployed. wisensellc.com pricing card is now **"Website, Handled" — $79/mo + $299 setup**, client keeps domain, WiSense hosts on Vercel + maintains, cancel anytime. Replaces the one-time "Free quote" sprint. Commit `dcce76e`, `main` synced, live verified. Rationale of record: [[business/Web Redesign — Recurring Model Proposal 2026-07-23]] (now marked ADOPTED). **Operational reminders still standing:** need **Vercel Pro** before hosting paying clients (Hobby = non-commercial ToS); **protect MX records** on any client DNS change; cap maintenance scope.

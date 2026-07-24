@@ -52,6 +52,13 @@ push URL disabled in the demo workspace.
 - Added a linked **Created by WiSense LLC** credit.
 - Restored the original Peanut Butter Pie feature and made all menu jump
   buttons equal width.
+- Unified the public experience around **one website**. When staff pauses
+  ordering, every public pickup-order entry point disappears; the menu, hours,
+  phone, directions, and restaurant content remain available as a normal
+  website. Staff can reopen ordering during a slower period without WiSense.
+- Corrected the final paused-state styling bug that left the large hero
+  **Preview online pickup** button visible after the other ordering links were
+  hidden.
 
 ### Customer ordering
 
@@ -149,7 +156,8 @@ Show the owner the isolated ordering demo and focus on:
 
 1. No upfront website cost to Jigsy's.
 2. Customers still pay at pickup.
-3. Jigsy's can pause ordering whenever the kitchen is busy.
+3. It is one complete website: when Jigsy's pauses ordering during a rush, the
+   ordering buttons disappear; staff can reopen them during a slower period.
 4. Staff only needs **Accept & Print**.
 5. The 99-cent fee applies only to accepted online orders.
 6. Ask what printer they currently use and where the staff screen would live.
@@ -159,14 +167,16 @@ only after confirming the staff device, printer, menu rules, and owner approval.
 
 ## Supporting materials
 
+- [[output/Jigsys_Owner_Leave_Behind.pdf]] - five-page owner handout.
+- [[output/Jigsys_Complete_Planning_Pack.pdf]] - private proposal, meeting
+  guide, and material audit.
 - [[Jigsys Website Concept]]
 - [[customers/Jigsys Brewpub]]
 - [[business/Jigsys Website & Direct Ordering Master Plan]]
 - [[business/WiSense Operational Partner Plan — Jigsy's]]
 
-## Material revision required
+## Material revision completed
 
-The previously generated planning-pack and owner leave-behind PDFs were written
-before the final **pay at pickup / no Stripe / monthly accepted-order
-statement** decision. Do not hand them to the owner until they are regenerated
-with the current model.
+The planning pack and five-page owner leave-behind were regenerated on
+2026-07-24. They now use the final **pay at pickup / no Stripe / monthly
+accepted-order statement** model and lead with the one-website pause strategy.
