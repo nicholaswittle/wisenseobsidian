@@ -2,7 +2,7 @@
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
 aliases: [NOW, Weekly Scorecard, This Week]
-updated: 2026-07-21
+updated: 2026-07-23
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -26,7 +26,7 @@ updated: 2026-07-21
 | Apex RLS on staging | Applied + smoke-tested | Pending (human) | Migration `20260720000000_launch_blockers_rls.sql` in repo |
 | COMMS LINK store packaging | Keystore + AAB built | Not started | [[output/Gate C — Android Packaging & Store Listings 2026-07-20]] |
 | Apex store packaging | Keystore + AAB built | Not started | Same Gate C note |
-| Jigsy pilot interviews logged | ≥1 owner note in `customers/` | 0 | Template: [[customers/_Index]] |
+| Jigsy pilot interviews logged | ≥1 owner note in `customers/` | 1 interest note | Website liked; ordering idea planted; no pilot approval yet |
 | Experiments with outcomes | Keep/kill filled | See [[business/Experiment Log]] | |
 
 ## This week — next actions
@@ -43,7 +43,11 @@ updated: 2026-07-21
 ### Side income — revenue plays (2026-07-21)
 
 7. [ ] Fiverr: 2 gigs live (military resumes + website building) — add gig images from jigsyssite.vercel.app screenshots
-8. [ ] Jigsy's website: owner has the live URL (jigsyssite.vercel.app), waiting for her response. If approved → point domain, ask for social media post mentioning nicholaswittle@wisensellc.com
+8. [ ] Jigsy's: owner liked the website and the online-ordering idea has been
+   planted. Next: show the isolated demo, ask what printer/device they use, and
+   request a small reversible pilot only if interested. Demo:
+   https://jigsys-ordering-demo.vercel.app — see
+   [[business/Jigsys Ordering Demo — Build Record 2026-07-23]]
 9. [ ] Set up intake form (Google Forms) + auto-reply on nicholaswittle@wisensellc.com for website inquiries — see [[business/Website Business Setup Guide 2026-07-21]]
 10. [ ] Post in 3-5 veteran Facebook groups about resume service (free, zero-cost client acquisition)
 11. [ ] Next off-weekend: build a cold demo for a real business with a bad website → send live link as pitch

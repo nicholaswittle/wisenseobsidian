@@ -2,12 +2,37 @@
 title: Jigsy's Website & Direct Ordering Master Plan
 tags: [jigsys, business, execution, implementation-plan, web-redesign, portfolio]
 date: 2026-07-23
-status: completed-deployed
+status: demo-deployed-pilot-not-connected
 ---
 
 # 🚀 Jigsy's Website & Direct Ordering Master Execution Plan
 
 > **Overview:** Comprehensive execution plan detailing the technical enhancements, direct web ordering module, staff rush controls, and operational handoff for Jigsy's Old Forge Pizza / Brewpub in Enola, PA.
+
+## Current truth — 2026-07-23
+
+This plan originally mixed proposed production capabilities with completed
+work. The actual state is:
+
+- An isolated demo is deployed at https://jigsys-ordering-demo.vercel.app.
+- Source is in https://github.com/nicholaswittle/jigsysiteworking.
+- Customer menu, modifiers, 99-cent fee, pay-at-pickup request, staff
+  **Accept & Print**, reprint, pause/reopen, prep-time, and sold-out controls
+  are implemented.
+- Orders and settings still use browser-local storage. Separate customer and
+  restaurant devices do **not** communicate yet.
+- No Stripe integration exists or is planned for the Jigsy pilot.
+- WiSense does not process or hold customer money.
+- Jigsy's collects the full ticket in person. WiSense receives a separate
+  monthly settlement based on `accepted orders × $0.99`.
+- Printer output currently uses the normal browser print dialog. Automatic
+  thermal printing requires the actual printer model plus a tested print bridge.
+- No owner pilot approval, production database, staff login, domain cutover, or
+  30-day soft launch has happened.
+
+Treat the time/revenue estimates later in this note as historical planning
+assumptions, not measured results or current commitments. Canonical record:
+[[business/Jigsys Ordering Demo — Build Record 2026-07-23]].
 
 ---
 
@@ -38,7 +63,10 @@ flowchart TD
 ### The 4 Pillars of the Combined Agreement:
 1. **Core Website = 100% Free (Promise Kept):** Single-page marketing site ([jigsyssite.vercel.app](https://jigsyssite.vercel.app)) with mobile menu, hours, story, and call-in CTAs is delivered 100% free as promised. Zero workplace awkwardness for spouse.
 2. **Direct Online Ordering = $0 Upfront to Jigsy's:** Web cart, kitchen topping rules, thermal printer ticket format, and staff portal built for $0 upfront cost to owner.
-3. **Passive Income via $0.99 Per-Order Fee:** A $0.99 convenience fee is added at checkout (paid by customer or absorbed from 25% DoorDash commission savings). At 20 orders/day, generates **~$600/month in passive income** to WiSense LLC without invoicing the restaurant.
+3. **Revenue via $0.99 Per Accepted Order:** A disclosed $0.99 online-ordering
+   fee is added to the ticket and collected by Jigsy's at pickup. WiSense
+   receives a separate monthly settlement for accepted orders. Any order-volume
+   revenue figure is a scenario, not a forecast.
 4. **Flagship Co-Marketing & Case Study Rights:** In exchange for the $0 upfront build, Jigsy's provides:
    - Discreet footer credit: *"Powered by WiSense Direct Ordering"* linking to `wisensellc.com`.
    - Social media launch announcement on Jigsy's Facebook & Instagram pages.
@@ -67,14 +95,18 @@ flowchart TD
 
 ## 🖨️ Phase 3: Hardware & Staff Rush Controls
 
-- **Direct Thermal Printer Output:** Route order JSON into ESC/POS thermal receipt format directly to existing kitchen printers or counter iPad.
+- **Printer pilot:** Current demo generates an 80 mm browser-print ticket.
+  Direct ESC/POS output is not complete and must wait for the actual printer
+  model and an on-site test.
 - **1-Tap 'Rush Mode' Counter Portal:** Built a simple tablet portal (`staff.html`) featuring a 1-tap button to add +15 mins prep delay or temporarily pause web orders if the dining room spikes.
 
 ---
 
 ## 🚢 Phase 4: Production Deployment & Handoff
 
-- **GitHub -> Vercel CI/CD:** Connected `nicholaswittle/jigsysite` repository to Vercel for automatic `git push` deployments.
+- **Separate demo deployment:** `nicholaswittle/jigsysiteworking` contains the
+  demo source and https://jigsys-ordering-demo.vercel.app hosts the Vercel
+  deployment. The original `nicholaswittle/jigsysite` repository is unchanged.
 - **DNS Mapping:** Point `order.jigsyspizza.com` to Vercel production deployment.
 - **30-Day Soft Launch:** Roll out to regulars first, track ticket size uplift (+18–40%), verify zero printer errors, and onboard the owner to the $79/mo Care Plan.
 
@@ -87,7 +119,7 @@ flowchart TD
 | Milestone | Active Dev Time | Elapsed Window |
 | :--- | :---: | :---: |
 | **Day 1: Codebase Customization & Menu Setup** | **2.5 hrs** | Hours 0 – 24 |
-| **Day 2: Web Cart, Stripe/Printer & Staff Portal** | **3.0 hrs** | Hours 24 – 48 |
+| **Day 2: Web Cart, Ticket Layout & Staff Portal** | **3.0 hrs** | Hours 24 – 48 |
 | **Day 3: Client Review, Test Orders & Domain Cutover** | **1.5 hrs** | Hours 48 – 72 |
 | **TOTAL** | **~7.0 hours active work** | **72-hour delivery** |
 
@@ -100,8 +132,10 @@ flowchart TD
 
 ## 🌐 Production Resources
 
-* **Live Web App:** [https://jigsyssite.vercel.app](https://jigsyssite.vercel.app)
-* **Staff Counter Portal:** [https://jigsyssite.vercel.app/staff.html](https://jigsyssite.vercel.app/staff.html)
+* **Demo home:** [https://jigsys-ordering-demo.vercel.app](https://jigsys-ordering-demo.vercel.app)
+* **Customer ordering:** [https://jigsys-ordering-demo.vercel.app/order-demo.html](https://jigsys-ordering-demo.vercel.app/order-demo.html)
+* **Staff screen:** [https://jigsys-ordering-demo.vercel.app/staff-demo.html](https://jigsys-ordering-demo.vercel.app/staff-demo.html)
+* **GitHub:** [https://github.com/nicholaswittle/jigsysiteworking](https://github.com/nicholaswittle/jigsysiteworking)
 * **Client PDF Proposal:** [Jigsys_Online_Ordering_Analysis.pdf](file:///C:/Users/nikwi/Notes/business/Jigsys_Online_Ordering_Analysis.pdf) (also in `C:\development\projects\jigsys_site\docs\Jigsys_Online_Ordering_Analysis.pdf`)
 
 Related: [[Jigsys Website Concept]], [[Jigsys Brewpub]], [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]], [[business/WiSense Operational Partner Plan — Jigsy's]]

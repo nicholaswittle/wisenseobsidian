@@ -3,8 +3,9 @@ title: Jigsy's Brewpub
 tags: [customers, apex, pilot]
 aliases: [Jigsy, Jigsys]
 date: 2026-07-20
-app: Apex Scheduler
-stage: pilot
+updated: 2026-07-23
+app: Apex Scheduler + website ordering concept
+stage: interested-demo-built
 ---
 
 # Jigsy's Brewpub
@@ -16,6 +17,19 @@ stage: pilot
 - **Why they care**: Staff scheduling, swaps, time clock, sidework — reduce owner hours on ops
 
 ## Interviews / feedback
+
+### 2026-07-23 — website and online-ordering interest
+
+- Emily showed the owner the website concept; the owner liked it.
+- Nicholas later discussed the site directly while helping at Jigsy's. The owner
+  again said she liked it.
+- The design looked as though it might support ordering. Nicholas clarified
+  that ordering was not live and said he could build it if she wanted, planting
+  the idea without making a hard sale.
+- A separate customer/staff ordering demo is now live:
+  https://jigsys-ordering-demo.vercel.app
+- Current signal: **interest**, not approval. No formal pilot commitment,
+  printer decision, staff device, or production data connection exists yet.
 
 ### 2026-07-20 — placeholder
 
@@ -30,5 +44,8 @@ stage: pilot
 ## Related work
 
 - [[Jigsys Website Concept]] — independent redesign of Jigsy's public site (live at https://jigsyssite.vercel.app · GitHub `nicholaswittle/jigsysite`). Passes A–D through 2026-07-22: Board menu, Google trust, What’s good here / FAQ, downstairs = skill games + TV lounge (no live music). Concept/portfolio piece; not the official site. Confirm peanut butter pie still served before client pitch.
+- [[business/Jigsys Ordering Demo — Build Record 2026-07-23]] — isolated
+  customer ordering and staff Accept & Print demo, Vercel deployment, final
+  99-cent model, printer plan, and production gaps.
 
 Related: [[customers/_Index]], [[NOW]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[Apex Security Audit 2026-07-19]]

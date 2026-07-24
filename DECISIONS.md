@@ -13,6 +13,13 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ---
 
+## 2026-07-23 · Jigsy's = free core + 99¢ per accepted online order; pay at pickup; no Stripe — `ACTIVE`
+- **Decision**: The Jigsy-specific offer is a free core website/order demo plus a **$0.99 Online ordering fee on each accepted order**. Jigsy's collects the food, tax, and fee in person at pickup. WiSense does not process customer payments through Stripe or hold customer/restaurant funds.
+- **Rationale**: Nicholas is not comfortable asking Jigsy's for the broader `$299 setup + $79/month` price. The 99-cent model keeps the relationship simple, charges only when the system produces an accepted order, and preserves Jigsy's existing cash/card-at-counter workflow.
+- **Settlement**: The system records accepted orders and produces a monthly statement: `accepted orders × $0.99`. Jigsy's pays WiSense separately by check, cash, or bank transfer. Rejected/abandoned requests do not count.
+- **Product consequences**: Staff workflow is intentionally **Accept & Print** only, plus pause/reopen ordering, prep time, sold-out controls, and ticket reprint. The ticket must disclose the fee and say payment is collected at the counter.
+- **Boundary**: This decision is Jigsy-specific. The general WiSense `$299 + $79/month` website offer may remain for other clients. The current demo is browser-local and is not a live cross-device ordering system. See [[business/Jigsys Ordering Demo — Build Record 2026-07-23]].
+
 ## 2026-07-21 · AI in Apex = parsing, not scheduling optimization — `ACTIVE`
 - **Decision**: LLMs in Apex are for turning **unstructured input into structure** (photo of a paper schedule → rows; later, free-text availability). They are **not** for building or optimizing schedules. Assignment logic stays deterministic in `SuggestionEngine` / `staff_ranker.dart`.
 - **Rationale**: scheduling is a constraint problem — LLMs are non-deterministic and weak at it, while rules are testable and free. Extraction from messy real-world input is the opposite: exactly what vision models are best at and what no amount of Dart solves. Cost is **not** the constraint — ~1 schedule photo/week on Opus 4.8 (`$5/$25` per MTok, high-res vision at 2576px) is roughly **$0.08/photo ≈ $4/year**. The real constraints are privacy and engineering time.

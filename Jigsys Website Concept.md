@@ -3,7 +3,7 @@ title: Jigsy's Website Concept
 tags: [jigsys, web, concept, portfolio, design, vercel, github]
 aliases: [jigsysite, Jigsy Website, Jigsy's Pizza Site]
 date: 2026-07-22
-updated: 2026-07-22
+updated: 2026-07-23
 stage: concept-deployed
 ---
 
@@ -22,6 +22,26 @@ official Jigsy's site.
 | **GitHub** | https://github.com/nicholaswittle/jigsysite |
 | **Live (Vercel)** | https://jigsyssite.vercel.app — team **wi-sense-llc** |
 | **Vercel project** | `jigsys_site` (CLI deploy; not Git-integrated yet) |
+
+### Separate ordering demo (2026-07-23)
+
+The ordering work was deliberately built in a separate repository and
+deployment so the original concept remains untouched.
+
+| | |
+|---|---|
+| **Demo GitHub** | https://github.com/nicholaswittle/jigsysiteworking |
+| **Demo home** | https://jigsys-ordering-demo.vercel.app |
+| **Customer ordering** | https://jigsys-ordering-demo.vercel.app/order-demo.html |
+| **Staff screen** | https://jigsys-ordering-demo.vercel.app/staff-demo.html |
+
+Current demo features: pay at pickup, 99-cent online-ordering fee, customer
+modifiers, one-step **Accept & Print**, reprint, prep-time control, sold-out
+control, and the ability to pause or reopen online ordering.
+
+**Do not confuse demo state with production state:** customer and staff views
+currently use browser-local storage and do not communicate across devices.
+See [[business/Jigsys Ordering Demo — Build Record 2026-07-23]].
 
 Redeploy after local changes:
 
