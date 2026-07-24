@@ -28,6 +28,7 @@ Central index for startup strategy, business model refinement, and growth playbo
 - [[business/Website Business Setup Guide 2026-07-21]] — setup guide: business email, intake form, Vercel deploy, domain pointing, client workflow
 - [[business/Web Redesign — Recurring Model Proposal 2026-07-23]] — Claude's recurring model proposal: $299 setup + $79/mo, ownership model, operational must-dos
 - [[business/Realistic Revenue Target 2026-07-21]] — **⚡ current goal**: $300/month to cover costs. 4 clients at $79/mo = target hit.
+- [[business/Restaurant Ordering Template Product Strategy 2026-07-24]] — **⚡ active build**: reusable restaurant ordering platform. Jigsy's = first config. Build once, sell many times. $299 setup + $79/mo or $0.99/order.
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
 - [[business/Experiment Log]] — hypothesis -> result -> keep/kill
 - [[business/Lessons from Failed Projects]] — what wisense-os/my_ai taught us (see [[Abandoned Projects — Lessons]])
