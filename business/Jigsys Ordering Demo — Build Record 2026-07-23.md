@@ -33,6 +33,10 @@ push URL disabled in the demo workspace.
 > Sandbox checkout. See
 > [[Jigsys Square Sandbox Checkout — Completion Note 2026-07-24]] for the
 > verified current state.
+>
+> For exact repository commits, deployment IDs, known limitations, and the
+> prioritized continuation plan, see
+> [[Jigsys Ordering Platform — Claude Handoff 2026-07-24]].
 
 ## What was built
 
