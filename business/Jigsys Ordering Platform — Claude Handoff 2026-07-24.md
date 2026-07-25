@@ -10,13 +10,10 @@ status: active-development
 ## Read this first
 
 The reusable Jigsy's ordering demo is working end to end on the private Sites
-deployment with Square Sandbox. The Vercel production alias has the latest
-static files, but its current configuration does **not** deploy the shared
-database/API worker. A fresh Vercel browser therefore falls back to local
-manual/paused settings instead of showing the connected Square state.
-
-Do not treat the static Vercel behavior as a Square failure. The verified
-transactional build is the Sites deployment.
+deployment with Square Sandbox. The Vercel production alias now redirects its
+homepage, customer page, and staff page to that verified transactional build.
+GitHub App connection is not required for the current pilot deployment; Vercel
+was deployed through the already-authenticated local CLI.
 
 ## Repositories and exact state
 
@@ -25,7 +22,8 @@ transactional build is the Sites deployment.
 - Local: `/Users/nickwittle/Documents/Codex/2026-07-12/what/jigsysite-ordering-demo`
 - GitHub: https://github.com/nicholaswittle/jigsysiteworking
 - Branch: `agent/reusable-ordering-core`
-- Verified commit: `616a3faacdda187f5e4128ac34058ab8620b3132`
+- Current commit: `3ef78e2` (transactional build plus Vercel redirects)
+- Transactional build commit: `616a3faacdda187f5e4128ac34058ab8620b3132`
 - Working tree was clean after the final code push.
 - The original `nicholaswittle/jigsysite` concept repository remains unchanged.
 
@@ -52,19 +50,19 @@ transactional build is the Sites deployment.
 - Environment revision: 2
 - Access: private/owner-only practice site
 
-### Vercel static deployment
+### Vercel redirect deployment
 
 - Production alias: https://jigsys-ordering-demo.vercel.app
-- Deployment ID: `dpl_GohSN6dvFJSSA2Ybioc6qKeUYicj`
+- Deployment ID: `dpl_46bq4QDrMdSQJKY4eNHW9YKLbG34`
 - Immutable URL:
-  https://jigsys-ordering-demo-odi6icx01-wi-sense-llc.vercel.app
+  https://jigsys-ordering-demo-ef77f7sa9-wi-sense-llc.vercel.app
 - Vercel project: `prj_QSnq0n2m1ycQDWI4lplT51FJ5bma`
 - Team: `team_AetWe6FmD1tHGwvqCOqTgqAE`
 - Status: READY
-- Deployment contains the latest static UI.
-- Current `vercel.json` runs `pnpm run stage` and publishes `public/`.
-- It does not deploy `worker/api.ts`, D1, staff sessions, shared settings,
-  OAuth, or Square payment endpoints.
+- `/`, `/order-demo`, and `/staff-demo` were each verified to return a `307`
+  redirect to the matching Sites page.
+- Vercel remains a lightweight entry URL; the API, D1 database, staff sessions,
+  OAuth, and Square payments continue to run on Sites.
 
 ## What is implemented
 
@@ -140,8 +138,7 @@ Final checks:
 
 - Square Sandbox checkout was left **enabled** on the private Sites deployment.
 - The two fake test orders remain in the daily staff report as evidence.
-- The Vercel copy will look manual/paused in a fresh browser because its API
-  calls have no transactional backend and fall back to local demo settings.
+- The Vercel alias redirects visitors to the private transactional build.
 
 ## Security rules
 
@@ -155,38 +152,25 @@ Final checks:
   payroll access, or customer card numbers.
 - In a real connection, an authorized owner approves OAuth on Square's page.
 
-## Recommended next decision
+## Hosting decision completed
 
-Choose one canonical hosting path before doing more feature work:
-
-### Recommended short-term path
-
-Keep the transactional pilot on Sites and make the Vercel demo URL clearly
-redirect or link to the verified Sites build. This avoids maintaining two
-different backends during owner approval.
-
-### Larger alternative
-
-Port the API, database, sessions, encryption, OAuth callback, and payment
-environment to Vercel-compatible services. This is a real backend migration,
-not a normal static redeploy. Do not copy production secrets into code.
-
-Ask Nicholas which path he wants before making that architectural change.
+Sites is the canonical transactional pilot host. Vercel is a friendly entry
+URL that redirects to Sites. Do not port the backend to Vercel unless Nicholas
+later asks for a deliberate hosting migration.
 
 ## Remaining work in priority order
 
-1. Resolve the canonical-host/Vercel decision above.
-2. Add installable iPad Home Screen PWA support and real push notifications.
-3. Test printing with Jigsy's actual Star Micronics TSP100 and Square printer
+1. Add installable iPad Home Screen PWA support and real push notifications.
+2. Test printing with Jigsy's actual Star Micronics TSP100 and Square printer
    profile; do not promise silent printing before this test.
-4. Get the remaining owner's approval and complete the owner-information
+3. Get the remaining owner's approval and complete the owner-information
    checklist.
-5. Confirm menu, modifiers, prices, tax treatment, and customer-facing wording
+4. Confirm menu, modifiers, prices, tax treatment, and customer-facing wording
    for the $0.99 fee.
-6. Build and test refunds before any real-card pilot.
-7. Add customer accepted/rejected notifications, outage handling, privacy
+5. Build and test refunds before any real-card pilot.
+6. Add customer accepted/rejected notifications, outage handling, privacy
    language, support procedure, and audit reporting.
-8. Only after written approval: create/approve production Square credentials,
+7. Only after written approval: create/approve production Square credentials,
    have an authorized Jigsy's owner connect the correct location, and run a
    tightly controlled live pilot.
 
