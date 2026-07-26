@@ -49,7 +49,21 @@ status: demo-deployed
 > 3. **Optional Direct Web Ordering** so customers can order takeout online instead of clogging your phone lines during morning & weekend rushes.
 > 4. **1-Tap 'Rush Mode' Counter Tablet** so your staff can pause web orders with a single tap if the dining room gets slammed.
 >
-> *We offer a $0 upfront setup model. Would you be open to taking a look at the live demo?"*
+> *We offer a $0 upfront setup model. You keep 100% ownership of your domain (marysvillediner.com) in your own GoDaddy account — we just update two quick DNS records so your domain loads our fast new site instead of the old broken builder. Would you be open to taking a look at the live demo?"*
+
+---
+
+## 🌐 Existing GoDaddy Domain Mapping & Cutover (3-Minute Setup)
+
+> **Key Client Benefit:** The owner does **NOT** need to transfer `marysvillediner.com` or buy a new domain. They retain 100% ownership in their own GoDaddy account, avoiding monthly GoDaddy builder fees while keeping their existing web address.
+
+### The 3-Minute DNS Cutover Steps:
+1. Log into the client's GoDaddy account (or guide them over screen share).
+2. Go to **DNS Management** for `marysvillediner.com`.
+3. Update two standard records:
+   - **A Record (`@`):** Point to `76.76.21.21` *(Vercel Production Server IP)*
+   - **CNAME Record (`www`):** Point to `cname.vercel-dns.com`
+4. **Result:** `marysvillediner.com` automatically loads the new WiSense site with free SSL (HTTPS) enabled in under 5 minutes.
 
 ---
 
