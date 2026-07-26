@@ -95,3 +95,45 @@ Three ways to handle who owns the code:
 3. You keep recurring revenue from clients who don't want to self-host
 4. You get a big check from clients who want to own it
 5. Different pricing for inbound vs outbound reflects the cost of customer acquisition
+
+---
+
+## Quick Reference Card (for cold calls and pitches)
+
+**If they come to you (inbound):**
+"$299 setup, $79/month, you keep your domain, I host and maintain it. 3-month minimum. If you ever want the code, $500 buyout and it's yours."
+
+**If you reach out to them (outbound/cold call):**
+"No setup fee, $99/month, I host and maintain it. 3-month minimum. If you ever want the code, $700 buyout and it's yours."
+
+**If they ask "Do I own the website?":**
+"You own your domain and your content. I own the code and hosting. You can buy the code anytime after 3 months for $500-700. Most clients just keep the monthly plan because I handle everything."
+
+**If they ask "What if I cancel?":**
+"After the 3-month minimum, you can cancel anytime. I take the site down. You keep your domain. If you want to keep the site but own it yourself, the buyout option is $500-700."
+
+---
+
+## Is This a Sound Business Idea?
+
+Yes. Here's why:
+
+1. **Low risk** — 3-month minimum means you never do free work. Worst case: someone pays 3 months and cancels. You made $237-297 for a few hours of config work.
+
+2. **High margin** — hosting is $20/mo (Vercel Pro, flat). At $79-99/mo per client, margin is 75-80%. 10 clients = $790-990/mo on $20 cost.
+
+3. **Recurring revenue** — MRR is what makes a business valuable, not one-time sales. $79-99/mo per client compounds. 10 clients = ~$9,500-11,900/year in predictable revenue.
+
+4. **Exit option for clients** — the buyout removes the #1 objection ("what if I want to leave?"). Most won't use it, but having it makes the sale easier.
+
+5. **Inbound vs outbound pricing** — standard business practice. Inbound leads are worth more (pre-sold), outbound you discount (acquisition cost). Nobody questions this.
+
+6. **You already have the product** — the restaurant ordering platform is built. Each new client is config work, not new development. 2-4 hours per client.
+
+7. **Infrastructure cost is $0** — Cloudflare Workers + D1 free tier. Vercel Pro is $20/mo flat. That's your only cost.
+
+8. **Breakeven at 1 client** — one outbound client at $99/mo covers Vercel Pro ($20) and puts $79 in your pocket. Everything after that is profit.
+
+**The only risk:** scope creep on "maintenance." Cap it: "up to 2 content updates/month, 2 business day response." Anything beyond that is $25-50 per update.
+
+This is a sound, low-risk, high-margin recurring revenue business that you can run from your phone on your off-weekends.
