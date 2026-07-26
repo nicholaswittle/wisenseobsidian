@@ -13,6 +13,12 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ---
 
+## 2026-07-26 · Restaurant SaaS Lead Offer = $0 Setup + $99/mo (Starter Tier) — `ACTIVE`
+- **Decision**: WiSense adopts a 2-tiered commercial offer for the restaurant website + online ordering platform: Tier 1 (Lead Pitch) = **$0 Setup Fee + $99/month**, Tier 2 (Pro Value) = **$299 Setup Fee + $79/month**.
+- **Rationale**: Market research across 9 competitors revealed that setup fees ($299+) create massive upfront sales friction for cash-strapped local restaurants. $99/mo eliminates setup risk while keeping price below the $100/mo psychological threshold.
+- **Unit Economics**: A single client at $99/mo pays 100% of WiSense AI agent tool costs and infrastructure ($100/mo total overhead). Every subsequent client yields a 95%+ net profit margin because AI agent templates allow deployment in <30 minutes.
+- **Consequences**: Outreach to the 408 local Enola prospects will lead with the $0 Setup / $99/mo offer. See [[business/Restaurant Website SaaS — Master Pitch Model and Strategy 2026-07-26]].
+
 ## 2026-07-23 · Jigsy's = free core + 99¢ per accepted online order; pay at pickup; no Stripe — `ACTIVE`
 - **Decision**: The Jigsy-specific offer is a free core website/order demo plus a **$0.99 Online ordering fee on each accepted order**. Jigsy's collects the food, tax, and fee in person at pickup. WiSense does not process customer payments through Stripe or hold customer/restaurant funds.
 - **Rationale**: Nicholas is not comfortable asking Jigsy's for the broader `$299 setup + $79/month` price. The 99-cent model keeps the relationship simple, charges only when the system produces an accepted order, and preserves Jigsy's existing cash/card-at-counter workflow.

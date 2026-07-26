@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-24T08:55:00
+updated: 2026-07-26T03:00:00
 ---
 
 # Recent Context
@@ -10,18 +10,15 @@ updated: 2026-07-24T08:55:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-07-24 morning. Jigsy's ordering demo, owner materials, and one-website
-pause strategy are current.
+2026-07-26 night. Jigsy's ordering demo Cloudflare migration, Square Findings (order push removed, pay-at-counter retained), and Restaurant Website SaaS Master Pitch Model ($0 Setup / $99/mo Starter tier) are active.
 
 ## Key Recent Facts
 - **Vault = curated static reference** — no auto-wiki. Boot: [[hot]] → [[NOW]] → [[index]] → note.
-- **Jigsy site live:** https://jigsyssite.vercel.app · source `C:\development\projects\jigsys_site` · GitHub `nicholaswittle/jigsysite` · CLI deploy `--scope wi-sense-llc` (not Git→Vercel yet). Full record: [[Jigsys Website Concept]].
-- **Jigsy ordering demo:** https://jigsys-ordering-demo.nicholaswittle.chatgpt.site
-  · GitHub `nicholaswittle/jigsysiteworking` · free website + $0.99 per
-  accepted order · pay at pickup · no Stripe. Staff pause hides all public
-  ordering buttons so the same site remains a normal restaurant website.
-- **Owner materials current:** [[output/Jigsys_Owner_Leave_Behind.pdf]] and
-  [[output/Jigsys_Complete_Planning_Pack.pdf]] match the final Jigsy model.
+- **Jigsy ordering demo live on Cloudflare:** https://jigsys-ordering-demo.wisense.workers.dev (Customer: `/order-demo` · Staff: `/staff-demo`). Vercel redirect: https://jigsys-ordering-demo.vercel.app.
+- **Square Findings & Model:** Square does not surface unpaid API-created orders to POS. Square order push was removed. Platform is pure **order intake + staff console + printed kitchen ticket**.
+- **Master Pitch Model:** Lead offer = **$0 Setup + $99/month** (Tier 1 Starter), Pro offer = **$299 Setup + $79/month** (Tier 2). 1 client @ $99/mo covers 100% of WiSense AI agent and infra overhead ($100/mo). Full blueprint: [[business/Restaurant Website SaaS — Master Pitch Model and Strategy 2026-07-26]].
+- **Prospect Pipeline:** 408 local businesses within 5-mile radius of Enola, PA (`prospects/Enola Area Business Prospects.md`).
+- **Owner materials current:** [[output/Jigsys_Owner_Leave_Behind.pdf]] and [[output/Jigsys_Complete_Planning_Pack.pdf]].
 - **Execution layer:** [[NOW]] · customers: [[customers/_Index]] · decisions: [[DECISIONS]].
 - Git mirror: `github.com/nicholaswittle/wisenseobsidian` (origin/main).
 
