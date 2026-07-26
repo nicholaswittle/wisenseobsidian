@@ -29,6 +29,8 @@ Central index for startup strategy, business model refinement, and growth playbo
 - [[business/Web Redesign — Recurring Model Proposal 2026-07-23]] — Claude's recurring model proposal: $299 setup + $79/mo, ownership model, operational must-dos
 - [[business/Realistic Revenue Target 2026-07-21]] — **⚡ current goal**: $300/month to cover costs. 4 clients at $79/mo = target hit.
 - [[business/Restaurant Ordering Template Product Strategy 2026-07-24]] — **⚡ active build**: reusable restaurant ordering platform. Jigsy's = first config. Build once, sell many times. $299 setup + $79/mo or $0.99/order.
+- [[business/Reusable Platform Components 2026-07-26]] — what can be pulled from the demo for ANY business (not just restaurants). Backend, order system, staff console, Square, API — all reusable. Config swap per client.
+- [[business/Pricing Models Ownership and Exit 2026-07-26]] — inbound vs outbound pricing, 3-month minimum, buyout option, quick reference scripts.
 - [[business/Ideas Log]] — running list of product + growth ideas, ranked by impact/effort
 - [[business/Experiment Log]] — hypothesis -> result -> keep/kill
 - [[business/Lessons from Failed Projects]] — what wisense-os/my_ai taught us (see [[Abandoned Projects — Lessons]])
