@@ -113,4 +113,4 @@ To protect family harmony at your spouse's workplace while creating a sustainabl
 
 ---
 
-Related: [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]], [[Jigsys Website Concept]], [[Jigsys Brewpub]], [[business/Web Redesign — Recurring Model Proposal 2026-07-23]]
+Related: [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]], [[Jigsys Website Concept]], [[customers/Jigsys Brewpub]], [[business/Web Redesign — Recurring Model Proposal 2026-07-23]]

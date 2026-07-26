@@ -73,3 +73,5 @@ Since Nicholas knows the owner, keep it casual, value-focused, and low-pressure:
 - [ ] Generate a quick, stunning demo prototype site using `scratch/` HTML/CSS or Vite template.
 - [ ] Send warm demo link directly to the owner via text/email.
 - [ ] Onboard as Client #1 on the $99/mo or $79/mo subscription!
+
+Related: [[prospects/FFL Dealer Website Research 2026-07-26]], [[prospects/FFL Dealer Build Plan 2026-07-26]], [[business/Pricing Models Ownership and Exit 2026-07-26]], [[business/Reusable Platform Components 2026-07-26]]

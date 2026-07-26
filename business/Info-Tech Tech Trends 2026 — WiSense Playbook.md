@@ -51,7 +51,7 @@ Extracted for **WiSense success only** — not a full report summary. Source the
 **Why it matters:** Apex multi-tenant leaks and claim races aren’t “tech debt” — they’re **resilience failures** that kill pilots.
 
 **Do**
-- Treat [[Apex Security Audit 2026-07-19]] as a board-level blocker (RLS in repo, org-scoped queries, atomic claim, UTC clock)
+- Treat [[output/Apex Security Audit 2026-07-19]] as a board-level blocker (RLS in repo, org-scoped queries, atomic claim, UTC clock)
 - Keep MCA/MDT + Human Veto for anything that spends money or touches auth ([[MCA and MDT]], [[Travel Data Integrity]])
 - Ship Sentry + clear incident notes for Apex pilot (foresight > firefighting)
 - Scenario-plan: “Supabase outage”, “Duffel key revoked”, “Play Store reject” — one page each in vault later
@@ -176,4 +176,4 @@ Extracted for **WiSense success only** — not a full report summary. Source the
 - Press summary of eight trends: [Info-Tech release](https://www.infotech.com/research/tech-trends-2026-report-released-eight-emerging-trends-redefining-the-future-of-it-according-to-findings-by-info-tech-research-group)
 - Research hub: [Tech Trends 2026](https://www.infotech.com/research/ss/tech-trends-2026)
 
-Related: [[business/Business Hub]], [[business/Business Model Canvas]], [[business/Startup Playbook]], [[business/Ideas Log]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/2026 Commercial B2B Software Ideas]], [[Apex Security Audit 2026-07-19]], [[Working Stack — Claude CLI and Ollama]], [[Abandoned Projects — Lessons]]
+Related: [[business/Business Hub]], [[business/Business Model Canvas]], [[business/Startup Playbook]], [[business/Ideas Log]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/2026 Commercial B2B Software Ideas]], [[output/Apex Security Audit 2026-07-19]], [[Working Stack — Claude CLI and Ollama]], [[Abandoned Projects — Lessons]]

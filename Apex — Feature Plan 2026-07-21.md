@@ -8,7 +8,7 @@ date: 2026-07-21
 
 Three features for [[Apex Scheduler]], motivated by manually entering a month of Jigsys shifts — it was painful enough that doing it weekly is a non-starter. Plan is written to be executed on the **desktop** (the real work center). The **Mac** is only for building/signing the iOS app to QA on the iPhone (Windows can't build iOS — see [[Apex iOS build setup on Mac]] / [[xcode_notes]]).
 
-Related: [[Apex Scheduler]], [[Apex Scheduler — Code Reference]], [[Supabase]], [[2026-07-21]] (the iOS build-setup daily log), [[Plan of Attack — Build While Mac-Blocked 2026-07-20]].
+Related: [[Apex Scheduler]], [[Apex Scheduler — Code Reference]], [[Supabase]], [[2026-07-21]] (the iOS build-setup daily log), [[business/Plan of Attack — Build While Mac-Blocked 2026-07-20]].
 
 ---
 

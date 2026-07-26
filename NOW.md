@@ -39,6 +39,8 @@ updated: 2026-07-24
 4. [ ] Create Android upload keystores (commands in Gate C note)
 5. [ ] **Apex iOS bundle ID changed** → add `com.nicholaswittle.apex://` to Supabase allowed redirect URLs, or iOS login will not return to the app ([[DECISIONS]] 2026-07-21)
 6. [ ] QA branch `feat/apex-plan-2026-07-21` on the iPhone (`flutter clean && pub get`, `pod install`, re-select signing team) — then decide whether to push/merge. See [[Apex — Feature Plan Implementation 2026-07-21]]
+7. [ ] Create Android upload keystores for both apps — see [[output/Keystore Setup Instructions 2026-07-20]] (run the keytool commands, save passwords)
+8. [ ] Buy Google Play Developer account ($25 one-time) and Apple Developer Program ($99/yr) — payday Friday
 
 ### Side income — revenue plays (2026-07-21)
 
@@ -78,6 +80,7 @@ updated: 2026-07-24
 
 - Launch: [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]]
 - Packaging: [[output/Gate C — Android Packaging & Store Listings 2026-07-20]]
+- Keystore setup: [[output/Keystore Setup Instructions 2026-07-20]]
 - Customers: [[customers/_Index]]
 - Experiments: [[business/Experiment Log]]
 - Decisions: [[DECISIONS]]

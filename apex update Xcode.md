@@ -59,5 +59,5 @@ Optional later: release/profile build for home-screen icon launch (debug builds 
 - This daily note was written from the Mac, which has **no GitHub auth** (no `gh`, no SSH key, no credential helper) — it could not be pushed from the Mac. It needs to be added to the vault from a machine with
   access (desktop Obsidian-Git, or GitHub web UI), or the Mac needs a PAT/SSH key set up.
 
-Related: [[xcode_notes]], [[Apex Scheduler]], [[Apex Scheduler — Code Reference]], [[Plan of Attack — Build While Mac-Blocked 2026-07-20]], [[Supabase]], [[Working Stack — Claude CLI and Ollama]], [[NOW]],
+Related: [[xcode_notes]], [[Apex Scheduler]], [[Apex Scheduler — Code Reference]], [[business/Plan of Attack — Build While Mac-Blocked 2026-07-20]], [[Supabase]], [[Working Stack — Claude CLI and Ollama]], [[NOW]],
 [[log]]

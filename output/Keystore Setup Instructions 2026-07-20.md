@@ -59,3 +59,5 @@ Just say "keystores done" and I'll:
 - If you lose the passwords, you can never update the app under the same Play Store listing
 - Save them in your password manager NOW
 - Use a DIFFERENT keystore per app (isolates the signing key)
+
+Related: [[output/Gate C — Android Packaging & Store Listings 2026-07-20]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[NOW]], [[Apex Scheduler]], [[COMMS LINK]]

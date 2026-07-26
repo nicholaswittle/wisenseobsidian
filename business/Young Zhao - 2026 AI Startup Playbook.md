@@ -43,4 +43,4 @@ $$\text{Founder Success} = \text{Emotional Passion (Problem Solving)} + \text{Ra
 - **`20:00 - 33:00` (Timestamp 1980s)**: Unit economics, value pricing, and retention metrics over viral hype.
 - **`33:00 - End`**: Transitioning from single-prompt apps to autonomous multi-step AI agents.
 
-Related: [[WiSense Service as a Software Execution Strategy]], [[Home]], [[index]]
+Related: [[business/WiSense Service as a Software Execution Strategy]], [[Home]], [[index]]

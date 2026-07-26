@@ -102,7 +102,7 @@ the stored tokens (a mismatch caused a "Decryption failed" bug we fixed).
 
 ## Related vault notes
 
-- [[Jigsys Ordering Platform — Claude Handoff 2026-07-24]]
-- [[Jigsys Square Sandbox Checkout — Completion Note 2026-07-24]]
-- [[Jigsys Square Connection Requirements]]
-- [[Jigsys Website & Direct Ordering Master Plan]]
+- [[business/Jigsys Ordering Platform — Claude Handoff 2026-07-24]]
+- [[business/Jigsys Square Sandbox Checkout — Completion Note 2026-07-24]]
+- [[business/Jigsys Square Connection Requirements]]
+- [[business/Jigsys Website [[Jigsys Website & Direct Ordering Master Plan Direct Ordering Master Plan]]

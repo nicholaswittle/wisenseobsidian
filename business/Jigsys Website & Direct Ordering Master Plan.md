@@ -145,4 +145,4 @@ flowchart TD
 * **GitHub:** [https://github.com/nicholaswittle/jigsysiteworking](https://github.com/nicholaswittle/jigsysiteworking)
 * **Client PDF Proposal:** [Jigsys_Online_Ordering_Analysis.pdf](file:///C:/Users/nikwi/Notes/business/Jigsys_Online_Ordering_Analysis.pdf) (also in `C:\development\projects\jigsys_site\docs\Jigsys_Online_Ordering_Analysis.pdf`)
 
-Related: [[Jigsys Website Concept]], [[Jigsys Brewpub]], [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]], [[business/WiSense Operational Partner Plan — Jigsy's]]
+Related: [[Jigsys Website Concept]], [[customers/Jigsys Brewpub]], [[business/Restaurant Online Ordering — Pitch Research 2026-07-23]], [[business/WiSense Operational Partner Plan — Jigsy's]]

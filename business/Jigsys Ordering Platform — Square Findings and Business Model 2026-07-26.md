@@ -142,6 +142,6 @@ drawer is off, no customer is stuck at the counter.
 
 ## Related vault notes
 
-- [[Jigsys Ordering Platform — Claude Handoff 2026-07-25]]
-- [[Jigsys Ordering Platform — Claude Handoff 2026-07-24]]
-- [[Jigsys Website & Direct Ordering Master Plan]]
+- [[business/Jigsys Ordering Platform — Claude Handoff 2026-07-25]]
+- [[business/Jigsys Ordering Platform — Claude Handoff 2026-07-24]]
+- [[business/Jigsys Website [[Jigsys Website & Direct Ordering Master Plan Direct Ordering Master Plan]]

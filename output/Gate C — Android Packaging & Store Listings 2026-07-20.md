@@ -136,4 +136,4 @@ Both have `.github/workflows/build-ios.yml`; **Codemagic** is the easiest path o
 
 ---
 
-Related: [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[COMMS LINK]], [[Apex Scheduler]], [[Stripe]], [[business/Launch Playbook]], [[index]], [[Home]]
+Related: [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[output/Keystore Setup Instructions 2026-07-20]], [[COMMS LINK]], [[Apex Scheduler]], [[Stripe]], [[business/Launch Playbook]], [[index]], [[Home]]

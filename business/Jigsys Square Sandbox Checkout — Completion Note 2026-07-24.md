@@ -87,6 +87,6 @@ records which completed orders count toward the later WiSense statement.
 
 Related notes:
 
-- [[Jigsys Square Connection Requirements]]
-- [[Jigsys Ordering Demo — Build Record 2026-07-23]]
-- [[Jigsys Website & Direct Ordering Master Plan]]
+- [[business/Jigsys Square Connection Requirements]]
+- [[business/Jigsys Ordering Demo — Build Record 2026-07-23]]
+- [[business/Jigsys Website [[Jigsys Website & Direct Ordering Master Plan Direct Ordering Master Plan]]

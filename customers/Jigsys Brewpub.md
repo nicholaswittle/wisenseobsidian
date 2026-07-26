@@ -82,4 +82,4 @@ stage: interested-demo-built
   customer ordering and staff Accept & Print demo, Vercel deployment, final
   99-cent model, printer plan, and production gaps.
 
-Related: [[customers/_Index]], [[NOW]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[Apex Security Audit 2026-07-19]]
+Related: [[customers/_Index]], [[NOW]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[output/Apex Security Audit 2026-07-19]]

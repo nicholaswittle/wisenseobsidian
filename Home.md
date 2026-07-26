@@ -59,7 +59,7 @@ Hand-written, cross-linked knowledge — not an automated intake machine. The 7-
 
 - [[NOW]] — **this week’s board** (human blockers + scorecard).
 - [[COMMS LINK]] — on-device decompression, zero cloud. Code-complete & pushed → Gate C packaging.
-- [[Apex Scheduler]] — Jigsy's Brewpub. Code-complete & pushed → **apply RLS on Supabase**, then Gate C. Audit history: [[Apex Security Audit 2026-07-19]].
+- [[Apex Scheduler]] — Jigsy's Brewpub. Code-complete & pushed → **apply RLS on Supabase**, then Gate C. Audit history: [[output/Apex Security Audit 2026-07-19]].
 - [[New Horizon]] — travel Alignment Engine. Fork reconciliation COMPLETE; README still boilerplate.
 
 ## Cross-project decisions

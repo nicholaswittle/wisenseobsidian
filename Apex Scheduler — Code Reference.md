@@ -11,7 +11,7 @@ aliases: [jigsy, apex-code, jigsy-schedule]
 **Stack:** Flutter · Supabase · Firebase Cloud Messaging · Sentry
 **Platforms:** iOS · Android · Web
 **Phase:** Stabilize Jigsy's pilot before new features. Billing deferred.
-**Security audit:** [[Apex Security Audit 2026-07-19]] (`apex/audit/AUDIT_2026-07-19.md`)
+**Security audit:** [[output/Apex Security Audit 2026-07-19]] (`apex/audit/AUDIT_2026-07-19.md`)
 
 ## File inventory
 

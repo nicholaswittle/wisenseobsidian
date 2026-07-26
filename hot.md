@@ -23,7 +23,7 @@ updated: 2026-07-26T03:00:00
 - Git mirror: `github.com/nicholaswittle/wisenseobsidian` (origin/main).
 
 ## Active Project Status
-- **Jigsy's Website Concept** — live. What’s good here · Why Old Forge · FAQ · Google 4.5·553 · Board menu · Call It In · no live music (lounge/skill games). Open: owner food photos, pie confirm, Git→Vercel auto-deploy, identity polish. Niche: restaurant site refreshes as service proof. [[Jigsys Website Concept]] · [[Jigsys Brewpub]].
+- **Jigsy's Website Concept** — live. What’s good here · Why Old Forge · FAQ · Google 4.5·553 · Board menu · Call It In · no live music (lounge/skill games). Open: owner food photos, pie confirm, Git→Vercel auto-deploy, identity polish. Niche: restaurant site refreshes as service proof. [[Jigsys Website Concept]] · [[customers/Jigsys Brewpub]].
 - **Jigsy's Ordering Demo** — live isolated demo with 52 priced items,
   Accept & Print / Reject, availability, prep time, daily reports, and
   one-website pause behavior. Production still needs shared storage, protected

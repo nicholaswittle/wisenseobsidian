@@ -10,7 +10,7 @@ stage: concept-deployed
 # Jigsy's Website Concept
 
 An independent redesign concept for **Jigsy's Old Forge Pizza / Brewpub**
-(Enola, PA) — the same business that is the [[Jigsys Brewpub|Apex pilot
+(Enola, PA) — the same business that is the [[customers/Jigsys Brewpub|Apex pilot
 customer]]. Built as a practice template / portfolio piece; **not** the
 official Jigsy's site.
 
@@ -166,4 +166,4 @@ a second-opinion check. Plus a filterable Work showcase and an **anonymized**
 before/after (the pizzeria concept, *no Jigsy's branding*, to protect the pilot
 relationship). Model rationale: [[business/Web Redesign — Recurring Model Proposal 2026-07-23]].
 
-Related: [[Jigsys Brewpub]], [[Apex Scheduler]], [[business/Jigsys Website & Direct Ordering Master Plan]], [[business/WiSense Operational Partner Plan — Jigsy's]], [[NOW]], [[index]]
+Related: [[customers/Jigsys Brewpub]], [[Apex Scheduler]], [[business/Jigsys Website & Direct Ordering Master Plan]], [[business/WiSense Operational Partner Plan — Jigsy's]], [[NOW]], [[index]]

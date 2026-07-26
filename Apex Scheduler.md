@@ -37,7 +37,7 @@ Weekly board: [[NOW]].
 ## Audit artifact
 
 - Full write-up: `apex/audit/AUDIT_2026-07-19.md`
-- Vault summary: [[Apex Security Audit 2026-07-19]]
+- Vault summary: [[output/Apex Security Audit 2026-07-19]]
 - Launch plan: [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]]
 
 Related: [[Apex Scheduler — Code Reference]], [[Parent Repo Cleanup]], [[Audit Findings Loop]], [[Supabase]], [[customers/Jigsys Brewpub]]

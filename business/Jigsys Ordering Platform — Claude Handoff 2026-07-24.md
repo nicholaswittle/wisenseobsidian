@@ -176,7 +176,7 @@ later asks for a deliberate hosting migration.
 
 ## Related vault notes
 
-- [[Jigsys Square Sandbox Checkout — Completion Note 2026-07-24]]
-- [[Jigsys Square Connection Requirements]]
-- [[Jigsys Ordering Demo — Build Record 2026-07-23]]
-- [[Jigsys Website & Direct Ordering Master Plan]]
+- [[business/Jigsys Square Sandbox Checkout — Completion Note 2026-07-24]]
+- [[business/Jigsys Square Connection Requirements]]
+- [[business/Jigsys Ordering Demo — Build Record 2026-07-23]]
+- [[business/Jigsys Website [[Jigsys Website & Direct Ordering Master Plan Direct Ordering Master Plan]]

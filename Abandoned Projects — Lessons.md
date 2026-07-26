@@ -25,7 +25,7 @@ Killed 2026-07-19 (and shortly after). Not a failure — clarified the real work
 
 - **Digest / explicit approval before writes** — never freeform "go ahead" as a write gate
 - **Cloud honesty** — don't invent local builders or Autopilot until hardware + qualification exist
-- **Tenant + RLS discipline** — apply immediately to [[Apex Scheduler]] (see [[Apex Security Audit 2026-07-19]])
+- **Tenant + RLS discipline** — apply immediately to [[Apex Scheduler]] (see [[output/Apex Security Audit 2026-07-19]])
 - **Audits as markdown artifacts** — vault + `repo/audit/`, not a separate agent product
 
 ## Still active (do not treat as abandoned)

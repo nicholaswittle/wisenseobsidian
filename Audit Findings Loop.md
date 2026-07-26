@@ -10,7 +10,7 @@ aliases: [audits, audit handoff]
 
 ## Where audits go
 
-1. **This vault** — durable summaries agents and Nicholas will re-read (example: [[Apex Security Audit 2026-07-19]])
+1. **This vault** — durable summaries agents and Nicholas will re-read (example: [[output/Apex Security Audit 2026-07-19]])
 2. **Per-repo `audit/`** — full dated write-ups next to the code (example: `C:\development\projects\apex\apex\audit\AUDIT_2026-07-19.md`)
 
 ## Conventions
@@ -24,7 +24,7 @@ aliases: [audits, audit handoff]
 
 | Project | Vault note | Repo artifact |
 |---|---|---|
-| Apex | [[Apex Security Audit 2026-07-19]] | `apex/apex/audit/AUDIT_2026-07-19.md` |
+| Apex | [[output/Apex Security Audit 2026-07-19]] | `apex/apex/audit/AUDIT_2026-07-19.md` |
 | COMMS LINK | [[COMMS LINK]] (live status) | — |
 | New Horizon | [[New Horizon]] (live status) | — |
 

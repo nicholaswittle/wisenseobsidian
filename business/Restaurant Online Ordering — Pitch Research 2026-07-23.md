@@ -9,7 +9,7 @@ status: deliverable done · Jigsy's pitch ready (pending manual review pass)
 
 Research-backed pitch that online ordering grows a restaurant's revenue, and
 that an **owned** channel (WiSense-built site/app) beats renting a marketplace.
-Built as a **client-ready PDF** for [[Jigsys Brewpub|Jigsy's]] but the model +
+Built as a **client-ready PDF** for [[customers/Jigsys Brewpub|Jigsy's]] but the model +
 stats are **reusable for pitching any local restaurant** (the flagship asset for
 the web-redesign / online-ordering service line).
 
@@ -77,4 +77,4 @@ model to sell.
 - Ties to the recurring model — online ordering could be a higher tier of the
   [[business/Web Redesign — Recurring Model Proposal 2026-07-23|care plan]].
 
-Related: [[Jigsys Website Concept]], [[Jigsys Brewpub]], [[business/Web Redesign — Recurring Model Proposal 2026-07-23]], [[business/WiSense Service as a Software Execution Strategy]], [[log]]
+Related: [[Jigsys Website Concept]], [[customers/Jigsys Brewpub]], [[business/Web Redesign — Recurring Model Proposal 2026-07-23]], [[business/WiSense Service as a Software Execution Strategy]], [[log]]

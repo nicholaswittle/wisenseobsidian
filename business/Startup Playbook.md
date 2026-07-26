@@ -49,7 +49,7 @@ Patterns, anti-patterns, and principles for building WiSense into a sustainable 
 - Lead with purpose-built privacy (Info-Tech 2026 #7)
 
 ### Stage 2: Prove multi-tenancy (Apex)
-- Fix RLS + claim races ([[Apex Security Audit 2026-07-19]]) — resilience is the product (Info-Tech #2 / #5)
+- Fix RLS + claim races ([[output/Apex Security Audit 2026-07-19]]) — resilience is the product (Info-Tech #2 / #5)
 - Get Jigsy's Brewpub as pilot customer
 - Validate subscription pricing; test outcome language (conflict-free week) per Info-Tech #8
 
