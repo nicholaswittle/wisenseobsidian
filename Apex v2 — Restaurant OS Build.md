@@ -50,9 +50,9 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 | Step | Feature | Status | Weekend |
 |------|---------|--------|---------|
 | 0 | Ship Apex v1 to stores | Blocked (keystore + accounts) | Friday |
-| 1a | Manager log book | Not started | Weekend 1 |
-| 1b | Tip management | Not started | Weekend 1 |
-| 1c | Labor cost dashboard | Not started | Weekend 1 |
+| 1a | Manager log book | **Built** (2026-07-27, analyze clean) | Weekend 1 |
+| 1b | Tip management | **Built** (2026-07-27, analyze clean) | Weekend 1 |
+| 1c | Labor cost dashboard | Next up | Weekend 1 |
 | 2 | Unified Supabase backend (ordering) | Not started | Weekend 3 |
 | 3a | Labor vs revenue dashboard | Not started | Weekend 4 |
 | 3b | No-show call-out engine | Not started | Weekend 5 |
@@ -63,7 +63,20 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 - **Apex v1** at `C:\development\projects\apex\lib\` — 16 working features. Pull query patterns, RLS shapes, repository structure.
 - **employee_dashboard.dart** is the architectural pattern for ALL new screens: typed models, parallel Future.wait, realtime streams, SnackBar, withValues, callback nav.
 - **Planning docs** contain SQL schema for all new tables — don't design schema, use what's documented.
-- Pure helpers (_hoursBetween, _formatTime, _firstName, _relativeTime) are copied between standalone files, not shared.
+- Pure helpers (_hoursBetween, _formatTime, _firstName, _relativeTime) are copied between standalone files. **`lib/core/shift_time.dart` now holds shared versions** — currently unused; wire the labor cost dashboard to it instead of making a fourth private copy.
+- **The money math is deliberately NOT duplicated:** `_hoursBetweenTimestamps` lives only in `tip_management.dart`. Clock punches are full timestamps and must never be parsed as `HH:MM` clock-face strings — that silently discards the date and mis-prices a punch left open across days.
+
+## ⚠️ Concurrent-tooling hazard (2026-07-27)
+
+`apex_v2` had **no git repo** while Claude and Cursor wrote to it simultaneously.
+A Claude-written `manager_log_book.dart` was **overwritten mid-session** by the
+parallel Cursor build (both features landed at 19:10). Nothing was recoverable —
+there was no history.
+
+**Fixed:** `git init` + `.gitignore` + baseline commit `3dc582a`, and a
+`README.md` (`a858a7c`) with working agreements for multi-tool sessions:
+commit before building, read before overwriting, `flutter analyze` clean before
+"done". **Start every future session with a clean `git status`.**
 
 ## AI Agent Prompts
 
