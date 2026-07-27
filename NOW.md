@@ -14,10 +14,10 @@ updated: 2026-07-24
 | Field | Value |
 |-------|-------|
 | **Stage** | Pre-revenue → pilot + store launch |
-| **Focus apps** | COMMS LINK + Apex (Android-first); New Horizon secondary |
-| **#1 metric this week** | Apex RLS applied on Supabase staging (yes/no) |
-| **This week’s bet** | Clear human launch blockers so both apps can enter Gate C packaging |
-| **Working stack** | Claude CLI + Ollama — see [[Working Stack — Claude CLI and Ollama]] |
+| **Focus apps** | Apex v2 (active build) + Apex v1 (ship Friday); COMMS LINK parked |
+| **#1 metric this week** | Apex v2: log book + tip management built |
+| **This week's bet** | Ship Apex v1 to stores + build v2 features with Claude/Cursor |
+| **Working stack** | Claude CLI + Ollama + Cursor — see [[Working Stack — Claude CLI and Ollama]] |
 
 ## Scorecard (update weekly)
 
@@ -59,10 +59,12 @@ updated: 2026-07-24
 
 ### Agent-ready (when asked)
 
-1. [ ] After RLS applied: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
-2. [ ] Gate C: assist Play Console listing from copy already in Gate C note
-3. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
-4. [ ] Monthly [[VAULT_LINT]] pass if due
+1. [ ] Apex v2: Build manager log book + tip management (prompts ready for Claude/Cursor — see [[Apex v2 — Restaurant OS Build]])
+2. [ ] Apex v2: Build labor cost dashboard (after log book + tips)
+3. [ ] After RLS applied: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
+4. [ ] Gate C: assist Play Console listing from copy already in Gate C note
+5. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
+6. [ ] Monthly [[VAULT_LINT]] pass if due
 
 ### Parked (not this week)
 

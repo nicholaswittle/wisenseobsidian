@@ -33,6 +33,7 @@ aliases: [index.md, Vault Catalog]
 ## 🚀 Active Project Status & Launch Blockers
 - [[COMMS LINK]] — On-device AI decompression (code-complete & pushed; Gate C packaging)
 - [[Apex Scheduler]] — Jigsy's Brewpub scheduling (code-complete & pushed; **apply RLS on Supabase**, then Gate C)
+- [[Apex v2 — Restaurant OS Build]] — reimagined Apex toward full OS; employee dashboard built, log book + tips next
 - [[New Horizon]] — Travel booking Alignment Engine (117/117 tests; fork reconciliation complete)
 - [[WiSense Governance — Rules and Protocols]] — Root governance index
 
@@ -67,6 +68,7 @@ aliases: [index.md, Vault Catalog]
 - ~~**WiSense OS Engine**: `C:\development\projects\wisense-os`~~ — **DELETED 2026-07-19**, do not treat as live. See [[Abandoned Projects — Lessons]] and [[00_AI_AGENT_MANIFEST]].
 - **COMMS LINK**: `C:\development\projects\wisense_decompression` (Flutter · On-Device Gemma 2B-IT · 59/59 tests pass)
 - **Apex Scheduler**: `C:\development\projects\apex\apex` (Flutter · Supabase · FCM — Sentry removed 2026-07-21)
+- **Apex v2**: `C:\development\projects\apex_v2` (Flutter · Supabase — reimagined toward Restaurant OS)
 - **Jigsy's Website Concept**: `C:\development\projects\jigsys_site` (static HTML + images · GitHub `jigsysite` · live https://jigsyssite.vercel.app · Passes A–D 2026-07-22) — see [[Jigsys Website Concept]]
 - **New Horizon**: `C:\development\projects\wisense_new_horizon` (Flutter · ToolRegistry · Duffel Proxy · 117/117 tests pass)
 - **Shared Packages**: `C:\development\packages\` (`wisense_core`, `wisense_ui`)

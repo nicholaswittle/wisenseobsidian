@@ -10,6 +10,10 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+## 2026-07-27
+- **[APEX v2 — EMPLOYEE DASHBOARD BUILT + MERGED]**: Built employee dashboard at `C:\development\projects\apex_v2\lib\features\dashboard\employee_dashboard.dart`. Session used Kimi K3 model initially (produced 1536-line version), then Hermes (786-line version). Merged best of both: Hermes base (realtime streams, parallel Future.wait, dark M3, standalone main/ApexApp, withValues) + Kimi features (typed data models, clock-out, _clocking guard, duplicate prevention, SnackBar, _WorkStatus enum, relative time, empty states). dart analyze clean, 19-case logic script ALL PASSED (ad-hoc), MCA/MDT PASS (Ollama gpt-oss:20b). Deleted Kimi's employee_home_dashboard.dart and kimi code transcript folder. Created [[Apex v2 — Restaurant OS Build]] note, updated [[hot]], [[NOW]], [[index]].
+- **[RESTAURANT OS PLANNING DOCS CREATED]**: 4 planning docs in `docs/` and vault `business/`: build order, product vision (10 sections), unified build plan (16-table SQL schema, RLS, role hierarchy, 6-week timeline), master plan (5-year vision, revenue projections, moat). All dated 2026-07-27, cross-linked.
+
 ## 2026-07-24
 - **[JIGSY'S - ONE WEBSITE / OPTIONAL ORDERING + OWNER MATERIALS]**: Updated the
   isolated ordering demo so pausing online ordering hides every public ordering
