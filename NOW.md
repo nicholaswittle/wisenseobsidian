@@ -28,6 +28,7 @@ updated: 2026-07-24
 | Apex store packaging | Keystore + AAB built | Not started | Same Gate C note |
 | Jigsy pilot interviews logged | ≥1 owner note in `customers/` | 1 interest note | Website liked; ordering idea planted; no pilot approval yet |
 | Experiments with outcomes | Keep/kill filled | See [[business/Experiment Log]] | |
+| WiSense Agency Pipeline | Loom Zoom Boom Active | See [[business/Client Acquisition Strategy — Loom Zoom Boom & FIG Portfolio]] | |
 
 ## This week — next actions
 
