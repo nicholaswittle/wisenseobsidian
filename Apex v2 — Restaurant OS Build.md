@@ -120,7 +120,7 @@ worth stating up front in future demos.
 - Run: `flutter run --dart-define=SUPABASE_URL=<url> --dart-define=SUPABASE_ANON_KEY=<key> --dart-define=ORG_ID=<uuid>`
 
 ### Planning Docs (`docs/`)
-- `Apex Reimagined Build Order 2026-07-27.md` — build priority, what's already built, what to pull from Jigsy's
+- `Apex Reimagined Build Order 2026-07-27.md` — build priority, what's already built, what to pull from the existing ordering platform
 - `Apex Scheduler Reimagined 2026-07-27.md` — full product vision (10 sections: onboarding, employee experience, notifications, scheduling, time clock, owner dashboard, chat, tips, offline, integrations)
 - `Restaurant OS Unified Build Plan 2026-07-27.md` — 16-table phased SQL schema, RLS helpers, role hierarchy, 6-week build order
 - `WiSense Restaurant OS Master Plan 2026-07-27.md` — 5-year vision, 7 OS phases, revenue projections, moat analysis
@@ -132,7 +132,7 @@ worth stating up front in future demos.
 | 0 | Ship Apex v1 to stores | Blocked (keystore + accounts) | Friday |
 | 1a | Manager log book | **Built** (2026-07-27, analyze clean) | Weekend 1 |
 | 1b | Tip management | **Built** (2026-07-27, analyze clean) | Weekend 1 |
-| 1c | Labor cost dashboard | Next up | Weekend 1 |
+| 1c | Labor cost dashboard | **Built** (2026-07-27, analyze clean) | Weekend 1 |
 | 2 | Unified Supabase backend (ordering) | Not started | Weekend 3 |
 | 3a | Labor vs revenue dashboard | Not started | Weekend 4 |
 | 3b | No-show call-out engine | Not started | Weekend 5 |
