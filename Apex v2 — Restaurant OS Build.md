@@ -8,9 +8,88 @@ status: active
 
 # Apex v2 — Restaurant OS Build
 
-> Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
+> A **new build**, borrowing patterns from Apex v1 but aimed at the OS end-state
+> — not a port and not required to resemble v1. Employee-first, 3-tap max, dark
+> Material 3, built on the same Supabase with org_id scoping. The long game is a
+> **multi-venue OS** (restaurant is vertical one); modules plug in individually
+> or as the whole system.
+
+**Repo:** https://github.com/nicholaswittle/apex_v2 · **Demo:** https://apex-v2-demo.vercel.app
 
 Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07-27]], [[business/Apex Scheduler Reimagined 2026-07-27]], [[business/Apex Reimagined Build Order 2026-07-27]], [[business/WiSense Restaurant OS Master Plan 2026-07-27]], [[NOW]]
+
+---
+
+## Session Rollup — 2026-07-27
+
+### Shipped
+
+| Piece | File | State |
+|---|---|---|
+| Employee dashboard | `features/dashboard/employee_dashboard.dart` | Built |
+| Manager log book | `features/log_book/manager_log_book.dart` | Built (Cursor) |
+| Tip management | `features/tips/tip_management.dart` | Built (Cursor) |
+| Labor cost dashboard | `features/labor_cost/labor_cost_dashboard.dart` | Built (Cursor) |
+| **Schema migration** | `supabase/migrations/0001_apex_v2_foundation.sql` | Written, **never run** |
+| **Entitlements** | `core/entitlements.dart` | Built — the plug-in mechanism |
+| **App shell** | `app.dart` + `main.dart` | Built — module registry |
+| Shared helpers | `core/shift_time.dart` | Built, used by labor cost |
+| Demo backend | `core/demo_backend.dart` | Built, deployed |
+| Platform targets | `android/` `ios/` `web/` | Added — it is a **phone app**; web exists only for the browser demo |
+
+`flutter analyze lib/` clean. **Weekend 1 (log book · tips · labor cost) complete.**
+
+### Key decisions
+
+- **Entitlements are the OS plug-in contract.** `OsTier` (free/pro/os/multi)
+  grants a baseline module set; per-org `enabled_modules` / `disabled_modules`
+  add or remove individual pieces. A venue can buy one module or the whole OS.
+  Adding a feature = one entry in `_moduleRoutes` in `app.dart`.
+- **Membership stays on `profiles`(organization_id, role).** The build plan's
+  RLS helpers referenced an `organization_members` table defined nowhere,
+  absent from v1, and contradicted by all shipped screens. Documented in the
+  migration; add it later only if a user must belong to several orgs.
+- **Money math is not duplicated** — `hoursBetweenTimestamps` lives once.
+  Clock punches are timestamps, never `HH:MM` strings.
+- **Multi-venue, not restaurant-only.** Free+Pro tiers are already
+  vertical-agnostic; only the vertical pack (ordering, capacity rule, revenue
+  adapter, vocabulary) changes. See the Master Plan's *Multi-Venue by Design*.
+- **All named-client references removed** from docs, incl. two pitch lines
+  claiming an unmeasured "32% → 24%" result.
+
+### What's LEFT — honest gaps
+
+**Blocking anything real:**
+1. **Migration has never been applied.** `shift_notes`, `tip_pools`,
+   `tip_allocations`, `messages` do not exist in the database. Until it runs
+   (staging → prod), no screen can load real data.
+2. **No login/auth screen exists.** The shell shows "Sign in to continue" and
+   there is no way past it. Required before any real-data test.
+
+**Not built yet (v2 is 4 screens — these live only in v1):**
+schedule / calendar UI · shift swaps UI · availability & time-off ·
+staff management · team chat · onboarding. *A v2 demo cannot show a schedule
+because v2 has no schedule screen.* This surprised Nicholas on 2026-07-27 —
+worth stating up front in future demos.
+
+**Open issues:**
+- **Demo renders black** for Nicholas. Suspect COEP headers (removed,
+  redeployed) but **unverified** — Claude's preview pane will not composite
+  frames, so rendering could not be checked from this side. Needs a human look.
+- Demo writes are echoed but do not persist (deliberate — better than fake
+  persistence).
+- Display code (`_LoadingView`, `_ErrorView`, `_SkeletonBox`, `_EmptyCard`,
+  `_formatDayLabel`) duplicated 3–4×. Deliberate: measured first, it is
+  cosmetic only, and refactoring verified files during parallel tooling was
+  not worth the regression risk.
+- Terminology layer (vertical vocabulary from config) deferred until a second
+  vertical is real — avoid hardcoding words that would have to change.
+
+### Next up
+
+1. Login screen (required for the product, not throwaway) + apply the migration
+   to staging → real-data deploy.
+2. Then the schedule/calendar as the first big v2-native screen.
 
 ---
 
@@ -23,7 +102,8 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 - Flutter + Supabase (same backend as Apex v1)
 - `supabase_flutter: ^2.5.0`, `intl: ^0.19.0`
 - Dark Material 3 theme (seed color `0xFFFF8C42`)
-- No Flutter scaffold — lib files + pubspec only, drop into existing app
+- **Phone app first** (iOS + Android). A web target exists only so the demo can be clicked in a browser; it is not the delivery platform.
+- Bundle id `com.wisense.apex_v2`
 
 ## What's Built
 

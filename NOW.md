@@ -59,8 +59,10 @@ updated: 2026-07-24
 
 ### Agent-ready (when asked)
 
-1. [ ] Apex v2: Build manager log book + tip management (prompts ready for Claude/Cursor — see [[Apex v2 — Restaurant OS Build]])
-2. [ ] Apex v2: Build labor cost dashboard (after log book + tips)
+1. [x] Apex v2: manager log book + tip management + labor cost — **DONE 2026-07-27** (analyze clean, mounted behind entitlements)
+2. [ ] Apex v2: **login screen** (blocks any real-data test — no way past the sign-in wall today)
+3. [ ] Apex v2: **apply `supabase/migrations/0001_apex_v2_foundation.sql`** to staging → smoke test → prod. Until then the 4 tables the app queries do not exist
+4. [ ] Apex v2: schedule/calendar screen — the biggest missing piece; v2 has no schedule at all
 3. [ ] After RLS applied: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
 4. [ ] Gate C: assist Play Console listing from copy already in Gate C note
 5. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
