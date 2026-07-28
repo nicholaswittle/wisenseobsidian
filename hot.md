@@ -18,8 +18,7 @@ updated: 2026-07-28T16:10:00
 - **Jigsy site:** `github.com/nicholaswittle/jigsysite` @ `4505cd4` · https://jigsyssite.vercel.app · staff https://jigsyssite.vercel.app/staff.html · `public_token=jigsys`.
 - **Kitchen ops:** Accept & print → done. Pay at counter separate. Menu availability tab / inventory icon for 86.
 - **No alcohol online** (brews deleted). Pause hides Order online CTAs.
-- **Archive:** [[restOS]] `nicholaswittle/restOS` @ `a6cb554` (copy only).
-- Status note: [[Jigsy Online Ordering — Live Status 2026-07-28]].
+- **Gameplan:** [[wisense/projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] (self-serve hands-off activation & monetization) · [[business/Restaurant OS Unified Build Plan 2026-07-27]].
 
 ## Active Project Status
 - **Jigsy pilot** — LIVE for Emily ops test. NEXT: optional thermal print · re-enable auto-pause · topping price confirm.
