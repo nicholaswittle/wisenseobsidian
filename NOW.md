@@ -2,7 +2,7 @@
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
 aliases: [NOW, Weekly Scorecard, This Week]
-updated: 2026-07-24
+updated: 2026-07-27
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -14,9 +14,9 @@ updated: 2026-07-24
 | Field | Value |
 |-------|-------|
 | **Stage** | Pre-revenue → pilot + store launch |
-| **Focus apps** | Apex v2 (active build) + Apex v1 (ship Friday); COMMS LINK parked |
-| **#1 metric this week** | Apex v2: log book + tip management built |
-| **This week's bet** | Ship Apex v1 to stores + build v2 features with Claude/Cursor |
+| **Focus apps** | Apex v2 (build through #10 shipped) + Apex v1 (ship Friday); COMMS LINK parked |
+| **#1 metric this week** | Apex v2 product audit on live real + demo · ship Apex v1 to stores |
+| **This week's bet** | Audit v2 when ready · ship Apex v1 (keystore/accounts) |
 | **Working stack** | Claude CLI + Ollama + Cursor — see [[Working Stack — Claude CLI and Ollama]] |
 
 ## Scorecard (update weekly)
@@ -59,14 +59,17 @@ updated: 2026-07-24
 
 ### Agent-ready (when asked)
 
-1. [x] Apex v2: manager log book + tip management + labor cost — **DONE 2026-07-27** (analyze clean, mounted behind entitlements)
-2. [ ] Apex v2: **login screen** (blocks any real-data test — no way past the sign-in wall today)
-3. [ ] Apex v2: **apply `supabase/migrations/0001_apex_v2_foundation.sql`** to staging → smoke test → prod. Until then the 4 tables the app queries do not exist
-4. [ ] Apex v2: schedule/calendar screen — the biggest missing piece; v2 has no schedule at all
-3. [ ] After RLS applied: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
-4. [ ] Gate C: assist Play Console listing from copy already in Gate C note
-5. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
-6. [ ] Monthly [[VAULT_LINT]] pass if due
+1. [x] Apex v2: manager log book + tip management + labor cost — **DONE 2026-07-27**
+2. [x] Apex v2: AuthGate + sign-in wiring — **DONE 2026-07-27**
+3. [x] Apex v2: foundation migration applied on live Apex DB — **DONE 2026-07-27**
+4. [x] Apex v2: schedule week view — **DONE 2026-07-27**
+5. [x] Apex v2: team chat + swaps + time-off + schedule publish — **DONE 2026-07-27**
+6. [x] Apex v2 Reimagined #5–10: Assign Days · QR+offline · push→SMS · photo import · PA labor guardrails · calendar export — **DONE 2026-07-27** (`8f64bf8`; real + demo live)
+7. [ ] Apex v2 product audit against live apps (deferred intentionally)
+8. [ ] After store accounts: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
+9. [ ] Gate C: assist Play Console listing from copy already in Gate C note
+10. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
+11. [ ] Monthly [[VAULT_LINT]] pass if due
 
 ### Parked (not this week)
 

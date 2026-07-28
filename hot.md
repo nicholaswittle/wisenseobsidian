@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-26T03:00:00
+updated: 2026-07-27T22:10:00
 ---
 
 # Recent Context
@@ -10,32 +10,29 @@ updated: 2026-07-26T03:00:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-07-27 (late). Apex v2: Weekend 1 complete (log book · tips · labor cost) + OS foundation (migration, entitlements, shell) + demo deployed. Repo + demo live. Next: login screen, then apply the migration.
+2026-07-27 (night). Apex v2 Weekend 1–2 Reimagined plan **complete through #10**. GitHub `main` @ `8f64bf8`. Real + demo redeployed. Audit deferred.
 
 ## Key Recent Facts
 - **Vault = curated static reference** — no auto-wiki. Boot: [[hot]] → [[NOW]] → [[index]] → note.
-- **Apex v2 active:** `C:\development\projects\apex_v2` - a **new build** toward a **multi-venue OS** (restaurant = vertical one), borrowing patterns from v1 but not a port. Repo `github.com/nicholaswittle/apex_v2`; demo `apex-v2-demo.vercel.app`. Full status: [[Apex v2 — Restaurant OS Build]].
-- **Restaurant OS plan ratified:** 6-week build order, 16-table phased SQL schema, 4 pricing tiers (Free/Pro $25/OS $99/Multi $199). Docs in `docs/` + vault: [[business/Restaurant OS Unified Build Plan 2026-07-27]].
-- **Reuse strategy:** Apex v1 (`C:\development\projects\apex\lib\`) has 16 working features — pull query patterns + RLS shapes. employee_dashboard.dart is the pattern for all new screens.
-- **Jigsy ordering demo live on Cloudflare:** https://jigsys-ordering-demo.wisense.workers.dev (Customer: `/order-demo` · Staff: `/staff-demo`).
-- **Master Pitch Model:** Lead offer = **$0 Setup + $99/month** (Tier 1 Starter), Pro offer = **$299 Setup + $79/month** (Tier 2). Full blueprint: [[business/Restaurant Website SaaS — Master Pitch Model and Strategy 2026-07-26]].
-- **Prospect Pipeline:** 408 local businesses within 5-mile radius of Enola, PA (`prospects/Enola Area Business Prospects.md`).
+- **Apex v2 ACTIVE & SHIPPED through plan #10:** `C:\development\projects\apex_v2` · repo `github.com/nicholaswittle/apex_v2` · **Real** `apex-v2-ten.vercel.app` · **Demo** `apex-v2-demo.vercel.app`. Full status: [[Apex v2 — Restaurant OS Build]].
+- **Same Supabase as v1:** `pqkremkwfkudrhtxasdj`. Foundation + notification routing + DOB labor migrations applied.
+- **Restaurant OS plan ratified:** 6-week build order, 16-table phased SQL, Free/Pro $25/OS $99/Multi $199. [[business/Restaurant OS Unified Build Plan 2026-07-27]].
+- **Jigsy ordering demo live on Cloudflare:** https://jigsys-ordering-demo.wisense.workers.dev
+- **Master Pitch Model:** Lead = **$0 Setup + $99/month**; Pro = **$299 Setup + $79/month**. [[business/Restaurant Website SaaS — Master Pitch Model and Strategy 2026-07-26]].
 - **Execution layer:** [[NOW]] · customers: [[customers/_Index]] · decisions: [[DECISIONS]].
 - Git mirror: `github.com/nicholaswittle/wisenseobsidian` (origin/main).
 
 ## Active Project Status
-- **Apex v2** — ACTIVE. **Weekend 1 complete** (dashboard · log book · tips · labor cost, analyze clean) + OS foundation (schema migration, entitlements = tier + per-module plug-in, app shell with module registry). **BLOCKERS: migration never applied + login screen built but not wired.** v2 is 4 screens — no schedule/swaps/availability/staff/chat UI exists yet. Demo **fully working** after two fixes: shell layout bug (`0986d53`, nav bar ate the viewport) and demo backend ignoring PostgREST filters (`0353e7f`); 7 backend tests added so a third break shows a real error. [[Apex v2 — Restaurant OS Build]].
-- **Jigsy's Website Concept** — live. What’s good here · Why Old Forge · FAQ · Google 4.5·553 · Board menu · Call It In · no live music (lounge/skill games). Open: owner food photos, pie confirm, Git→Vercel auto-deploy, identity polish. Niche: restaurant site refreshes as service proof. [[Jigsys Website Concept]] · [[customers/Jigsys Brewpub]].
-- **Jigsy's Ordering Demo** — live isolated demo with 52 priced items, Accept & Print / Reject, availability, prep time, daily reports, and one-website pause behavior. Production still needs shared storage, protected staff access, notifications, and printer verification.
+- **Apex v2** — ACTIVE. Core loop + Reimagined #5–10 shipped: Assign Days, QR+offline, push→SMS, photo/text import, PA labor guardrails, ICS/Google Calendar export. HEAD `8f64bf8`. **Next: product audit** (Nicholas deferred). Ops still needed for Twilio / Anthropic secrets if SMS or cloud vision go live. [[Apex v2 — Restaurant OS Build]].
+- **Jigsy's Website Concept** — live. Open: owner food photos, pie confirm, Git→Vercel auto-deploy. [[Jigsys Website Concept]] · [[customers/Jigsys Brewpub]].
+- **Jigsy's Ordering Demo** — live isolated demo. Production still needs shared storage, protected staff access, notifications, printer verification.
 - **COMMS LINK** — ⏸️ PARKED 2026-07-20. [[COMMS LINK]].
-- **Apex Scheduler (v1)** — RLS pushed; branch `feat/apex-plan-2026-07-21` not merged/audited. Ship to stores first, then v2 builds on same Supabase. [[Apex Scheduler]].
+- **Apex Scheduler (v1)** — Ship to stores first (keystore/accounts). [[Apex Scheduler]].
 - **New Horizon** — 117/117; fork reconciliation COMPLETE.
-- **DELETED:** wisense-os, my_ai, local-agent-work-center, command_center.
 
 ## Active Threads
-- **⚠️ DB HAZARD:** `apex/apex/supabase/config.toml` is linked to **Horizon's** project (`cyokzxwztctjuqqygbam`), not Apex's (`pqkremkwfkudrhtxasdj`). Destructive `supabase` commands run from `apex/apex/` hit the **wrong database**. Unfixed pending confirmation. Also: remote migration history matches no repo — `db push` needs a reconciliation before it can work from anywhere.
-- **✅ APEX V2 MIGRATION APPLIED 2026-07-27** — 4 tables + all columns + RLS (11 policies) verified live. Both orgs set to `tier='os'`. v2 is now **5 screens** (dashboard · schedule · log book · tips · labor cost) with **AuthGate + sign-in + sign-out**. Remaining before real-data use: deploy a non-demo build with Supabase env vars. Real roles are only `Owner`/`Staff` — no `manager` in live data.
-- **BUILD:** Apex v2 — sign-in screen **wired**; next is (built, not routed — needs AuthGate + sign-out), then **apply `0001_apex_v2_foundation.sql`** to staging (Nicholas runs this), then the schedule/calendar as the first big v2-native screen.
-- **LAUNCH:** Ship Apex v1 to stores (keystore + accounts — payday Friday).
-- **REVENUE / PORTFOLIO:** Jigsy site = web-refresh niche case study; distribution still the constraint.
+- **⚠️ DB HAZARD:** `apex/apex/supabase/config.toml` linked to **Horizon** (`cyokzxwztctjuqqygbam`), not Apex (`pqkremkwfkudrhtxasdj`). Do not run destructive `supabase` from `apex/apex/`.
+- **AUDIT:** Apex v2 live apps — walk build-priority list when ready.
+- **LAUNCH:** Ship Apex v1 to stores (keystore + accounts).
+- **OS PHASE next after audit:** ordering → Supabase · labor vs real revenue.
 - **This week board:** [[NOW]]
