@@ -74,7 +74,19 @@ flowchart TD
 
 ## 3. Detailed Self-Serve Mechanics
 
-### A. Venue Auto-Bootstrap (Phase 0)
+### A. The Website "Door" Strategy (No Agency Work)
+* **Core Rule:** **Never build custom marketing websites per venue.** Building `jigsys_site` was a high-value move for the flagship pilot case study, but doing it for every customer turns WiSense into a slow web agency.
+* **The OS Hosted Guest URL:** Every venue automatically gets a hosted guest menu at:  
+  `https://apex-v2-ten.vercel.app/?token=PUBLIC_TOKEN`
+* **How Venues Connect Their Existing Site / Socials:**  
+  The venue's website (Squarespace, Wix, WordPress) or social media (Instagram, Facebook, Google Business Profile) is simply a **door** pointing at their Apex guest URL.  
+  1. Venue copies their guest link or HTML button snippet: `<a href="https://apex-v2-ten.vercel.app/?token=XYZ">Order Pickup</a>`.
+  2. Venue pastes the link into their Google Business / Instagram profile or existing site.
+  3. **The OS owns menu, checkout, KDS, and smart capacity.** Their site is just a door.
+
+---
+
+### B. Venue Auto-Bootstrap (Phase 0)
 Whenever an organization is created (via `apex_create_organization` RPC or self-service signup), a Postgres trigger automatically provisions:
 1. `organizations` row (`tier = 'free'`).
 2. `restaurants` row (`id = gen_random_uuid()`, `organization_id`, `name = org_name`, `public_token = slugify(org_name) + '-' + random_hex(4)`).
