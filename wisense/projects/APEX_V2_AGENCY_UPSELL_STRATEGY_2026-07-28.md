@@ -1,76 +1,67 @@
 ---
 type: strategy
-title: "WiSense Restaurant OS — Flagship Website Agency Upsell Strategy"
-tags: [strategy, pricing, business-model, agency-upsell, apex-v2, high-ticket]
+title: "WiSense Restaurant OS — Setup SKU & Flagship Positioning Strategy"
+tags: [strategy, pricing, business-model, setup-sku, apex-v2, positioning]
 date: 2026-07-28
 status: active
 ---
 
-# 💰 WiSense Restaurant OS — Flagship Website Agency Upsell Strategy
+# 🛡️ WiSense Restaurant OS — Setup SKU & Flagship Positioning Strategy
 
-> **Core Concept:** Offering a high-ticket **"Flagship Custom Site + OS Integration Package"** ($1,499 upfront + $99/mo OS) alongside the $0 setup self-serve OS.
+> **Core Positioning Rule:** WiSense is a **Software Product Company**, not a web agency. The core product is the **Restaurant OS ($99/mo) accessed via hosted token URLs (`/?token=PUBLIC_TOKEN`)**. Custom website builds are sold strictly as an optional **"Flagship Setup SKU" ($1,499–$2,499 upfront)**, never as the default path into the OS.
 
 ---
 
-## 1. Why This Strategy Works (The Cash Flow Engine)
+## 1. Product vs. Setup SKU Matrix
 
-For a solo founder, relying exclusively on $99/mo self-serve SaaS means waiting 12 months to collect $1,188 from a single customer. 
+```mermaid
+flowchart TD
+    subgraph CoreProduct["📱 Primary Product (Software)"]
+        SaaS["Apex Restaurant OS\n($99 / mo)"]
+        Link["Hosted Guest Order URL\n(https://apex-v2-ten.vercel.app/?token=XYZ)"]
+        Door["Venue's Existing Site / Socials\n(Squarespace, Wix, Instagram, Google)"]
+        SaaS --> Link
+        Door -->|Pastes Link| Link
+    end
 
-Adding an optional **Custom Website Build Upsell** creates immediate upfront cash flow:
-
+    subgraph SetupSKU["🎨 Optional Setup SKU (Paid Add-On)"]
+        SKU["Flagship Custom Website Package\n($1,499 – $2,499 Upfront)"]
+        Template["Standardized venue_site_template\n(Tokenized single-page HTML)"]
+        SKU --> Template
+        Template -->|Wires| Link
+    end
 ```
-[ Self-Serve Customer ]  ──>  $0 Setup + $99/mo OS           = $1,188 ARR (Hands-Off)
-[ Flagship Customer ]    ──>  $1,499 Setup + $99/mo OS        = $2,687 Year 1 (High Cash Flow)
-```
 
-**Financial Impact:**  
-Closing just **2 custom website setups per month** generates **$3,000 upfront cash flow**, funding SaaS infrastructure while building high-proof regional case studies (like Jigsy's).
-
----
-
-## 2. Two-Tier Product Menu
-
-| Package | Upfront Fee | Monthly Fee | What the Customer Gets | Founder Ops Load |
-|:---|:---:|:---:|:---|:---:|
-| **Self-Serve OS** | **$0** | **$99 / mo** | Venue uses their existing site / Instagram / Google Business profile and points an "Order Online" button to their Apex hosted guest link (`/?token=XYZ`). | **0 Hours (Hands-Off)** |
-| **Flagship Custom Package** | **$1,499** | **$99 / mo** | WiSense builds a custom, high-converting, mobile-first website (like Jigsy's) with photography, SEO Schema.org, local story band, and embedded ordering. | **4 Hours (Template Sprint)** |
+| Dimension | Option A: Primary Product (Default) | Option B: Flagship Setup SKU (Paid Add-On) |
+|:---|:---:|:---:|
+| **Positioning** | **Apex Restaurant OS** | **Flagship Setup Package** |
+| **Upfront Fee** | **$0** (Self-serve) | **$1,499 – $2,499** (One-time) |
+| **Monthly Fee** | **$99 / mo** | **$99 / mo** |
+| **Guest Door** | Venue pastes guest URL on existing site / socials | WiSense deploys custom single-page website |
+| **Founder Ops Load** | **0 Hours (Hands-Off)** | **3–4 Hours per setup** |
+| **Capacity Cap** | Unlimited venues | **Hard Cap: Max 3 per month** |
 
 ---
 
-## 3. The 90-Minute Template Deployment Playbook
+## 2. Fulfillment Realities & Capacity Governance
 
-Because `jigsys_site` was built as a clean, tokenized single-page HTML/CSS architecture, deploying a custom website for a new restaurant client is literally a **90-minute copy-paste workflow**:
-
-1. **Copy Template Repository:** `cp -r jigsys_site new_venue_site`
-2. **Swap Design Tokens (5 mins):** Update `:root` CSS variables in `index.html`:
-   - `--sauce`: Primary accent / brand color
-   - `--crust`: Secondary accent
-   - `--ground`: Background tone (dark/light)
-3. **Insert Content & Photos (45 mins):** Replace logo, hero banner, venue story, hours, and phone number.
-4. **Wire Supabase `public_token` (10 mins):** Set `public_token = 'new-venue-token'` in the embedded guest order button script.
-5. **1-Command Deploy (5 mins):**  
-   `vercel --cwd . deploy --prod --yes --scope wi-sense-llc`
-
-### Financial Return on Time:
-* **Fulfillment Time:** 90 Minutes (1.5 Hours)
-* **Client Fee:** $1,499 Upfront + $99/mo OS
-* **Effective Hourly Rate:** **~$1,000 / Hour**
+1. **Aspirational Floor vs. Execution Reality:**  
+   While 90 minutes is the target floor for swapping CSS tokens, real-world fulfillment (client photo formatting, custom copy tweaks, domain DNS propagation, and menu verification) typically takes **3–4 hours**.
+2. **Prerequisite Before Taking Paid Flagship Jobs:**  
+   Extract a clean, dedicated `venue_site_template` repository from `jigsys_site` with standardized placeholders:
+   - CSS variables: `--sauce`, `--crust`, `--ground`
+   - Content tokens: `VENUE_NAME`, `PHONE`, `ADDRESS`, `HOURS_JSON`
+   - Integration token: `PUBLIC_TOKEN`
+3. **Capacity Hard Cap & Dynamic Surge Pricing:**  
+   - Hard cap of **maximum 3 Flagship setups per month** to prevent founder time bankruptcy.
+   - When monthly setup slots fill or demand surges, immediately increase price from **$1,499 → $2,499**.
 
 ---
 
-## 4. Operational Rules: How to Avoid "Agency Trap"
+## 3. Mandatory Rules for Monetization
 
-To prevent custom website builds from consuming founder time:
-
-1. **Standardize on the Jigsy Single-Page Template Core:**  
-   Do not build custom WordPress or complex CMS backends. Use the single-page, ultra-fast HTML/CSS template (`jigsys_site` architecture) hosted on Vercel under `wi-sense-llc`.
-2. **4-Hour Fulfillment Cap per Site:**  
-   - Hour 1: Receive brand assets, menu, hours, and photos.
-   - Hour 2: Transcribe menu tokens & color variables into template.
-   - Hour 3: Test responsive preview & wire Supabase `public_token`.
-   - Hour 4: Deploy to Vercel & point venue domain.
-3. **Capacity Hard Cap:**  
-   Cap custom website builds at **maximum 3 per month**. If demand exceeds 3, raise the setup price to $2,499.
+* **Self-Serve Unlock Button is Non-Negotiable:** Flagship upfront cash flow does **not** replace the self-serve Stripe OS unlock button (`TASK-002`). The $99/mo self-serve funnel must run autonomously 24/7.
+* **The OS Link is Always the Token URL:** The website is optional packaging; the OS link is always `https://apex-v2-ten.vercel.app/?token=PUBLIC_TOKEN`.
 
 ---
 
