@@ -118,12 +118,50 @@ worth stating up front in future demos.
 - Terminology layer (vertical vocabulary from config) deferred until a second
   vertical is real — avoid hardcoding words that would have to change.
 
+### Supabase CLI access — set up 2026-07-27
+
+Claude can now reach the Apex database directly (CLI v2.110.0, authenticated,
+`apex_v2` linked). Credentials live in the OS keychain; Claude uses the CLI and
+never sees a token.
+
+**Project refs (confirmed against the API, not inferred):**
+
+| Ref | Project |
+|---|---|
+| `pqkremkwfkudrhtxasdj` | **Apex** (v1 + v2 share this) |
+| `cyokzxwztctjuqqygbam` | wisense_horizon_v2 |
+
+**Found immediately, and only because of the CLI access:**
+
+1. **Migration was misnamed.** `0001_apex_v2_foundation.sql` sorted *before* all
+   15 migrations already on the remote, so `db push` would never have applied
+   it. Renamed `20260727000000_apex_v2_foundation.sql` (`13981c5`). SQL unchanged.
+2. **⚠️ `apex/apex/supabase/config.toml` points at the WRONG project** —
+   `cyokzxwztctjuqqygbam` (Horizon), while Apex v1's runtime is
+   `pqkremkwfkudrhtxasdj`. A `supabase db reset --linked` run from `apex/apex/`
+   would target **Horizon's database**. Not fixed — needs Nicholas to confirm
+   intent first. **Do not run destructive CLI commands from `apex/apex/`.**
+3. **The migration history has no owner.** Remote has 15 migrations; apex v1 has
+   7 with *different* timestamps; apex_v2 has 1. Neither repo matches remote —
+   those 15 were applied outside the CLI (dashboard SQL editor, most likely).
+   So `supabase db push` **cannot run from any repo** without a
+   `migration repair` / `db pull` reconciliation first. Deliberately not done:
+   repairing history on a live database in the same sitting as applying a
+   never-tested migration is two risky operations stacked.
+
+**Consequence:** the foundation migration must be applied **by hand** in the
+Supabase SQL editor this once. Then set the tier or no modules appear:
+`update organizations set tier = 'os' where id = '<org-uuid>';`
+(`tier` defaults to `free`, which grants scheduling only — the app will look
+broken when it is not.)
+
 ### Next up
 
 1. **Wire the sign-in screen** — `AuthGate` on `onAuthStateChange` + sign-out.
    The screen itself is done; only the routing is missing.
-2. **Apply `0001_apex_v2_foundation.sql`** to Supabase staging → real-data
-   deploy. This one is Nicholas's to run.
+2. **Apply `20260727000000_apex_v2_foundation.sql` by hand** in the SQL editor
+   (back up first — it alters `organizations`, `shifts`, `time_entries` on the
+   live v1 database), then set `tier = 'os'`. Nicholas runs this.
 3. Then the schedule/calendar as the first big v2-native screen.
 
 ---

@@ -33,6 +33,7 @@ updated: 2026-07-26T03:00:00
 - **DELETED:** wisense-os, my_ai, local-agent-work-center, command_center.
 
 ## Active Threads
+- **⚠️ DB HAZARD:** `apex/apex/supabase/config.toml` is linked to **Horizon's** project (`cyokzxwztctjuqqygbam`), not Apex's (`pqkremkwfkudrhtxasdj`). Destructive `supabase` commands run from `apex/apex/` hit the **wrong database**. Unfixed pending confirmation. Also: remote migration history matches no repo — `db push` needs a reconciliation before it can work from anywhere.
 - **BUILD:** Apex v2 — next is **wiring the sign-in screen** (built, not routed — needs AuthGate + sign-out), then **apply `0001_apex_v2_foundation.sql`** to staging (Nicholas runs this), then the schedule/calendar as the first big v2-native screen.
 - **LAUNCH:** Ship Apex v1 to stores (keystore + accounts — payday Friday).
 - **REVENUE / PORTFOLIO:** Jigsy site = web-refresh niche case study; distribution still the constraint.
