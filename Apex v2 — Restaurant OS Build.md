@@ -118,6 +118,64 @@ worth stating up front in future demos.
 - Terminology layer (vertical vocabulary from config) deferred until a second
   vertical is real — avoid hardcoding words that would have to change.
 
+### ✅ MIGRATION APPLIED — 2026-07-27
+
+Nicholas ran `20260727000000_apex_v2_foundation.sql` by hand in the SQL editor.
+**Verified directly against the live database via `supabase db query --linked`:**
+
+| Check | Result |
+|---|---|
+| `shift_notes`, `tip_pools`, `tip_allocations`, `messages` | 4/4 created |
+| `organizations.tier / enabled_modules / disabled_modules` | 3/3 |
+| `shifts.start_time / end_time / role` | 3/3 |
+| `time_entries.organization_id` | added |
+| RLS enabled + policies | 4/4 tables, 11 policies |
+
+**Tiers set to `os`** on both orgs (`Default Workspace`, `jigsys`) — they
+defaulted to `free`, which grants scheduling only and would have made the app
+look broken.
+
+**Finding — the real role vocabulary is narrower than assumed.** Live `profiles`
+contain only `Owner` and `Staff`. `entitlements.dart` assumes
+owner/manager/server/kitchen/readonly. It degrades correctly (`parse()`
+lowercases, so `Owner`→owner, `Staff`→server), but **`manager` does not exist in
+real data**, so `canManage` is owner-only in practice and the RLS `has_role`
+helper grants management to owners alone. Fine for now; revisit when v1 starts
+writing a manager role.
+
+### Weekend 2 — schedule + auth (Cursor, verified by Claude)
+
+- `features/schedule/schedule_screen.dart` — week view, Mon–Sun, own shifts
+  highlighted, read-only. **Verified:** imports shared `shift_time.dart` and uses
+  `hoursBetween` (clock-face strings), *not* `hoursBetweenTimestamps` — the money
+  invariant holds. Zero write paths.
+- `features/auth/auth_gate.dart` — swaps sign-in ↔ shell off the auth stream,
+  reads `currentSession` synchronously so returning users get no login flash,
+  and skips the subscription entirely in demo mode. Sign-out wired as
+  `onSignOut` on the dashboard, passed `null` in demo (no session to end).
+- Module bar now scrolls horizontally above 3 modules — four `Expanded` labels
+  do not fit a 375px phone. Cursor caught this unprompted.
+
+**v2 is now 5 screens with a real login and a schedule.** The gap Nicholas hit on
+the first demo ("no schedule no nothing") is closed.
+
+### Third demo bug — and a test that hid it
+
+`id=eq.` with an **empty operand**. Every screen reads identity as
+`auth.currentUser?.id ?? ''` and demo mode has no session, so that empty string
+is what the app actually sends. While the backend ignored filters it matched
+everything by accident; once filtering was implemented it matched nothing and
+every screen's opening `single()` threw.
+
+Fixed in `demo_backend.dart`: an empty equality operand cannot match real data
+and only ever arises from the missing session, so it resolves to the seeded user.
+
+**The lesson is about the test, not the bug.** The existing test passed
+`DemoMode.userId` — a value the app never sends — so it **passed while the app
+was broken**, twice. Tests now send `''`, the real condition, plus an explicit
+regression case. 11/11 passing. *A test that exercises a state the product never
+reaches is worse than no test: it manufactures confidence.*
+
 ### Supabase CLI access — set up 2026-07-27
 
 Claude can now reach the Apex database directly (CLI v2.110.0, authenticated,
