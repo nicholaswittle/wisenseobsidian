@@ -18,7 +18,7 @@ updated: 2026-07-28T16:10:00
 - **Jigsy site:** `github.com/nicholaswittle/jigsysite` @ `4505cd4` · https://jigsyssite.vercel.app · staff https://jigsyssite.vercel.app/staff.html · `public_token=jigsys`.
 - **Kitchen ops:** Accept & print → done. Pay at counter separate. Menu availability tab / inventory icon for 86.
 - **No alcohol online** (brews deleted). Pause hides Order online CTAs.
-- **Gameplan & Funnel Audit:** [[wisense/projects/APEX_V2_SELF_SERVE_FUNNEL_AUDIT_2026-07-28]] (shipped funnel audit - 100% verified) · [[wisense/projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] (gameplan).
+- **Gameplan & Funnel Audit:** [[wisense/projects/APEX_V2_SELF_SERVE_FUNNEL_AUDIT_2026-07-28]] (shipped funnel audit - 100% verified) · [[wisense/projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] (gameplan) · [[wisense/projects/APEX_V2_AGENCY_UPSELL_STRATEGY_2026-07-28]] (agency upsell).
 
 ## Active Project Status
 - **Jigsy pilot** — LIVE for Emily ops test. NEXT: optional thermal print · re-enable auto-pause · topping price confirm.
