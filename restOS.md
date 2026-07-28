@@ -14,6 +14,7 @@ date: 2026-07-27
 |---|---|
 | **GitHub** | https://github.com/nicholaswittle/restOS |
 | **Local clone** | `C:\development\projects\restOS` |
+| **Latest snapshot** | `f1c244a` on `main` (2026-07-28 refresh) |
 | **Contents** | `apex_v2/` · `jigsys_site/` · `jigsy/` |
 
 ## Rules
