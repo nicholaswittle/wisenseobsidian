@@ -11,9 +11,10 @@ status: active
 
 > Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat + call-outs + capacity. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
 
-**HEAD:** see GitHub `nicholaswittle/apex_v2` `main`.  
+**HEAD:** `nicholaswittle/apex_v2` `main` @ `dc40da8` (2026-07-28 afternoon).  
 **Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app.  
-**Jigsy Order online (2026-07-28):** https://jigsyssite.vercel.app wired to live menu/`place_order`. Full board + extras. Pay = manual at pickup; print not built — see [[Jigsy Online Ordering — Live Status 2026-07-28]].  
+**Jigsy Order online (2026-07-28):** https://jigsyssite.vercel.app · staff https://jigsyssite.vercel.app/staff.html · `jigsysite` @ `4505cd4`. Accept & print; menu stock sync; no online alcohol — [[Jigsy Online Ordering — Live Status 2026-07-28]].  
+**Archive:** [[restOS]] @ `a6cb554`.  
 **Theme:** New Horizon dark palette (purple/teal on blue-black `0xFF0A0C10`) — replaced original brown-on-black.  
 **Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/APEX_V2_OS_JIGSYS_INTEGRATION_AUDIT_2026-07-28]] (Jigsy OS integration).
 
