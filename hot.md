@@ -23,7 +23,7 @@ updated: 2026-07-28T03:20:00
 - **Test user:** test-delete2@wisensellc.com / test123456 — Owner of jigsys org, super admin, free tier + tipManagement module.
 - **Theme:** New Horizon dark palette (purple/teal on blue-black).
 - **Apex v1:** Assign Days ported by Cursor (month-grid calendar). Still uncommitted in v1 repo.
-- **Audits:** [[wisense/projects/APEX_V2_OS_FULL_AUDIT_2026-07-28]] (full system, 2 blockers + 4 high — blockers fixed) · [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/RESTOS_FULL_SYSTEM_AUDIT_2026-07-27]] (archived restOS).
+- **Audits:** [[wisense/projects/APEX_V2_OS_JIGSYS_INTEGRATION_AUDIT_2026-07-28]] (Jigsy's full OS integration audit) · [[wisense/projects/APEX_V2_OS_FULL_AUDIT_2026-07-28]] (app pre-pilot audit) · [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code).
 - Git mirror: `github.com/nicholaswittle/wisenseobsidian` (origin/main).
 
 ## Active Project Status
