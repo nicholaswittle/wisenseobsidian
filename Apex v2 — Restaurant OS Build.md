@@ -73,9 +73,17 @@ because v2 has no schedule screen.* This surprised Nicholas on 2026-07-27 —
 worth stating up front in future demos.
 
 **Open issues:**
-- **Demo renders black** for Nicholas. Suspect COEP headers (removed,
-  redeployed) but **unverified** — Claude's preview pane will not composite
-  frames, so rendering could not be checked from this side. Needs a human look.
+- ~~Demo renders black~~ **RESOLVED 2026-07-27** (`0986d53`). Not a rendering
+  or headers problem at all — a layout bug in `app.dart`. Each module button's
+  `Column` defaulted to `MainAxisSize.max`, so the bottom bar expanded to the
+  full viewport and the dashboard was laid out at **zero height**. The module
+  screens were never affected. Diagnosed from Nicholas's screenshots, which
+  showed the three nav cards stretched floor-to-ceiling and all three module
+  screens rendering perfectly.
+  **Lesson:** two rounds were spent guessing at COEP/CanvasKit because Claude's
+  preview pane cannot composite frames. One user screenshot settled it. When
+  rendering cannot be verified from this side, **ask for a screenshot first**
+  instead of deploying speculative fixes.
 - Demo writes are echoed but do not persist (deliberate — better than fake
   persistence).
 - Display code (`_LoadingView`, `_ErrorView`, `_SkeletonBox`, `_EmptyCard`,
