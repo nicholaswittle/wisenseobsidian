@@ -11,8 +11,10 @@ status: active
 
 > Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat + call-outs + capacity. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
 
-**HEAD (local):** `1b74a4e` — **4 commits ahead of GitHub** as of 2026-07-28 night (ordering → labor-vs-revenue → call-outs → smart capacity). Push when ready.  
-**Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app (redeploy after push if needed).
+**HEAD:** `c9e1eae` on `main` (synced to GitHub). All 3 OS bridge features + ordering + color scheme swap pushed.  
+**Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app (auto-deploys from main).  
+**Theme:** New Horizon dark palette (purple/teal on blue-black `0xFF0A0C10`) — replaced original brown-on-black.  
+**Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/RESTOS_FULL_SYSTEM_AUDIT_2026-07-27]] (full system + PDF) — both predate ordering/call-outs/capacity commits.
 
 Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07-27]], [[business/Apex Scheduler Reimagined 2026-07-27]], [[business/Apex Reimagined Build Order 2026-07-27]], [[business/WiSense Restaurant OS Master Plan 2026-07-27]], [[NOW]]
 
@@ -26,7 +28,7 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 
 - Flutter + Supabase (same backend as Apex v1)
 - `supabase_flutter: ^2.5.0`, `intl: ^0.19.0`, `shared_preferences`, `image_picker`, `crypto`
-- Dark Material 3 theme (seed color `0xFFFF8C42`)
+- Dark Material 3 theme (New Horizon palette: purple `0xFF8B5CF6` + teal `0xFF14B8A6` on blue-black `0xFF0A0C10`)
 - Full Flutter scaffold (Android, iOS, Web) + Supabase migrations + edge functions
 - Demo mode: `DemoHttpClient` seeds fake data so screens run without a backend
 
@@ -81,7 +83,7 @@ The Reimagined vision defined 10 sections. The Unified Build Plan defined a 6-we
 
 ### Verdict
 
-Weekend 1–3 scope **plus** Phase 2 ordering and Phase 3 OS bridges (labor vs revenue, call-outs, smart capacity) are built locally through `1b74a4e`. Remaining items (29–35) are polish/integrations and later phases. Product audit still deferred by Nicholas.
+Weekend 1–3 scope **plus** Phase 2 ordering and Phase 3 OS bridges (labor vs revenue, call-outs, smart capacity) are built and pushed to GitHub (`c9e1eae`). Color scheme swapped from brown to New Horizon dark palette. Remaining items (29–35) are polish/integrations and later phases. Product audit by Nicholas still pending — plan to show Emily (Jigsy's) the v2 demo for feedback. "Apex v2 lite" for v1 launch = set org tier to `free` in entitlements, same app shows only 4 modules.
 
 ## Architecture
 
@@ -154,10 +156,13 @@ Already reused in v2: query patterns, org_id scoping, shift/time_entry patterns.
 |------|---------|--------|------------|
 | 0 | Ship Apex v1 to stores | Blocked | Keystore + Apple/Google accounts (Friday) |
 | 1 | Standalone features (log book, tips, labor cost, chat, QR, offline, guardrails, notifications) | DONE | — |
-| 2 | Unified Supabase backend (port ordering) | DONE (local `d3a218e`) | Push GitHub + redeploy when ready |
-| 3 | OS bridge (labor vs revenue, no-show engine, smart capacity) | DONE (local through `1b74a4e`) | Push GitHub + product audit |
-| 4 | Production integration (Square, etc.) | Deferred | Jigsy's written approval |
-| 5 | ML data capture (prep-time snapshots) | Deferred | Step 2 |
+| 2 | Unified Supabase backend (port ordering) | DONE (`d3a218e`) | Pushed to GitHub |
+| 3 | OS bridge (labor vs revenue, no-show engine, smart capacity) | DONE (`1b74a4e`) | Pushed to GitHub |
+| 4 | Color scheme swap (New Horizon palette) | DONE (`d3a218e`) | Pushed |
+| 5 | Apex v1 schedule builder port (month grid) | DONE (Cursor) | Uncommitted in v1 — needs commit |
+| 6 | Show Emily the v2 demo | Pending | Nicholas's schedule |
+| 7 | Production integration (Square, etc.) | Deferred | Jigsy's written approval |
+| 8 | ML data capture (prep-time snapshots) | Deferred | Step 2 |
 
 ## Pricing (Implemented in entitlements.dart)
 
