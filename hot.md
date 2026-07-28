@@ -21,7 +21,7 @@ updated: 2026-07-28T03:20:00
 - **Apex v1:** Assign Days ported by Cursor (month-grid calendar replaces checkbox week-picker). Still needs commit in v1 repo. Live https://apex-scheduler-theta.vercel.app. [[Apex Scheduler]].
 - **restOS archive:** one-time snapshot `github.com/nicholaswittle/restOS` @ `ffd8f5e`. [[restOS]].
 - **Restaurant OS plan:** Free/Pro $25/OS $99/Multi $199. "Apex v2 lite" = set org tier to `free`, same app shows only 4 modules. [[business/Restaurant OS Unified Build Plan 2026-07-27]].
-- **Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/RESTOS_FULL_SYSTEM_AUDIT_2026-07-27]] (full system + PDF) — both predate ordering/call-outs/capacity.
+- **Audits:** [[wisense/projects/APEX_V2_OS_FULL_AUDIT_2026-07-28]] (full system pre-pilot audit) · [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/RESTOS_FULL_SYSTEM_AUDIT_2026-07-27]] (archived restOS).
 - Git mirror: `github.com/nicholaswittle/wisenseobsidian` (origin/main).
 
 ## Active Project Status
