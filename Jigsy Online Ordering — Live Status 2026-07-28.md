@@ -9,13 +9,14 @@ status: active
 
 # Jigsy Online Ordering — Live Status 2026-07-28
 
-Guest ordering is live on the Jigsy site, wired to Apex Supabase. Staff run tickets in Apex **Orders**. Pay is at pickup; kitchen print is not built yet.
+Guest ordering is live on the Jigsy site, wired to Apex Supabase. Staff run tickets in **Apex Orders** and/or **staff.html**. Pay is at pickup; Accept prints the kitchen ticket.
 
 ## Live links
 
 | Surface | URL |
 |---------|-----|
 | Jigsy site (Order online) | https://jigsyssite.vercel.app |
+| Staff console (HTML) | https://jigsyssite.vercel.app/staff.html |
 | Apex real app | https://apex-v2-ten.vercel.app |
 | Apex demo | https://apex-v2-demo.vercel.app |
 | Supabase | `pqkremkwfkudrhtxasdj` |
@@ -23,43 +24,43 @@ Guest ordering is live on the Jigsy site, wired to Apex Supabase. Staff run tick
 
 ## What works today
 
-1. **Order online** on the site opens a modal → loads live menu/capacity from Supabase → cart → `place_order` RPC → pickup code.
-2. **Full Nov 2025 board** is in `menu_categories` / `menu_items` (trays by cut, specialty, gourmet, wings, stromboli/flatbreads, starters, salads, subs, dessert, house brews). Stub seed items are unavailable and hidden from guests.
-3. **Extras / modifiers:** tray toppings (priced by cut: +$1.50 / $2.00 / $2.50), wing sauce + sides (+$1), salad dressings, sub add fries (+$2), fries cheese/bacon.
-4. **Staff console (Apex → Orders):** Waiting → Accept / Reject → Complete. Screen ticket is the kitchen ticket.
-5. **Capacity:** `capacity_snapshot` + auto-pause exist; auto-pause was turned **off** for testing (`auto_pause_enabled=false`). Re-enable when ready for real volume.
-6. Confirmed test order example: pickup code **5AD2BB** (Mozzarella Sticks) landed in Orders as `waiting`.
+1. **Order online** on the site → live menu/capacity → cart → `place_order` → pickup code.
+2. **Full Nov 2025 board** in Supabase (trays, specialty, gourmet, wings, stromboli/flatbreads, starters, salads, subs, dessert). **No alcohol online** (House Brews To-Go removed).
+3. **Extras / modifiers:** tray toppings by cut, wing sauce/sides, salad dressings, sub fries, fries cheese/bacon.
+4. **Staff (Apex or staff.html):** Waiting → **Accept & print** (one tap; ticket prints; kitchen done). Reject if needed. Re-print from Done. Pay at counter is separate — no “Paid & done” click.
+5. **Menu availability:** category tabs / inventory icon — tap item to sold-out or restock. Same `menu_items.available` for app + HTML + guest site (realtime).
+6. **Pause online orders:** hides all `[data-apex-open]` CTAs (website-only sell mode).
+7. **Capacity:** auto-pause off for testing (`auto_pause_enabled=false`).
 
 ## Pay (current)
 
 - `restaurant_settings.payment_mode = manual`
-- Guest does **not** pay online. Pay at counter on pickup (cash / card terminal).
-- Order rows stay `payment_status: pending`.
-- Matches the settled Jigsy model: website free, ordering optional, pay at pickup, no Stripe in Phase 1 ([[business/Jigsys Website & Direct Ordering Master Plan]]).
+- Guest does **not** pay online. Pay at counter on pickup.
+- Accept does **not** mark `payment_status` paid — money is a counter concern.
 
 ## Print (current)
 
-- **No** 80mm thermal / auto-print on accept yet (still on the master-plan wishlist).
-- Ops today: staff watch Apex Orders on phone/tablet; Accept = kitchen starts; Complete when ready.
-- Sensible next build: print (or browser print) on Accept, then optional **Mark paid** on Complete. Online card (Stripe) is a later slice.
+- Browser print ticket fires on Accept (staff.html + Apex dialog).
+- Thermal Star/Epson auto-print still a later upgrade.
 
-## Migrations applied (menu)
+## Migrations (menu / stock)
 
-- `20260801400000_jigsys_full_board_menu.sql` — full board SKUs + wing sauces
-- `20260801410000_jigsys_menu_extras.sql` — toppings, sides, dressings, sub fries
+- `20260801400000` — full board
+- `20260801410000` — extras
+- `20260801500000` — `apex_set_menu_item_available` RPC (any org member can 86)
+- `20260801510000` — remove online alcohol SKUs
 
-## Source paths
+## Source paths / GitHub HEADs (2026-07-28 afternoon)
 
-- Apex: `C:\development\projects\apex_v2` · GitHub `nicholaswittle/apex_v2`
-- Site: `C:\development\projects\jigsys_site` · GitHub `nicholaswittle/jigsysite` · `ordering.js`
-- Archive (one-time dumps): [[restOS]] → `nicholaswittle/restOS`
+- Apex: `nicholaswittle/apex_v2` @ `dc40da8`
+- Site: `nicholaswittle/jigsysite` @ `4505cd4`
+- Archive: [[restOS]] `nicholaswittle/restOS` @ `a6cb554`
 
 ## Next product steps
 
-1. Kitchen ticket print on Accept (browser or Star/Epson).
-2. Mark paid on Complete (still manual money).
-3. Re-enable auto-pause after staffing test.
-4. Confirm topping $ tiers with Emily / kitchen (board listed toppings without prices).
-5. Optional later: prepaid card at checkout.
+1. Optional thermal printer on Accept.
+2. Re-enable auto-pause after staffing test.
+3. Confirm topping $ tiers with Emily / kitchen.
+4. Optional later: prepaid card at checkout.
 
 Related: [[Apex v2 — Restaurant OS Build]], [[customers/Jigsys Brewpub]], [[Jigsys Website Concept]], [[restOS]], [[wisense/projects/APEX_V2_OS_JIGSYS_INTEGRATION_AUDIT_2026-07-28]]
