@@ -15,8 +15,8 @@ updated: 2026-07-28
 |-------|-------|
 | **Stage** | Pre-revenue → pilot + store launch |
 | **Focus apps** | Apex v2 (OS Phase 2–3 built locally) + Apex v1 (Assign Days live; ship Friday); COMMS LINK parked |
-| **#1 metric this week** | Push/redeploy apex_v2 · product audit · ship Apex v1 to stores |
-| **This week's bet** | Sync v2 GitHub+Vercel · audit when ready · ship Apex v1 (keystore/accounts) |
+| **#1 metric this week** | Jigsy live ordering pilot ops (print/pay) · ship Apex v1 to stores |
+| **This week's bet** | Kitchen ticket print + mark-paid · restOS archive current · Apex v1 keystore/accounts |
 | **Working stack** | Claude CLI + Ollama + Cursor — see [[Working Stack — Claude CLI and Ollama]] |
 
 ## Scorecard (update weekly)
@@ -68,13 +68,15 @@ updated: 2026-07-28
 7. [x] Apex v2 Online ordering (Flutter + Supabase) — **DONE 2026-07-27** (`d3a218e`; migration applied; seed `jigsys`)
 8. [x] Apex v2 Labor vs revenue + Call-Outs + Smart capacity — **DONE 2026-07-27** (`2b08e5f` · `71152c6` · `1b74a4e`; local, **push pending**)
 9. [x] Apex v1 Assign Days port + Vercel — **DONE 2026-07-27** (`03a62e6`; https://apex-scheduler-theta.vercel.app)
-10. [x] restOS archive push — **DONE 2026-07-27** (`ffd8f5e` on `nicholaswittle/restOS`)
-11. [ ] Push apex_v2 4 commits to GitHub + redeploy real/demo Vercel
-12. [ ] Apex v2 product audit against live apps (deferred intentionally)
-13. [ ] After store accounts: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
-14. [ ] Gate C: assist Play Console listing from copy already in Gate C note
-15. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
-16. [ ] Monthly [[VAULT_LINT]] pass if due
+10. [x] restOS archive push — **DONE 2026-07-27** (`ffd8f5e`); **refresh 2026-07-28** (this session)
+11. [x] Jigsy Order online + full board + extras — **DONE 2026-07-28** (see [[Jigsy Online Ordering — Live Status 2026-07-28]])
+12. [ ] Kitchen ticket print on Accept + Mark paid (pay still at pickup)
+13. [ ] Re-enable Jigsy `auto_pause_enabled` after staffing test
+14. [ ] Apex v2 product audit against live apps (deferred intentionally)
+15. [ ] After store accounts: help smoke-test checklist / update [[Apex Scheduler]] + [[hot]]
+16. [ ] Gate C: assist Play Console listing from copy already in Gate C note
+17. [ ] New Horizon: commit or gitignore untracked `AGENTS.md` / `CLAUDE.md` / `.cursor/mcp.json`; push `main` if still ahead
+18. [ ] Monthly [[VAULT_LINT]] pass if due
 
 ### Parked (not this week)
 

@@ -11,10 +11,11 @@ status: active
 
 > Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat + call-outs + capacity. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
 
-**HEAD:** `c9e1eae` on `main` (synced to GitHub). All 3 OS bridge features + ordering + color scheme swap pushed.  
-**Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app (auto-deploys from main).  
+**HEAD:** see GitHub `nicholaswittle/apex_v2` `main`.  
+**Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app.  
+**Jigsy Order online (2026-07-28):** https://jigsyssite.vercel.app wired to live menu/`place_order`. Full board + extras. Pay = manual at pickup; print not built — see [[Jigsy Online Ordering — Live Status 2026-07-28]].  
 **Theme:** New Horizon dark palette (purple/teal on blue-black `0xFF0A0C10`) — replaced original brown-on-black.  
-**Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/RESTOS_FULL_SYSTEM_AUDIT_2026-07-27]] (full system + PDF) — both predate ordering/call-outs/capacity commits.
+**Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/APEX_V2_OS_JIGSYS_INTEGRATION_AUDIT_2026-07-28]] (Jigsy OS integration).
 
 Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07-27]], [[business/Apex Scheduler Reimagined 2026-07-27]], [[business/Apex Reimagined Build Order 2026-07-27]], [[business/WiSense Restaurant OS Master Plan 2026-07-27]], [[NOW]]
 
