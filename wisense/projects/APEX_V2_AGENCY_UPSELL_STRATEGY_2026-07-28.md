@@ -37,7 +37,28 @@ Closing just **2 custom website setups per month** generates **$3,000 upfront ca
 
 ---
 
-## 3. Operational Rules: How to Avoid "Agency Trap"
+## 3. The 90-Minute Template Deployment Playbook
+
+Because `jigsys_site` was built as a clean, tokenized single-page HTML/CSS architecture, deploying a custom website for a new restaurant client is literally a **90-minute copy-paste workflow**:
+
+1. **Copy Template Repository:** `cp -r jigsys_site new_venue_site`
+2. **Swap Design Tokens (5 mins):** Update `:root` CSS variables in `index.html`:
+   - `--sauce`: Primary accent / brand color
+   - `--crust`: Secondary accent
+   - `--ground`: Background tone (dark/light)
+3. **Insert Content & Photos (45 mins):** Replace logo, hero banner, venue story, hours, and phone number.
+4. **Wire Supabase `public_token` (10 mins):** Set `public_token = 'new-venue-token'` in the embedded guest order button script.
+5. **1-Command Deploy (5 mins):**  
+   `vercel --cwd . deploy --prod --yes --scope wi-sense-llc`
+
+### Financial Return on Time:
+* **Fulfillment Time:** 90 Minutes (1.5 Hours)
+* **Client Fee:** $1,499 Upfront + $99/mo OS
+* **Effective Hourly Rate:** **~$1,000 / Hour**
+
+---
+
+## 4. Operational Rules: How to Avoid "Agency Trap"
 
 To prevent custom website builds from consuming founder time:
 
