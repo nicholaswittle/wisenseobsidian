@@ -32,8 +32,9 @@ aliases: [index.md, Vault Catalog]
 
 ## 🚀 Active Project Status & Launch Blockers
 - [[COMMS LINK]] — On-device AI decompression (code-complete & pushed; Gate C packaging)
-- [[Apex Scheduler]] — Jigsy's Brewpub scheduling (code-complete & pushed; **apply RLS on Supabase**, then Gate C)
-- [[Apex v2 — Restaurant OS Build]] — reimagined Apex toward full OS; employee dashboard built, log book + tips next
+- [[Apex Scheduler]] — Jigsy's Brewpub scheduling (Assign Days live on Vercel; **apply RLS on Supabase**, then Gate C)
+- [[Apex v2 — Restaurant OS Build]] — Restaurant OS; Phase 2–3 (ordering · call-outs · labor/revenue · capacity) built locally through `1b74a4e`
+- [[restOS]] — archive snapshot repo (`apex_v2` + jigsy site + ordering demo)
 - [[New Horizon]] — Travel booking Alignment Engine (117/117 tests; fork reconciliation complete)
 - [[WiSense Governance — Rules and Protocols]] — Root governance index
 

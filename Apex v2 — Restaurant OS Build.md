@@ -3,13 +3,16 @@ title: Apex v2 — Restaurant OS Build
 tags: [apex, restaurant-os, flutter, supabase, build, active]
 aliases: [Apex v2, Restaurant OS Build, apex_v2]
 date: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-28
 status: active
 ---
 
 # Apex v2 — Restaurant OS Build
 
-> Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
+> Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat + call-outs + capacity. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
+
+**HEAD (local):** `1b74a4e` — **4 commits ahead of GitHub** as of 2026-07-28 night (ordering → labor-vs-revenue → call-outs → smart capacity). Push when ready.  
+**Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app (redeploy after push if needed).
 
 Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07-27]], [[business/Apex Scheduler Reimagined 2026-07-27]], [[business/Apex Reimagined Build Order 2026-07-27]], [[business/WiSense Restaurant OS Master Plan 2026-07-27]], [[NOW]]
 
@@ -59,17 +62,17 @@ The Reimagined vision defined 10 sections. The Unified Build Plan defined a 6-we
 | 22 | Schedule text parser | — | DONE | `lib/core/schedule_text_parser.dart` (local OCR fallback) |
 | 23 | Shift time helpers | — | DONE | `lib/core/shift_time.dart` |
 | 24 | Conflict detector | — | DONE | `lib/core/conflict_detector.dart` |
+| 25 | Online ordering platform | Phase 2 | DONE | `lib/features/ordering/` (menu · cart · staff console) + migration `20260729000000_ordering_platform.sql` — seeded Jigsy's Brewpub, public token `jigsys`, 19 items |
+| 26 | Smart ordering capacity | Phase 3 | DONE | `lib/features/capacity/capacity_screen.dart` + migration `20260731000000_smart_capacity.sql` |
+| 27 | No-show call-out engine | Phase 3 | DONE | `lib/features/callout/` + `supabase/functions/route-callout` + migration `20260730000000_no_show_callout.sql` (in-app primary; SMS optional) |
+| 28 | Labor vs revenue dashboard | Phase 3 | DONE | `lib/features/labor_vs_revenue/labor_vs_revenue_dashboard.dart` |
 
 ### NOT yet built (from the plan)
 
 | # | Plan Feature | Status | Notes |
 |---|-------------|--------|-------|
-| 25 | Online ordering platform | NOT STARTED | Port from Jigsy's React app to Supabase — Phase 2 of Unified Build Plan |
-| 26 | Smart ordering capacity | NOT STARTED | Phase 3 — needs ordering + schedule data in same DB |
-| 27 | No-show call-out engine | NOT STARTED | Phase 3 — auto-texts available employees |
-| 28 | Labor vs revenue dashboard | NOT STARTED | Phase 3 — needs ordering sales data |
-| 29 | Google Calendar sync | NOT STARTED | Plan #10 in Reimagined vision |
-| 30 | Payroll export (CSV for QuickBooks/Gusto/ADP) | NOT STARTED | Plan #10 in Reimagined vision |
+| 29 | Google Calendar sync | PARTIAL | ICS + Google Calendar TEMPLATE export shipped; two-way OAuth not started |
+| 30 | Payroll export (CSV for QuickBooks/Gusto/ADP) | NOT STARTED | Labor CSV exists; full payroll adapters deferred |
 | 31 | Geofencing for clock-in | NOT STARTED | QR is built, geofence not yet (plan mentions `geolocator` plugin) |
 | 32 | Photo verification (selfie on clock-in) | NOT STARTED | Plan #5 in Reimagined vision |
 | 33 | Square integration | NOT STARTED | Phase 4 — deferred until Jigsy's commits |
@@ -78,9 +81,7 @@ The Reimagined vision defined 10 sections. The Unified Build Plan defined a 6-we
 
 ### Verdict
 
-The plan called for 6 weekends of work. What's built covers ALL of Weekend 1 (log book, tips, labor cost, employee dashboard), ALL of Weekend 2 (chat, notifications, photo import, QR clock-in, offline mode), and Weekend 3 (labor guardrails). That's 3 weekends of planned work delivered. The remaining items (25-35) are Phase 2+ — ordering platform and OS bridge features that need Jigsy's to commit to a pilot first.
-
-The build is ahead of the plan. The 6-week timeline projected reaching "smart ordering capacity" by Weekend 6. We're at the end of Weekend 3's scope with all standalone features done.
+Weekend 1–3 scope **plus** Phase 2 ordering and Phase 3 OS bridges (labor vs revenue, call-outs, smart capacity) are built locally through `1b74a4e`. Remaining items (29–35) are polish/integrations and later phases. Product audit still deferred by Nicholas.
 
 ## Architecture
 
@@ -102,10 +103,14 @@ The build is ahead of the plan. The 6-week timeline projected reaching "smart or
 - `20260727000000_apex_v2_foundation.sql` — new tables (shift_notes, tip_pools, tip_allocations, messages), new columns (shifts.start_time/end_time/role, time_entries.organization_id), entitlements columns on organizations, RLS helpers
 - `20260728000000_notification_routing.sql` — notification_preferences table + RLS
 - `20260728010000_labor_guardrails_dob.sql` — date_of_birth column on profiles
+- `20260729000000_ordering_platform.sql` — restaurants / menu / cart / orders (applied live on Apex DB `pqkremkwfkudrhtxasdj`)
+- `20260730000000_no_show_callout.sql` — call-out requests + responses (applied)
+- `20260731000000_smart_capacity.sql` — capacity settings / windows (applied with capacity feature)
 
 ### Edge functions
 - `parse-schedule/index.ts` — cloud vision for photo-to-schedule (optional, uses Anthropic API key)
 - `route-notification/index.ts` — SMS fallback via Twilio
+- `route-callout/index.ts` — ranks available staff and routes call-out (SMS optional / Twilio)
 
 ## Reuse Inventory — What Can Be Pulled Into Future Builds
 
@@ -131,11 +136,7 @@ Already reused in v2: query patterns, org_id scoping, shift/time_entry patterns.
 | RLS migration | `supabase/migrations/20260720000000_launch_blockers_rls.sql` | `apex_current_org()` helper, per-table RLS policies, atomic clock-in guard |
 
 ### From Jigsy's ordering (`C:\development\projects\jigsy\src\App.jsx`)
-React component with 52-item menu, cart, modifiers (pizza crust, wing sauce), catering form. NOT yet ported to Supabase. Reusable for Phase 2 (ordering platform):
-- Menu data structure (pizza, wings, subs, appetizers, brews)
-- Cart logic (add/remove, quantity, unique keys for customized items)
-- Modifier selection pattern (pizza crust, wing sauce)
-- Catering form fields
+**Ported 2026-07-27** into Flutter + Supabase under `lib/features/ordering/`. Original React demo still lives at Cloudflare for the isolated website pitch. Archive copy also in [[restOS]] (`github.com/nicholaswittle/restOS`).
 
 ### From wisense_ui (`C:\development\projects\apex\packages\wisense_ui\`)
 - `loading_indicator.dart`, `spacing.dart` — shared UI primitives (not yet imported by v2)
@@ -153,8 +154,8 @@ React component with 52-item menu, cart, modifiers (pizza crust, wing sauce), ca
 |------|---------|--------|------------|
 | 0 | Ship Apex v1 to stores | Blocked | Keystore + Apple/Google accounts (Friday) |
 | 1 | Standalone features (log book, tips, labor cost, chat, QR, offline, guardrails, notifications) | DONE | — |
-| 2 | Unified Supabase backend (port ordering) | Not started | Jigsy's pilot approval |
-| 3 | OS bridge (labor vs revenue, no-show engine, smart capacity) | Not started | Step 2 |
+| 2 | Unified Supabase backend (port ordering) | DONE (local `d3a218e`) | Push GitHub + redeploy when ready |
+| 3 | OS bridge (labor vs revenue, no-show engine, smart capacity) | DONE (local through `1b74a4e`) | Push GitHub + product audit |
 | 4 | Production integration (Square, etc.) | Deferred | Jigsy's written approval |
 | 5 | ML data capture (prep-time snapshots) | Deferred | Step 2 |
 
