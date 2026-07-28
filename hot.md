@@ -24,7 +24,7 @@ updated: 2026-07-26T03:00:00
 - Git mirror: `github.com/nicholaswittle/wisenseobsidian` (origin/main).
 
 ## Active Project Status
-- **Apex v2** — ACTIVE. **Weekend 1 complete** (dashboard · log book · tips · labor cost, analyze clean) + OS foundation (schema migration, entitlements = tier + per-module plug-in, app shell with module registry). **BLOCKERS: migration never applied + no login screen.** v2 is 4 screens — no schedule/swaps/availability/staff/chat UI exists yet. Demo black-screen **FIXED** (`0986d53`, shell layout bug — nav bar ate the viewport); all 4 screens confirmed rendering. [[Apex v2 — Restaurant OS Build]].
+- **Apex v2** — ACTIVE. **Weekend 1 complete** (dashboard · log book · tips · labor cost, analyze clean) + OS foundation (schema migration, entitlements = tier + per-module plug-in, app shell with module registry). **BLOCKERS: migration never applied + login screen built but not wired.** v2 is 4 screens — no schedule/swaps/availability/staff/chat UI exists yet. Demo **fully working** after two fixes: shell layout bug (`0986d53`, nav bar ate the viewport) and demo backend ignoring PostgREST filters (`0353e7f`); 7 backend tests added so a third break shows a real error. [[Apex v2 — Restaurant OS Build]].
 - **Jigsy's Website Concept** — live. What’s good here · Why Old Forge · FAQ · Google 4.5·553 · Board menu · Call It In · no live music (lounge/skill games). Open: owner food photos, pie confirm, Git→Vercel auto-deploy, identity polish. Niche: restaurant site refreshes as service proof. [[Jigsys Website Concept]] · [[customers/Jigsys Brewpub]].
 - **Jigsy's Ordering Demo** — live isolated demo with 52 priced items, Accept & Print / Reject, availability, prep time, daily reports, and one-website pause behavior. Production still needs shared storage, protected staff access, notifications, and printer verification.
 - **COMMS LINK** — ⏸️ PARKED 2026-07-20. [[COMMS LINK]].
@@ -33,7 +33,7 @@ updated: 2026-07-26T03:00:00
 - **DELETED:** wisense-os, my_ai, local-agent-work-center, command_center.
 
 ## Active Threads
-- **BUILD:** Apex v2 — next is the **login screen**, then **apply `0001_apex_v2_foundation.sql`** to staging, then the schedule/calendar as the first big v2-native screen.
+- **BUILD:** Apex v2 — next is **wiring the sign-in screen** (built, not routed — needs AuthGate + sign-out), then **apply `0001_apex_v2_foundation.sql`** to staging (Nicholas runs this), then the schedule/calendar as the first big v2-native screen.
 - **LAUNCH:** Ship Apex v1 to stores (keystore + accounts — payday Friday).
 - **REVENUE / PORTFOLIO:** Jigsy site = web-refresh niche case study; distribution still the constraint.
 - **This week board:** [[NOW]]

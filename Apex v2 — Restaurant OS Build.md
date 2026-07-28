@@ -34,7 +34,9 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 | **Entitlements** | `core/entitlements.dart` | Built — the plug-in mechanism |
 | **App shell** | `app.dart` + `main.dart` | Built — module registry |
 | Shared helpers | `core/shift_time.dart` | Built, used by labor cost |
-| Demo backend | `core/demo_backend.dart` | Built, deployed |
+| Demo backend | `core/demo_backend.dart` | Built, deployed, **filters implemented** |
+| Demo backend tests | `test/demo_backend_test.dart` | **7/7 passing** — covers every query the 4 screens make |
+| Sign-in screen | `features/auth/sign_in_screen.dart` | Built — **NOT wired**, nothing routes to it yet |
 | Platform targets | `android/` `ios/` `web/` | Added — it is a **phone app**; web exists only for the browser demo |
 
 `flutter analyze lib/` clean. **Weekend 1 (log book · tips · labor cost) complete.**
@@ -63,8 +65,16 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 1. **Migration has never been applied.** `shift_notes`, `tip_pools`,
    `tip_allocations`, `messages` do not exist in the database. Until it runs
    (staging → prod), no screen can load real data.
-2. **No login/auth screen exists.** The shell shows "Sign in to continue" and
-   there is no way past it. Required before any real-data test.
+2. **Login is half-built.** `features/auth/sign_in_screen.dart` exists
+   (`872a2b1`) — email/password, reset, error mapping off Supabase auth *codes*
+   rather than its unstable messages. **Nothing routes to it.** `app.dart`
+   still renders the shell directly, so the app does not gate on a session.
+   Remaining: an `AuthGate` listening to `onAuthStateChange` that swaps between
+   sign-in and shell, plus a sign-out affordance (the dashboard has no callback
+   for one yet).
+   Sign-in **only**, deliberately — account creation needs venue provisioning
+   or an invite, and v2 has neither an `invites` table nor an org-creation path.
+   A "create account" button would dead-end or orphan a profile.
 
 **Not built yet (v2 is 4 screens — these live only in v1):**
 schedule / calendar UI · shift swaps UI · availability & time-off ·
@@ -84,6 +94,21 @@ worth stating up front in future demos.
   preview pane cannot composite frames. One user screenshot settled it. When
   rendering cannot be verified from this side, **ask for a screenshot first**
   instead of deploying speculative fixes.
+- ~~Dashboard fails to load in demo~~ **RESOLVED 2026-07-27** (`0353e7f`).
+  Second demo bug, found right after the layout one. `demo_backend.dart`
+  ignored PostgREST filters *by design* — "the seed is small, close enough."
+  It wasn't: asking for "my shift today" returned all six seeded shifts, and a
+  single-row request cannot take six → `PostgrestException 406`. Worse than the
+  crash, it **answered a different question than the screen asked** — without
+  the exception the dashboard would have shown another employee's shift as
+  yours. Now implements `eq/neq/is/gt/gte/lt/lte`, dotted columns for embedded
+  rows, `order`, `limit`. (`select=` shaping still skipped; rows return whole.)
+- **Both demo bugs were invisible because a `catch` swallowed the exception**
+  and showed a friendly "could not load". Added `test/demo_backend_test.dart`
+  (7 tests) running every query the four screens make, asserting filters
+  actually *narrow* — today's shift is yours, `is.null` finds only the one open
+  punch, `order`+`limit` returns the newest note. A third failure will produce a
+  real error instead of a shrug.
 - Demo writes are echoed but do not persist (deliberate — better than fake
   persistence).
 - Display code (`_LoadingView`, `_ErrorView`, `_SkeletonBox`, `_EmptyCard`,
@@ -95,9 +120,11 @@ worth stating up front in future demos.
 
 ### Next up
 
-1. Login screen (required for the product, not throwaway) + apply the migration
-   to staging → real-data deploy.
-2. Then the schedule/calendar as the first big v2-native screen.
+1. **Wire the sign-in screen** — `AuthGate` on `onAuthStateChange` + sign-out.
+   The screen itself is done; only the routing is missing.
+2. **Apply `0001_apex_v2_foundation.sql`** to Supabase staging → real-data
+   deploy. This one is Nicholas's to run.
+3. Then the schedule/calendar as the first big v2-native screen.
 
 ---
 
