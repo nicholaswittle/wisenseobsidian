@@ -259,3 +259,61 @@ readable by anyone. Nicholas asked explicitly that these be kept.
 *(Correction: an earlier version of this section said the photo import screens
 made no network calls. Only tier 1 is offline; tier 2 goes through the edge
 function. The security property — no key in the client — holds for both.)*
+
+## God Mode — Fleet Admin Console (2026-07-29)
+
+**Verified working by Nicholas.** Commits `f806a38` (audit trail), `642e99a`
+(view-as + health + grants). Live at https://apex-v2-ten.vercel.app
+
+The console itself already existed (`features/admin/admin_console_screen.dart`,
+883 lines — venues, tiers, module toggles, users, invites, billing). Audit found
+all six `admin_*` RPCs correctly `SECURITY DEFINER` + gated on
+`is_super_admin()`. The gaps were logging and support access.
+
+### Added
+
+| Piece | What it does |
+|---|---|
+| `admin_audit` + triggers | Every tier/module/invite/privilege change, however it arrived |
+| `admin_view_sessions` | Time-boxed read-only "view as venue" |
+| `admin_fleet_health()` | 5 integrity checks — all currently **zero** |
+| `admin_set_super_admin()` | Audited grant path, refuses self-revocation |
+
+### Two design decisions worth keeping
+
+**Audit via triggers, not inside the RPCs.** Triggers on `organizations`,
+`organization_invites`, `profiles` capture a change however it arrived — RPC,
+the `orgs super admin update` policy, or by hand in the SQL editor. Auditing
+inside the six functions would have left those paths silent, and the SQL-editor
+path is the one that otherwise leaves no trace at all. Rows with no `auth.uid()`
+are labelled **"direct SQL"** rather than blank.
+
+**View-as is a session, not a flag.** The obvious implementation — a blanket
+`using (is_super_admin())` SELECT policy on all 30 org-scoped tables — was
+written, then **blocked by a safety classifier, correctly**. That access is
+permanent, always on, and covers orders/tips/revenue for every venue, resting
+entirely on a boolean any user could write until `20260729`. Nicholas chose the
+harder option. Result: ~60 more lines of SQL, and a bug in `is_super_admin`
+exposes **one venue for 30 minutes** instead of every venue forever.
+
+Guards that matter: `admin_active_view_org()` re-checks `is_super_admin()` on
+every call, so revoking the flag kills open sessions immediately rather than at
+expiry; only one venue open at a time (two would make the function ambiguous and
+the banner a lie); **SELECT only** — no write policy accompanies a session, so
+view-as can never become edit-as. Red banner + Exit, and the session survives a
+browser refresh.
+
+### Still not built (from the original design)
+
+Suspend/restore venue · invite revocation UI · broadcast to all venues · export
+a venue's data · per-venue AI parse spend attribution (photo import runs ~$0.02
+each through the edge function and is currently unattributed — it will grow with
+your best customers).
+
+### Open from the security audit
+
+- `org insert authenticated` still `WITH CHECK true` — unbounded org creation.
+  Guard would likely break v1's `ProfileService.createOrganization`.
+- **Verify email confirmation is ON** — `apex_handle_new_user` hardcodes two
+  emails to `is_super_admin = true`. If confirmation is off, anyone signing up
+  with those addresses gets platform admin.
