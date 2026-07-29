@@ -317,3 +317,62 @@ your best customers).
 - **Verify email confirmation is ON** — `apex_handle_new_user` hardcodes two
   emails to `is_super_admin = true`. If confirmation is off, anyone signing up
   with those addresses gets platform admin.
+
+## Tiers + Pricing Alignment (2026-07-29)
+
+Commit `2622129`. Both deployments verified clean.
+
+### Free/Pro line moved to match the site
+
+| Tier | Modules |
+|---|---|
+| **Free** | scheduling · swaps · time clock · push · **offline** · **team chat** |
+| **Pro $25** | tips · labor cost · log book |
+| OS $99 | ordering · capacity · no-show engine · labor vs revenue |
+| Multi $199 | multi-location |
+
+`offlineMode` and `teamChat` moved Pro → Free, with the reasoning written into
+`entitlements.dart` so they do not drift back:
+
+- **Offline is reliability, not a feature.** Charging for "works when the wifi is
+  bad" makes the free tier feel broken in exactly the venues this sells into.
+- **Chat kills the group text.** If messages stay in the group text the switch is
+  never finished, and the venue is one bad week from leaving.
+
+Pro keeps the money tools. People pay to fix money problems and resent paying
+for convenience.
+
+### Branded-site price: $1,499 → $299 setup + $79/mo
+
+The in-app upsell still quoted **$1,499 one-time**, a price removed from the
+website on 2026-07-23. The app was selling something the business no longer
+offers.
+
+**Nicholas's call, and it is the right one:** Cursor and Antigravity both landed
+on $1,499, but with no case studies and no demand yet, a new provider cannot ask
+for that upfront. Start low, raise once there is demand.
+
+Worth keeping in mind:
+- **This is deferral, not a discount.** $79/mo crosses $1,499 at ~19 months and
+  keeps going. The recurring model is worth *more*, just later.
+- **$299 setup probably does not cover build time.** The monthly is what makes it
+  work, which means **churn is the real risk in this model, not price.**
+- **Raising prices is easy for new customers, hard for existing ones.**
+  Grandfather the early ones deliberately and say so — "locked in" is a selling
+  point, and a surprise increase is how a small client base sours.
+- Three AI tools agreeing on $1,499 is not market evidence — they reason from
+  similar priors about national rates. Nicholas talking to businesses in Enola is
+  better data than model consensus.
+
+### Client name removed from four more places
+
+Website upsell card, billing sheet, support email, demo fixtures. **Worst was
+the printed kitchen receipt** (`staff_console_screen.dart`) — a client name was
+hardcoded into both the plain-text and HTML ticket, so every other venue's
+printer would have produced receipts under someone else's banner. Now uses the
+loaded venue name, falling back to `ONLINE ORDER`.
+
+**Pattern worth naming:** three of these were decisions made once, applied to one
+surface, and left wrong on another — same shape as the demo `is_super_admin`
+flag. **When a commercial term changes, grep both repos rather than fixing only
+where it was noticed.**
