@@ -243,8 +243,19 @@ never creates the restaurant came from reading only the client.
 
 ## Micro AI Assistants — preserve as-is (Nicholas, 2026-07-29)
 
-`core/menu_text_parser.dart`, `core/schedule_text_parser.dart` and the photo
-import screens are **on-device deterministic parsers**: no API keys, no network
-calls, human review before anything is inserted. No key in the bundle, no data
-leaving the device, no per-parse cost, and they work offline. Nicholas asked
-explicitly that these be kept. They are also the best-designed part of the app.
+Two tiers, and the split is the good part:
+
+1. **On-device deterministic parsers** — `core/menu_text_parser.dart`,
+   `core/schedule_text_parser.dart`. No API key, no network, no per-parse cost,
+   works offline. Used for paste/text input.
+2. **Vision via edge function** — photo import calls `parse-menu` /
+   `parse-schedule`, which hold `ANTHROPIC_API_KEY` as a **Supabase secret,
+   server-side**. Model `claude-sonnet-4-5`, ~$0.02/menu photo observed.
+
+Both feed a human review step before anything is inserted. The key is never in
+the client bundle, which is the thing that matters — a Flutter web build is
+readable by anyone. Nicholas asked explicitly that these be kept.
+
+*(Correction: an earlier version of this section said the photo import screens
+made no network calls. Only tier 1 is offline; tier 2 goes through the edge
+function. The security property — no key in the client — holds for both.)*
