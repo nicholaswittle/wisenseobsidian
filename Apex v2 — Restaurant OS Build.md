@@ -184,3 +184,67 @@ Already reused in v2: query patterns, org_id scoping, shift/time_entry patterns.
 | Pro | $25/mo | + managerLogBook, tipManagement, laborCost, offlineMode, teamChat |
 | OS | $99/mo | + onlineOrdering, smartCapacity, noShowEngine, laborVsRevenue |
 | Multi | $199/mo | + multiLocation |
+---
+
+## Security Audit — 2026-07-29 (CRITICAL found + fixed)
+
+**Privilege escalation via `profiles` self-update.** Fixed in `a6d6d42`,
+migration `20260729000000_profiles_privilege_escalation.sql`, **applied to the
+live database and verified**.
+
+The old policy let a user update their own row with `WITH CHECK` constraining
+only `organization_id`. `profiles` also holds `role`, `is_super_admin` and
+`hourly_rate`, so any authenticated user could run:
+
+```sql
+update profiles set is_super_admin = true, role = 'Owner' where id = auth.uid();
+```
+
+`is_super_admin()` reads that column, so this granted platform-wide read on
+**every** organization and profile, plus UPDATE on every organization including
+`tier`. One statement from any invited staff member reached **every other
+venue's data**. Inherited from v1 — live the whole time.
+
+**The lesson worth keeping:** `apex_create_invite` is genuinely well-built
+(manager required, role whitelist, owner-only for Owner invites, expiry,
+collision retry). It gates on `apex_current_role()` which reads `profiles.role`.
+*Every authorization decision in this schema resolves through columns the user
+could rewrite*, so one weak `WITH CHECK` voided all of it.
+**Audit the columns that policies read, not just the policies themselves.**
+
+Fix: self-updates freeze the three privileged columns via SECURITY DEFINER
+readers (avoids RLS recursion). Owners manage staff including pay, but can never
+mint a super admin. Uses `IS NOT DISTINCT FROM` because fleet admins have
+`organization_id = NULL`, and `null = null` is NULL rather than true — plain
+equality would have locked those accounts out of their own profile.
+
+**Also fixed:** password reset had no `redirectTo`, so the emailed link went to
+the project default Site URL instead of the deployment (that flow was broken in
+production); invite-join now verifies the profile actually linked instead of
+assuming, so a bad code no longer strands an account that can neither join nor
+sign up again; two empty `catch {}` blocks now log.
+
+### Still open — deliberately not fixed
+
+- `org insert authenticated` has `WITH CHECK true` — unbounded org creation.
+  The obvious guard is `apex_current_org_id() is null`, but **v1's
+  `ProfileService.createOrganization` still uses this path** and the signup
+  trigger now auto-assigns an org, so the guard would likely break v1 signup.
+  Needs ten minutes inside v1 first.
+- **Verify email confirmation is ON.** `apex_handle_new_user` hardcodes
+  `nicholaswittle@gmail.com` and `@wisensellc.com` to `is_super_admin = true`.
+  Safe only if Supabase actually confirms the address; if confirmation is off,
+  anyone signing up with that email gets platform admin.
+
+**Corrected an earlier claim:** `_createRestaurant` *does* work. The trigger
+`apex_handle_new_user` reads `org_name` from signup metadata and provisions the
+org, assigning Owner to the first profile in it. The earlier note saying it
+never creates the restaurant came from reading only the client.
+
+## Micro AI Assistants — preserve as-is (Nicholas, 2026-07-29)
+
+`core/menu_text_parser.dart`, `core/schedule_text_parser.dart` and the photo
+import screens are **on-device deterministic parsers**: no API keys, no network
+calls, human review before anything is inserted. No key in the bundle, no data
+leaving the device, no per-parse cost, and they work offline. Nicholas asked
+explicitly that these be kept. They are also the best-designed part of the app.
