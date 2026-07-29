@@ -14,6 +14,8 @@ target_db: "pqkremkwfkudrhtxasdj"
 > **Target:** Apex v2 Restaurant OS (`C:\development\projects\apex_v2`)  
 > **Philosophy:** WiSense Minimalist — No AI for AI's sake. Small models (Claude Haiku 4.5 / Deno Edge) replace expensive Sonnet calls on high-frequency text tasks, while deterministic Dart regex handles pure rules. AI outputs must **always** pass through a **review → confirm → persist** gate.
 
+**Follow-up product verdict (shipped):** [[wisense/projects/APEX_V2_AI_ASSISTED_PRODUCT_VERDICT_2026-07-28]]
+
 ---
 
 ## 1. Executive Verdict (≤10 lines)
