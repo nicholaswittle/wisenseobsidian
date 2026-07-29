@@ -3,8 +3,9 @@ type: fix
 title: "Apex v2 — Staff Console Paid Online vs. Pay at Pickup Ticket Fix"
 tags: [fix, staff-console, stripe, payment-status, apex-v2, thermal-print]
 date: 2026-07-28
-status: active
+status: completed
 target_repo: "github.com/nicholaswittle/apex_v2"
+target_commit: "6f80167"
 target_file: "lib/features/ordering/staff_console_screen.dart"
 ---
 
@@ -14,36 +15,26 @@ target_file: "lib/features/ordering/staff_console_screen.dart"
 
 ---
 
-## 1. Root Cause Identification
+## 1. Root Cause Identification & Fix (Commit `6f80167`)
 
 In `lib/features/ordering/staff_console_screen.dart`:
 
 1. **Accept Dialog (Line 351):**  
-   The confirmation text was hardcoded:  
-   `Text('${order.customerName} · ${formatCents(order.totalCents)} · pay at pickup')`  
-   This printed `"pay at pickup"` even when `order.paymentStatus == 'paid'`.
-2. **Printed Thermal Ticket Footer (Lines 597 & 635):**  
-   The footer of every printed receipt was hardcoded:  
-   `<div>Collect on Square at counter.</div>`  
-   Even when the header badge said `PAID ONLINE $18.50`, the ticket footer instructed kitchen/counter staff to collect payment on Square.
+   *Old:* Hardcoded `'pay at pickup'`.  
+   *Fixed:* Dynamic text `${order.paymentStatus == 'paid' ? 'PAID ONLINE' : 'pay at pickup'}`.
+2. **Printed Thermal Receipt Footer (Lines 597 & 635):**  
+   *Old:* Hardcoded `Collect on Square at counter.`.  
+   *Fixed:* Dynamic footer:
+   * **Paid Orders:** `DO NOT COLLECT — Paid online via Stripe.`
+   * **Unpaid Orders:** `Collect on Square at counter.`
 
 ---
 
-## 2. Technical Fix Specifications (Dispatched via TASK-005)
+## 2. Verification Results
 
-### A. Dynamic Accept Modal Subtitle (Line 351)
-```dart
-Text(
-  '${order.customerName} · ${formatCents(order.totalCents)} · '
-  '${order.paymentStatus == "paid" ? "PAID ONLINE" : "pay at pickup"}',
-  style: Theme.of(ctx).textTheme.bodyMedium,
-)
-```
-
-### B. Dynamic Thermal Ticket Footer (Lines 587 & 635)
-```html
-<div><b>${order.paymentStatus == 'paid' ? 'DO NOT COLLECT — Paid online via Stripe.' : 'Collect on Square at counter.'}</b></div>
-```
+- **`dart analyze`:** **0 issues found.**
+- **`flutter test`:** **28/28 tests passing clean.**
+- **Deployment:** Pushed to `apex_v2` `main` branch in commit `6f80167` (Live on [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app)).
 
 ---
 
