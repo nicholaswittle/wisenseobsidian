@@ -18,7 +18,7 @@ updated: 2026-07-28T21:15:00
 - **Edit Menu:** extras/toppings (edit prices, packs, custom); duplicate; quick paste add; camera → `parse-menu`.
 - **Vision:** `ANTHROPIC_API_KEY` set; model **`claude-sonnet-4-5`** (not old `claude-sonnet-4-20250514`). Keep Sonnet until import volume justifies Haiku.
 - **Money path:** Connect Express + 1.5% Pay Now; OS Payment Links; guest Pay Now / Pay at Pickup.
-- **Security:** forged anon inserts closed; guest venue RPC; money-field locks — [[wisense/projects/APEX_V2_FULL_SYSTEM_SECURITY_AUDIT_2026-07-28]].
+- **Security:** forged anon inserts closed; guest venue RPC; money- **Gameplan & Audits:** [[wisense/projects/APEX_V2_SMALL_MODEL_AI_AUDIT_2026-07-28]] (Small-model AI opportunity audit) · [[wisense/projects/APEX_V2_FULL_SYSTEM_SECURITY_AUDIT_2026-07-28]] (Full System Security audit) · [[wisense/projects/APEX_V2_STRIPE_CONNECT_AUDIT_2026-07-28]] (Stripe Connect audit).
 
 ## Active Project Status
 - **Apex soft-launch** — product usable; live Stripe cutover later. Menu UX + Connect done for demos.
