@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-28T16:10:00
+updated: 2026-07-28T21:15:00
 ---
 
 # Recent Context
@@ -10,23 +10,23 @@ updated: 2026-07-28T16:10:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-07-28 afternoon. Jigsy Order online + staff console live. Menu stock toggles (app ↔ staff.html ↔ guest). Accept & print only (no Paid & done). Online alcohol removed. Canonical repos + restOS archive + vault pushed.
+2026-07-28 evening. Apex menu extras + photo→menu shipped; Anthropic vision live on Sonnet 4.5 (~$0.02/menu photo). Stripe Connect + security harden already live.
 
 ## Key Recent Facts
 - **Vault = curated static reference** — Boot: [[hot]] → [[NOW]] → [[index]] → note. Mirror: `github.com/nicholaswittle/wisenseobsidian`.
-- **Apex v2:** `github.com/nicholaswittle/apex_v2` @ `dc40da8` · Live https://apex-v2-ten.vercel.app · Supabase `pqkremkwfkudrhtxasdj`.
-- **Jigsy site:** `github.com/nicholaswittle/jigsysite` @ `4505cd4` · https://jigsyssite.vercel.app · staff https://jigsyssite.vercel.app/staff.html · `public_token=jigsys`.
-- **Kitchen ops:** Accept & print → done. Pay at counter separate. Menu availability tab / inventory icon for 86.
-- **No alcohol online** (brews deleted). Pause hides Order online CTAs.
-- **Gameplan & Audits:** [[wisense/projects/APEX_V2_FULL_SYSTEM_SECURITY_AUDIT_2026-07-28]] (Full System Security & PII audit - ENTERPRISE PASS) · [[wisense/projects/APEX_V2_STRIPE_CONNECT_AUDIT_2026-07-28]] (Stripe Connect audit) · [[wisense/projects/APEX_V2_SELF_SERVE_FUNNEL_AUDIT_2026-07-28]] (funnel audit).
+- **Apex v2:** `github.com/nicholaswittle/apex_v2` · Live https://apex-v2-ten.vercel.app · Supabase `pqkremkwfkudrhtxasdj`.
+- **Edit Menu:** extras/toppings (edit prices, packs, custom); duplicate; quick paste add; camera → `parse-menu`.
+- **Vision:** `ANTHROPIC_API_KEY` set; model **`claude-sonnet-4-5`** (not old `claude-sonnet-4-20250514`). Keep Sonnet until import volume justifies Haiku.
+- **Money path:** Connect Express + 1.5% Pay Now; OS Payment Links; guest Pay Now / Pay at Pickup.
+- **Security:** forged anon inserts closed; guest venue RPC; money-field locks — [[wisense/projects/APEX_V2_FULL_SYSTEM_SECURITY_AUDIT_2026-07-28]].
 
 ## Active Project Status
-- **Jigsy pilot** — LIVE for Emily ops test. NEXT: optional thermal print · re-enable auto-pause · topping price confirm.
-- **Apex v2** — OS + ordering; keep Vercel current.
-- **Apex Scheduler (v1)** — Assign Days; ship-to-stores Friday. [[Apex Scheduler]].
+- **Apex soft-launch** — product usable; live Stripe cutover later. Menu UX + Connect done for demos.
+- **Jigsy pilot** — still the sales/ops path; Apex is the product shell.
+- **Apex Scheduler (v1)** — ship-to-stores track separate. [[Apex Scheduler]].
 - **COMMS LINK** — ⏸️ PARKED.
 
 ## Active Threads
-- **PILOT:** Real run with Emily on staff.html + Apex Orders.
-- **CAPACITY:** Turn `auto_pause_enabled` back on when staffing is real.
+- **MODEL:** Stay on Sonnet for menu/schedule photos; revisit Haiku if cost climbs.
 - **This week board:** [[NOW]]
+- **Build note:** [[Apex v2 — Restaurant OS Build]]

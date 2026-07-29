@@ -4,19 +4,18 @@ tags: [apex, restaurant-os, flutter, supabase, build, active]
 aliases: [Apex v2, Restaurant OS Build, apex_v2]
 date: 2026-07-27
 updated: 2026-07-28
-status: active
 ---
 
 # Apex v2 — Restaurant OS Build
 
 > Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat + call-outs + capacity. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
 
-**HEAD:** `nicholaswittle/apex_v2` `main` @ `dc40da8` (2026-07-28 afternoon).  
+**HEAD:** `nicholaswittle/apex_v2` `main` @ `e99b8ff` (2026-07-28 evening — menu extras + photo import).  
 **Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app.  
 **Jigsy Order online (2026-07-28):** https://jigsyssite.vercel.app · staff https://jigsyssite.vercel.app/staff.html · `jigsysite` @ `4505cd4`. Accept & print; menu stock sync; no online alcohol — [[Jigsy Online Ordering — Live Status 2026-07-28]].  
 **Archive:** [[restOS]] @ `a6cb554`.  
 **Theme:** New Horizon dark palette (purple/teal on blue-black `0xFF0A0C10`) — replaced original brown-on-black.  
-**Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/APEX_V2_OS_JIGSYS_INTEGRATION_AUDIT_2026-07-28]] (Jigsy OS integration).
+**Audits:** [[wisense/projects/APEX_V2_AUDIT_2026-07-27]] (code) · [[wisense/projects/APEX_V2_OS_JIGSYS_INTEGRATION_AUDIT_2026-07-28]] (Jigsy OS integration) · [[wisense/projects/APEX_V2_FULL_SYSTEM_SECURITY_AUDIT_2026-07-28]].
 
 Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07-27]], [[business/Apex Scheduler Reimagined 2026-07-27]], [[business/Apex Reimagined Build Order 2026-07-27]], [[business/WiSense Restaurant OS Master Plan 2026-07-27]], [[NOW]]
 
@@ -33,6 +32,7 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 - Dark Material 3 theme (New Horizon palette: purple `0xFF8B5CF6` + teal `0xFF14B8A6` on blue-black `0xFF0A0C10`)
 - Full Flutter scaffold (Android, iOS, Web) + Supabase migrations + edge functions
 - Demo mode: `DemoHttpClient` seeds fake data so screens run without a backend
+- Vision: Anthropic via edge (`ANTHROPIC_API_KEY` secret) — model `claude-sonnet-4-5` (menu + schedule photo). Paste/text parsers stay free on-device.
 
 ## What's Built — Plan vs Actual
 
@@ -70,6 +70,8 @@ The Reimagined vision defined 10 sections. The Unified Build Plan defined a 6-we
 | 26 | Smart ordering capacity | Phase 3 | DONE | `lib/features/capacity/capacity_screen.dart` + migration `20260731000000_smart_capacity.sql` |
 | 27 | No-show call-out engine | Phase 3 | DONE | `lib/features/callout/` + `supabase/functions/route-callout` + migration `20260730000000_no_show_callout.sql` (in-app primary; SMS optional) |
 | 28 | Labor vs revenue dashboard | Phase 3 | DONE | `lib/features/labor_vs_revenue/labor_vs_revenue_dashboard.dart` |
+| 36 | Menu extras / toppings editor | Soft-launch | DONE (2026-07-28) | `menu_editor_screen.dart` — per-item modifier groups/options; edit prices; presets; duplicate item; quick paste add |
+| 37 | Photo → menu import | Soft-launch | DONE (2026-07-28) | `menu_photo_import_screen.dart` + `parse-menu` edge + `menu_text_parser.dart` — Anthropic vision; ~$0.02/photo on Sonnet in smoke test |
 
 ### NOT yet built (from the plan)
 
@@ -83,9 +85,15 @@ The Reimagined vision defined 10 sections. The Unified Build Plan defined a 6-we
 | 34 | Prep-time snapshots (ML data capture) | NOT STARTED | Phase 5 — capture only, no model yet |
 | 35 | Floor plan / table management | NOT STARTED | Phase 6 — future |
 
+### Soft-launch money path (2026-07-28)
+
+- Stripe Connect Express + 1.5% platform fee on Pay Now (`create-guest-payment`, `stripe-connect-onboard`, `stripe-os-webhook`)
+- Security hardening: no anon forged order inserts; guest venue RPC; money-field locks; webhook amount match
+- Decision: keep vision on **Sonnet 4.5** for menu/schedule photos until volume makes Haiku worth the accuracy tradeoff (~$0.02/menu photo observed)
+
 ### Verdict
 
-Weekend 1–3 scope **plus** Phase 2 ordering and Phase 3 OS bridges (labor vs revenue, call-outs, smart capacity) are built and pushed to GitHub (`c9e1eae`). Color scheme swapped from brown to New Horizon dark palette. Remaining items (29–35) are polish/integrations and later phases. Product audit by Nicholas still pending — plan to show Emily (Jigsy's) the v2 demo for feedback. "Apex v2 lite" for v1 launch = set org tier to `free` in entitlements, same app shows only 4 modules.
+Weekend 1–3 scope **plus** Phase 2 ordering and Phase 3 OS bridges (labor vs revenue, call-outs, smart capacity) are built and pushed to GitHub. Soft-launch path includes Connect fees + menu editor extras + photo menu import. Remaining items (29–35) are polish/integrations and later phases. Product audit by Nicholas still pending — plan to show Emily (Jigsy's) the v2 demo for feedback. "Apex v2 lite" for v1 launch = set org tier to `free` in entitlements, same app shows only 4 modules.
 
 ## Architecture
 
@@ -112,9 +120,11 @@ Weekend 1–3 scope **plus** Phase 2 ordering and Phase 3 OS bridges (labor vs r
 - `20260731000000_smart_capacity.sql` — capacity settings / windows (applied with capacity feature)
 
 ### Edge functions
-- `parse-schedule/index.ts` — cloud vision for photo-to-schedule (optional, uses Anthropic API key)
+- `parse-schedule/index.ts` — cloud vision for photo-to-schedule (`claude-sonnet-4-5`, needs `ANTHROPIC_API_KEY`)
+- `parse-menu/index.ts` — cloud vision for photo-to-menu (same model/key; on-device text fallback via `menu_text_parser.dart`)
 - `route-notification/index.ts` — SMS fallback via Twilio
 - `route-callout/index.ts` — ranks available staff and routes call-out (SMS optional / Twilio)
+- `stripe-connect-onboard`, `create-guest-payment`, `stripe-os-webhook` — Connect Express + OS Payment Links
 
 ## Reuse Inventory — What Can Be Pulled Into Future Builds
 
