@@ -152,7 +152,7 @@ It is the load-bearing assumption and it is cheap to check.
 
 ---
 
-## Pilot design (Melissa's cohort)
+## Pilot design (Emily + coworkers)
 
 Fully unlocked, which is correct for a first pilot — it finds bugs and shows
 what people reach for.
@@ -162,6 +162,8 @@ what people reach for.
 assumption the business model rests on. Do not read "they loved it" as "they
 would have paid." Save the gate question for a later cohort of real venues
 running the actual free tier.
+
+Emily is Nicholas's wife and the owner account on the jigsys venue (`emilyykidman@gmail.com`). The "Em" that broke the first import is her.
 
 **Day one task:** photo-import the real schedule — handwritten, crumpled,
 photographed at an angle in bad kitchen light.
