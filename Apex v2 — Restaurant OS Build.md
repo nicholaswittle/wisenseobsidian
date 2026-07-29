@@ -376,3 +376,199 @@ loaded venue name, falling back to `ONLINE ORDER`.
 surface, and left wrong on another — same shape as the demo `is_super_admin`
 flag. **When a commercial term changes, grep both repos rather than fixing only
 where it was noticed.**
+
+---
+
+# Session — 2026-07-29 (afternoon/evening): membership, multi-venue, two audits
+
+HEAD `542fbb1`. All work applied to the live database and deployed.
+Audits: [[wisense/projects/APEX_V2_FULL_SECURITY_AND_CORRECTNESS_AUDIT_2026-07-29]]
+· [[wisense/projects/APEX_V2_REAUDIT_2026-07-29]]
+
+## 1. Membership became a relationship
+
+**Problem Nicholas identified:** an account belongs to the *person*, not the
+venue. Hospitality staff work two jobs and change them constantly, so leaving a
+venue must not disable a login they need tomorrow. `profiles.organization_id`
+could not express that — one venue per person.
+
+Nulling that column looked like the cheap fix, but it trades an access problem
+for a **records** problem: the profiles read policy is
+`organization_id = apex_current_org_id()`, so an unlinked profile becomes
+unreadable and last month's labor report loses its names. **History has to
+outlive the employment.**
+
+New `organization_members` (org, user, permission_role, job_role, joined_at,
+left_at). Done in **two migrations on purpose**: step 1 backfilled and changed
+nothing, so old and new answers could be compared per user before any
+authorization moved. That comparison caught the one real risk — a fleet admin
+has `profiles.role = 'Owner'` but no membership row, so a naive repoint would
+have silently demoted Nicholas to Staff.
+
+Step 2 (the helper repoint) was **hand-applied by Nicholas** after a safety
+classifier blocked the write; filed afterwards as
+`20260802050000_membership_helpers_repoint.sql`.
+
+**Two fallback rules that matter:**
+
+- Users with *no* membership rows fall back to `profiles`, so fleet admins keep Owner.
+- That fallback can **never** revive a `left_at` membership — otherwise
+  offboarding would appear to work while doing nothing.
+
+## 2. What the refactor broke, three times
+
+The read side was verified carefully. The write side was not, and **every one of
+these was found by Nicholas using the app, not by me checking.**
+
+1. `apex_redeem_invite` never created a membership row — new joiners worked only
+   through the legacy fallback.
+2. `apex_set_role` wrote `profiles.role`, which nothing reads for authorization
+   any more. **Promoting someone to Manager silently did nothing**, including the
+   wage visibility that promotion is supposed to carry.
+3. `apex_set_org_module` and `apex_set_hourly_rate` resolved the caller's venue
+   from `profiles` — fine today, broken for a multi-venue user.
+
+Fixed by widening a `profiles` trigger to mirror into memberships, so every path
+converges rather than each having to remember.
+
+> **Lesson:** when a read path is repointed, enumerate the **writers** in the
+> same pass. Verifying reads and calling it done is how all three of these
+> shipped.
+
+## 3. Multi-venue
+
+Nicholas's design: after login, pick which venue you are looking at.
+
+- `profiles.active_org_id` plus `apex_set_active_venue`, which refuses venues you
+  do not work at. Stored server-side because RLS resolves through
+  `apex_current_org_id()` — the database has to agree which venue is in view.
+  Not a session variable: PostgREST pools connections.
+- `apex_my_venues()` exists because the organizations read policy is
+  `id = apex_current_org_id()` — one venue by definition — so a two-job employee
+  could not read the *name* of the job they were not currently in.
+- The picker only appears with a genuine choice; single-venue staff sign straight in.
+- Existing accounts can now **join** a second venue. The join flow always called
+  `signUp` and died on `user_already_exists`.
+
+## 4. Pay privacy — a fix that had to be done twice
+
+`profiles read same org` let **any member read every profile including
+`hourly_rate`**. Hiding it in the UI would have been decorative.
+
+RLS could not help: staff legitimately need teammate **rows**, because chat, the
+log book and tips all resolve author names through profiles. So it had to be
+column-level.
+
+**The first attempt silently failed** — `REVOKE SELECT (column)` does nothing
+when the role holds a *table-wide* grant. Fixed by revoking the table grant and
+re-granting per column, generated rather than hand-listed.
+⚠️ **Any column added to `profiles` later is unreadable until granted.**
+
+Rates now come from `apex_my_hourly_rate()` and `apex_team_pay()`
+(manager-gated). Team is open to staff — names and job roles, no pay, no contact
+details, no invite or remove.
+
+## 5. Capacity: suggest, do not act
+
+Nicholas asked how it could know a venue's normal minimum. It could not:
+`auto_pause_threshold` defaulted to **1** with auto-pause **on**, so a brand-new
+venue acted on a number nobody chose.
+
+**The baseline was already in the data:** the schedule is the manager's own
+statement of what normal looks like. `core/staffing_signal.dart` (pure, 8 tests)
+compares who is scheduled *now* against who is clocked in.
+
+Auto-pause now defaults **off**. The errors are asymmetric and both expensive —
+pausing wrongly kills revenue on the busiest night, staying open wrongly blows
+ticket times — so the app states what is true and offers the button. It does not
+know that tonight is slow, that the missing cook is ten minutes out, or that the
+owner is on the line. `capacity_events` records decision context for later
+learning: **it is not learning yet, and should not be described as such.**
+
+## 6. Two audits (Antigravity) — findings and corrections
+
+All 12 findings plus 1 the audit missed are closed. Both times, **the most severe
+item was something the auditor missed or mis-rated**, found by checking claims
+against the live database rather than reading the report.
+
+| Finding | Reality |
+|---|---|
+| `org_members_write` **(missed)** | Any manager could set their own `permission_role = 'Owner'`, bypassing the owner-only `apex_set_role`. Same shape as July's escalation: a `WITH CHECK` constraining *who*, not *what*. |
+| Manager could remove an owner | Real. Rank now checked against rank. |
+| Any staff could 86 a menu item | Real. Now manager-gated. |
+| Multi-venue cross-reads | Real, and introduced by §3. |
+| Tip hours, "CRITICAL, zeroed payouts" | **Overstated.** The fallback only fires when `DateTime.tryParse` fails, which valid ISO timestamps never do. Removed anyway; it was not on fire. |
+| Email-confirmation guard | **My fix only looked like a fix** — see below. |
+
+### The fix that wasn't
+
+Finding #7 (hardcoded emails granting `is_super_admin`) was "fixed" by requiring
+`email_confirmed_at`. But **Supabase sets that at signup when email confirmation
+is disabled — which it is on this project**: every `auth.users` row was confirmed
+within two seconds of creation. The guard passed instantly and the hole stayed
+open. The re-audit caught the mirror problem: with confirmation *enabled*, the
+same guard aborts signup entirely.
+
+Ineffective in one configuration, breaking in the other. **Fixed the class
+instead:** signup never grants fleet admin, and the flag is granted only through
+the audited `admin_set_super_admin`.
+
+## 7. Camera was never going to work on iOS
+
+Menu photo import was tested by **uploading a file from a desktop**. The camera
+path was never exercised — and `Info.plist` declared no
+`NSCameraUsageDescription`, so on iOS the app **terminates** the moment someone
+taps the camera, and App Store review rejects the binary. `pickImage` was also
+unguarded, so a denied permission threw uncaught.
+
+Both fixed. **Desktop upload and camera are different code paths on different
+platforms, and only the untested one is the one the pitch describes.**
+
+## Hard-won operational notes
+
+- **Service worker caching.** After every deploy, hard-refresh before concluding
+  something is broken. Cost an hour chasing an already-fixed bug.
+- **Two Vercel projects:** `apex-v2` (real) and `apex-v2-demo`. `flutter build
+  web` wipes `build/web` including `.vercel`, so every deploy must
+  `vercel link --project <name>` explicitly. **I once deployed the demo build
+  over the real app** by relying on inference.
+- **`service_role` bypasses RLS but NOT triggers.** A money-guard trigger nearly
+  broke the Stripe webhook.
+- **Permissive policies are OR'd.** Dropping a policy by the wrong name is a
+  silent no-op that leaves the old permissive one in force — the multi-venue
+  scoping fix looked applied and was not.
+- **plpgsql resolves record fields at execution**, so a trigger naming a column
+  that does not exist creates cleanly and fails on every write.
+- **Positional `Future.wait` results** are now Dart 3 records across six screens.
+  Inserting a query mid-list silently shifted every access after it, and the
+  analyzer could not see it.
+
+## What is left
+
+**Blocking the pilot**
+
+1. Test **camera capture on a phone** — the AI parse is proven on a real menu via
+   desktop upload; capture on device and handwriting-at-an-angle are not.
+2. **Clean the test data** — 3 venues and 6 people, most fake (`moe`, `moe2`,
+   `test rest`, `test@wisense.com`, `nikwit13@aol.com`).
+3. **Job roles set for 1 of 6 people.** Until they are set the capacity signal
+   stays silent, correctly but invisibly.
+
+**Nicholas's to do**
+
+- **Turn on email confirmation** (Dashboard → Authentication → Providers →
+  Email). Nothing depends on it for privilege now, but with it off anyone can
+  sign up as an address they do not own.
+- **`apex/apex/supabase/config.toml` points at Horizon's project.** A
+  `supabase db reset --linked` from that folder hits the wrong database.
+  Unfixed pending confirmation.
+
+**Mine when asked**
+
+- **Usage instrumentation for the pilot** — which screens get opened, by whom,
+  how often. Worth having *before* the cohort starts, not after.
+- **Migration history reconciliation** — the database matches neither repo, so
+  `supabase db push` cannot work from anywhere. Fine solo, a problem with a
+  second developer.
+- **Per-venue AI spend attribution** — photo imports cost ~$0.02 each, untracked,
+  and grow with the best customers.

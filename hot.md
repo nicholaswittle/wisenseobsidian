@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-28T23:10:00
+updated: 2026-07-29T18:00:00
 ---
 
 # Recent Context
@@ -10,7 +10,16 @@ updated: 2026-07-28T23:10:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-07-28 night. Apex Restaurant OS live on Vercel: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · Commit `fa16abd` on `main`.
+2026-07-29 evening. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · demo `apex-v2-demo.vercel.app` · HEAD `542fbb1`.
+
+**Today:** membership moved to `organization_members` (an account belongs to the person, not the venue — staff can hold two jobs, leaving a venue unlinks rather than deletes); multi-venue picker; pay made genuinely manager-only via column grants; capacity now suggests instead of auto-pausing; **two Antigravity audits, all 13 findings closed**. Full write-up: [[Apex v2 — Restaurant OS Build]].
+
+**Both audits' most severe item was one the auditor missed or mis-rated** — found by checking claims against the live DB, not by reading the report. Treat audit reports as leads, not conclusions.
+
+**BEFORE THE PILOT:** test camera capture on a phone (desktop upload is proven, camera never was — it would have crashed on iOS until `542fbb1`); clear the test venues/accounts; set job roles. **Nicholas: turn ON email confirmation** (Auth → Providers → Email) — anyone can currently sign up as an address they do not own.
+
+⚠️ `apex/apex/supabase/config.toml` still points at **Horizon's** project — a `supabase db reset --linked` from that folder hits the wrong database.
+⚠️ After any deploy, **hard-refresh** — the Flutter service worker serves the old bundle and it looks exactly like a bug.
 
 ## Key Recent Facts
 - **Vault Boot Chain:** [[hot]] → [[NOW]] → [[index]].
