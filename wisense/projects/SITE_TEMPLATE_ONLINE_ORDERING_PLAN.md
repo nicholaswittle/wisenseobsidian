@@ -14,10 +14,15 @@ one-off. Build it into the **site template**, so every flagship managed site
 ships with online ordering already installed and a venue only needs their Stripe
 account connected.
 
-**Sequencing: finish Apex v2 first.** The template comes after. Jigsy may or may
-not take the website, and the template is worth more than the single site either
-way — it turns "we'll build you a site" into "your site takes orders and money
-on day one", which is the difference between a web project and a product.
+**Sequencing: finish Apex v2 first.** The template comes after.
+
+> [!success] Jigsy is taking both — confirmed 2026-07-30
+> This plan was written while it was still an open question whether they would
+> take the website at all. They are taking the app **and** the site, so the
+> template now has a committed first customer rather than a hypothetical one.
+> The sequencing is unchanged: build it as a template, not a one-off, so every
+> flagship site ships taking money on day one. That is the difference between a
+> web project and a product.
 
 ---
 
