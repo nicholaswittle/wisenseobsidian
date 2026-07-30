@@ -1,3 +1,35 @@
+> ## 💵 FINAL MODEL 2026-07-30 — guest-paid service fee on direct charges
+>
+> Two changes, in this order: direct charges moved Stripe's processing cost to
+> the venue, then the 1.5% moved from a venue deduction to a **guest-paid
+> service fee**. Both measured on the ledger.
+>
+> Same $32.96 order under all three arrangements:
+>
+> | | guest pays | venue nets | WiSense |
+> |---|---|---|---|
+> | destination charges | $34.94 | $33.11 | **−$0.67** |
+> | direct charges | $34.94 | $33.11 | +$0.52 |
+> | **service fee (live)** | **$35.46** | **$33.61** | **+$0.52** |
+>
+> The venue ends up **50¢ better off than where this started**, and WiSense
+> earns its 1.5% instead of paying for the privilege. The difference is paid by
+> the customer — which is what Jigsy was originally pitched.
+>
+> **The sentence to say to a venue:** an online order costs you card processing
+> and nothing else — the same thing you pay when a card is tapped at your
+> counter.
+>
+> Confirmed live: order `24396E` — subtotal 3296 + service fee 52 + tax 198 =
+> 3546 charged, `platform_fee_cents` 52, platform ledger shows a single
+> `application_fee +52, fee: 0`. Pay-at-pickup orders are charged food and tax
+> only; the service fee applies to Pay Now alone.
+>
+> **Two rules that keep this a service fee rather than a card surcharge:** never
+> label it a card or processing fee, and never vary it by payment method.
+> Surcharges carry Visa/Mastercard caps, receipt requirements, a debit and
+> prepaid ban, and restrictions in ten states.
+>
 > ## ✅ RESOLVED 2026-07-30 — direct charges, confirmed on the ledger
 >
 > `create-guest-payment` now creates the Checkout Session on the venue's account
