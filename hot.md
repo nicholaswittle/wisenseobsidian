@@ -18,6 +18,8 @@ updated: 2026-07-29T18:00:00
 
 **BEFORE THE PILOT:** test camera capture on a phone (desktop upload is proven, camera never was — it would have crashed on iOS until `542fbb1`); clear the test venues/accounts; set job roles. **Nicholas: turn ON email confirmation** (Auth → Providers → Email) — anyone can currently sign up as an address they do not own.
 
+⚠️ **Delete the five `@roster.local` placeholder profiles before launch** (Kim, Marsha, Dana, Courtney, Morgan). They are name tags with fake emails and no login, added so the photo reader would recognise those names during testing. Decision 2026-07-29: keep for testing, delete before going live — **so no automatic merge was built**. If any of them signs up while a placeholder still exists, the roster gets two entries with the same name, which is exactly the ambiguity that produced "lim" for Kim. Pay is unaffected (shifts store a name, not an account).
+
 ⚠️ `apex/apex/supabase/config.toml` still points at **Horizon's** project — a `supabase db reset --linked` from that folder hits the wrong database.
 ⚠️ After any deploy, **hard-refresh** — the Flutter service worker serves the old bundle and it looks exactly like a bug.
 
