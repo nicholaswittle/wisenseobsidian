@@ -29,6 +29,48 @@ $14.82 guest order at Jigsy's, paid online, Connect destination charge to
 The venue receives $14.60. WiSense collects 22¢, pays Stripe 73¢, and is **51¢
 down on the order**.
 
+## Reproduced on a second order
+
+| order | platform fee in | Stripe fee out | **platform net** | venue nets |
+|---|---|---|---|---|
+| $14.82 | +22 | −73 | **−51** | $14.60 |
+| $26.47 | +40 | −107 | **−67** | $26.07 |
+
+The formula below predicted −67¢ on $26.47; the ledger says −67¢.
+
+The connected account's own dashboard view of the second order shows **no
+processing fee line at all** — $26.47 in, 40¢ application fee out, $26.07 net.
+The venue is not being charged for processing, which is the clearest statement
+of who is.
+
+**Not a sandbox artifact.** Test mode calculates fees with live rules: 2.9% ×
+$26.47 + 30¢ = $1.0677 → the 107 in the ledger. A skipped fee would be 0, not a
+precisely correct 107. `controller.fees.payer` is an account property identical
+in live, and Stripe's rejection message when the change was attempted quotes a
+live API rule.
+
+## Option A as originally written is impossible
+
+Stripe rejects it:
+
+> When `stripe_dashboard[type]=express`, your platform must collect fees and be
+> liable for negative balances or refunds and chargebacks.
+
+Express onboarding and venue-pays-processing are **mutually exclusive**. The
+light onboarding flow is bought with platform fee liability. So the real choice
+is narrower than first written:
+
+- **Full-dashboard (Standard) connected accounts** — venue gets a real Stripe
+  login, pays processing, owns disputes. Heavier signup.
+- **Direct charges** — charge created on the venue's account with an
+  application fee taken off it. Venue pays processing natively, onboarding stays
+  light. Changes `create-guest-payment`, not onboarding, and changes the
+  customer's statement descriptor.
+
+Attempting the change broke onboarding twice on 2026-07-29 (rejected params, and
+a stale pinned `apiVersion`); reverted to Express. **Neither remaining option is
+a flag — both change what a venue signs up for.**
+
 ## It does not improve with volume
 
 Platform fee is 1.5%. Stripe's is 2.9% + 30¢. Net per order of X cents:
