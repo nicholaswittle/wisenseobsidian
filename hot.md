@@ -60,5 +60,6 @@ updated: 2026-07-29T18:00:00
 - **COMMS LINK:** ⏸️ PARKED.
 
 ## Active Threads
+- **Order of work (decided 2026-07-30): finish Apex v2 first, then the site template.** Online ordering + card payment goes into the **site template**, not as a one-off for Jigsy — every flagship site then ships taking money on day one. ~2–3h of front-end wiring against an already-proven backend; the one gotcha is that `create-guest-payment` hardcodes its return URL to the Apex app and needs a per-venue one (server-side, never client-supplied — open redirect on a payment flow). See [[wisense/projects/SITE_TEMPLATE_ONLINE_ORDERING_PLAN]].
 - Next: Execute wisensellc.com homepage redesign based on [[wisense/projects/WISENSE_LLC_APEX_FLAGSHIP_PIVOT_PLAN_2026-07-28]].
 - [[NOW]] · [[index]] · [[Apex v2 — Restaurant OS Build]]
