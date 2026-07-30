@@ -1,3 +1,26 @@
+> ## ✅ RESOLVED 2026-07-30 — direct charges, confirmed on the ledger
+>
+> `create-guest-payment` now creates the Checkout Session on the venue's account
+> (`stripeAccount` request option), with no `transfer_data` and no
+> `on_behalf_of`. Measured immediately after, on a $34.94 order, the **entire**
+> platform-side ledger is:
+>
+> ```
+> application_fee  +52   fee: 0   net: +52
+> ```
+>
+> One entry. No charge, no transfer, no processing fee — the charge lives on the
+> connected account, which now bears Stripe's cost. Compare the same ledger for
+> a $26.47 destination charge hours earlier: `+2647 / −107 fee / −2647 transfer
+> / +40` = **−67¢**.
+>
+> WiSense now keeps its full 1.5% and pays nothing. Stripe computes the real
+> method-specific fee itself, so there is no rate table to keep in step and the
+> Klarna/Amex divergence problem disappears rather than being approximated.
+>
+> Everything below is retained as the record of how it was found and why the
+> obvious fixes did not work.
+
 ---
 type: finding
 title: "Apex — the 1.5% platform fee loses money on every order"
