@@ -16,6 +16,8 @@ updated: 2026-07-29T18:00:00
 
 **Both audits' most severe item was one the auditor missed or mis-rated** — found by checking claims against the live DB, not by reading the report. Treat audit reports as leads, not conclusions.
 
+🔴 **2026-07-29 — the three worst holes in Apex were in none of the four audits, because they are in no migration file.** `apex_grant_membership` was `SECURITY DEFINER`, checked nothing, and was granted to `anon`: one call with the publishable key made you Owner of any venue. `org invite consume` let one statement rewrite every pending invite in the database. `apex_set_subscription_status` handed out paid tiers. All closed — see [[wisense/projects/APEX_V2_LIVE_CATALOG_SWEEP_2026-07-29]]. **Audit the catalog, not the repo.** Until the migration history is reconciled, the repo cannot answer what is running in production.
+
 **BEFORE THE PILOT:** test camera capture on a phone (desktop upload is proven, camera never was — it would have crashed on iOS until `542fbb1`); clear the test venues/accounts; set job roles. **Nicholas: turn ON email confirmation** (Auth → Providers → Email) — anyone can currently sign up as an address they do not own.
 
 ⚠️ **Delete the five `@roster.local` placeholder profiles before launch** (Kim, Marsha, Dana, Courtney, Morgan). They are name tags with fake emails and no login, added so the photo reader would recognise those names during testing. Decision 2026-07-29: keep for testing, delete before going live — **so no automatic merge was built**. If any of them signs up while a placeholder still exists, the roster gets two entries with the same name, which is exactly the ambiguity that produced "lim" for Kim. Pay is unaffected (shifts store a name, not an account).
