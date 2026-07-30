@@ -13,20 +13,21 @@ updated: 2026-07-28
 
 | Field | Value |
 |-------|-------|
-| **Stage** | Pre-revenue → pilot + store launch |
-| **Focus apps** | Apex v2 (OS Phase 2–3 built locally) + Apex v1 (Assign Days live; ship Friday); COMMS LINK parked |
-| **#1 metric this week** | Jigsy live ordering pilot with Emily · ship Apex v1 to stores |
-| **This week's bet** | Pilot ops (stock/pause/accept+print) · vault+repos synced · Apex v1 keystore/accounts |
+| **Stage** | **REVENUE / PILOT LIVE 🎉 — FIRST CUSTOMER SIGNED (Jigsy's Brewpub)** |
+| **Focus apps** | Apex v2 (OS Phase 2–3 built locally) + Apex v1 + Jigsy Online Ordering |
+| **#1 metric this week** | Onboard Jigsy's online ordering & website · ship Apex v1 |
+| **This week's bet** | Pilot ops (stock/pause/accept+print) · thermal print setup · Apex v1 store launch |
 | **Working stack** | Claude CLI + Ollama + Cursor — see [[Working Stack — Claude CLI and Ollama]] |
 
 ## Scorecard (update weekly)
 
 | Metric | Target | Current | Notes |
 |--------|--------|---------|-------|
+| **First Customer** | 1 signed | **1 SIGNED 🎉** | **Jigsy's Brewpub signed YES for website + online ordering!** |
 | Apex RLS on staging | Applied + smoke-tested | Pending (human) | Migration `20260720000000_launch_blockers_rls.sql` in repo |
 | COMMS LINK store packaging | Keystore + AAB built | Not started | [[output/Gate C — Android Packaging & Store Listings 2026-07-20]] |
 | Apex store packaging | Keystore + AAB built | Not started | Same Gate C note |
-| Jigsy pilot interviews logged | ≥1 owner note in `customers/` | 1 interest note | Website liked; ordering idea planted; no pilot approval yet |
+| Jigsy pilot interviews logged | ≥1 owner note in `customers/` | **SIGNED YES** | Website + Online Ordering approved! |
 | Experiments with outcomes | Keep/kill filled | See [[business/Experiment Log]] | |
 | WiSense Agency Pipeline | Loom Zoom Boom Active | See [[business/Client Acquisition Strategy — Loom Zoom Boom & FIG Portfolio]] | |
 

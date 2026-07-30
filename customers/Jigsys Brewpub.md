@@ -1,22 +1,31 @@
 ---
 title: Jigsy's Brewpub
-tags: [customers, apex, pilot]
+tags: [customers, apex, pilot, first-customer]
 aliases: [Jigsy, Jigsys]
 date: 2026-07-20
-updated: 2026-07-24
-app: Apex Scheduler + website ordering concept
-stage: interested-demo-built
+updated: 2026-07-30
+app: Apex Scheduler + website ordering
+stage: customer-signed-yes
 ---
 
 # Jigsy's Brewpub
 
+> [!SUCCESS] **FIRST CUSTOMER ACQUIRED 🎉 (2026-07-30)**
+> Jigsy's has officially said **YES** to the website and online ordering platform!
+
 ## Context
 
-- **Contact / role**: Pub owner (pilot) — name/details as Nicholas adds them
-- **App**: [[Apex Scheduler]]
-- **Why they care**: Staff scheduling, swaps, time clock, sidework — reduce owner hours on ops
+- **Contact / role**: Pub owner (pilot) — Emily / Nicholas
+- **App**: [[Apex Scheduler]] + [[Jigsys Website Concept]] + Online Ordering
+- **Why they care**: Staff scheduling, online ordering, staff pause during rush, counter pickup print
 
 ## Interviews / feedback
+
+### 2026-07-30 — OWNER APPROVED: FIRST CUSTOMER SIGNED 🎉
+
+- **Jigsy's has officially said YES to the website and online ordering!**
+- First paying/active customer acquired for the Apex Restaurant OS / Online Ordering platform.
+- Full commitment secured for website + online ordering integration.
 
 ### 2026-07-24 — owner presentation and hardware confirmation
 
@@ -72,8 +81,9 @@ stage: interested-demo-built
 
 ## Outcome
 
-- Keep / kill / pivot: _pending first pilot week_
-- Metric touched: _Shift Swap Resolution Time; Owner Time Saved (target >5 hrs/week)_ — from [[business/WiSense Service as a Software Execution Strategy]]
+- **Status**: **SIGNED / ACTIVE CUSTOMER #1** 🎉 (2026-07-30)
+- **Keep / kill / pivot**: Keep & Deploy — website and online ordering approved by owner!
+- **Metric touched**: Shift Swap Resolution Time; Owner Time Saved; Online Revenue Growth — from [[business/WiSense Service as a Software Execution Strategy]]
 
 ## Related work
 
