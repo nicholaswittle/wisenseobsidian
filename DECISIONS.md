@@ -11,6 +11,26 @@ date: 2026-07-20
 
 Entry format: **date · decision · status · rationale · consequences**. Status ∈ ACTIVE / SUPERSEDED / REVERSED.
 
+## 2026-07-31 · Apex will replace Square as the venue POS — staged — `ACTIVE`
+- **Decision**: The Square payment rail is a **wedge, not the destination**. Long-term Apex replaces Square at Jigsy's. Sequence: (1) ship the Square rail on their existing hardware, (2) own the kitchen ticket via a CloudPRNT printer, (3) own front-of-house with a native app + Stripe Terminal + offline queue, (4) the long tail — timeclock, close-out, tax reports.
+- **Rationale**: Getting in the door requires bending to hardware they already own; replacing it requires earning the right. Each stage is independently valuable and sellable, so stalling at stage 2 still leaves a real product.
+- **Consequences**: Three walls, all hardware/platform rather than software. Their **Star TSP143IIU is USB** — a browser cannot address it, so replacing Square's printing means **replacing the printer** (~$250–350, the only unavoidable hardware cost). Card-present needs a reader we own (~$249–349) and Terminal's SDK does not run in a browser. Offline resilience alone forces a native app. **The recurring decision is when to go native** — everything past stage 2 hits that same wall. Apple Developer account purchased 2026-07-31. See [[wisense/projects/APEX_PAYMENTS_AND_POS_STRATEGY_2026-07-31]].
+
+## 2026-07-31 · Tap to Pay (SDK) struck from the backlog — `ACTIVE`
+- **Decision**: Remove Tap to Pay on iPhone/Android from the Apex roadmap entirely. Not deprioritised — removed.
+- **Rationale**: *"Tap to Pay isn't available on iPads."* Android excludes tablets, and under Square for Restaurants it is restricted to two Samsung phone models. Jigsy's runs iPads in a Square Stand.
+- **Consequences**: Jigsy's wired contactless reader is **card-present hardware inside Square POS** — a different thing, already working, not ours to touch. Do not conflate the two; doing so mis-sizes the roadmap by an order of magnitude (the SDK feature needs a native app + an Apple entitlement + App Review).
+
+## 2026-07-31 · Jigsy's named publicly as first client — `ACTIVE`
+- **Decision**: With their permission, name Jigsy's Brewpub & Restaurant on wisensellc.com as WiSense's first client, with a real before/after case study.
+- **Rationale**: The prior disclaimer said this was spec work "not a commissioned project" — now false, and it undersold the work.
+- **Consequences**: Deliberately **not** claimed: that the site is live (it has not replaced jigsypizza.com), that Apex is in production (Emily is still testing on a blank slate — Apex reads "First Venue Onboarding"), or anything about online ordering. Those claims get checked. See [[customers/Jigsys Brewpub]].
+
+## 2026-07-31 · Guest-upload photography is not ours to republish — `ACTIVE`
+- **Decision**: Photos sourced from public Google guest uploads must not appear on WiSense marketing property. The Jigsy's hero screenshot was **deleted from the repo**, not merely unreferenced.
+- **Rationale**: Guest-uploaded photos belong to the guests who took them. Acceptable on a demo behind a disclaimer; not acceptable republished under our brand on a commercial site selling services.
+- **Consequences**: **For a static host, "unpublish" means delete the file** — anything under Next's `public/` is served whether a page links it or not, so an orphaned asset stays fetchable at its URL. Verified 404 in production. Blocker #1 in `jigsys_site/LAUNCH_CHECKLIST.md` is replacing the site's photography with owner originals before launch; the hero screenshot gets re-captured then.
+
 ---
 
 ## 2026-07-26 · Restaurant SaaS Lead Offer = $0 Setup + $99/mo (Starter Tier) — `ACTIVE`
