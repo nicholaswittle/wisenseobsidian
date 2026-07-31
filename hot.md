@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-30T20:30:00
+updated: 2026-07-31T23:55:00
 ---
 
 # Recent Context
@@ -10,7 +10,13 @@ updated: 2026-07-30T20:30:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-07-30 evening. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · HEAD `07fa32a`.
+2026-07-31 late. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · HEAD `62f6707`. Jigsy site/staff: [https://jigsyssite.vercel.app](https://jigsyssite.vercel.app) · HEAD `f0dd7b7`.
+
+🟢 **Jigsy Stripe Pay Now is working end-to-end.** Guests see the 1.5% service fee and optional Stripe tips; Jigsy pays Stripe processing; WiSense receives the application fee. Tickets and both staff consoles show tip/fee breakdowns. Full and custom partial refunds work in both staff surfaces and reconcile provider-dashboard refunds.
+
+🟡 **Square is prepared, not live for Jigsy.** OAuth, webhook, hosted checkout, native tips, application fees, and refund code are ready. Do not activate without the owner’s authorization and production/printer validation. The first go-live must verify `square_environment=production` and printer profile routing.
+
+🟡 **One operational payment task remains:** `reconcile-pending-payments` is deployed but must be scheduled in the Supabase dashboard every 15 minutes (authenticated Edge Function schedule). The current browser session is not signed in to Supabase.
 
 🟢 **JIGSY IS TAKING BOTH THE APP AND THE WEBSITE** (2026-07-30). This settles the open question in [[wisense/projects/SITE_TEMPLATE_ONLINE_ORDERING_PLAN]] — the site is no longer speculative. Order of work still stands: finish Apex, then build ordering into the **site template** rather than as a one-off, so every flagship site ships taking money on day one.
 

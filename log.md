@@ -10,6 +10,9 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+## 2026-07-31
+- **[APEX + JIGSY PAYMENTS PHASE 2]**: Deployed and pushed payment robustness. Apex `62f6707`: cumulative full/custom partial refunds, Square refund ledger + webhook reconciliation, Stripe partial refund reconciliation and delayed-payment events, database-owned guest service-fee rate, and deployed Stripe missed-webhook reconciler. Jigsy `f0dd7b7`: guest service-fee accessor plus full/custom partial-refund UI in `staff.html`. Apex production `https://apex-v2-ten.vercel.app`; Jigsy production `https://jigsyssite.vercel.app`. Validation: `flutter analyze` clean and 64 tests passed. Open operational item: create authenticated 15-minute Supabase schedule for `reconcile-pending-payments`; Square production onboarding remains owner-authorized only. Updated [[Apex v2 — Restaurant OS Build]], [[Jigsy Online Ordering — Live Status 2026-07-28]], [[NOW]], [[hot]].
+
 ## 2026-07-28
 - **[SYNC — APEX + JIGSYSITE + RESTOS + VAULT]**: Pushed canonical repos + archive + Obsidian. Apex `dc40da8` (menu stock screen, accept→print/complete, alcohol removed, `apex_set_menu_item_available`). Site `4505cd4` (Menu availability tab, Accept & print, guest realtime stock). restOS archive `a6cb554`. Updated [[Jigsy Online Ordering — Live Status 2026-07-28]], [[restOS]], [[hot]], [[NOW]].
 - **[JIGSY ORDER ONLINE — FULL BOARD + EXTRAS + PAY/PRINT NOTE]**: Site Order online wired to Apex (`ordering.js` → menu/capacity/`place_order`). Full Nov 2025 board + modifiers (tray toppings by cut, wing sauce/sides, salad dressings, sub fries) applied live (`20260801400000`, `20260801410000`). Pay = manual at pickup (`payment_mode=manual`); kitchen print not built — staff use Apex Orders Accept→Complete. Auto-pause off for testing. Filed [[Jigsy Online Ordering — Live Status 2026-07-28]]; refreshed [[hot]], [[NOW]], [[restOS]] (archive re-push this session).

@@ -2,7 +2,7 @@
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
 aliases: [NOW, Weekly Scorecard, This Week]
-updated: 2026-07-28
+updated: 2026-07-31
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -14,7 +14,7 @@ updated: 2026-07-28
 | Field | Value |
 |-------|-------|
 | **Stage** | **REVENUE / PILOT LIVE 🎉 — FIRST CUSTOMER SIGNED (Jigsy's Brewpub)** |
-| **Focus apps** | Apex v2 (OS Phase 2–3 built locally) + Apex v1 + Jigsy Online Ordering |
+| **Focus apps** | Apex v2 + Jigsy Online Ordering (Stripe Pay Now live; Square prepared) |
 | **#1 metric this week** | Onboard Jigsy's online ordering & website · ship Apex v1 |
 | **This week's bet** | Pilot ops (stock/pause/accept+print) · thermal print setup · Apex v1 store launch |
 | **Working stack** | Claude CLI + Ollama + Cursor — see [[Working Stack — Claude CLI and Ollama]] |
@@ -34,6 +34,9 @@ updated: 2026-07-28
 ## This week — next actions
 
 ### Human-only (Nicholas)
+
+1. [ ] Sign into Supabase dashboard and create the authenticated 15-minute schedule for `reconcile-pending-payments`.
+2. [ ] Before Square go-live: obtain owner authorization, complete OAuth, verify `square_environment=production`, POS order creation, printer profile, and fee receipt.
 
 1. [ ] Apply Apex RLS migration on **Supabase staging** → smoke-test org isolation → **prod**
 2. [ ] Gate C assets: app icon 512, feature graphic 1024×500, screenshots (both apps)

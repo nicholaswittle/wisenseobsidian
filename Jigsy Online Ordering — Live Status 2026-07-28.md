@@ -3,13 +3,13 @@ title: Jigsy Online Ordering — Live Status 2026-07-28
 tags: [jigsy, ordering, apex, restaurant-os, pilot]
 aliases: [Jigsy order online, print and pay]
 date: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-31
 status: active
 ---
 
 # Jigsy Online Ordering — Live Status 2026-07-28
 
-Guest ordering is live on the Jigsy site, wired to Apex Supabase. Staff run tickets in **Apex Orders** and/or **staff.html**. Pay is at pickup; Accept prints the kitchen ticket.
+Guest ordering is live on the Jigsy site, wired to Apex Supabase. Staff run tickets in **Apex Orders** and/or **staff.html**. Pay at pickup remains available; Stripe Pay Now is also live.
 
 ## Live links
 
@@ -34,9 +34,10 @@ Guest ordering is live on the Jigsy site, wired to Apex Supabase. Staff run tick
 
 ## Pay (current)
 
-- `restaurant_settings.payment_mode = manual`
-- Guest does **not** pay online. Pay at counter on pickup.
-- Accept does **not** mark `payment_status` paid — money is a counter concern.
+- Stripe Direct Charges: guest Pay Now checkout includes a 1.5% **service fee**; Jigsy pays Stripe processing; WiSense receives the application fee.
+- Stripe tip selector (15/18/20/custom/no tip) is available on the guest site and Apex token checkout. Tip is visible on tickets and excluded from sales totals.
+- Both staff consoles support full and custom partial refunds. Rejecting a paid order refunds the remaining balance first.
+- Square is prepared as the optional second rail, but is **not live for Jigsy** until the owner supplies/authorizes their merchant connection. Square hosted checkout collects native tips itself.
 
 ## Print (current)
 

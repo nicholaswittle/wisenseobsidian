@@ -3,14 +3,14 @@ title: Apex v2 — Restaurant OS Build
 tags: [apex, restaurant-os, flutter, supabase, build, active]
 aliases: [Apex v2, Restaurant OS Build, apex_v2]
 date: 2026-07-27
-updated: 2026-07-28
+updated: 2026-07-31
 ---
 
 # Apex v2 — Restaurant OS Build
 
 > Reimagined Apex building toward full Restaurant OS: scheduling + ordering + labor cost + tips + chat + call-outs + capacity. Employee-first, 3-tap max, dark Material 3. Built on existing Apex Supabase with org_id scoping.
 
-**HEAD:** `nicholaswittle/apex_v2` `main` @ `e99b8ff` (2026-07-28 evening — menu extras + photo import).  
+**HEAD:** `nicholaswittle/apex_v2` `main` @ `62f6707` (2026-07-31 — payment robustness).
 **Live:** Real https://apex-v2-ten.vercel.app · Demo https://apex-v2-demo.vercel.app.  
 **Jigsy Order online (2026-07-28):** https://jigsyssite.vercel.app · staff https://jigsyssite.vercel.app/staff.html · `jigsysite` @ `4505cd4`. Accept & print; menu stock sync; no online alcohol — [[Jigsy Online Ordering — Live Status 2026-07-28]].  
 **Archive:** [[restOS]] @ `a6cb554`.  
@@ -22,6 +22,16 @@ Related: [[Apex Scheduler]], [[business/Restaurant OS Unified Build Plan 2026-07
 ---
 
 ## Project Location
+
+## Online-payment status — 2026-07-31
+
+Stripe Direct Charges are live for Jigsy's Pay Now checkout. The guest pays a 1.5% service fee; Jigsy pays Stripe processing; WiSense receives the application fee. Stripe tips are selected in the Apex/Jigsy cart before checkout; Square hosted checkout owns its own tip screen, avoiding a double tip.
+
+- Both staff surfaces can issue full or custom partial refunds. The refund amount is tracked cumulatively, and platform fees are returned proportionally by Stripe/Square.
+- Provider-initiated refunds reconcile back into `online_orders`; Square refunds are deduplicated through a provider-refund ledger.
+- Tickets show subtotal, tax, service fee, tip, and paid/refund state. Sales reporting excludes tips.
+- Square OAuth/webhook groundwork is deployed, but Jigsy remains on Stripe until the owner authorizes Square connection. Do not connect a production Square merchant without confirming `square_environment = production` and Square printer settings.
+- The deployed `reconcile-pending-payments` Edge Function repairs missed Stripe webhooks. It still needs an authenticated 15-minute Supabase Edge Function Schedule created in the dashboard.
 
 `C:\development\projects\apex_v2`
 
