@@ -11,6 +11,11 @@ date: 2026-07-20
 
 Entry format: **date · decision · status · rationale · consequences**. Status ∈ ACTIVE / SUPERSEDED / REVERSED.
 
+## 2026-07-31 · New Horizon canonical package dependencies confirmed — `ACTIVE`
+- **Decision**: Close the New Horizon package-fork question. `wisense_new_horizon` now depends on `../../packages/wisense_core` and `../../packages/wisense_ui`; its vendored package copies are deleted.
+- **Rationale**: The canonical dependency build is clean, so the old warning that switching paths would break New Horizon is false.
+- **Consequences**: This supersedes the stale interpretation of the 2026-07-20 fork-reconciliation entry. The separate Apex `wisense_ui` fork remains an open, unrelated decision.
+
 ## 2026-07-31 · Apex will replace Square as the venue POS — staged — `ACTIVE`
 - **Decision**: The Square payment rail is a **wedge, not the destination**. Long-term Apex replaces Square at Jigsy's. Sequence: (1) ship the Square rail on their existing hardware, (2) own the kitchen ticket via a CloudPRNT printer, (3) own front-of-house with a native app + Stripe Terminal + offline queue, (4) the long tail — timeclock, close-out, tax reports.
 - **Rationale**: Getting in the door requires bending to hardware they already own; replacing it requires earning the right. Each stage is independently valuable and sellable, so stalling at stage 2 still leaves a real product.

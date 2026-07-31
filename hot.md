@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-31T23:55:00
+updated: 2026-07-31T23:59:00
 ---
 
 # Recent Context
@@ -12,11 +12,11 @@ updated: 2026-07-31T23:55:00
 ## Last Updated
 2026-07-31 late. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · HEAD `62f6707`. Jigsy site/staff: [https://jigsyssite.vercel.app](https://jigsyssite.vercel.app) · HEAD `f0dd7b7`.
 
-🟢 **Jigsy Stripe Pay Now is working end-to-end.** Guests see the 1.5% service fee and optional Stripe tips; Jigsy pays Stripe processing; WiSense receives the application fee. Tickets and both staff consoles show tip/fee breakdowns. Full and custom partial refunds work in both staff surfaces and reconcile provider-dashboard refunds.
+🟢 **Jigsy Stripe Pay Now is working end-to-end.** Guests see the 1.5% service fee and optional Stripe tips; Jigsy pays Stripe processing; WiSense receives the application fee. Tickets and both staff consoles show tip/fee breakdowns. Full and custom partial refunds work in both staff surfaces and reconcile provider-dashboard refunds. The old Square tip hazard is resolved: `tip_cents` is stored, printed, and included in Square-tip refunds.
 
-🟡 **Square is prepared, not live for Jigsy.** OAuth, webhook, hosted checkout, native tips, application fees, and refund code are ready. Do not activate without the owner’s authorization and production/printer validation. The first go-live must verify `square_environment=production` and printer profile routing.
+🟡 **Square is prepared, not live for Jigsy.** OAuth, webhook, hosted checkout, native tips, application fees, refunds, the in-app printer checklist, and the paid printer-test order are ready. Do not activate without the owner’s authorization and production/printer validation. The first go-live must verify `square_environment=production`, printer profile routing, and Square Banking application-fee reporting.
 
-🟡 **One operational payment task remains:** `reconcile-pending-payments` is deployed but must be scheduled in the Supabase dashboard every 15 minutes (authenticated Edge Function schedule). The current browser session is not signed in to Supabase.
+🟢 **Payment reconciliation is scheduled and verified.** `check-capacity` runs every two minutes and `reconcile-pending-payments` every 15 minutes; both use the Vault `service_role_key` and return HTTP 200. Migration history is reconciled (78 local files / 78 remote records, zero drift).
 
 🟢 **JIGSY IS TAKING BOTH THE APP AND THE WEBSITE** (2026-07-30). This settles the open question in [[wisense/projects/SITE_TEMPLATE_ONLINE_ORDERING_PLAN]] — the site is no longer speculative. Order of work still stands: finish Apex, then build ordering into the **site template** rather than as a one-off, so every flagship site ships taking money on day one.
 
@@ -34,7 +34,7 @@ updated: 2026-07-31T23:55:00
 
 🔴 **Do not quote platform margin until the Connect pricing model is confirmed.** If WiSense is on Stripe's "platform sets pricing" model we pay $2/mo per active account + 0.25% + 25c per payout + 0.25% of payout volume — plausibly **half the 1.5%** on a venue paid out daily, i.e. net nearer **0.7%**. Nothing in the code reveals which model we are on. Run `node apex_v2/scripts/check_connect_pricing.mjs` (read-only). Related: Stripe **direct charges do not appear in platform exports** — a revenue dashboard built on exports silently shows zero.
 
-🔴 **Square Sandbox cannot test the value proposition.** It does not support Square POS, Square for Restaurants, or application-fee reporting — so *order reaches the POS*, *ticket prints*, and *the 1.5% lands* are **all unverifiable until a real merchant connects**. Sandbox de-risks the code, not the product. Two silent-failure traps recorded: `square_environment` defaults to `'sandbox'` and the fee is production-only (a misrecorded venue takes real money while Apex collects **nothing**, no error); and `Payment.reference_id` **does not arrive** on Square payment-link webhooks — correlation must run on `payment.order_id` → `square_order_id`.
+🔴 **Square Sandbox cannot test the value proposition.** It does not support Square POS, Square for Restaurants, or application-fee reporting — so *order reaches the POS*, *ticket prints*, and *the 1.5% lands* are **all unverifiable until a real merchant connects**. Sandbox de-risks the code, not the product. `square_environment` still defaults to `'sandbox'`, but Apex now logs a loud warning with the org and dropped fee whenever that would omit a non-zero platform fee. `Payment.reference_id` **does not arrive** on Square payment-link webhooks — correlation must run on `payment.order_id` → `square_order_id`.
 
 ❌ **Tap to Pay (the SDK feature) is struck, not deprioritised** — *"Tap to Pay isn't available on iPads."* Android excludes tablets too. Jigsy's wired contactless reader is **card-present hardware inside Square POS** — a different thing, already working, not ours. Conflating them mis-sizes the roadmap by an order of magnitude.
 
@@ -47,7 +47,7 @@ updated: 2026-07-31T23:55:00
 **BEFORE THE PILOT:** custom SMTP (Supabase's built-in mailer is a testing service — invite six staff in one evening and most never get the mail, and it looks like the app is broken); clear test venues/accounts; delete the five `@roster.local` placeholders (Kim, Marsha, Dana, Courtney, Morgan); set job roles; deactivate 3 orphan Stripe payment links.
 
 ⚠️ **Tier enforcement is partial, not absent** (corrected 2026-07-30 — "UI-only" was wrong). Tier writes are `is_super_admin()` only, and **online ordering IS enforced server-side** via `apex_org_has_online_ordering()` inside `place_order`, honouring tier + enabled/disabled overrides. `apex_set_org_module` can only toggle `timeClock` and can never grant a paid module. **The real gap:** every *other* module is UI-only — `tip_pools` / `tip_allocations` / `server_tips` (Pro), `capacity_events` / `call_outs` (OS) all carry plain org-member RLS that never consults tier. A Free venue's manager can reach them straight through PostgREST.
-⚠️ **Migration history is unreconciled** — the repo cannot answer what is running in production. Audit the catalog, not the repo ([[wisense/projects/APEX_V2_LIVE_CATALOG_SWEEP_2026-07-29]]).
+🟢 **Migration history is reconciled** — 78 local migration files match 78 remote records. Use migrations and `db push --dry-run`; never apply schema changes directly in the Dashboard.
 ⚠️ `apex/apex/supabase/config.toml` still points at **Horizon's** project — a `supabase db reset --linked` from that folder hits the wrong database.
 ⚠️ After any deploy, **hard-refresh** — the Flutter service worker serves the old bundle and it looks exactly like a bug.
 
