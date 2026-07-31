@@ -35,6 +35,7 @@ updated: 2026-07-31
 
 ### Human-only (Nicholas)
 
+1. [ ] When the Jigsy iPad arrives: factory-reset, verify no Activation Lock/MDM, connect it to venue Wi-Fi, install TestFlight, and accept the Apex pilot invitation. Keep it as a dedicated staff/KDS screen beside Square.
 1. [ ] Sign into Supabase dashboard and create the authenticated 15-minute schedule for `reconcile-pending-payments`.
 2. [ ] Before Square go-live: obtain owner authorization, complete OAuth, verify `square_environment=production`, POS order creation, printer profile, and fee receipt.
 

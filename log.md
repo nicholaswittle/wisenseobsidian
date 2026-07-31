@@ -97,4 +97,5 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 - **[PROTOCOL CREATION]**: Installed [[agents]] master prompt protocol and [[index]] pointer catalog.
 
 Related: [[index]], [[agents]], [[Home]]
+- **[2026-07-31] [PILOT HARDWARE]**: Recorded the purchased refurbished iPad 9th generation (64 GB, Wi-Fi) and rotating tabletop case for Jigsy's dedicated Apex/TestFlight staff-screen pilot. The existing Square POS and USB printer remain in place; no independent printer purchase is authorized until the workflow is proven. Updated [[Apex v2 — Restaurant OS Build]], [[hot]], and [[NOW]].
 - **[2026-07-19 22:15:07]**: Processed 1 raw note(s) into /raw/processed/.

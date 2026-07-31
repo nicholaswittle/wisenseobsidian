@@ -33,6 +33,14 @@ Stripe Direct Charges are live for Jigsy's Pay Now checkout. The guest pays a 1.
 - Square OAuth/webhook groundwork is deployed, but Jigsy remains on Stripe until the owner authorizes Square connection. Do not connect a production Square merchant without confirming `square_environment = production` and Square printer settings.
 - The deployed `reconcile-pending-payments` Edge Function repairs missed Stripe webhooks. It still needs an authenticated 15-minute Supabase Edge Function Schedule created in the dashboard.
 
+## Jigsy native-pilot hardware — 2026-07-31
+
+Nicholas purchased a refurbished **iPad (9th generation, 2021, 64 GB, Wi-Fi)** and a rotating protective tabletop case for the Jigsy pilot. The iPad will run Apex as a dedicated staff/KDS screen alongside Jigsy's existing Square POS; it is not replacing Square or its printer yet.
+
+- Keep the iPad powered and on Jigsy Wi-Fi; install Apex through TestFlight when the pilot build is ready.
+- Do not purchase a printer yet. Jigsy's existing USB Star printer is attached to the Square stand and cannot be driven directly by Apex. Revisit independent printing only after the pilot proves the workflow.
+- On arrival: factory-reset, confirm no Activation Lock or device management, install TestFlight, and use a controlled pilot Apple ID/tester invitation.
+
 `C:\development\projects\apex_v2`
 
 ## Tech Stack
