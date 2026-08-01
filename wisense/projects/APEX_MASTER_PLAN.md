@@ -121,7 +121,7 @@ Verified good: `venue_profile_isolation.sql` is a real 224-line test shipped
 | **Twilio A2P vetting** | Escalation SMS delivery. Campaign in review 2026-08-01. |
 | **Jigsy's owner** (`jigsy895@yahoo.com`) | Square OAuth, owner photos, confirmed menu prices, real domain |
 | **Nicholas** | Connect pricing model check; Message Flow screenshot; printer purchase decision |
-| **A Mac** | Offline queue, then Terminal. **TestFlight is already done** — the original Apex v2 build is distributed. |
+| **A Mac** | Offline queue, then Terminal. **TestFlight distribution is proven but the build is STALE** — it is the original Apex v2, predating the support agent, consent notice and self-serve work. All building has happened on the desktop; nothing from 2026-08-01 has been pulled to the Mac. The hard part (provisioning, signing, App Store Connect) is done, so a rebuild is far cheaper than the first one. |
 
 ---
 
@@ -144,6 +144,9 @@ Uncommitted in `apex_v2`: the SMS consent line under the alert phone field, and
 `Reply STOP to opt out.` in `notify-order-event`, `venue-support-agent`,
 `route-callout`. Required before the Message Flow screenshot can be taken, and
 before any SMS actually sends.
+
+Screenshot the **web** build for Twilio, not TestFlight — the iOS build is
+stale and rebuilding it just for a screenshot is wasted effort.
 
 **D. Push notification delivery (optional — evaluate against Twilio).**
 The app is already on TestFlight, but push is NOT wired: nothing captures an
