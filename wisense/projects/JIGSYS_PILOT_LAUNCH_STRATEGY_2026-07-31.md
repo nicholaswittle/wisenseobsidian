@@ -151,3 +151,34 @@ Leaning on their Square hardware makes the pilot nearly free and makes eventual
 replacement harder — it deepens the dependency the long-term plan wants to
 remove. Still the right call: getting a real venue live and proving the product
 beats optimising for a migration not yet earned. Go in knowing it is the trade.
+
+---
+
+## Why Jigsy's is free — and why that is not the pricing model
+
+Jigsy's pays nothing because they are the **proof of concept**. Free is the cost
+of proving the stack works end to end in a real venue, not a trial, not a
+discount, and not a precedent.
+
+This matters because [[wisense/projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]]
+recommends **strict build-free / pay-to-publish** and explicitly rejects a
+free-trial model as trial-abuse surface. Those two facts are compatible: Jigsy's
+is a one-off outside the funnel. Venue #2 meets the paywall at Publish.
+
+For reference, the tiers that already exist in `entitlements.dart` and which
+Jigsy's is receiving at no charge:
+
+- **Free ($0)** — scheduling, shift swaps, time clock, push
+- **Pro ($25/mo)** — manager log, tips, **labor cost**, offline, chat
+- **OS ($99/mo)** — **online ordering + KDS**, smart capacity, no-show engine,
+  labor vs revenue analytics
+
+Jigsy's is being given the OS and Pro tiers — $124/month of product — for the
+duration of the proof. Emily has indicated she would advocate for payment to the
+owner if it demonstrably helps the business; nothing is committed, and she has
+no authority to commit it.
+
+**The funnel fit is worth noting:** their Square report shows labor tracking at
+**0.0%** and orders **−14%**. The free tier addresses the first with something
+they have no substitute for; the OS tier addresses the second. The wedge is the
+free scheduling, not the ordering — ordering is the upsell.
