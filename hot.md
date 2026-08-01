@@ -7,6 +7,10 @@ updated: 2026-07-31T23:59:00
 
 # Recent Context
 
+> **DISPATCH FROM [[wisense/projects/APEX_MASTER_PLAN]].** It is the single ordered view of state, constraints and the work queue. Detail lives in the linked notes; sequence lives there. If it disagrees with a tool's memory, the master plan wins.
+
+⚠️ **`feat/template-to-product` is 18 commits ahead of `main` and unmerged** — the whole self-serve build (renderer, wizard, branding, growth loops) plus the four plan revisions. Its migrations are partly applied to production already, so `main` is behind reality. **Merging it is the largest outstanding integration and gates everything else in self-serve.** The AI support agent (steps 1-3 + UI) IS merged.
+
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
