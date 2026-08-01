@@ -42,6 +42,7 @@ aliases: [index.md, Vault Catalog]
 ---
 
 ## 📄 Project Reports & Audits (`wisense/projects/`)
+- [[wisense/projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]] — Template-to-product gap map: Jigsy build → self-serve buttons; five builds + template contract (Kimi, 2026-07-31)
 - [[wisense/projects/APEX_V2_COMPLETE_SESSION_HANDOVER_2026-07-28]] — Complete 2026-07-28 session summary & handover for Claude
 - [[wisense/projects/WISENSE_LLC_APEX_FLAGSHIP_PIVOT_PLAN_2026-07-28]] — WiSense LLC homepage flagship pivot plan & pricing model
 - [[wisense/projects/APEX_V2_STRIPE_PAYMENT_CONFIRMATION_MODAL_2026-07-28]] — Guest Stripe Payment Confirmed modal & URL fragment router fix
