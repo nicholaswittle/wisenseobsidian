@@ -10,6 +10,9 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+- **[AI SUPPORT AGENT ESCALATION TWILIO SMS WIRED & FUNCTION DEPLOYED]**: Headless Claude Code (`claude-opus-5`, medium effort) wired Twilio SMS sending into `venue-support-agent` Edge Function and updated Dart client with `SupportEscalationResult { logged, delivered }` on branch `feat/escalation-sms`. Edge Function deployed to production Supabase as v4 (ACTIVE, `verify_jwt: true`, no `--prune`). Flutter analyze clean, 64/64 tests green. UI accurately reports "Texted to Nick" vs "Logged for Nick". Caveat logged: Supabase project secrets currently lack `TWILIO_*` keys; running `supabase secrets set TWILIO_ACCOUNT_SID=... TWILIO_AUTH_TOKEN=... TWILIO_FROM_NUMBER=... NICK_PHONE_NUMBER=...` will activate SMS delivery for both support escalations and `route-callout` without requiring a redeploy.
+
+
 - **[AI SUPPORT AGENT BRANCH MERGED TO MAIN]**: Headless Claude Code (`claude-opus-5`, medium effort) fast-forward merged `feat/ai-support-agent` (4 commits: `279a163`, `1f6cffa`, `3fc5fd9`, `ee37372`) into `main` at `ee37372`. `flutter analyze lib/` clean, 64/64 unit tests green, pushed to `origin/main`. Included: Get help staff console UI, diagnosis agent (Haiku), allowlisted repairs, escalation queue, DB migrations (`venue_health_snapshot`, `support_escalations`, `support_agent_actions`), `venue-support-agent` Edge Function, and `supabase/config.toml` (`verify_jwt = true`). Open next: deploy Edge Function and wire Twilio SMS escalation delivery.
 
 
