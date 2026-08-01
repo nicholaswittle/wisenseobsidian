@@ -10,6 +10,9 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+- **[SELF-SERVE BRANCH `feat/template-to-product` MERGED TO MAIN]**: Headless Claude Code (`claude-opus-5`, medium effort) merged `feat/template-to-product` (18 commits: Next.js multi-tenant renderer under `site/`, `venue_site_profile`, `get_public_venue_profile` RPC, `enrich-business` API, self-serve launch wizard, photo/palette intake, growth loops with referral codes, `venue_profile_isolation.sql`, and plan revisions) into `main` at `d232be9`. Flutter analyze clean, 84/84 unit tests green (up from 64), pushed to `origin/main`. Pre-flight commit `48ea63f` included for SMS consent notice and STOP opt-out text.
+
+
 - **[AI SUPPORT AGENT ESCALATION TWILIO SMS WIRED & FUNCTION DEPLOYED]**: Headless Claude Code (`claude-opus-5`, medium effort) wired Twilio SMS sending into `venue-support-agent` Edge Function and updated Dart client with `SupportEscalationResult { logged, delivered }` on branch `feat/escalation-sms`. Edge Function deployed to production Supabase as v4 (ACTIVE, `verify_jwt: true`, no `--prune`). Flutter analyze clean, 64/64 tests green. UI accurately reports "Texted to Nick" vs "Logged for Nick". Caveat logged: Supabase project secrets currently lack `TWILIO_*` keys; running `supabase secrets set TWILIO_ACCOUNT_SID=... TWILIO_AUTH_TOKEN=... TWILIO_FROM_NUMBER=... NICK_PHONE_NUMBER=...` will activate SMS delivery for both support escalations and `route-callout` without requiring a redeploy.
 
 
