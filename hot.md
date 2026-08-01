@@ -10,7 +10,8 @@ updated: 2026-07-31T23:59:00
 > ~500-word cache for fast boot. Any agent/session reads this FIRST, then [[NOW]], then [[index]]. Overwrite completely each update — cache, not journal.
 
 ## Last Updated
-2026-08-01. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · HEAD `ee37372` (main synced). Jigsy site/staff: [https://jigsyssite.vercel.app](https://jigsyssite.vercel.app) · HEAD `f0dd7b7`.
+2026-08-01. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · HEAD `4edc2f5` (main synced). Jigsy site/staff: [https://jigsyssite.vercel.app](https://jigsyssite.vercel.app) · HEAD `f0dd7b7`.
+
 
 
 🟢 **Jigsy Stripe Pay Now is working end-to-end.** Guests see the 1.5% service fee and optional Stripe tips; Jigsy pays Stripe processing; WiSense receives the application fee. Tickets and both staff consoles show tip/fee breakdowns. Full and custom partial refunds work in both staff surfaces and reconcile provider-dashboard refunds. The old Square tip hazard is resolved: `tip_cents` is stored, printed, and included in Square-tip refunds.
