@@ -63,3 +63,19 @@ updated: 2026-08-01
 | Play Store submit | Graphics + privacy URLs + keystore | Nicholas |
 
 Related: [[hot]], [[index]], [[log]]
+## Queued — after the AI support agent build
+
+**Restore the Antigravity + headless Claude workflow.** Nicholas's original and
+preferred shape: Antigravity holds the tasking and the plan, headless Claude
+executes, and the master plan is tracked rather than living in whichever tool is
+currently awake. The problem being solved is juggling — when a quota hits,
+context fragments across tools and work restarts instead of continuing.
+
+Requirements captured 2026-08-01:
+- Headless Claude must run **Opus 5 at medium reasoning effort**
+- Antigravity does the tasking and plan-keeping
+- The master plan is tracked in this vault, not in a tool session, so a quota
+  limit is an inconvenience rather than a reset
+
+Claude is to produce the setup prompt once the AI support agent build is
+complete. Do not start it before then.
