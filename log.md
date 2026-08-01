@@ -103,3 +103,18 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 Related: [[index]], [[agents]], [[Home]]
 - **[2026-07-31] [PILOT HARDWARE]**: Recorded the purchased refurbished iPad 9th generation (64 GB, Wi-Fi) and rotating tabletop case for Jigsy's dedicated Apex/TestFlight staff-screen pilot. The existing Square POS and USB printer remain in place; no independent printer purchase is authorized until the workflow is proven. Updated [[Apex v2 — Restaurant OS Build]], [[hot]], and [[NOW]].
 - **[2026-07-19 22:15:07]**: Processed 1 raw note(s) into /raw/processed/.
+
+---
+
+## 2026-08-01 — Vault Cleanup
+
+**[VAULT CLEANUP]** Consolidated vault from 120+ scattered files to ~40 live files.
+
+- **archive/inter-ai-audits/** — 24 inter-AI audit/handoff docs from 2026-07-27 to 07-29. These were coordination docs for concurrent AI sessions (Claude/Cursor/Codex/Gemini) and have no ongoing reference value.
+- **archive/superseded-notes/** — 38 superseded root notes: governance stubs (consolidated into AGENTS.md/CLAUDE.md), vendor stubs (Duffel/Stripe/Supabase — info lives in code refs), video reference notes, old daily logs, completed merge/fork plans.
+- **archive/completed-deliverables/** — 9 completed output/ deliverables: Gate C packaging, keystore setup, launch readiness, Jigsy PDFs.
+- **archive/stale-plans/** — 53 stale business plans, pitch drafts, Claude handoff records, one-time strategy docs. Business/ folder trimmed from 43 files to 3 live references.
+- **wisense/projects/** trimmed from 41 to 9 (kept only living strategy docs with ongoing reference value).
+- **index.md** rewritten to reflect cleaned structure.
+- **business/** trimmed from 43 to 3: Client Acquisition Strategy, Experiment Log, WiSense Execution Strategy.
+- Removed ghost temp file `business/.hermes-tmp.vJ4Wf0`.
