@@ -101,9 +101,9 @@ every dispatched task.
 - **wisensellc.com** — case study naming Jigsy's as first client; SMS
   disclosures live on /privacy and /terms.
 
-### Built but NOT merged
+### Self-serve build — MERGED 2026-08-01 (`d232be9`)
 
-⚠️ **`feat/template-to-product` is 18 commits ahead of `main`.** The entire
+✅ **`feat/template-to-product` is merged to `main`.** Was 18 commits ahead; The entire
 self-serve build — multi-tenant Next.js renderer under `site/`,
 `venue_site_profile`, `get_public_venue_profile`, `enrich-business` onboarding,
 launch wizard, photos/branding, growth loops, referral codes — plus the four
@@ -112,7 +112,8 @@ plan revisions in `fe275e2`.
 Verified good: `venue_profile_isolation.sql` is a real 224-line test shipped
 *with* the renderer, and `enrich-business` pulls no photos.
 
-**Merging this is the largest single outstanding integration.**
+`main` now carries everything: self-serve, the AI support agent, the SMS
+consent notice and STOP text (`48ea63f`). The repo and production agree.
 
 ### Blocked, and on whom
 
@@ -129,17 +130,16 @@ Verified good: `venue_profile_isolation.sql` is a real 224-line test shipped
 
 ### Now, unblocked
 
-**A. Merge `feat/template-to-product` to `main`.**
-18 commits. Its migrations are partly applied to production already, so `main`
-is behind reality. Verify `flutter analyze`, the test suite, and the isolation
-test before merging. Do not `--prune`. This gates everything else in self-serve.
-
-**B. Stranger dry-run of the onboarding wizard.**
+**A. Stranger dry-run of the onboarding wizard.**
 `apex_v2/docs/DRY_RUN_SCRIPT.md`. Needs a human in a room, not an agent. Nine
 timed phases, the operator may only say *"what would you try if I wasn't here?"*.
 The friction log becomes the prioritised fix list.
 
-**C. Deploy the consent notice and STOP text.**
+**B. DONE — consent notice and STOP text are on `main` (`48ea63f`).**
+Still needs deploying to the web build before the Twilio Message Flow
+screenshot can be taken.
+
+**C. (superseded)
 Uncommitted in `apex_v2`: the SMS consent line under the alert phone field, and
 `Reply STOP to opt out.` in `notify-order-event`, `venue-support-agent`,
 `route-callout`. Required before the Message Flow screenshot can be taken, and
