@@ -121,7 +121,7 @@ Verified good: `venue_profile_isolation.sql` is a real 224-line test shipped
 | **Twilio A2P vetting** | Escalation SMS delivery. Campaign in review 2026-08-01. |
 | **Jigsy's owner** (`jigsy895@yahoo.com`) | Square OAuth, owner photos, confirmed menu prices, real domain |
 | **Nicholas** | Connect pricing model check; Message Flow screenshot; printer purchase decision |
-| **A Mac** | TestFlight, then offline queue, then Terminal |
+| **A Mac** | Offline queue, then Terminal. **TestFlight is already done** — the original Apex v2 build is distributed. |
 
 ---
 
@@ -145,18 +145,28 @@ Uncommitted in `apex_v2`: the SMS consent line under the alert phone field, and
 `route-callout`. Required before the Message Flow screenshot can be taken, and
 before any SMS actually sends.
 
-**D. Support agent step 4 — proactive watch.**
+**D. Push notification delivery (optional — evaluate against Twilio).**
+The app is already on TestFlight, but push is NOT wired: nothing captures an
+FCM token (`push_token` appears only in `demo_backend.dart`, set to null),
+`send-push-notification` is called solely by `route-notification`, and the
+escalation path does not push. Wiring it means capturing the token in Flutter,
+writing it to `profiles.push_token`, calling the push function from the
+escalation, then a rebuild and reinstall. **Slower than A2P vetting, so it is
+not the shortcut it appears to be** — worth doing eventually as a second
+channel, not as a way to skip Twilio.
+
+**E. Support agent step 4 — proactive watch.**
 Notice before staff do: order stuck 10+ min, no successful cron response in 30,
 `square_environment` not production on a live venue. Depends on delivery, so it
 follows Twilio approval.
 
 ### Next, after A
 
-**E. Wizard funnel instrumentation review.** Per-step enter/complete/abandon
+**F. Wizard funnel instrumentation review.** Per-step enter/complete/abandon
 landed in `fe275e2`; confirm events actually fire before the dry-run, because
 with three venues in year one every abandonment is a large share of all data.
 
-**F. Menu source-of-truth copy.** Apex is authoritative for the online menu.
+**G. Menu source-of-truth copy.** Apex is authoritative for the online menu.
 Confirm the wizard says so plainly — Apex-vs-Square price drift is the failure
 that surfaces in month three.
 
