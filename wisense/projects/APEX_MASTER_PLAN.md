@@ -115,14 +115,50 @@ Verified good: `venue_profile_isolation.sql` is a real 224-line test shipped
 `main` now carries everything: self-serve, the AI support agent, the SMS
 consent notice and STOP text (`48ea63f`). The repo and production agree.
 
+### Late 2026-08-01 — audit, repairs, configuration
+
+A read-only audit of the payment and authorization surface (Fable 5, source +
+live catalog) produced four actionable findings. All are fixed and verified in
+production, not just deployed.
+
+- **`is_member`/`has_role` were the pre-migration bodies.** Migration
+  `20260802050000` is *recorded as applied* and four of its six functions
+  landed; these two did not, because they were the two that already existed and
+  needed replacing. Offboarding by `left_at` therefore did nothing — access was
+  revoked only because `apex_remove_member` incidentally nulls
+  `profiles.organization_id`. Repaired via `20260816000000`, verified with
+  `pg_get_functiondef`, ledger reconciled. Proved by simulating `left_at` in a
+  rolled-back transaction: `is_member` and `has_role` now both flip to false.
+  **No file in the repo could have shown this.** Second time the catalog caught
+  what source review could not.
+- **The Square platform fee was dropped silently** when environment ≠
+  production — guest charged in full, venue paid in full, Apex paid nothing,
+  one `console.warn`. Both Square venues are in exactly that state and paused;
+  `resume_ordering` (a support-agent action) was the only thing between it and
+  live fee-free orders. Now throws.
+- **`reconcile-pending-payments` marked orders paid without checking
+  `total_cents`**, and had no auth check at all — `verify_jwt` only proves a
+  project-signed JWT, and the anon key ships in the web client. Both fixed.
+  (`check-capacity` was a false positive; it already compared the service key.)
+
+Configuration closed the same night: **`GOOGLE_PLACES_API_KEY` was never set**,
+and `enrich-business` soft-fails by design — the launch wizard's "find your
+business" step would have returned nothing, with no error, during the stranger
+dry-run. Now set and verified against Jigsy's real listing. Twilio fully
+configured and credential-verified (account Full, number owned, SMS-capable);
+only A2P approval outstanding.
+
+Eight staff accounts created on Jigsy's for pilot testing, login-tested end to
+end. Existing staff kept their profile IDs, so their shifts still resolve.
+
 ### Blocked, and on whom
 
 | Blocked on | What |
 |---|---|
-| **Twilio A2P vetting** | Escalation SMS delivery. Campaign in review 2026-08-01. |
+| **Twilio A2P vetting** | Escalation SMS delivery. Secrets are set and verified; campaign in review 2026-08-01. Sends may return `30034` until it clears — expected, not misconfiguration. |
 | **Jigsy's owner** (`jigsy895@yahoo.com`) | Square OAuth, owner photos, confirmed menu prices, real domain |
-| **Nicholas** | Connect pricing model check; Message Flow screenshot; printer purchase decision |
-| **A Mac** | Offline queue, then Terminal. **TestFlight distribution is proven but the build is STALE** — it is the original Apex v2, predating the support agent, consent notice and self-serve work. All building has happened on the desktop; nothing from 2026-08-01 has been pulled to the Mac. The hard part (provisioning, signing, App Store Connect) is done, so a rebuild is far cheaper than the first one. |
+| **Nicholas** | Connect pricing model check; Message Flow screenshot; printer purchase decision; **rotate Emily's password — it is `password123` on the live owner account**; check whether the GitHub repo is public (`supabase/keys.txt` is in history) |
+| **A Mac** | Offline queue, then Terminal. **TestFlight build 3 uploaded 2026-08-01** carrying the support agent, SMS consent notice and the full self-serve merge — in review at time of writing. Build 2 was uploaded with sandbox Stripe links and superseded; expire it. The Mac cannot query App Store Connect (no API key on that machine), so terminal status needs the web UI. |
 
 ---
 
@@ -134,6 +170,18 @@ consent notice and STOP text (`48ea63f`). The repo and production agree.
 `apex_v2/docs/DRY_RUN_SCRIPT.md`. Needs a human in a room, not an agent. Nine
 timed phases, the operator may only say *"what would you try if I wasn't here?"*.
 The friction log becomes the prioritised fix list.
+
+A hidden blocker was cleared on 2026-08-01: `GOOGLE_PLACES_API_KEY` had never
+been set, and `enrich-business` soft-fails, so "find your business" would have
+silently returned nothing mid-run and the friction log would have recorded a
+UX failure that was really an unset secret. **Before the dry-run, re-confirm
+the lookup still returns a result** — this class of failure is invisible and
+one expired key puts it straight back.
+
+Two prerequisites remain: build 3 must clear review and be installed, and the
+tester's org must be seeded at the tier whose experience you want measured —
+a fresh signup lands on `free`, which has no ordering module and therefore no
+support agent.
 
 **B. DONE — consent notice and STOP text are on `main` (`48ea63f`).**
 Still needs deploying to the web build before the Twilio Message Flow
