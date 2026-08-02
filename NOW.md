@@ -59,7 +59,7 @@ updated: 2026-08-02
 - New Horizon commercial Duffel/Viator expansion
 - COMMS LINK store packaging
 
-## Tomorrow — 2026-08-03
+## Today — Sunday 2026-08-02
 
 Fable 5 audit landed: `apex_v2/docs/AUDIT_2026-08-02_FABLE.md`. Its headline is
 worth recording — **it went looking for a way to mark an order paid without
@@ -72,8 +72,9 @@ owns the order *and* verify the amount before marking paid.
 1. [ ] **Install build 5**; verify the "viewing this venue" banner as `apextest@gmail.com`, then test clock-in as `emilyykidman@gmail.com` (she has real shifts). Clock-in is still completely untested.
 2. [ ] **Backfill `shifts.user_id` and move lookups off name equality** — the audit's top finding and it is worse than assessed here yesterday: the name string is load-bearing *inside Postgres*, not just in Dart. The `sidework` "staff complete" policy resolves `assigned_to` against `profiles.name`, so two staff sharing a first name is an **RLS-enforced** cross-user leak — one can complete the other's sidework. 91/91 rows NULL. ~0.5–1 day.
 3. [ ] **Place a pay-at-pickup order** end to end. Last untested leg of the ordering path, costs nothing.
-4. [ ] **Tier-gate `server_tips` SELECT/DELETE and `capacity_events` SELECT** — one migration, ~30 min.
-5. [ ] **Meter `route-callout` + `venue-support-agent`; cut `polish-labor-warnings`** — the latter re-proses warnings already generated deterministically. Also template `venue-briefing` (134 calls/30d, the largest AI line item).
+4. [x] ~~Tier-gate `server_tips` DELETE and `capacity_events` SELECT~~ — DONE overnight, verified in `pg_policies`. `server_tips` SELECT deliberately left open: gating it would hold a downgraded venue's servers' own tip history hostage to the venue's billing. The migration says so.
+5. [x] ~~Meter `route-callout` + `venue-support-agent`~~ — DONE overnight, both deployed. Metered differently on purpose: the support agent returns the gate's refusal (the model *is* the feature); `route-callout` degrades to an unranked list instead, because a call-out is someone missing a shift that starts soon and a spend cap must not become a staffing failure.
+6. [ ] **Still open from the audit's AI section**: cut `polish-labor-warnings` (warnings are already generated deterministically in `labor_guardrails.dart`; the model only reproses them) and template `venue-briefing` (134 calls/30d, the largest AI line item). Both touch user-facing copy, so they want a fresh session, not the tail of a long one.
 
 Audit's strategic call, for later: **payroll is the single gap that ends sales
 calls.** Homebase, Push and Toast all have it. The fix is an export/integration
