@@ -55,6 +55,7 @@ updated: 2026-08-02
 
 ### Parked
 
+- **Apex go-to-market / pricing** — see [[business/Apex Go-To-Market — parked 2026-08-02]]. Three-tier model settled (free generic site · $499–799 un-generic site · $99/mo + 1.5%), and deliberately parked: none of it is testable without a second customer. Two things in it are not business decisions and should not wait — **five parameterised themes** (2–4 days; converts the $499 deliverable from days of hand-written code into ~90 min of config) and the **referral table** (2 hrs; there is no referrals table, so the referral tile records nothing).
 - iOS / Codemagic (needs Apple account)
 - New Horizon commercial Duffel/Viator expansion
 - COMMS LINK store packaging
