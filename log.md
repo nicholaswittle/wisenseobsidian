@@ -161,3 +161,21 @@ Related: [[index]], [[agents]], [[Home]]
 - **[QUEUED]**: Fable 5 full audit running overnight → `apex_v2/docs/AUDIT_2026-08-02_FABLE.md`. Four sections: security/correctness weighted to the untested money path, AI feature strategy, competitive positioning (7shifts / Homebase / Toast / Square for Restaurants / Push Operations), and a five-item morning list.
 
 Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[log]]
+
+---
+
+## 2026-08-02 (morning) — permissions, and two deploy-order near-misses
+
+- **[AI COST]**: Cut `polish-labor-warnings` entirely — `labor_guardrails.dart` already emits strings naming the person, hours, date and rule, and the model only reprosed them. `venue-briefing` is now composed rather than generated: it was the largest AI line item, one Haiku call per venue per morning, to turn four structured lists into three sentences. Shift notes are quoted verbatim now, because a note is someone on the floor telling the next shift something specific. Its `chargeAiCall()` was doing double duty — authorising *and* metering — and everything after it runs as `service_role`, so removing the whole call would have opened a cross-tenant read. Only the metering went; the auth is now an explicit `has_role()` asked as the user.
+
+- **[PERMISSIONS]**: Added an `admin` permission role. Full app access without the word "owner" — which is what produced Emily: `permission_role` Owner, 32 shifts, scheduled as a server, not an owner of the business. One line adding `'admin'` to `has_role`'s escalation list grants admins all 38 manager-gated policies; `can_administer()` (owner or admin) took over the five website/asset policies narrowed to `is_owner()` yesterday. `is_owner()` keeps only what cannot be delegated: granting roles, and tip-pool eligibility.
+
+- **[SECURITY — ESCALATION]** ⚠️: `apex_set_role`, the function that decides who holds which role, was gated on `has_role(org,'owner')` — which returns true for **any manager**. Any manager at any venue could promote themselves to Owner, through the one function meant to prevent it. Predates today; adding `admin` to `has_role` widened it. Now `is_owner()`. Verified by impersonation, not by reading the predicate. Also dropped `apex_set_permission_role`, written hours earlier before this function was found — two writers for one column is how they drift.
+
+- **[BUG — ORG RESOLUTION]**: `apex_current_org_id()` resolves a multi-org user by `order by joined_at desc limit 1`. Robin held memberships in `jigsys` and a phantom `robin's Restaurant` with **identical** `joined_at` and null `active_org_id` — so which venue he was "in" was non-deterministic. Jigsy's only real owner could not reliably act as its owner. The phantom orgs Nicholas remembered as undeletable turned out to be the cause; leaving the two live memberships fixed it without deleting anything.
+
+- **[BUG — HALF-APPLY]**: `profiles_role_check` predated the admin role and rejected `'Admin'`, so granting it would have written `organization_members` and then failed on the `profiles` mirror — half-applied, inside the function meant to keep them in step. Invisible from the function body; only surfaced by exercising the path.
+
+- **[NEAR-MISS — DEPLOY ORDER]** ⚠️: `StaffRole.parse` has no `admin` case until build 6 and falls through to `server`. Assigning `Admin` to Emily on the shipped build stripped her entire manager UI, mid-service, on a Sunday, with no error anywhere. Reverted to Owner. Same shape as the tip-pool migration, which would have blocked splitting because the confirmation screen ships in build 6. **Rule recorded: the database and the installed app are two deploys. Ship the client that can read a value before writing it.** `docs/BUILD_6_RUNBOOK.md` encodes the order.
+
+Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[log]]

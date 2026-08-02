@@ -61,6 +61,13 @@ updated: 2026-08-02
 
 ## Today — Sunday 2026-08-02
 
+> **Build 6 has an ordered runbook: `apex_v2/docs/BUILD_6_RUNBOOK.md`. Follow it
+> in order.** Two near-misses today came from a server-side change landing
+> before the client that could handle it — assigning `Admin` stripped Emily's
+> manager UI on the shipped build (reverted), and the tip-pool migration would
+> have blocked tip splitting with no in-app recovery. Ship the client, confirm
+> it is installed, *then* change the data.
+
 Fable 5 audit landed: `apex_v2/docs/AUDIT_2026-08-02_FABLE.md`. Its headline is
 worth recording — **it went looking for a way to mark an order paid without
 paying, or route a payment to the wrong account, and found none.** Two live
