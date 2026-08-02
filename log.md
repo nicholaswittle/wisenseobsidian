@@ -179,3 +179,23 @@ Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[log]]
 - **[NEAR-MISS — DEPLOY ORDER]** ⚠️: `StaffRole.parse` has no `admin` case until build 6 and falls through to `server`. Assigning `Admin` to Emily on the shipped build stripped her entire manager UI, mid-service, on a Sunday, with no error anywhere. Reverted to Owner. Same shape as the tip-pool migration, which would have blocked splitting because the confirmation screen ships in build 6. **Rule recorded: the database and the installed app are two deploys. Ship the client that can read a value before writing it.** `docs/BUILD_6_RUNBOOK.md` encodes the order.
 
 Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[log]]
+
+---
+
+## 2026-08-02 (afternoon) — handoff tasks 1-6 closed
+
+- **[SECURITY — ANON SURFACE]** ⚠️: 64 `SECURITY DEFINER` functions were callable by an unauthenticated PostgREST caller. They bypass RLS and were each protected only by their own internal check — and two of those checks had already failed here (`is_member`/`has_role` carrying pre-migration bodies; `apex_set_role` gated on `has_role(org,'owner')`, which returns true for any manager). The repo is **public**, so every name and signature is published and the anon key ships in the client bundle. Revoked on 56; eight remain, all genuinely public. `apex_redeem_invite` was checked rather than assumed — `sign_in_screen.dart` calls it only after confirming a session exists, so revoking it was safe. Verified as anon afterwards: `place_order` fails on `items_required` (validation, not permission) and `apex_team_pay` is refused.
+
+- **[SECURITY — IDENTITY]** ⚠️: The `sidework staff complete` policy resolved `assigned_to` against `profiles.name`, so two staff sharing a first name could complete each other's sidework — RLS-enforced, not a display bug. Shifts, sidework and swaps now carry `user_id`, backfilled through a resolver that returns NULL on ambiguity rather than guessing. **Triggers, not a one-off UPDATE**: the client writes the name and knows nothing about the id, so a plain backfill would have rotted on the next insert. Verified: insert-by-name sets the id, renaming moves it, an unknown name resolves to NULL.
+
+- **[BUG — REALTIME DELETE]**: Five of six subscribed tables were `REPLICA IDENTITY DEFAULT`. The dashboard filters with `.eq('organization_id',…)` and Realtime matches that against the WAL record, which under DEFAULT holds only the primary key for a DELETE. So **adding a row refreshed the dashboard and removing one did nothing** — an asymmetry that reads as a client bug. All five set to FULL. `shifts` was already FULL, which is why it never showed there.
+
+- **[STILL UNEXPLAINED]**: editing a shift not refreshing the dashboard. `shifts` is FULL and published and its SELECT policy does not change on edit, so the event should arrive. Now instrumented — each subscription has an `onError` handler writing to the debug log — rather than guessed at. Needs a device with logs attached to reproduce.
+
+- **[MONITORING]**: Outside monitor live on GitHub Actions, every 15 minutes, all five secrets set, SMS verified. Drives a real browser deliberately: the menu bug returned HTTP 200 with the board present and correctly sized, so only computed style catches it. Running it before committing caught a false positive of my own — the reveal is scroll-triggered and a headless browser loads at the top of a 10,000px page. Replaces Antigravity's version, which asserted `statusCode === 200` and nothing else.
+
+- **[UX]**: Modules now ordered staff → service → business rather than declaration order. My Tips pinned by test as staff-facing, because it sits beside Labor Cost in `moduleRoutes` and a careless role split sweeps all three "money screens" behind one gate. Orders moved ahead of QR Wall — its own test caught that a printed QR code led the service group.
+
+- **[QUOTA]** ⚠️: Claude subscription quota exhausted. Largest consumers were this session's length and two background agents (~370K tokens, both Opus). Apex's own AI is not the cause — ~70 Haiku calls in 24h. Also: I misdiagnosed duplicate watcher daemons — my process filter matched its own command line, so I was counting and killing my own shells. Antigravity's report was correct and mine was not.
+
+Related: [[NOW]], [[Apex v2 — Restaurant OS Build]]
