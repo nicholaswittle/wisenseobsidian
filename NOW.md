@@ -35,7 +35,9 @@ updated: 2026-08-02
 2. [ ] Sign into Supabase dashboard and create the authenticated 15-minute schedule for `reconcile-pending-payments`
 3. [ ] Before Square go-live: obtain owner authorization, complete OAuth, verify `square_environment=production`, POS order creation, printer profile, and fee receipt
 4. [x] ~~Apply Apex RLS migration → smoke-test org isolation → prod~~ — DONE. Applied to prod and verified against the live catalog.
-5. [ ] Gate C assets: app icon 512, feature graphic 1024×500, screenshots (both apps)
+5. [ ] **App icon — still the Flutter default.** Verified 2026-08-02: the 1024 asset is 11 KB (flat colour + glyph), no `flutter_launcher_icons` config, Android on stock `ic_launcher.png`. Build 8 reaches seven people at Jigsy's and the first thing each sees is the Flutter logo. One 1024×1024 PNG generates all 15 iOS sizes plus Android.
+6. [ ] **Payroll Lite: strip the four money columns** before `feat/payroll-export` merges — `base_pay_cents`, `overtime_pay_cents`, `gross_estimate_cents`, `tip_credit_shortfall_cents`. See [[DECISIONS]] 2026-08-02. Branch is unpushed; its DB functions are already live.
+7. [ ] Gate C assets: feature graphic 1024×500, screenshots (both apps)
 6. [ ] Host privacy policy URLs (Apex + COMMS LINK)
 7. [ ] Create Android upload keystores
 8. [ ] Add `com.nicholaswittle.apex://` to Supabase allowed redirect URLs (iOS login)
