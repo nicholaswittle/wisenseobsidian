@@ -61,11 +61,30 @@ updated: 2026-08-02
 
 ## Tomorrow — 2026-08-03
 
-1. [ ] **Read the Fable 5 audit** — `apex_v2/docs/AUDIT_2026-08-02_FABLE.md`. Four sections: security/correctness (weighted to the untested money path), AI feature strategy, competitive positioning vs 7shifts/Homebase/Toast/Square, and a five-item priority list.
-2. [ ] **Install build 5** from TestFlight and verify the "viewing this venue" banner — sign in as `apextest@gmail.com`, view Jigsy's, confirm it no longer reads as an unstaffed venue.
-3. [ ] **Test clock-in properly** — sign in as `emilyykidman@gmail.com` (she has real shifts on the Jigsy's schedule). This is what could not be tested today.
-4. [ ] **Place a pay-at-pickup order** end to end on `apex-venue-site.vercel.app/jigsys-enola-7c2a/order`. The choice is live now. This is the last untested leg of the ordering path and costs nothing to exercise.
-5. [ ] **Meter `route-callout` and `venue-support-agent`** through `chargeAiCall` — the only uncapped AI spend left.
+Fable 5 audit landed: `apex_v2/docs/AUDIT_2026-08-02_FABLE.md`. Its headline is
+worth recording — **it went looking for a way to mark an order paid without
+paying, or route a payment to the wrong account, and found none.** Two live
+`BEFORE UPDATE` triggers on `online_orders` block client mutation of amounts and
+payment status, which is why the permissive `online_orders_member_update` policy
+is not the hole it appears to be. Both webhooks verify the connected account
+owns the order *and* verify the amount before marking paid.
+
+1. [ ] **Install build 5**; verify the "viewing this venue" banner as `apextest@gmail.com`, then test clock-in as `emilyykidman@gmail.com` (she has real shifts). Clock-in is still completely untested.
+2. [ ] **Backfill `shifts.user_id` and move lookups off name equality** — the audit's top finding and it is worse than assessed here yesterday: the name string is load-bearing *inside Postgres*, not just in Dart. The `sidework` "staff complete" policy resolves `assigned_to` against `profiles.name`, so two staff sharing a first name is an **RLS-enforced** cross-user leak — one can complete the other's sidework. 91/91 rows NULL. ~0.5–1 day.
+3. [ ] **Place a pay-at-pickup order** end to end. Last untested leg of the ordering path, costs nothing.
+4. [ ] **Tier-gate `server_tips` SELECT/DELETE and `capacity_events` SELECT** — one migration, ~30 min.
+5. [ ] **Meter `route-callout` + `venue-support-agent`; cut `polish-labor-warnings`** — the latter re-proses warnings already generated deterministically. Also template `venue-briefing` (134 calls/30d, the largest AI line item).
+
+Audit's strategic call, for later: **payroll is the single gap that ends sales
+calls.** Homebase, Push and Toast all have it. The fix is an export/integration
+(Gusto/ADP mapped to `time_entries` + `server_tips`), not becoming a payroll
+company. ~1 week.
+
+**Resolved, do not action:** the audit flagged `supabase/keys.txt` as
+verify-and-rotate, unable to decode a suspected second token. Checked — a JWT
+contains two `eyJ` runs (header and payload), so one key reads as two. The file
+is two lines: project URL and one token, `role: anon`. Public by design, ships
+in the client bundles already. Nothing to rotate.
 
 ## Blocked on
 
