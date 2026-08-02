@@ -121,6 +121,44 @@ render outlined with the reason instead of blending into the list.
 - **`parse-menu` still runs `claude-sonnet-4-5`** (legacy). Not urgent — a menu
   is a much easier read — but worth revisiting.
 
+## Update 2026-08-01 — the parse-menu TODO is closed, and the dead id had spread
+
+Both loose ends from "Also fixed today" are now done.
+
+**`parse-menu` moved to `claude-opus-5` at `effort: low`** (`296fdd1`), with
+Gemini as fallback rather than primary — the same order this bakeoff settled
+for `parse-schedule`. It had still been running `claude-sonnet-4-5` with Gemini
+*first*. `max_tokens` went 4096 → 16000 for the image path, because Opus 5
+thinks by default and the cap covers thinking plus output together; the old
+budget would have truncated mid-JSON and read as bad OCR. A `stop_reason:
+"refusal"` check was added ahead of parsing, and every Claude failure now
+returns null and falls through to Gemini instead of throwing.
+
+**The dead Gemini id had been copied into `parse-menu` too** (`a13582c`).
+Re-probed 2026-08-01 with a one-token generate call:
+
+| id | result |
+|---|---|
+| `gemini-2.0-flash` | **404** |
+| `gemini-2.5-flash` | **404** |
+| `gemini-3.5-flash` | live |
+
+Same trap as before, one function over. Worse here, because
+`tryGeminiParseMenu` returns null on any error — a dead id is
+indistinguishable from "Claude handled it", and nothing surfaces until Claude
+is *also* unavailable.
+
+> [!caution] Not scored
+> The schedule change in this note was measured over 10 runs against an
+> owner-confirmed key. The `parse-menu` change was **not** — it rests on this
+> note plus recollection. There is no menu photo and no `menu_truth.json`. By
+> this note's own standard that is not evidence. Needs a Jigsy's menu photo and
+> a confirmed item list before it counts as verified.
+
+`parse-schedule` was deliberately left untouched. Its comment at line 265 —
+*"effort buys thinking tokens, not accuracy"* — contradicted the change that
+would otherwise have been made, and the comment matched the code.
+
 ## Related
 
 - [[APEX_V2_LIVE_CATALOG_SWEEP_2026-07-29]] — the other "audit the running
