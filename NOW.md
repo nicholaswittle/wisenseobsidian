@@ -44,9 +44,9 @@ updated: 2026-08-02
 ### Known issues (from vault cleanup audit)
 
 1. [x] ~~Apex v2 tier enforcement gap~~ — CLOSED 2026-08-01. `apex_org_has_module()` now gates the write policies on all five tables; verified live in `pg_policies`, not read from a migration file.
-2. [ ] **Read-side tier gaps remain**: `server_tips` SELECT and DELETE, and `capacity_events` SELECT, still carry no module check. Low severity. Recommendation on record: close DELETE only — gating the SELECT would hold a downgraded venue's servers' own tip history hostage.
-3. [ ] `route-callout` and `venue-support-agent` are the only AI edge functions not metered through `chargeAiCall` — **uncapped per-invocation spend**. Highest-value open item.
-4. [ ] `shifts.user_id` is null on all 86 rows; the dashboard matches shifts to users by profile **name string**. A rename, a nickname, or two staff sharing a first name silently empties or crosses a dashboard. Backfill + match on id.
+2. [x] ~~Read-side tier gaps~~ — CLOSED 2026-08-02. `server_tips` DELETE and `capacity_events` SELECT now gated. `server_tips` SELECT left open on purpose (see Today, item 4).
+3. [x] ~~`route-callout` / `venue-support-agent` unmetered~~ — CLOSED 2026-08-02. Both now go through `chargeAiCall`. No uncapped AI spend remains.
+4. [ ] `shifts.user_id` is null on all 91 rows; the dashboard matches shifts to users by profile **name string**. A rename, a nickname, or two staff sharing a first name silently empties or crosses a dashboard. Backfill + match on id.
 5. [ ] `staff_console_screen.dart` is 2001 lines — growing, not shrinking
 6. [ ] 4 silent `catch (_) {}` blocks, plus ~8 in the admin console that log without surfacing to the manager
 7. [ ] No payment-path tests. 92 source files, 13 test files, **zero covering money or auth**.
