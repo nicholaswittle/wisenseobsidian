@@ -199,3 +199,15 @@ Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[log]]
 - **[QUOTA]** ⚠️: Claude subscription quota exhausted. Largest consumers were this session's length and two background agents (~370K tokens, both Opus). Apex's own AI is not the cause — ~70 Haiku calls in 24h. Also: I misdiagnosed duplicate watcher daemons — my process filter matched its own command line, so I was counting and killing my own shells. Antigravity's report was correct and mine was not.
 
 Related: [[NOW]], [[Apex v2 — Restaurant OS Build]]
+
+---
+
+## 2026-08-02 (evening) — Payroll Lite scope, and where the vault actually is
+
+- **[DECISION — PAYROLL LITE]**: Recorded in [[DECISIONS]]. The export reports **hours and tips only**; the four money columns come out of `apex_payroll_register()` and the CSV before `feat/payroll-export` merges. The code had drifted from the product line — it emitted real dollar figures, and the tipped-overtime figure was about a third low. Removing the columns makes the wrong arithmetic unreachable and matches the disclaimer the register already carried. Exposure is latent: nothing shipped, nobody past 40 hours, a handful of punches in the table.
+
+- **[PAYROLL LITE — BUILD STATE]**: Never logged here until now, which is why this note exists. `feat/payroll-export` is **unpushed**, and its DB functions (`apex_payroll_register`, `apex_payroll_week_pay`) are **already live** while its Dart is unshipped — a split-brain worth knowing before anyone touches it. Verified working against real data on 2026-08-02: Emily, 2.84h at $3.00/hr, card tips $45 + declared cash $20, gross $73.53, tip-credit shortfall correctly $0 (tips took her to $25.89/hr effective, well past PA's $7.25). Research and plan live at `apex_v2/docs/PAYROLL_RESEARCH_2026-08-02.md` and `PAYROLL_PLAN_2026-08-02.md`. Open decisions: tier (Pro proposed), and Jigsy's workweek start day — assumed Monday, and a wrong guess moves hours across the overtime threshold.
+
+- **[VAULT LOCATION]** ⚠️: A fresh Claude session concluded "no vault exists" after looking at `C:\development\Comand_center` — a flat folder of workspace protocol documents — and wrote its decision record into the Apex repo instead. **The vault is `C:\Users\nikwi\Notes`**, git remote `wisenseobsidian`, holding `index.md`, `log.md`, `NOW.md`, `DECISIONS.md`, `hot.md`. `Comand_center` is a different thing that happens to contain `AUTOMATED_DEV_LOOP_DIRECTIVE.md`, which is what misled it. Any session told to "write to the vault" should be given the path.
+
+Related: [[NOW]], [[DECISIONS]], [[Apex v2 — Restaurant OS Build]]

@@ -117,6 +117,16 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
   - Planned: a "Powered by Apex" footer on free-tier sites, removable on a paid tier. Turns the free tier into distribution in a warm-introduction market, and creates a modest upgrade reason that is not "we are taking your website away".
   - This supersedes the "Build Free, Pay OS to Publish" framing in the 2026-07-28 gameplan, which remains accurate about tiers but not about publishing.
 
+## 2026-08-02 · Payroll Lite is hours-and-tips only — no pay figures — `ACTIVE`
+- **Decision**: Apex's payroll export reports **hours and tips**, never computed pay. The `base_pay_cents`, `overtime_pay_cents`, `gross_estimate_cents` and `tip_credit_shortfall_cents` columns come out of `apex_payroll_register()` and the CSV. Apex hands clean data to a real payroll provider (Gusto, ADP, Paychex, QuickBooks) and stops there.
+- **Rationale**: Two things collided. The product line held throughout is *"Apex gives them what they need to run payroll easily; it does not run it for them"* — and the register's own disclaimer already says "Hours and tips only — Apex is not a payroll provider." But the code contradicted that: it emitted real dollar figures, and the tipped-overtime figure was roughly a third low. Fixing the arithmetic would have meant owning payroll maths forever, on money someone is actually paid. Removing the columns makes the wrong arithmetic unreachable and matches what was always promised. The cheaper fix is also the honest one.
+- **Consequences**:
+  - Strip the four money columns from `apex_payroll_register()` and from `lib/core/payroll_export.dart` before `feat/payroll-export` merges. The overtime rate bug then needs no fix — it becomes dead code.
+  - **Exposure is latent, not live**: nothing is shipped, nobody at Jigsy's has exceeded 40 hours, and `time_entries` holds a handful of punches. This is a decision made before harm, not after.
+  - The staff-facing "your week" estimate stays **out** until overtime and tip credit are provably right. A server seeing $847 and being paid $612 is the failure this avoids.
+  - Does not change the sales answer. "It does everything up to the taxes" is still true — hours and tips *are* the work; the arithmetic was never the valuable part.
+  - Supersedes the pay-figure columns described in [[APEX_PAYROLL_PLAN_2026-08-02]]. Research and plan otherwise stand.
+
 ## (undated) · Stripe deferred for Apex pilot — `ACTIVE`
 - **Decision**: Do not integrate Stripe billing for the initial Apex Scheduler pilot.
 - **Rationale**: Out of scope for pilot validation. See [[Stripe]].
