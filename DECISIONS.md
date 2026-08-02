@@ -108,6 +108,15 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 - **Rationale**: See [[Working Stack — Claude CLI and Ollama]].
 - **Consequences**: Community AI plugins route through local Ollama; no unencrypted cloud sync without consent.
 
+## 2026-08-01 · Apex venue website is free forever — `ACTIVE`
+- **Decision**: The self-serve venue website publishes on the free tier, permanently. Task 2.2 of [[APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] — the "OS Tier Publish Gate" — is closed as **WON'T DO**. Online ordering remains gated to OS ($99/mo).
+- **Rationale**: A restaurant website has no pricing power. Square, Wix and Google Business Profile all give one away, so charging $99 for it means competing on a commodity against free. The site is the shop window, not the shop — what carries price is what happens after a guest taps Order: the ticket on the iPad, capacity auto-pause, labor vs revenue, the support agent. The free site's job is acquisition: getting into ten conversations so three convert at $99, which is the $300/month target. The 1.5% order fee will not carry the business at pilot volume; subscriptions will.
+- **Consequences**:
+  - Do **not** implement a publish gate. The current behaviour (site free, ordering paid) is intended, not an unfinished checkbox — it was discovered during testing on 2026-08-01 and deliberately kept.
+  - Pricing must be stated explicitly and early: *"Your website is free, forever. Online ordering is $99/month."* The resentment risk is ambiguity, not generosity — a venue that assumed everything was free and later gets a bill feels tricked.
+  - Planned: a "Powered by Apex" footer on free-tier sites, removable on a paid tier. Turns the free tier into distribution in a warm-introduction market, and creates a modest upgrade reason that is not "we are taking your website away".
+  - This supersedes the "Build Free, Pay OS to Publish" framing in the 2026-07-28 gameplan, which remains accurate about tiers but not about publishing.
+
 ## (undated) · Stripe deferred for Apex pilot — `ACTIVE`
 - **Decision**: Do not integrate Stripe billing for the initial Apex Scheduler pilot.
 - **Rationale**: Out of scope for pilot validation. See [[Stripe]].
