@@ -43,3 +43,5 @@ In `monetization_upsell_cards.dart` (the **"How online ordering works"** card on
 - **`flutter test`:** **29/29 unit tests passing.**
 - **Vercel Build:** `npx vercel deploy --prod` — `READY` (`dpl_HnJtpXMw5KNB6ra9F6bCkdUErB1p`).
 - **Live URL:** [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app)
+
+Related: [[APEX_V2_AUDIT_2026-07-27]]

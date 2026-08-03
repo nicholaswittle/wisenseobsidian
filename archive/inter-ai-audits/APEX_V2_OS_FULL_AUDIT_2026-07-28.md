@@ -125,3 +125,5 @@ The following items are intentionally deferred for post-pilot iterations:
 ## 📄 File Location
 Saved to Obsidian Vault static reference:  
 `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_OS_FULL_AUDIT_2026-07-28.md`
+
+Related: [[APEX_V2_AUDIT_2026-07-27]]

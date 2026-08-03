@@ -4,84 +4,84 @@
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
-  "showOrphans": true,
+  "showOrphans": false,
   "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:projects/dormant/",
       "color": {
         "a": 1,
-        "rgb": 7368816
+        "rgb": 11699289
       }
     },
     {
       "query": "path:projects/",
       "color": {
         "a": 1,
-        "rgb": 5224448
+        "rgb": 1625108
       }
     },
     {
       "query": "path:meta/",
       "color": {
         "a": 1,
-        "rgb": 2129983
+        "rgb": 2263013
       }
     },
     {
       "query": "path:company/",
       "color": {
         "a": 1,
-        "rgb": 11141375
+        "rgb": 14757349
       }
     },
     {
       "query": "path:customers/",
       "color": {
         "a": 1,
-        "rgb": 13369344
+        "rgb": 16762368
       }
     },
     {
       "query": "path:business/",
       "color": {
         "a": 1,
-        "rgb": 65535
+        "rgb": 58853
       }
     },
     {
       "query": "path:prospects/",
       "color": {
         "a": 1,
-        "rgb": 8388736
+        "rgb": 10370508
       }
     },
     {
       "query": "path:archive/",
       "color": {
         "a": 1,
-        "rgb": 3355443
+        "rgb": 5855577
       }
     },
     {
       "query": "path:skills/",
       "color": {
         "a": 1,
-        "rgb": 8421440
+        "rgb": 1749636
       }
     },
     {
       "query": "path:scratchpad/",
       "color": {
         "a": 1,
-        "rgb": 8421440
+        "rgb": 1749636
       }
     },
     {
       "query": "file:hot.md OR file:NOW.md OR file:index.md OR file:Home.md OR file:DECISIONS.md OR file:agents.md OR file:CLAUDE.md OR file:log.md",
       "color": {
         "a": 1,
-        "rgb": 16744448
+        "rgb": 16734976
       }
     }
   ],

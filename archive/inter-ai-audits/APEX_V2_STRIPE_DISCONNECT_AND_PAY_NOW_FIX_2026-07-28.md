@@ -70,3 +70,5 @@ Now, any order submitted with `payment_mode = 'pay_now'` is immediately recogniz
 Saved to Obsidian Vault static reference:  
 `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_STRIPE_DISCONNECT_AND_PAY_NOW_FIX_2026-07-28.md`  
 Committed and pushed to GitHub `https://github.com/nicholaswittle/wisenseobsidian.git`.
+
+Related: [[APEX_V2_AUDIT_2026-07-27]]

@@ -84,3 +84,5 @@ supabase functions deploy notify-order-event --no-verify-jwt --project-ref pqkre
 Saved to Obsidian Vault static reference:  
 `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_KITCHEN_ALERTS_PRINT_AUDIT_2026-07-28.md`  
 Committed and pushed to GitHub `https://github.com/nicholaswittle/wisenseobsidian.git`.
+
+Related: [[APEX_V2_AUDIT_2026-07-27]]

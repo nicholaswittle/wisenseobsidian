@@ -69,3 +69,5 @@ flowchart TD
 Saved to Obsidian Vault static reference:  
 `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_AGENCY_UPSELL_STRATEGY_2026-07-28.md`  
 Committed and pushed to GitHub `https://github.com/nicholaswittle/wisenseobsidian.git`.
+
+Related: [[Restaurant OS Unified Build Plan 2026-07-27]]

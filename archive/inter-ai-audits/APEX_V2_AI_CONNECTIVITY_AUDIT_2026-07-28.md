@@ -88,3 +88,5 @@ By routing text-based operations to **Claude Haiku 4.5** instead of Sonnet:
 Saved to Obsidian Vault static reference:  
 `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_AI_CONNECTIVITY_AUDIT_2026-07-28.md`  
 Committed and pushed to GitHub `https://github.com/nicholaswittle/wisenseobsidian.git`.
+
+Related: [[APEX_V2_AUDIT_2026-07-27]]

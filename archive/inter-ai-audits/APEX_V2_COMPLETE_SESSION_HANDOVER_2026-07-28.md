@@ -132,3 +132,5 @@ All task files in `C:\development\.tasks\claude_queue\` and `C:\development\MAST
 * `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_STRIPE_DISCONNECT_AND_PAY_NOW_FIX_2026-07-28.md`
 * `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_STAFF_CONSOLE_PAID_ONLINE_FIX_2026-07-28.md`
 * `C:\Users\nikwi\Notes\hot.md`
+
+Related: [[APEX_V2_AUDIT_2026-07-27]]
