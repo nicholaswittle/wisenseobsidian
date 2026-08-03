@@ -13,8 +13,8 @@ updated: 2026-08-02
 | Field | Value |
 |-------|-------|
 | Stage | REVENUE / PILOT LIVE — FIRST CUSTOMER (Jigsy's Brewpub) |
-| Focus | Apex v2 build 9 + tip-pool compliance |
-| #1 metric | Ship build 9, apply tip-pool migrations, run Phase A testing |
+| Focus | Build 9 SHIPPED + tip pool LIVE — next is Phase A testing |
+| #1 metric | Run Phase A testing; strip payroll money columns; `time_entries.shift_id NOT NULL` |
 | Working stack | Claude CLI + Ollama + Cursor + Hermes Agent |
 
 ## Scorecard
@@ -23,7 +23,8 @@ updated: 2026-08-02
 |--------|--------|---------|-------|
 | First customer | 1 signed | 1 SIGNED | Jigsy's — website + online ordering |
 | Security remediation | anon EXECUTE revoked | DONE | 56 functions locked down 2026-08-02 |
-| Build on TestFlight | Current | Build 8 (Waiting for Review) | Build 9 staged |
+| Build on TestFlight | Current | **Build 9 installed + verified** | `build-9` @ `2c448ff`, 141 tests |
+| Tip pool | Compliant + live | **LIVE** | Migrations applied, anon revoked, first split reconciled |
 | Outside monitor | Running + alerting | RUNNING | GitHub Actions, no SMS (Twilio pending) |
 | Tip-pool compliance | Migrations applied | STAGED | Client routed, migrations not applied |
 | App icon | Custom 1024x1024 | FLUTTER DEFAULT | One PNG away from fixed |
