@@ -69,6 +69,7 @@ updated: 2026-08-02
 4. [ ] No payment-path tests. 81 source files, 141 tests, zero covering money or auth.
 5. [ ] No router: 29+ imperative `Navigator.push` calls, no deep linking or web back-button
 6. [ ] Monitor detection latency is hours, not minutes (GitHub throttles `*/15`, Twilio pending)
+7. [ ] **"Square connected" button does nothing — and the state behind it is false.** Diagnosed 2026-08-03. `monetization_upsell_cards.dart:371` renders a `FilledButton.tonalIcon` with `onPressed: () {}` when `squareConnected` — a status badge shaped like a button, so tapping is a no-op by design. It renders because `_squareConnected` reads `restaurant_settings.square_charges_enabled`, which is **`true` in the database despite Square never having been OAuth'd and zero Square payments ever** (`square_payment_id` null on all 45 orders; no `square-connect-oauth` invocation in 24h of edge logs). So the app claims a connection that does not exist *and* hides the "Connect Square" button that would create one. Fix is two parts: set `square_charges_enabled = false` until OAuth actually completes — that alone restores the working button — and give the connected state a real action (Stripe's side offers Disconnect) or make it a non-interactive chip. Note this flag is also the only live-money path in an otherwise all-sandbox setup.
 
 ### Parked
 
