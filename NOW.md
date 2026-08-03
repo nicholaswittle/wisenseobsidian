@@ -74,10 +74,31 @@ updated: 2026-08-02
 
 - **Apex go-to-market / pricing** — see [[business/Apex Go-To-Market — parked 2026-08-02]]. Three-tier model settled and deliberately parked: not testable without a second customer.
 - **Payroll export** — stale branch, needs rebase. DB functions already live.
-- **Services vertical** — gated on vertical one paying. Plan: [[projects/APEX_SERVICES_BUILD_PLAN_CANONICAL]].
+- **Services vertical — Phase 1 is BUILT, not parked.** Phase 1 was always exempt from the "vertical one pays first" gate because it lives in `site/`, a separate Vercel deployable that cannot reach the Flutter build. Phases 2+ remain gated. Status below; plan: [[projects/APEX_SERVICES_BUILD_PLAN_CANONICAL]].
 - iOS / Codemagic (needs Apple account — purchased, not yet activated for store submit)
 - New Horizon commercial Duffel/Viator expansion
 - COMMS LINK store packaging
+
+## Services vertical — shipped 2026-08-02 (branch `feat/services-vertical`, pushed)
+
+Seven commits on GitHub. **Nothing in it can reach the restaurant product** — verified, not assumed: no existing table altered, no existing function replaced, no existing policy dropped. The one shared file touched is `site/app/[token]/page.tsx`, where a branch reads `profile.vertical`; every org is `restaurant`, so that condition **cannot be true today**.
+
+**Live on the database** (applied through the connector, verified against `pg_catalog`):
+`organizations.vertical` · eight additive jsonb columns on `venue_site_profile` · `requests` / `request_payments` / `request_reminders` with RLS and policies · `referrals` + `apex_claim_referral` + `apex_referral_summary` · RPCs `submit_public_request`, `enrich_public_request`, `get_public_services_profile`. Security advisor after: **90 lints, zero ERROR**; guest-callable surface 8 → 11, matching exactly the three added.
+
+**Built and committed, not deployed:** `site/lib/services.ts`, `theme.ts`, `fonts.ts` · `RequestForm`, `ServicesHome`, `ServicesThemeRoot` · `app/services.css` · edge functions `notify-request` and `create-request-payment`. `tsc --noEmit` and a real `next build` both clean; 28 woff2 self-hosted across six families.
+
+**Email is LIVE.** `RESEND_API_KEY` and `RESEND_FROM_ADDRESS` set 2026-08-03 via the Supabase CLI. ⚠️ The verified domain is **`mail.wisensellc.com`, not `wisensellc.com`** — from-address is `Apex Leads <leads@mail.wisensellc.com>`. Sending from the apex domain will be rejected as unverified and will look like a code bug.
+
+**Design decisions worth not re-opening:** `get_public_services_profile` is a *new* function, not four keys added to `get_public_venue_profile`, because that one serves Jigsy's live storefront and carries the whole menu/modifier tree. `requests` is not `online_orders` — that table is sub-hour by construction. Capture-then-qualify is two RPCs on purpose: half of form starters abandon, so name+phone must land before any trade question. `request_payments` and `referrals` both block client INSERT entirely.
+
+**Deposits are capped at one third** of the quote (PA HICPA, work over $1,000), overridable per venue via `legal.deposit_cap_pct`. Over-cap requests are refused *with the reason*, never silently trimmed.
+
+**To make it real:** pick a first services business, set `organizations.vertical = 'services'`, fill `venue_site_profile.services`, and `/{token}` renders. Nothing else blocks.
+
+**Not built, deliberately:** payment webhook (next), reminder cron, GBP onboarding (Flutter — gated), tracked number (needs a provider decision), GPS geofence, recurring schedules, invoices spanning jobs.
+
+> ⚠️ **Two agents were in this repo simultaneously on 2026-08-02.** The other was testing the restaurant on `fix/worked-hours-admin-gates-and-realtime` and switched branches under a live working tree. Nothing was lost, but check `git branch --show-current` before writing.
 
 ## Blocked on
 
