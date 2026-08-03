@@ -8,10 +8,45 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
+      "query": "path:projects/dormant/",
+      "color": {
+        "a": 1,
+        "rgb": 7368816
+      }
+    },
+    {
+      "query": "path:projects/",
+      "color": {
+        "a": 1,
+        "rgb": 5224448
+      }
+    },
+    {
+      "query": "path:meta/",
+      "color": {
+        "a": 1,
+        "rgb": 2129983
+      }
+    },
+    {
+      "query": "path:company/",
+      "color": {
+        "a": 1,
+        "rgb": 11141375
+      }
+    },
+    {
+      "query": "path:customers/",
+      "color": {
+        "a": 1,
+        "rgb": 13369344
+      }
+    },
+    {
       "query": "path:business/",
       "color": {
         "a": 1,
-        "rgb": 14702038
+        "rgb": 65535
       }
     },
     {
@@ -22,17 +57,31 @@
       }
     },
     {
-      "query": "path:output/",
+      "query": "path:archive/",
       "color": {
         "a": 1,
-        "rgb": 32768
+        "rgb": 3355443
       }
     },
     {
-      "query": "path:customers/",
+      "query": "path:skills/",
       "color": {
         "a": 1,
-        "rgb": 13369344
+        "rgb": 8421440
+      }
+    },
+    {
+      "query": "path:scratchpad/",
+      "color": {
+        "a": 1,
+        "rgb": 8421440
+      }
+    },
+    {
+      "query": "file:hot.md OR file:NOW.md OR file:index.md OR file:Home.md OR file:DECISIONS.md OR file:agents.md OR file:CLAUDE.md OR file:log.md",
+      "color": {
+        "a": 1,
+        "rgb": 16744448
       }
     }
   ],

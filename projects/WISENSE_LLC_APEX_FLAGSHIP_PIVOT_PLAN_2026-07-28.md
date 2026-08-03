@@ -95,3 +95,5 @@ target_url: "https://www.wisensellc.com/"
 
 6. **WiSense Venture Lab (Secondary Footer Section):**
    - Featuring *New Horizon*, *Helix*, and *COMMS LINK* as specialized innovation projects.
+
+Related: [[projects/APEX_MASTER_PLAN]] · [[company/Advisor Profile]]

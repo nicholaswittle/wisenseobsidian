@@ -124,3 +124,5 @@ Prep-time estimation, order throttling, staffing recommendations. Capture from d
 ---
 
 *Plan committed by Hermes Agent. Awaiting ratification.*
+
+Related: [[projects/APEX_MASTER_PLAN]] · [[projects/Apex v2 — Restaurant OS Build]]
