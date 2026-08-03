@@ -10,7 +10,7 @@ This note is the root of the governance tree. Every agent working on WiSense rea
 
 ## Sub-notes (read all)
 
-- [[Mythos 5.5 Persona]] — the agent persona every WiSense AI session uses
+- [[archive/superseded-notes/Mythos 5.5 Persona]] — the agent persona every WiSense AI session uses
 - [[Head of Team Directive]] — role assignments + operational protocol + conflict resolution
 - [[Team Workflow]] — the 8-step session structure (Boot → Plan → Research → Build → Review → Resolve → Ratify → Report)
 - [[Governance Protocol]] — 3 pillars, risk levels, ratification rules, minimalist standards

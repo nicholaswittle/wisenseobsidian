@@ -23,7 +23,7 @@ status: active
 
 1. **No website businesses** — easiest pitch: "You don't have a website. I'll build you one."
 2. **Has website businesses** — pitch: "I'll rebuild your website + add direct online ordering."
-3. **Restaurants** — primary target for the ordering platform. See [[prospects/Restaurants]]
+3. **Restaurants** — primary target for the ordering platform. See [[prospects/Restaurant]]
 4. **Other categories** — website-only pitch (no ordering). See category files below.
 5. **Finding emails** — visit their website contact page, Google Business Profile, or Facebook page. If no email, call and ask.
 

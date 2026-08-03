@@ -11,7 +11,7 @@ updated: 2026-08-02
 
 ## Last Updated
 
-2026-08-02. Apex main at `b06469c`, 141 tests green, analyze clean. Build 8 on TestFlight (Waiting for Review). Build 9 staged (tip-pool routed, hours-from-punches, Admin gates, monitor fixes). Jigsy's is the only live customer.
+2026-08-03. Apex main synced; `build-9` at `2c448ff`, 141 tests green, analyze clean. Build 9 installed + verified on device. Tip pool **live** (migrations applied + hardened). Jigsy's is the only live customer.
 
 ## Security — DONE 2026-08-02
 
@@ -39,11 +39,11 @@ GitHub Actions cron, headless browser (Playwright). Checks: venue page 200, menu
 
 **Two corrections verified 2026-08-02:** GitHub throttles `*/15` schedules — it fired once in 2h15m, not every 15 min. And SMS cannot deliver: Twilio account pending approval. Until it clears, the real alarm is the GitHub Actions failure email. Detection latency is hours, not minutes.
 
-## Tip-pool eligibility — staged, not applied
+## Tip pool — LIVE 2026-08-03
 
-Client code routed at `/tip-pool` as manager-only (build 9). Migrations `20260831000000`/`20260831000001` are **not applied**. The hazard is asymmetric: client alone is safe (code can't run), migration alone breaks splitting with no in-app recovery (`apex_guard_tip_pool` blocks until owner confirms roster, and the only caller of `apex_confirm_tip_roster` was the orphaned screen). They ship in the same window as build 9 or not at all.
+Migrations `20260831000000`/`0001` applied **after** build 9 was confirmed installed, per the ordering rule. Hardened: all twelve tip functions were anon-callable (Supabase default privileges grant EXECUTE to anon; the migration revoked PUBLIC on only four), closed by revoking from both anon AND PUBLIC and re-granting to authenticated (`20260831000002`/`0003`). First split reconciled by hand: $100.00, Emily 2.84 h, zero unallocated cents, `created_by` Robin.
 
-Live compliance issue: tip pools currently include managers and owners, which PA law bars when a tip credit is taken. Seeded eligible: Emily, Avi, Courtney, Dana, Kim, Marsha, Morgan. Not eligible: Robin (owner, never on floor).
+Live compliance: tip pools include managers/owners, which PA law bars when a tip credit is taken. Seeded eligible: Emily, Avi, Courtney, Dana, Kim, Marsha, Morgan. Not eligible: Robin (owner, never on floor).
 
 ## Payroll Lite — decided, not shipped
 
@@ -65,7 +65,7 @@ Live compliance issue: tip pools currently include managers and owners, which PA
 
 ## Standing warnings
 
-🔴 **Migration history has DRIFTED — do not run `supabase db push`.** 117 local files, 96 ledger records. Twenty-four files have no `schema_migrations` row even though their objects are live. Apply individual migrations explicitly.
+🔴 **Migration ledger was repaired 2026-08-03** — matches the catalog through `20260901000000`. Still do not run `supabase db push` blindly; the earlier drift was fixed, but confirm the ledger vs catalog before any bulk replay.
 
 ⚠️ After any deploy, **hard-refresh** — the Flutter service worker serves the old bundle.
 
@@ -77,9 +77,9 @@ Live compliance issue: tip pools currently include managers and owners, which PA
 
 ## Active threads
 
-- Build 9 ships tip-pool routing + hours fix + Admin gates + monitor fixes
-- Then: Phase A testing (real clock-in, real pay-now order, real pay period)
-- Then: tip-pool migrations applied in same window as build 9
+- Build 9 shipped + verified (tip-pool routing, hours fix, Admin gates, monitor fixes)
+- Phase A testing: real clock-in, real pay-now order, real pay period (see [[NOW]])
+- Tip-pool migrations applied + hardened in same window as build 9
 - Parked: payroll export (stale branch, needs rebase), services vertical (gated on vertical one paying)
 
 [[NOW]] · [[index]] · [[projects/Apex v2 — Restaurant OS Build]]

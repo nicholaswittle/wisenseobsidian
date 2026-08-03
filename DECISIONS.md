@@ -87,11 +87,11 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 
 ## 2026-07-21 · Apex vendors its own `wisense_ui` — fork NOT fully reconciled — `ACTIVE`
 - **Finding** (not yet a decision — needs ratification): Apex's `pubspec.yaml` depends on `packages/wisense_ui` (v1.0.0, **2 files**: `spacing.dart`, `loading_indicator.dart`), not canonical `C:\development\packages\wisense_ui` (v0.1.0, **18 files** incl. `text_styles.dart`, `error_banner.dart`). This is a **second fork**, separate from New Horizon's.
-- **Why it matters**: [[SYSTEM_ARCHITECT_DIRECTIVE]] §2 mandates `WiSenseTextStyles` as the text-scale base for all apps. `WiSenseTextStyles` **does not exist in Apex's dependency**, so §2 is unsatisfiable there and every Apex widget hardcodes `fontSize`. The 2026-07-20 entry below is marked SUPERSEDED because its consequence line ("the Known fork caveat is now historical") is false — it reconciled New Horizon only.
+- **Why it matters**: System Architect Directive §2 mandates `WiSenseTextStyles` as the text-scale base for all apps. `WiSenseTextStyles` **does not exist in Apex's dependency**, so §2 is unsatisfiable there and every Apex widget hardcodes `fontSize`. The 2026-07-20 entry below is marked SUPERSEDED because its consequence line ("the Known fork caveat is now historical") is false — it reconciled New Horizon only.
 - **Not fixed deliberately**: canonical `WiSenseTextStyles` derives from `WiSenseThemeText` (travel-app theme), semantically wrong for Apex's brewpub palette. Switching Apex to the canonical package is a Phase 2 refactor, not a drive-by. **Open decision.**
 
 ## 2026-07-21 · Tripartite Protocol breached on the Apex feature branch — `ACTIVE`
-- **What happened**: Section 0 + Features B/C were designed, implemented, committed **and pushed** without the protocol. Skipped: startup read of [[SYSTEM_ARCHITECT_DIRECTIVE]] + `global_status.md`; the Judicial audit (Claude self-reviewed with `flutter analyze`, which the protocol explicitly forbids); the Completion Report and Delivery Gate.
+- **What happened**: Section 0 + Features B/C were designed, implemented, committed **and pushed** without the protocol. Skipped: startup read of the System Architect Directive + `global_status.md`; the Judicial audit (Claude self-reviewed with `flutter analyze`, which the protocol explicitly forbids); the Completion Report and Delivery Gate.
 - **Root cause**: no reachable auditor. There is no audit tooling in `C:\development\scripts\`, no `secrets\` directory, and no Gemini/Groq/OpenRouter credential path — the Judicial branch is currently unimplementable by the agent, so it silently degrades to self-audit.
 - **Consequences**: `feat/apex-plan-2026-07-21` is **unaudited and unmerged**; a Completion Report exists marked BLOCKED with MCA/MDT NOT RUN. Remediation commit `594b4be` fixed the Directive §2 conformance defects that self-review missed. **`main` must not take this branch until an external audit runs.** Also: `global_status.md` is stale (2026-07-03, describes deleted `my_ai`), so the Directive's hand-off chain is broken.
 
@@ -147,7 +147,7 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
   - **Exposure is latent, not live**: nothing is shipped, nobody at Jigsy's has exceeded 40 hours, and `time_entries` holds exactly **one** punch for Jigsy's (three across all orgs). This is a decision made before harm, not after. That singularity is also why "reconcile a full pay period by hand, once" cannot be done yet — it needs real clock-ins first.
   - The staff-facing "your week" estimate stays **out** until overtime and tip credit are provably right. A server seeing $847 and being paid $612 is the failure this avoids.
   - Does not change the sales answer. "It does everything up to the taxes" is still true — hours and tips *are* the work; the arithmetic was never the valuable part.
-  - Supersedes the pay-figure columns described in [[APEX_PAYROLL_PLAN_2026-08-02]]. Research and plan otherwise stand.
+  - Supersedes the pay-figure columns described in the 2026-08-02 payroll plan (never filed as a separate note). Research and plan otherwise stand.
 
 ## (undated) · Stripe deferred for Apex pilot — `ACTIVE`
 - **Decision**: Do not integrate Stripe billing for the initial Apex Scheduler pilot.

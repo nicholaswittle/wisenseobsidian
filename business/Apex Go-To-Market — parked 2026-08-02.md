@@ -96,4 +96,4 @@ Three things worth doing when this is unparked:
 **Unpark when:** a second venue is in conversation, or the five themes are built
 — whichever comes first.
 
-Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[Client Acquisition Strategy]]
+Related: [[NOW]], [[Apex v2 — Restaurant OS Build]], [[Client Acquisition Strategy — Loom Zoom Boom & FIG Portfolio]]

@@ -29,7 +29,7 @@ Travel booking Alignment Engine — ToolRegistry, Duffel proxy, Consensus Deck. 
 - Untracked `AGENTS.md`, `CLAUDE.md`, `.cursor/mcp.json` — commit or .gitignore
 - Push local `main` branch to `origin/main` (ahead by 1 commit)
 
-Related: [[Priority launches|Priority Launches]], [[Fork Reconciliation]], [[Tripartite Protocol]], [[Audit Findings Loop]]
+Related: [[Home|Priority Launches]], [[Fork Reconciliation]], [[Tripartite Protocol]], [[Audit Findings Loop]]
 - **Repo Location**: `C:\development\projects\wisense_new_horizon`
 - **Git State**: 3 untracked files (`.cursor/mcp.json`, `AGENTS.md`, `CLAUDE.md`); `main` is ahead of `origin/main` by 1 commit.
 - **Analyzer**: **0 issues found** (100% clean).
