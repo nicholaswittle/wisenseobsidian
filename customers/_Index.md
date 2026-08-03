@@ -53,4 +53,4 @@ stage: <lead | pilot | active | churned>
 - Metric touched:
 ```
 
-Related: [[NOW]], [[business/Experiment Log]], [[Advisor Profile]], [[business/Go-to-Market]], [[Apex Scheduler]]
+Related: [[NOW]], [[business/Experiment Log]], [[Advisor Profile]], [[Go-to-Market]], [[projects/dormant/Apex Scheduler]]

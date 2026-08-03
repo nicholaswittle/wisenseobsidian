@@ -47,4 +47,4 @@ Each maps to a real, runnable command. Prefer the existing scripts in `C:\develo
 
 > ⚠️ Removed 2026-07-20: `wisense-engine-probe` (targeted deleted `wisense-os` on port 5050 — service no longer exists).
 
-Related: [[agents]], [[00_AI_AGENT_MANIFEST]], [[Hermes 3 Agent Memory Architecture]]
+Related: [[agents]], [[meta/00_AI_AGENT_MANIFEST]], [[Hermes 3 Agent Memory Architecture]]

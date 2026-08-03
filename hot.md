@@ -2,80 +2,84 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-07-31T23:59:00
+updated: 2026-08-02
 ---
 
 # Recent Context
 
-> **DISPATCH FROM [[wisense/projects/APEX_MASTER_PLAN]].** It is the single ordered view of state, constraints and the work queue. Detail lives in the linked notes; sequence lives there. If it disagrees with a tool's memory, the master plan wins.
+> **DISPATCH FROM [[projects/APEX_MASTER_PLAN]].** It is the single ordered view of state, constraints and the work queue. If it disagrees with a tool's memory, the master plan wins.
 
 ## Last Updated
-2026-08-01. Apex live: [https://apex-v2-ten.vercel.app](https://apex-v2-ten.vercel.app) · HEAD `d232be9` (main synced, self-serve merged). Jigsy site/staff: [https://jigsyssite.vercel.app](https://jigsyssite.vercel.app) · HEAD `f0dd7b7`.
 
-🟢 **Self-serve build (`feat/template-to-product`, 18 commits) is MERGED to `main`.** Multi-tenant Next.js renderer, `venue_site_profile` + `get_public_venue_profile` RPC, enrich-business onboarding, launch wizard, branding/photos, growth loops, and plan revisions are on `main` @ `d232be9` with 84/84 tests green.
+2026-08-02. Apex main at `b06469c`, 141 tests green, analyze clean. Build 8 on TestFlight (Waiting for Review). Build 9 staged (tip-pool routed, hours-from-punches, Admin gates, monitor fixes). Jigsy's is the only live customer.
 
+## Security — DONE 2026-08-02
 
+🟢 **anon EXECUTE revoked on 56 SECURITY DEFINER functions.** Only 8 guest-ordering functions remain anon-callable. Repo is public, so function names and signatures were published — this was the cheapest risk reduction available.
 
+🟢 **apex_set_role privilege escalation closed.** `has_role(org,'owner')` returns true for any manager; was used as an owner gate. Fixed: `is_owner(org)` for owner-only, `can_administer(org)` for owner-or-admin.
 
-🟢 **Jigsy Stripe Pay Now is working end-to-end.** Guests see the 1.5% service fee and optional Stripe tips; Jigsy pays Stripe processing; WiSense receives the application fee. Tickets and both staff consoles show tip/fee breakdowns. Full and custom partial refunds work in both staff surfaces and reconcile provider-dashboard refunds. The old Square tip hazard is resolved: `tip_cents` is stored, printed, and included in Square-tip refunds.
+🟢 **Trigger functions locked down.** `apex_protect_*`, `handle_new_user`, etc. revoked from public/anon/authenticated. Triggers unaffected (run as table owner).
 
-🟡 **Square is prepared, not live for Jigsy.** OAuth, webhook, hosted checkout, native tips, application fees, refunds, the in-app printer checklist, and the paid printer-test order are ready. Do not activate without the owner’s authorization and production/printer validation. The first go-live must verify `square_environment=production`, printer profile routing, and Square Banking application-fee reporting.
+🟢 **Identity moved to user_id.** `shifts.user_id` backfilled (27 live rows), sync triggers keep it in step. Sidework RLS policy still has a name fallback that fails open on ambiguity — see [[NOW]] known issues.
 
-🟢 **Payment reconciliation is scheduled and verified.** `check-capacity` runs every two minutes and `reconcile-pending-payments` every 15 minutes; both use the Vault `service_role_key` and return HTTP 200. Migration history is reconciled (78 local files / 78 remote records, zero drift).
+## Bugs fixed 2026-08-02
 
-🟢 **JIGSY IS TAKING BOTH THE APP AND THE WEBSITE** (2026-07-30). This settles the open question in [[wisense/projects/SITE_TEMPLATE_ONLINE_ORDERING_PLAN]] — the site is no longer speculative. Order of work still stands: finish Apex, then build ordering into the **site template** rather than as a one-off, so every flagship site ships taking money on day one.
+- **`.order()` was descending everywhere** — postgrest-dart defaults to `ascending: false`. All 26 unqualified calls sorted backwards. Next shift, menu order, every list.
+- **Worked hours came from the schedule, not punches.** Emily's 13-hour scheduled shift clocked at 2.84 hours reported 13 hours worked. "Est. pay" overstated 4.6x. Fixed: `hoursWorkedFromEntries`, 6 tests pin the real row.
+- **tip_allocations realtime subscription never existed.** Filtered on `organization_id` but that table has no such column. Realtime rejected the binding silently. Now scoped by `user_id`.
+- **Admin excluded by hand-rolled role checks.** Six screens tested `role == 'owner' || role == 'manager'` — Admin is neither. Nav offered the tile, screen refused entry. All six now go through `StaffRole`.
+- **Share sheet white-on-white.** Same class as the clock button. Fixed with explicit ink constant.
+- **Guest site scrolled sideways.** `1fr` grid with `nowrap` labels pushed past viewport on mobile. Fixed: `minmax(0, 1fr)` with wrapping labels.
+- **Monitor's Twilio alert was silent.** `notify()` checked secrets were set but not whether the send succeeded. Twilio pending approval = every send rejected, looked identical to delivered. Now fails loudly.
 
-💵 **Fee model settled: direct charges + guest-paid service fee.** On a $32.96 order the guest pays $35.46, the venue nets $33.61, WiSense earns 52¢ — versus **losing 67¢** before. Pitch line: an online order costs the venue card processing and nothing else, same as a card tapped at their counter. Two rules keep it a service fee not a card surcharge: never call it a card/processing fee, never vary it by payment method. See [[wisense/projects/APEX_PLATFORM_FEE_ECONOMICS_2026-07-30]].
+## Outside monitor — LIVE
 
-📸 **Photo import shipped and measured** — `claude-opus-5` at low effort, **~10¢ per import, one-time per venue**. Everything else in Apex runs on Haiku (~$0.001/call). Full record: [[wisense/projects/APEX_PHOTO_IMPORT_BAKEOFF_2026-07-30]]. Three things from it worth carrying:
+GitHub Actions cron, headless browser (Playwright). Checks: venue page 200, menu opacity > 0, item count > 0, order page renders cart, next-shift date is nearest future shift, `apex_venue_health` not paused during opening hours. Five secrets set.
 
-- 🔴 **`ListModels` advertises Gemini models that `generateContent` 404s.** Every Gemini ID in the deployed function was retired; that branch had never executed in production, it 404'd and fell through to Claude silently. Probe with a real one-token call before trusting any model ID.
-- 🔴 **Ranking by "shifts found" picked the worse model** — it had silently shifted a row by one day. And two clean runs got reported as "perfect" when the true rate was ~1 wrong entry per import. Score against a confirmed answer, and run it more than twice.
-- ⚠️ **A failed AI call bills like a successful one.** The client giving up does not stop the model. Three retries cost 3×.
+**Two corrections verified 2026-08-02:** GitHub throttles `*/15` schedules — it fired once in 2h15m, not every 15 min. And SMS cannot deliver: Twilio account pending approval. Until it clears, the real alarm is the GitHub Actions failure email. Detection latency is hours, not minutes.
 
-🤖 **AI support agent outranks growth loops** — at three venues the constraint is founder attention, not acquisition, and restaurants break at 7pm Friday when a solo operator is the whole on-call rotation. **Most Apex failures are diagnosable from data already in the database** (on 07-31 every failure but the deploy was visible in `net._http_response`, `cron.job`, `online_orders`). Read-only diagnosis first, then escalation with the diagnosis pre-written, then a narrow reversible action allowlist — **never refunds, never money, never anything it cannot verify afterwards**. Honest limit to put in the UI: most outages are physical (printer, wifi, sleeping iPad) and it can only say *which*, which is most of the value anyway. Never in scope: decrypted secrets or card data — configuration and digests only. [[wisense/projects/APEX_AI_SUPPORT_AGENT_PLAN_2026-08-01]]
+## Tip-pool eligibility — staged, not applied
 
-🎯 **Target: $300/month by end of year one from launch = THREE paying OS venues.** Not thirty. That governs prioritisation: three venues can be onboarded by hand, so **self-serve is the product, not an acquisition necessity** -- build it because it is the differentiator. Acquisition at this scale is a warm-introduction problem, and Jigsy is well established with local mom-and-pop owners; that network is the year-one plan. **Retention is the hard part** -- at three venues one churn is a third of the business, so after launch the priority is the daily-value loop (nightly briefing, labor cost, call-out rescue, capacity), not more onboarding polish. Onboarding wins the customer; the daily loop stops them leaving. [[wisense/projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]]
+Client code routed at `/tip-pool` as manager-only (build 9). Migrations `20260831000000`/`20260831000001` are **not applied**. The hazard is asymmetric: client alone is safe (code can't run), migration alone breaks splitting with no in-app recovery (`apex_guard_tip_pool` blocks until owner confirms roster, and the only caller of `apex_confirm_tip_roster` was the orphaned screen). They ship in the same window as build 9 or not at all.
 
-🛠️ **Self-serve Builds 1-5 are DONE on `feat/template-to-product`** (Kimi K3, 69 files): multi-tenant Next.js renderer, `venue_site_profile` + `get_public_venue_profile` RPC, enrich-business onboarding, launch wizard, photos/palette, growth loops + referral codes. **Two seams verified held**: `venue_profile_isolation.sql` is a real 224-line test shipped *with* the renderer, and **`enrich-business` pulls no photos** (Google Places API for name/address/phone/hours/rating only) -- which avoids industrialising the guest-upload copyright problem hit on 07-31. **Keep photos owner-supplied permanently.** Open revisions: declare Apex the menu source of truth in the wizard copy, instrument per-step wizard abandon, resolve AI-drafts-vs-owner-effort as *AI drafts / owner confirms*, and **rotate Jigsy's `public_token` before any QR code is printed** (a printed token cannot be rotated).
+Live compliance issue: tip pools currently include managers and owners, which PA law bars when a tip credit is taken. Seeded eligible: Emily, Avi, Courtney, Dana, Kim, Marsha, Morgan. Not eligible: Robin (owner, never on floor).
 
-💰 **Ordering fees are the wedge, not the business** (Jigsy numbers, 2026-08-01). Net sales **$291,668**, but **orders -14% / customers -12%** with average sale +11% -- traffic is the problem, so the pitch is *recover order count*, not "modernise your website." 1.5% at realistic 10-25% online capture is only **$36-91/month**; one venue at $79/mo subscription is $948/yr. WARNING: **Labor % of net sales = 0.0% -- they track no labor in Square at all**, on a $292k base, and Apex has scheduling + timeclock + labor cost. That gap is the recurring revenue. Also: on Stripe's platform-pays Connect model **break-even is ~$950/month of online volume** -- below that a venue costs us money; Square has no per-account Connect fees, so it is better economics for small venues too. [[wisense/projects/JIGSYS_BUSINESS_NUMBERS_AND_REVENUE_MODEL_2026-08-01]]
+## Payroll Lite — decided, not shipped
 
-🟢 **Jigsy's printer profile already routes "Online & kiosk order tickets"** (observed on their POS 2026-07-31; Star TSP143 USB, Ready). Apex orders print on their existing hardware with **no purchase and no venue-side change** — so **Phase 4 / CloudPRNT (~$300, 2–3 days) is off the critical path** and becomes work for the next venue that lacks Square. Do NOT enable "order creation in checkout": Square requires fulfilment methods disabled for it, which our PICKUP orders need. `Checkout → Order tickets` = `Manual`, unverified — unattended printing cannot be promised yet. Square owner login `jigsy895@yahoo.com`; Emily has no Square authority. [[wisense/projects/JIGSYS_PILOT_LAUNCH_STRATEGY_2026-07-31]]
+**Hours report, not a pay calculator.** The tipped overtime rate was wrong (1.5x cash wage instead of 1.5x min wage minus tip credit). A 45-hour tipped week returned $22.50 where ~$33.13 was owed. Decision: remove the money columns rather than fix the rate. See [[DECISIONS]] 2026-08-02 and `apex_v2/docs/PAYROLL_LITE_SCOPE_2026-08-02.md`.
 
-🚀 **Launch on the floor, upgrade in place.** `payment_mode` pay-at-pickup needs **no payment integration at all** — the iPad bought 2026-07-31 *is* the ticket (KDS, no printing dependency), and the customer pays at the counter on their existing Square. Zero OAuth/Stripe/hardware/risk — and **zero revenue**, since no card online means no 1.5%. Do not gate go-live on OAuth, printing, or owner availability; every upgrade after is additive, not a redo. ⚠️ **The menu lives in two places** — Apex holds its own copy, so a price changed in Square never reaches the website. That is the thing that quietly breaks in month three, and it must be said out loud to the owner.
+`feat/payroll-export` is stale — predates the 08-02 work, would delete the monitor, five migrations and six test files. Needs rebase before merge.
 
-🎯 **Endgame: Apex replaces Square as the POS** (2026-07-31) — the Square rail is a **wedge, not the destination**. Stages: ship the Square rail → own the kitchen ticket (CloudPRNT) → own front-of-house (native + Terminal + offline) → the long tail. Three walls, all hardware: their **Star TSP143IIU is USB**, so a browser can never drive it and replacing Square's printing means **replacing the printer** (~$250–350, the only unavoidable hardware cost); card-present needs a reader we own; offline resilience alone forces a native app. Apple Developer purchased 2026-07-31, which unblocks the native path. Full plan: `apex_v2/docs/PAYMENTS_AND_POS_BUILD_PLAN_2026-07-31.md` (33 tasks) + [[wisense/projects/APEX_PAYMENTS_AND_POS_STRATEGY_2026-07-31]].
+## Business context
 
-📱 **Dedicated Jigsy pilot tablet purchased:** refurbished iPad 9th generation (2021, 64 GB, Wi-Fi) plus a rotating protective tabletop case. It will run Apex/TestFlight beside the existing Square POS; no printer is being purchased until Apex needs independent network printing. Setup record: [[Apex v2 — Restaurant OS Build]].
+🎯 **Target: $300/mo from three paying OS venues.** Not thirty. Self-serve is the product, not an acquisition necessity. Jigsy's network is the year-one plan. Retention is the hard part — one churn is a third of the business.
 
-🔴 **Do not quote platform margin until the Connect pricing model is confirmed.** If WiSense is on Stripe's "platform sets pricing" model we pay $2/mo per active account + 0.25% + 25c per payout + 0.25% of payout volume — plausibly **half the 1.5%** on a venue paid out daily, i.e. net nearer **0.7%**. Nothing in the code reveals which model we are on. Run `node apex_v2/scripts/check_connect_pricing.mjs` (read-only). Related: Stripe **direct charges do not appear in platform exports** — a revenue dashboard built on exports silently shows zero.
+💵 **Fee model: direct charges + 1.5% guest-paid service fee.** On $32.96: guest pays $35.46, venue nets $33.61, WiSense earns 52¢. Break-even on Stripe Connect is ~$950/mo online volume; Square has no per-account Connect fees (better for small venues). See [[projects/APEX_PLATFORM_FEE_ECONOMICS_2026-07-30]].
 
-🔴 **Square Sandbox cannot test the value proposition.** It does not support Square POS, Square for Restaurants, or application-fee reporting — so *order reaches the POS*, *ticket prints*, and *the 1.5% lands* are **all unverifiable until a real merchant connects**. Sandbox de-risks the code, not the product. `square_environment` still defaults to `'sandbox'`, but Apex now logs a loud warning with the org and dropped fee whenever that would omit a non-zero platform fee. `Payment.reference_id` **does not arrive** on Square payment-link webhooks — correlation must run on `payment.order_id` → `square_order_id`.
+💰 **Jigsy's numbers:** net sales $291,668, orders -14%, customers -12%, average sale +11%. Traffic is the problem. Labor % of net sales = 0.0% — they track no labor in Square. Apex has scheduling + timeclock + labor cost. That gap is the recurring revenue pitch. See [[projects/JIGSYS_BUSINESS_NUMBERS_AND_REVENUE_MODEL_2026-08-01]].
 
-❌ **Tap to Pay (the SDK feature) is struck, not deprioritised** — *"Tap to Pay isn't available on iPads."* Android excludes tablets too. Jigsy's wired contactless reader is **card-present hardware inside Square POS** — a different thing, already working, not ours. Conflating them mis-sizes the roadmap by an order of magnitude.
+## AI policy
 
-🟢 **Jigsy's is named publicly as first client** (2026-07-31, with permission). wisensellc.com case study rebuilt with real before/after screenshots; Apex now reads "First Venue Onboarding". **Not claimed**: that the site is live (it has not replaced jigsypizza.com), that Apex is in production, or anything about online ordering. ⚠️ The site's food photos came from **public Google guest uploads** — the hero screenshot was **deleted from the repo, not just unreferenced**, because anything under Next's `public/` is served whether linked or not. Replacing that photography with owner originals is blocker #1 in `jigsys_site/LAUNCH_CHECKLIST.md`.
+**Haiku for everything, Opus only for image OCR.** Two calls removed that only reprosed existing data. `polish-labor-warnings` should be cut to templates (warnings are already deterministic in `labor_guardrails.dart`). `venue-briefing` at 134 calls/30d is the largest AI line item — template 90% of it. See `apex_v2/docs/AUDIT_2026-08-02_FABLE.md`.
 
-🟦 **Square becomes a second payment provider, not a fork** (decided 2026-07-30) — [[wisense/projects/APEX_SQUARE_PROVIDER_DECISION_2026-07-30]]. Jigsy prints via a USB Star wired to a Square Stand on iPads, so the staff console can never reach it. Square payments create a Square Order, which prints on the hardware they own — one integration solves money and kitchen. Verified: `app_fee_money` works on Square's **hosted** checkout (`CreatePaymentLink`), so the 1.5% is collectable with no card form of our own. **The owner must authorise either way — Emily is a manager with no Square power.** Real reason to build it is market access, not one venue.
+## Standing warnings
 
-🚦 **[[wisense/projects/APEX_GO_LIVE_SEQUENCE_2026-07-30]] — read before activating a live Stripe account.** No live account yet, so **no venue has onboarded for real and architecture decisions are still free**. That window closes when Jigsy connects. Nothing carries over from test mode: keys, webhook endpoints and signing secrets, Connect accounts, and payment links are all separate live objects.
+🔴 **Migration history has DRIFTED — do not run `supabase db push`.** 117 local files, 96 ledger records. Twenty-four files have no `schema_migrations` row even though their objects are live. Apply individual migrations explicitly.
 
-**BEFORE THE PILOT:** custom SMTP (Supabase's built-in mailer is a testing service — invite six staff in one evening and most never get the mail, and it looks like the app is broken); clear test venues/accounts; delete the five `@roster.local` placeholders (Kim, Marsha, Dana, Courtney, Morgan); set job roles; deactivate 3 orphan Stripe payment links.
+⚠️ After any deploy, **hard-refresh** — the Flutter service worker serves the old bundle.
 
-⚠️ **Tier enforcement is partial, not absent** (corrected 2026-07-30 — "UI-only" was wrong). Tier writes are `is_super_admin()` only, and **online ordering IS enforced server-side** via `apex_org_has_online_ordering()` inside `place_order`, honouring tier + enabled/disabled overrides. `apex_set_org_module` can only toggle `timeClock` and can never grant a paid module. **The real gap:** every *other* module is UI-only — `tip_pools` / `tip_allocations` / `server_tips` (Pro), `capacity_events` / `call_outs` (OS) all carry plain org-member RLS that never consults tier. A Free venue's manager can reach them straight through PostgREST.
-🟢 **Migration history is reconciled** — 78 local migration files match 78 remote records. Use migrations and `db push --dry-run`; never apply schema changes directly in the Dashboard.
-⚠️ `apex/apex/supabase/config.toml` still points at **Horizon's** project — a `supabase db reset --linked` from that folder hits the wrong database.
-⚠️ After any deploy, **hard-refresh** — the Flutter service worker serves the old bundle and it looks exactly like a bug.
+⚠️ `apex/apex/supabase/config.toml` still points at Horizon's project.
 
-## Key Recent Facts
-- **Vault Boot Chain:** [[hot]] → [[NOW]] → [[index]].
-- **Primary Sales Path:** Apex Restaurant OS ($99/mo) + Flagship Managed Web ($299 + $99/mo).
-- **Session record:** [[wisense/projects/APEX_SESSION_2026-07-29_30_FULL_RECORD]]
-- **Flagship strategy:** [[wisense/projects/WISENSE_LLC_APEX_FLAGSHIP_PIVOT_PLAN_2026-07-28]]
-- **Stripe verified live in sandbox 2026-07-29** (`acct_1TqfSbHeXj7HLVbu`): guest Pay Now works end to end; the SaaS unlock branch of the webhook has **never fired** and must be treated as untested when unlocks are switched back on.
-- **COMMS LINK:** ⏸️ PARKED.
+🔴 **Square Sandbox cannot test the value proposition.** No POS, no Restaurants, no application-fee reporting. Sandbox de-risks the code, not the product.
 
-## Active Threads
-- Next: go-live sequence, then the site template for Jigsy.
-- [[NOW]] · [[index]] · [[Apex v2 — Restaurant OS Build]]
+❌ **Tap to Pay is struck** — not available on iPads. Jigsy's wired contactless reader is card-present hardware inside Square POS, a different thing.
+
+## Active threads
+
+- Build 9 ships tip-pool routing + hours fix + Admin gates + monitor fixes
+- Then: Phase A testing (real clock-in, real pay-now order, real pay period)
+- Then: tip-pool migrations applied in same window as build 9
+- Parked: payroll export (stale branch, needs rebase), services vertical (gated on vertical one paying)
+
+[[NOW]] · [[index]] · [[projects/Apex v2 — Restaurant OS Build]]

@@ -14,20 +14,22 @@ aliases: [agents.md, Vault Agent Instructions]
 
 This vault is a **curated static reference**, not an automated intake machine. The earlier MindStudio 7-folder synthesis pipeline (`/wiki`, `/journal`, `/crm` + auto-sync) was retired 2026-07-20 — it never ran in practice and its folders sat empty. Knowledge here is hand-written and hand-linked. See [[hot]] and the [[log]] entry for that date.
 
-**Live topology:**
+**Live topology (reorganized 2026-08-02):**
 
-- `raw/` — **Intake inbox**: unprocessed clips, transcripts, research, and prompt drops land here for a human/agent to read and codify into root notes.
-- `raw/processed/` — **Audit trail**: sources moved here after they've been codified, to prevent re-processing.
-- `output/` — **Deliverables**: finished audit reports, launch checklists, decision docs — things you'd hand to someone else.
-- **Root notes** — **The knowledge layer**: governance, project references, manifests, decisions, daily logs. Codified, linked, cross-referenced. This is where synthesized knowledge lives now (not a separate `/wiki`).
-- `skills/`, `scratchpad/` — Hermes 3 procedural recipes and scratchpad logs (see section 8).
-- `hot.md` — **Hot cache**: ~500-word recent-context summary — **read first**.
+- **Root** — Navigation and protocol only: `hot.md`, `NOW.md`, `index.md`, `Home.md`, `agents.md`, `CLAUDE.md`, `DECISIONS.md`, `log.md`. Eight files, nothing else.
+- `projects/` — Active project plans and notes. Apex plans at top level; dormant projects (COMMS LINK, New Horizon, Apex Scheduler) in `projects/dormant/`.
+- `meta/` — Technical manifests, environment maps, plugin governance, troubleshooting recipes.
+- `company/` — Company info, governance rules, advisor profile.
+- `customers/` — Customer truth: pilot interviews, live status, website concepts.
+- `business/` — Business strategy, experiment log, acquisition plans.
+- `prospects/` — 48 cold-outreach research notes by business type.
+- `skills/`, `scratchpad/` — Hermes procedural recipes and scratchpad logs.
+- `archive/` — Superseded notes, stale plans, completed deliverables, inter-AI audits. Read-only history.
+- `hot.md` — **Hot cache**: recent-context summary — **read first**.
 - `NOW.md` — **Weekly scorecard + task board** — **read second** (execution layer).
 - `index.md` — **Master pointer**: catalog of vault contents — read third before deep search.
 - `CLAUDE.md` — **Thin always-on schema**: boot order + write-back rules; not a second status table.
-- `customers/` — **Customer truth**: pilot interviews and objections (not the retired `/crm`).
-- `VAULT_LINT.md` — **Monthly health checklist**: status drift, orphans, stale claims.
-- `log.md` — **Append-only audit trail**: history of every structural change and codification.
+- `log.md` — **Append-only audit trail**: history of every structural change.
 
 **Boot order:** [[hot]] → [[NOW]] → [[index]] → relevant note.
 
@@ -35,9 +37,14 @@ This vault is a **curated static reference**, not an automated intake machine. T
 
 ## ⚙️ AI Agent Operating Rules
 
-### 1. The Gardener & Soil Paradigm
-- **Human User (Gardener)**: Drops raw thoughts, articles, YouTube clips, and prompt notes into `raw/`.
-- **AI Agent (Soil)**: When asked, reads `raw/`, codifies durable knowledge into a cross-linked **root note**, moves the source into `raw/processed/`, and updates `index.md`, `hot.md`, and `log.md`. This is a **manual, on-request** operation — there is no automatic synthesis loop.
+### 1. Manual Codification (on request)
+When the user asks to ingest/codify a source:
+1. Read the source and extract durable concepts, entities, and decisions.
+2. Write or update a cross-linked note in the appropriate folder (`projects/`, `customers/`, `business/`, `company/`, `meta/`).
+3. Update `index.md` (catalog), `hot.md` (recent context), `NOW.md` if tasks/metrics changed, and append to `log.md`.
+4. Stage a Git commit for an auditable diff.
+
+Codification is a deliberate, requested act — never automatic. This keeps the vault curated.
 
 ### 2. Obsidian Native Syntax Standards (`kepano/obsidian-skills`)
 - **Wikilinks**: Always link notes using `[[Note Name]]` or `[[Note Name|Alias]]` instead of raw URL markdown links.
@@ -53,15 +60,7 @@ This vault is a **curated static reference**, not an automated intake machine. T
   ```
 - **Dataview Compatibility**: Use standard key-value pairs (`key:: value`) or YAML fields for queryability.
 
-### 3. Manual Codification (on request)
-When the user asks you to ingest/codify a source in `raw/`:
-1. Read the source and extract durable concepts, entities, and decisions.
-2. Write or update a cross-linked **root note** with explicit `[[back-links]]` to related notes.
-3. Move the source from `raw/` to `raw/processed/`.
-4. Update `index.md` (catalog), `hot.md` (recent context), `NOW.md` if tasks/metrics changed, and append to `log.md`.
-5. Stage a Git commit (`git commit -m "feat(vault): codify [source-name]"`) for an auditable diff.
-
-Do **not** run this automatically or synthesize a note from every query — codification is a deliberate, requested act. This keeps the vault curated rather than bloated.
+### 3. Codification (duplicate of section 1 — see above)
 
 ### 4. Karpathy 4 Core Rules Enforcement
 - **Think Before Coding**: State all assumptions explicitly before taking action.
@@ -97,4 +96,4 @@ When assuming or delegating tasks, AI agents MUST adopt the appropriate persona 
 - Customer feedback → `customers/` (see [[customers/_Index]]); experiments → [[business/Experiment Log]].
 - When asked to “lint the vault”, follow [[VAULT_LINT]] and append results to [[log]].
 
-Related: [[00_AI_AGENT_MANIFEST]], [[NOW]], [[VAULT_LINT]], [[OBSIDIAN_PLUGINS_MANIFEST]], [[HERMES_PROCEDURAL_SKILLS]], [[HERMES_SCRATCHPAD_PROTOCOL]], [[index]], [[log]]
+Related: [[00_AI_AGENT_MANIFEST]], [[NOW]], [[VAULT_LINT]], [[meta/OBSIDIAN_PLUGINS_MANIFEST]], [[HERMES_PROCEDURAL_SKILLS]], [[HERMES_SCRATCHPAD_PROTOCOL]], [[index]], [[log]]

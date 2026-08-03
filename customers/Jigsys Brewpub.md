@@ -88,8 +88,8 @@ stage: customer-signed-yes
 ## Related work
 
 - [[Jigsys Website Concept]] — independent redesign of Jigsy's public site (live at https://jigsyssite.vercel.app · GitHub `nicholaswittle/jigsysite`). Passes A–D through 2026-07-22: Board menu, Google trust, What’s good here / FAQ, downstairs = skill games + TV lounge (no live music). Concept/portfolio piece; not the official site. Confirm peanut butter pie still served before client pitch.
-- [[business/Jigsys Ordering Demo — Build Record 2026-07-23]] — isolated
+- [[Jigsys Ordering Demo — Build Record 2026-07-23]] — isolated
   customer ordering and staff Accept & Print demo, Vercel deployment, final
   99-cent model, printer plan, and production gaps.
 
-Related: [[customers/_Index]], [[NOW]], [[output/Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[output/Apex Security Audit 2026-07-19]]
+Related: [[customers/_Index]], [[NOW]], [[Launch Readiness — COMMS LINK and Apex 2026-07-20]], [[Apex Security Audit 2026-07-19]]

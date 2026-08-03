@@ -57,4 +57,4 @@ flowchart TD
 
 ---
 
-Related: [[business/Marysville Diner — Web Redesign & Direct Ordering Pitch]], [[business/Cork & Fork Downtown — High-End Redesign Pitch Plan]], [[business/WiSense Operational Partner Plan — Jigsy's]], [[NOW]]
+Related: [[Marysville Diner — Web Redesign & Direct Ordering Pitch]], [[Cork & Fork Downtown — High-End Redesign Pitch Plan]], [[WiSense Operational Partner Plan — Jigsy's]], [[NOW]]

@@ -41,4 +41,4 @@ date: 2026-07-20
 
 ---
 
-Related: [[business/Young Zhao - 2026 AI Startup Playbook]], [[business/2026 Commercial B2B Software Ideas]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[Apex Scheduler]], [[COMMS LINK]], [[New Horizon]], [[NOW]], [[business/Experiment Log]], [[business/Business Hub]], [[index]]
+Related: [[Young Zhao - 2026 AI Startup Playbook]], [[2026 Commercial B2B Software Ideas]], [[Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[Apex Scheduler]], [[COMMS LINK]], [[New Horizon]], [[NOW]], [[business/Experiment Log]], [[Business Hub]], [[index]]

@@ -7,7 +7,7 @@ date: 2026-07-20
 
 # Experiment Log
 
-> Hypothesis → result → keep/kill. Prevents building without learning. Link ideas from [[business/Ideas Log]]; link customers from [[customers/_Index]].
+> Hypothesis → result → keep/kill. Prevents building without learning. Link ideas from [[Ideas Log]]; link customers from [[customers/_Index]].
 
 ## Active / recent
 
@@ -22,7 +22,7 @@ date: 2026-07-20
 ### E001 — Android-first packaging
 - **Bet**: Skip iOS until Apple account; ship Play Store first.
 - **Evidence needed**: Keystore + `flutter build appbundle` for both apps; privacy URLs live.
-- **Status**: Prep done in [[output/Gate C — Android Packaging & Store Listings 2026-07-20]]; human execution open on [[NOW]].
+- **Status**: Prep done in [[Gate C — Android Packaging & Store Listings 2026-07-20]]; human execution open on [[NOW]].
 
 ### E002 — Apex security gate for pilot
 - **Bet**: Authored RLS + claim/clock guards unblock real multi-user pilot.
@@ -41,4 +41,4 @@ date: 2026-07-20
 3. When done: fill Result + Decision (**Keep** / **Kill** / **Pivot**).
 4. Update [[NOW]] scorecard if it was the week’s bet.
 
-Related: [[business/Business Hub]], [[business/Ideas Log]], [[business/Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[business/2026 Commercial B2B Software Ideas]], [[NOW]], [[DECISIONS]]
+Related: [[Business Hub]], [[Ideas Log]], [[Revenue Ideas — 12 Buildable B2B Plays 2026-07-20]], [[2026 Commercial B2B Software Ideas]], [[NOW]], [[DECISIONS]]
