@@ -36,6 +36,11 @@ updated: 2026-08-02
 
 ## Projects — Apex (active)
 
+- [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] — v3 rebuild: plan, review rounds, Phase 0 status
+- [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] — honest v3-vs-v2 + v2 current-state read
+- [[projects/APEX_AUDIT_FABLE5_2026-08-03]] — Fable 5 deep audit (v2/services, grade C+)
+- [[projects/APEX_AUDIT_TEMPLATE_TO_PRODUCT_2026-08-04]] — ChatGPT branch audit (B+ code / D shipping)
+- [[projects/APEX_SERVICES_COMPETITIVE_BUILD_MAP]] — services build plan vs Jobber
 - [[projects/Apex v2 — Restaurant OS Build]] — build history, device setup
 - [[projects/APEX_MASTER_PLAN]] — single ordered view of state and work queue
 - [[projects/APEX_GO_LIVE_SEQUENCE_2026-07-30]] — pre-launch checklist

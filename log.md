@@ -237,3 +237,20 @@ Related: [[index]], [[Home]], [[agents]]
 - **[VERIFICATION]**: Full link-graph scan confirms no remaining broken links in active files, no stubs (<200 chars), and every non-archive note is reachable from a hub (index/Home/hot/NOW/log). `git status` clean apart from these edits + pre-existing line-ending noise on `archive/stale-plans/Go-to-Market.md`.
 
 Related: [[index]], [[Home]], [[agents]], [[hot]], [[NOW]]
+
+## 2026-08-05 — Apex v3 filed: build plan, five review rounds, Phase 0 status
+
+- **[NEW]**: `projects/APEX_V3_BUILD_AND_STATUS_2026-08-05.md` — the v3 rebuild in full: why it exists, architecture (vertical packs, domain-event outbox, idempotency, CI-as-contract), what is actually built vs claimed, all five adversarial review rounds, the three root causes from round five, the three BLOCKERs, the gates that lied, six standing rules, and open items.
+- **[DECISIONS]**: Added `2026-08-05 · Apex v3 is rebuilt on a new Supabase project, fixed phase-by-phase, reviewed by parallel scoped agents`. Records the per-phase no-drift rule, the four-lane parallel review format, the prove-red-then-green mandate, and the six standing rules.
+- **[HOT]**: New leading section for v3. States plainly that Phase 0 is **not** closed and v3 is not ready to build an app on — three root causes named, UI gate flagged.
+- **[INDEX]**: v3 note linked at the top of Projects — Apex (active).
+- **[STATUS NOTE]**: v3 is deliberately filed as *in progress with open blockers*, not as an accomplishment log. Round five returned 3 BLOCKERs and ~12 HIGHs; database-tier remediation was in flight at the time of writing. Anything reading this vault should treat v3 as pre-Phase-0-close.
+
+Related: [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]], [[DECISIONS]], [[hot]], [[index]]
+
+## 2026-08-05 (late) — v3-vs-v2 assessment + catalog linking
+
+- **[NEW]**: `projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05.md` — candid assessment of v3 vs v2 and v2's current state. Key claims: v3 fixes the floor (CI gates, drift alarm) but is already repeating v2's disease (gates test text, not reachability — 4 of 5 review rounds each introduced the next defect); the strategic move is to monetize the already-built v2 services vertical NOW (B+ within a week) while v3 becomes the future home only after its Phase 0 gates prove they cannot lie.
+- **[LINKS]**: Indexed four notes under Projects — Apex (active) that hot.md referenced but index.md did not catalog: APEX_V3_VS_V2_ASSESSMENT, APEX_AUDIT_FABLE5, APEX_AUDIT_TEMPLATE_TO_PRODUCT, APEX_SERVICES_COMPETITIVE_BUILD_MAP. Added the assessment to the v3 note's Related footer.
+
+Related: [[index]], [[Home]], [[agents]], [[hot]], [[NOW]], [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]]
