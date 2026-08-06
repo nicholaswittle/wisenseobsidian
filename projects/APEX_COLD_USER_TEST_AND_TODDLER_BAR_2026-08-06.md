@@ -36,6 +36,27 @@ just uninstalled the app."**
 6. **The quote board looked unchanged** — correct, and initially misdiagnosed
    as a stale build. See §4.
 
+### What landed — do not lose these
+
+The test was not all failure, and the two things that *worked* are the more
+commercially useful half of it:
+
+1. **Seeing his own website was the moment.** He was "super excited" to see it.
+   That is the emotional payoff of the entire funnel, and right now it sits at
+   the *end* of a seven-step checklist he had to be walked through. **The
+   product implication: get to the site preview far earlier.** A rough,
+   half-filled site he can see and react to beats a finished one he never
+   reaches — and it converts the setup work from chores into edits to something
+   that already exists and is *his*.
+2. **He liked online pay on sight, unprompted.** The thing Nicholas assumed
+   would need selling sold itself; the thing that needed explaining was the
+   *word* Stripe, not the idea of getting paid by card. This validates the
+   $99/mo direction, and says the upsell copy should lead with the outcome
+   ("get paid by card, money in your account") and never with the provider.
+
+Read together: **the demo is the product.** The site preview is the hook and
+online pay is the want; the checklist standing between them is the problem.
+
 ## 2. The Toddler Bar — the governing rule
 
 Nicholas, after the test:

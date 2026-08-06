@@ -30,6 +30,12 @@ checklist, plain-language payment copy, the quote board rebuilt around **"Your
 move"** with a named button per card, a services owner home screen, one-round-
 trip quoting, customer counter-offers, and a pinned back bar on every screen.
 
+✅ **What landed, and it matters commercially:** he was *super excited* to see
+his own website, and liked **online pay** on sight, unprompted. The demo is the
+product — the site preview is the hook and online pay is the want. Both
+currently sit *behind* the checklist that nearly lost him. Get to the site
+preview earlier; sell the outcome ("get paid by card"), never the provider.
+
 ⚠️ **Still failing the bar:** the launch wizard is a checklist of nouns, not a
 one-question-per-screen conveyor. That is the biggest remaining swing.
 
