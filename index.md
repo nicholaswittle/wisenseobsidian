@@ -36,6 +36,7 @@ updated: 2026-08-02
 
 ## Projects — Apex (active)
 
+- [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] — first outside user, the toddler bar, the 08-06 rework
 - [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] — v3 rebuild: plan, review rounds, Phase 0 status
 - [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] — honest v3-vs-v2 + v2 current-state read
 - [[projects/APEX_AUDIT_FABLE5_2026-08-03]] — Fable 5 deep audit (v2/services, grade C+)

@@ -9,6 +9,35 @@ updated: 2026-08-02
 
 > **DISPATCH FROM [[projects/APEX_MASTER_PLAN]].** It is the single ordered view of state, constraints and the work queue. If it disagrees with a tool's memory, the master plan wins.
 
+## 🔴 THE TODDLER BAR — governing UX rule, 2026-08-06
+
+Full note: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]].
+
+The first genuine outside user (a landscaper, minimal instructions) worked
+through Apex onboarding on 2026-08-06. **Nicholas: "if I wasn't there to get
+him through, he would have just uninstalled the app."**
+
+The bar that came out of it, in his words: *"Can a first time user that has no
+computer or technology abilities work this app? I should be able to give it to
+my 2 year old and be able to do it."* Five operational tests — one named verb
+per screen, no jargon, no blank boxes, no dead ends, do-it-for-them and let
+them correct. **Applies to v2 and is inherited by v3.**
+
+Shipped the same day against his findings: AI **Suggest** on tagline/about/
+service blurbs (`draft-site-copy`), "Review & publish" no longer routed through
+the *first* setup screen (it literally was), a "Next: <step>" button on the
+checklist, plain-language payment copy, the quote board rebuilt around **"Your
+move"** with a named button per card, a services owner home screen, one-round-
+trip quoting, customer counter-offers, and a pinned back bar on every screen.
+
+⚠️ **Still failing the bar:** the launch wizard is a checklist of nouns, not a
+one-question-per-screen conveyor. That is the biggest remaining swing.
+
+🔴 **Migration files from 08-06 are NOT in the repo** — applied via MCP,
+recorded in the ledger, `.sql` files never written (classifier blocked the
+directory). With the pre-existing ledger drift, **`supabase db push` stays
+forbidden** and the repo no longer describes production.
+
 ## Apex v3 rebuild — Phase 0 IN PROGRESS, 2026-08-05
 
 Full note: [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]]. New repo
