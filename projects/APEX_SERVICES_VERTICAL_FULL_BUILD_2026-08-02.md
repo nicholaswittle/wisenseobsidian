@@ -11,7 +11,7 @@ software* and sized it against Jobber/Yardbook parity. That was the wrong
 question. This is not a landscaping product — it is **the same core serving any
 small service business**, with the restaurant remaining the focus.
 
-Related: [[projects/APEX_MULTI_VERTICAL_PLAN_2026-08-02]],
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_MULTI_VERTICAL_PLAN_2026-08-02]],
 [[projects/APEX_DECOUPLE_PILOT_2026-08-02]], [[DECISIONS]]
 
 ---

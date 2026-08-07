@@ -178,4 +178,4 @@ Saved to Obsidian Vault static reference:
 `C:\Users\nikwi\Notes\wisense\projects\APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28.md`  
 Committed and pushed to GitHub `https://github.com/nicholaswittle/wisenseobsidian.git`.
 
-Related: [[projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]] · [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]]
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]] · [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]]

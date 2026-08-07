@@ -287,3 +287,7 @@ Fable could not reach the database. These were checked afterwards:
 [trustpilot.com](https://www.trustpilot.com/review/chownow.com) ·
 [trillet.ai](https://trillet.ai/blogs/best-ai-receptionist-for-small-business-2026) ·
 [agentzap.ai](https://agentzap.ai/blog/ai-receptionist-pricing-complete-cost-guide-2025)
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_SERVICES_COMPETITIVE_BUILD_MAP]] · [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] · [[hot]] · [[NOW]] · [[index]]

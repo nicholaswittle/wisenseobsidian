@@ -188,3 +188,7 @@ honest, matches how marketplaces normally work, and is a change to one
 mistake being corrected.
 
 Not yet implemented — this is a business decision, not a bug fix.
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_PAYMENTS_AND_POS_STRATEGY_2026-07-31]] · [[projects/APEX_SQUARE_PROVIDER_DECISION_2026-07-30]] · [[hot]] · [[NOW]] · [[index]]

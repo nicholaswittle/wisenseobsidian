@@ -123,3 +123,7 @@ reading a report or a migration was wrong at least once.
   type, and the service-fee vs surcharge legal distinction
 - [[APEX_DIRECT_CHARGES_MIGRATION_PLAN_2026-07-30]] — file-by-file plan
 - [[APEX_V2_LIVE_CATALOG_SWEEP_2026-07-29]] — audit the catalog, not the repo
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_PLATFORM_FEE_ECONOMICS_2026-07-30]] · [[projects/APEX_SQUARE_PROVIDER_DECISION_2026-07-30]] · [[hot]] · [[NOW]] · [[index]]

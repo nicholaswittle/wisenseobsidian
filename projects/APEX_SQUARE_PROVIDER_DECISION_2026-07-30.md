@@ -114,3 +114,7 @@ Apex station rather than a workaround.
 - [[projects/SITE_TEMPLATE_ONLINE_ORDERING_PLAN]]
 - [[projects/APEX_PLATFORM_FEE_ECONOMICS_2026-07-30]]
 - [[projects/APEX_GO_LIVE_SEQUENCE_2026-07-30]]
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_PAYMENTS_AND_POS_STRATEGY_2026-07-31]] · [[hot]] · [[NOW]] · [[index]]

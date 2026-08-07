@@ -44,44 +44,57 @@ recorded in the ledger, `.sql` files never written (classifier blocked the
 directory). With the pre-existing ledger drift, **`supabase db push` stays
 forbidden** and the repo no longer describes production.
 
-## Apex v3 rebuild — Phase 0 CLOSED, Phase 1 STARTED, 2026-08-06
+## Apex v3 rebuild — Phase 0 CLOSED, Phase 1 WELL UNDERWAY, 2026-08-07
 
 Full note: [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]]. New repo
 `C:\development\projects\apex_v3`, new Supabase project **apex-v3-prod**
 `fnsonnhumcvxdnyarguv`. v2's project is a different live product — off-limits.
 
-🟢 **Phase 0 met its written gate 2026-08-05 and remediation ran through 08-06.**
-All three round-5 BLOCKERs (QR flood, unbounded open punches, self-promotion to
-super admin) are **closed and proved by attack tests**. H-DML closed (11 direct-DML
-operations → RPCs, each with replacement path built first, 41 assertions red-then-green).
-**Money path deployed** (15/28 edge functions; `create-guest-payment`, webhooks,
-`refund-order` with the reserve-before-provider race closed). `pg_cron`/`pg_net`
-installed, 3 scheduled jobs running, `domain_events` drain done. Repo↔ledger 62/62
-by md5. 12 CI gates green, 248 RLS assertions, 173 Flutter tests.
+🟢 **Phase 0 CLOSED** (met its written gate 08-05, remediation through 08-06).
+All three round-5 BLOCKERs proved by attack tests; H-DML closed (11 direct-DML
+ops → RPCs); money path deployed (15/28 edge functions); `pg_cron`/`pg_net`
+installed + scheduled jobs running; `domain_events` drain done; repo↔ledger
+62/62 by md5; 12 CI gates green.
 
-🟢 **Phase 1 STARTED**: onboarding conveyor (4 questions → site reveal → payment
-offer), auth (sign in / route by session), the **Toddler Bar enforced as a compile
-error** in `lib/toddler_bar/`, and the **operations layer (D26/D28)** with
-`publish_site` as reference implementation. The authoritative plan is now
-`apex_v3/docs/MASTER_PLAN.md` (canonical 08-06); the running open-items list lives
-in the private vault at `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
+🟢 **Phase 1 WELL UNDERWAY** (08-07, 116 commits, +34 since 08-06). Tests doubled
+173→339, lib files doubled, 16 registered operations. Built since 08-06:
+- **Onboarding conveyor** iterated twice against real feedback ("what two real
+  people could not do")
+- **Restaurant menu flow** — photograph, check, confirm
+- **Guest ordering** live — venue link → guest flow, cart, order status
+- **Schedule** — author-as-draft / publish-as-one-decision, photo import with
+  v2's defenses, staff self-serve
+- **Staff console** — one console, vocabulary by vertical (D32/D33)
+- **Operations layer is now real** — 16 registered ops (order lifecycle split by
+  facts D29, refund as ONE atom with reserve/settle/void protocol D34,
+  idempotency via client_token), not just a contract
+- **parse-menu scoring harness** ported from v2 (`scripts/score_menu.mjs`) — the
+  Phase 1 gate deliverable
+- **Synthetic restaurant seed** — repeatable, drives real signup trigger
 
-⚠️ **Open risks** (full list in the private open-items note): v3 shares v2's Stripe
-platform (behavioral isolation only — v2's refund-binding fix `acac08c` de-risks
-it, confirm deployed); v3 returns paying guests to v2 (hardcoded fallback URL);
-the `service_role` exemption is load-bearing across five guards; edge-function
-CONTENT drift ungated. Blocked on Nick: Sentry connector, function secrets
-re-issue, `APEX_V3_SERVICE_ROLE_KEY`. **UI still gated** — design-system + flow
-proposal to Nick before any screen ports.
+⚠️ **Payment gate amended honestly (08-07):** now reads "real order placed →
+paid → refunded **in Stripe test mode**" — the plan says what test mode proves
+(payment intent, Connect charge, 1.5% fee, webhook, refund path) and what it
+can't (real bank arrival, KYC, chargebacks). Prevents premature real-money.
 
-**v2 vs v3 (graded 08-06):** v2 = **B+** launch product (complete, hardened money
-path, but process/trust C+ — 46 branches, `main` 127 behind release). v3 = **B+**
-foundation (clean process A-, incomplete product C+). v2 carries revenue + customer;
-v3 carries trust. See [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]].
+⚠️ **Still open / largest structural weakness:** the `service_role` exemption is
+load-bearing across five guards (edge functions run as service_role, auth.uid()
+null, mitigation is procedural: functions call RPCs never write tables). Shared
+Stripe platform with v2 still behavioral isolation. **Blocked on Nick:** Sentry
+connector, function secrets re-issue (Twilio/FCM/AI/Stripe/Square),
+`APEX_V3_SERVICE_ROLE_KEY`, v2 nightly drift alarm (needs `V2_READONLY_DB_URL`).
+
+**Grade (08-07): A- as a Phase-1 foundation.** Architecture A (operations layer
+real), process A- (12 gates, red-then-green, drift alarms), velocity A- (doubled
+test/lib in ~24h, all gates green). Not yet a product — no real payment, no real
+customer, **the "same order placed by the assistant" gate unproven** (that's the
+make-or-break). Authoritative plan: `apex_v3/docs/MASTER_PLAN.md` (canonical
+08-06, Status section is stale — repo is ahead). Open items: private vault
+`Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
 
 ## Last Updated
 
-2026-08-06. v3 Phase 0 CLOSED, Phase 1 started (onboarding conveyor, auth, Toddler Bar as compile error, operations layer). v2 = B+ launch product, v3 = B+ foundation. See the v3 section above.
+2026-08-07. v3 Phase 1 WELL UNDERWAY (116 commits, 339 tests, 16 ops). v3 graded A- as Phase-1 foundation. See the v3 section above.
 
 ## Services vertical + build 10 — 2026-08-03 (evening)
 

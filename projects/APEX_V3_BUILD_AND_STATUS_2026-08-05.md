@@ -8,34 +8,37 @@ status: active
 
 # Apex v3 — Build Plan and Status
 
-> **STATUS UPDATE 2026-08-06 — Phase 0 is CLOSED.** The vault snapshot below
-> (written 08-05) is 40+ commits out of date. The authoritative plan is now
-> `apex_v3/docs/MASTER_PLAN.md` (canonical 08-06); the running open-items list
-> lives in the private vault at `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`
-> (moved out of the public repo 08-06). What changed since this note was written:
+> **STATUS UPDATE 2026-08-07 — Phase 1 WELL UNDERWAY.** The vault snapshot below
+> (written 08-05) is 60+ commits out of date. The authoritative plan is now
+> `apex_v3/docs/MASTER_PLAN.md` (canonical 08-06; its Status section is itself
+> stale — the repo is ahead); the running open-items list lives in the private
+> vault at `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`. What changed since
+> the 08-06 update:
 >
-> - **Phase 0 met its written gate 08-05** and remediation ran through 08-06.
->   All three round-5 BLOCKERs (QR flood, unbounded open punches, self-promotion
->   to super admin) are **closed and proved by attack tests**.
-> - **H-DML closed** — 11 direct-DML operations converted to RPCs, each with its
->   replacement path built and proved first, 41 new assertions watched red-then-green.
-> - **Edge functions: 15 of 28 deployed** (up from 10); 9 frozen non-normative;
->   3 separate features. `pg_cron`/`pg_net` installed with 3 scheduled jobs
->   observed running; `domain_events` drain done (cursor registry, exactly-once).
-> - **The money path is deployed** — `create-guest-payment`, `stripe-os-webhook`,
->   `square-webhook`, `square-connect-oauth`, `refund-order` (reserve-before-provider
->   refund race closed). Repo↔prod 1:1 at 15.
-> - **Phase 1 STARTED**: onboarding conveyor (4 questions → site reveal → payment
->   offer), auth (sign in / route by session), the **Toddler Bar enforced as a
->   compile error** in `lib/toddler_bar/`, and the **operations layer (D26/D28)**
->   with `publish_site` as reference implementation.
-> - **Repo state**: 82 commits, 69 migrations, 248 RLS assertions, 12 CI gates
->   green, 173 Flutter tests passing. Repo↔ledger 62/62 by md5.
-> - **Open risks** (full list in the private open-items note): v3 shares v2's
->   Stripe platform (behavioral isolation only); v3 returns paying guests to v2
->   (hardcoded fallback URL); the `service_role` exemption is load-bearing across
->   five guards; edge-function CONTENT drift ungated; `pg_temp` search_path debt.
->   Blocked on Nick: Sentry connector, function secrets re-issue, `APEX_V3_SERVICE_ROLE_KEY`.
+> - **Phase 1 WELL UNDERWAY** (08-07, 116 commits, +34 since 08-06). Tests
+>   doubled 173→339, lib files doubled, **16 registered operations**. Built:
+>   onboarding conveyor (iterated vs "what two real people could not do"),
+>   restaurant menu flow (photograph/check/confirm), **guest ordering** live
+>   (venue link → guest flow → cart → order status), schedule (author-as-draft
+>   /publish-as-one-decision, photo import, staff self-serve), staff console
+>   (vocabulary by vertical, D32/D33), parse-menu scoring harness ported from
+>   v2, synthetic restaurant seed.
+> - **Operations layer is now real, not just a contract** — 16 registered ops:
+>   order lifecycle split by facts (D29), refund as ONE atom with reserve/
+>   settle/void protocol (D34), idempotency via client_token. Order, schedule,
+>   money paths all built as operation callers.
+> - **Payment gate amended honestly (08-07):** "real order placed → paid →
+>   refunded" now explicitly **in Stripe test mode** — the plan states what test
+>   mode proves and what it cannot (real bank arrival, KYC, chargebacks).
+> - **Grade 08-07: A- as a Phase-1 foundation.** Architecture A, process A-,
+>   velocity A- (doubled test/lib in ~24h, gates green). Not yet a product —
+>   no real payment, no real customer, **the "same order placed by the
+>   assistant" gate unproven** (the make-or-break).
+> - **Still open / largest structural weakness:** the `service_role` exemption
+>   is load-bearing across five guards. Shared Stripe platform with v2 still
+>   behavioral isolation. Blocked on Nick: Sentry connector, function secrets
+>   re-issue, `APEX_V3_SERVICE_ROLE_KEY`, v2 nightly drift alarm
+>   (`V2_READONLY_DB_URL`).
 >
 > The historical record below (five review rounds, the three root causes, the
 > gates that lied) is retained as-is — it is the reason the standing rules exist.

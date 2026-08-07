@@ -307,5 +307,77 @@ Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISION
   header), `projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05.md` (status header +
   grades), `hot.md` (v3 section + Last Updated).
 
+## 2026-08-07 (late) — v3 Phase 1 well underway; vault re-reconciled to repo
+
+- **[V3 — PHASE 1 WELL UNDERWAY]** Repo moved 82 → **116 commits**, tests doubled
+  173→**339**, lib files doubled, **16 registered operations** (not just a
+  contract now — the D26 architecture is real). Built since 08-06: onboarding
+  conveyor iterated vs "what two real people could not do"; restaurant menu flow
+  (photograph/check/confirm); **guest ordering live** (venue link → guest flow →
+  cart → order status); schedule (author-as-draft/publish-as-one-decision, photo
+  import with v2's defenses, staff self-serve); staff console (vocabulary by
+  vertical, D32/D33); parse-menu scoring harness ported from v2
+  (`scripts/score_menu.mjs`); synthetic restaurant seed.
+- **[OPERATIONS LAYER REAL]** 16 registered ops: order lifecycle split by facts
+  (D29), refund as ONE atom with reserve/settle/void protocol (D34), idempotency
+  via client_token. Order, schedule, money paths all built as operation callers.
+- **[PAYMENT GATE AMENDED]** "real order placed → paid → refunded" now explicitly
+  **in Stripe test mode** — plan states what test mode proves and what it can't
+  (real bank arrival, KYC, chargebacks). Prevents premature real-money while
+  keeping the record honest.
+- **[GRADE]** v3 = **A- as a Phase-1 foundation** (architecture A, process A-,
+  velocity A-). Not yet a product — no real payment, no real customer, **the
+  "same order placed by the assistant" gate unproven** (make-or-break). v2 grade
+  unchanged (B+ launch product).
+- **[STILL OPEN]** `service_role` exemption load-bearing across five guards
+  (largest structural weakness). Shared Stripe platform with v2 still behavioral
+  isolation. Blocked on Nick: Sentry connector, function secrets re-issue,
+  `APEX_V3_SERVICE_ROLE_KEY`, v2 nightly drift alarm (`V2_READONLY_DB_URL`).
+- **[FILES UPDATED]** `hot.md` (v3 section + Last Updated),
+  `projects/APEX_V3_BUILD_AND_STATUS_2026-08-05.md` (status header),
+  `projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05.md` (status header + grade).
+
+## 2026-08-07 (late) — Idea inbox added to vault
+
+- **[NEW] `Inbox.md`** (root) — a single zero-friction capture point for any
+  thought Nicholas doesn't want to lose. No format, no rules, just append and
+  move on. Rationale: externalizing a thought offloads working memory — the
+  practical tool for the memory fog that comes with his Marine Corps PTSD. First
+  captured idea: the "apps that work together / Apex as a spine" vision, plus the
+  planned weekly inbox harvest.
+- **[INDEX/HOME]** `index.md` boot chain and `Home.md` both link `[[Inbox]]`
+  so it's one click from any entry point.
+
+## 2026-08-07 (late) — Apex Family Ecosystem note filed + reviewed
+
+- **[NEW] `projects/apex_family_ecosystem.md`** — Antigravity's 10-app ecosystem
+  vision (Apex as a spine: Supply, Fleet, Pulse, Capital, Hire, Comms, Academy,
+  Guard, Insight, Dispatch). Shared-core + Peer-Actor AI + standalone apps that
+  compound; Sun Strategy (no satellites until v3 + 100 customers); API platform
+  play (Apex as App Store, 30% cut). Indexed in `index.md`, noted in `Inbox.md`.
+- **[REVIEW]** Strong vision, right architecture (matches the v3-as-spine
+  discussion). Sun Strategy + API play both correct. Cautions: (1) drop the
+  "$10B / operating system" framing — scope-gravity trap; keep $300/mo north
+  star. (2) First satellite should NOT be regulated (Capital/lending,
+  Guard/insurance need licenses + compliance + capital) — go Supply or Pulse
+  first. (3) 30% App Store cut is optimistic with no developer base yet.
+- **[SPLIT-BRAIN]** A duplicate copy exists in the OneDrive vault
+  (`OneDrive/Documents/Obsidian Vault/apex_family_ecosystem.md`). Two vaults
+  that don't know about each other — same class of problem as the v2 audit
+  findings. Decide which vault is canonical.
+
+## 2026-08-07 (late) — Apex Public API sketch filed
+
+- **[NEW] `projects/APEX_PUBLIC_API_SKETCH_2026-08-07.md`** — the v3 operations
+  layer (17 registered ops, domain_events, actor_kind, no service-role lane) IS
+  the Apex Public API in embryo. Exposing it is a packaging problem, not a build
+  problem. A satellite (Apex Supply as the recommended first) is just another
+  operation-caller — it calls Core's existing ops and registers new ones, never
+  writes a table. Three API layers: operations (mutations), reads, events
+  (webhooks). What's left to build is small: third-party OAuth, API keys/rate
+  limits, webhook delivery, docs from operations.json. Caveats: no developer base
+  yet, 30% cut optimistic, sequence = v3 earns customers → expose API → build one
+  satellite (Supply) → open to third parties.
+
 ## 2026-08-06 · Apex v3 build session
 38 commits. The AI gate was silently dead since the project began — six functions called an RPC no migration defined. Fixed, plus the CI check that was blind to it. Auth, persistence, onboarding (search-first + manual), restaurant menu flow, staff orders, guest ordering, schedule authoring, and the operation contract (D26–D30, 15 operations, CI-gated). Both AI paths made their first real calls: Google Places found Jigsy's, Anthropic wrote a landscaper's description. parse-menu scored zero wrong prices across five runs on a real menu photo. Three review agents found the reveal's "your site is live" claim was false three ways — verified against the live catalog and corrected the night before three cold-user tests. See [[projects/APEX_V3_SESSION_2026-08-06]].

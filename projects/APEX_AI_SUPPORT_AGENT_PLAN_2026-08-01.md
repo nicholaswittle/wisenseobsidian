@@ -9,7 +9,7 @@ date: 2026-08-01
 The build that makes a side business viable. Not a feature — the thing that
 protects the only resource that cannot be bought more of.
 
-Related: [[projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]],
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]],
 [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]]
 
 ---

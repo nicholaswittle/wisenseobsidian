@@ -9,10 +9,14 @@ updated: 2026-08-02
 
 Boot order for agents: [[hot]] → [[NOW]] → [[index]]. Humans can start here.
 
+> **Have a thought you don't want to lose?** Dump it in [[Inbox]] — no format,
+> no rules, just append and move on. It's out of your head and safe.
+
 ## Active work
 
 - [[NOW]] — this week's board (human blockers + scorecard)
 - [[hot]] — recent-context cache, read first
+- [[Inbox]] — brain-dump capture (append anything, don't sort)
 - [[DECISIONS]] — append-only register of settled decisions
 - [[projects/APEX_MASTER_PLAN]] — single ordered view of Apex state and work queue
 

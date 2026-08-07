@@ -208,6 +208,6 @@ Held against the toddler bar, these still fail:
 
 ---
 
-Related: [[projects/APEX_MASTER_PLAN]], [[projects/APEX_SERVICES_BUILD_PLAN_CANONICAL]],
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_MASTER_PLAN]], [[projects/APEX_SERVICES_BUILD_PLAN_CANONICAL]],
 [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]], [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]],
 [[DECISIONS]], [[hot]], [[NOW]], [[index]]

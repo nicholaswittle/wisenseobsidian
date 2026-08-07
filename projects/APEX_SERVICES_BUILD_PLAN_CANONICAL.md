@@ -353,3 +353,7 @@ with zero restaurant risk.
    live catalog.
 3. Which tracked-number provider, and does it survive 1.5% economics?
 4. Does monthly-invoice billing break anything in the existing Stripe flow?
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_SERVICES_VERTICAL_FULL_BUILD_2026-08-02]] · [[projects/APEX_SERVICES_COMPETITIVE_BUILD_MAP]] · [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] · [[hot]] · [[NOW]] · [[index]]

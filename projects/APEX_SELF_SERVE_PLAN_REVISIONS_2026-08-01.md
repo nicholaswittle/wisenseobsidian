@@ -147,3 +147,7 @@ call-out rescue. This is what earns month two.
 
 **Not yet:** custom domains, vertical pack #2, Square catalog sync. All are
 correct eventually, none move the year-one number.
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] · [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]] · [[projects/JIGSYS_PILOT_LAUNCH_STRATEGY_2026-07-31]] · [[hot]] · [[NOW]] · [[index]]

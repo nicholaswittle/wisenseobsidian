@@ -8,10 +8,14 @@ status: active
 
 # Apex v3 vs v2 — Honest Assessment
 
-> **STATUS UPDATE 2026-08-06.** The strategic verdict below still holds, but the
-> factual state has moved. v3's Phase 0 is now **closed** (not "not closed" as
-> this note's 08-05 snapshot says), and v2 has hardened its money path. Updated
-> comparison with grades, grounded in both repos at HEAD 08-06:
+> **STATUS UPDATE 2026-08-07.** v3 has advanced past the 08-06 grades. Phase 1 is
+> well underway (116 commits, 339 tests, 16 registered operations). v3 regraded
+> **A- as a Phase-1 foundation** (architecture A, process A-, velocity A-). The
+> strategic verdict — v2 carries revenue + customer, v3 carries trust — is
+> unchanged and strengthened: the operations layer is now real (16 ops built as
+> operation callers), so v3 is genuinely different from v2, not a rebuild. Still
+> not a product (no real payment, no real customer); the make-or-break is the
+> "same order placed by the assistant" gate, still unproven.
 >
 > **v2 — B+ (launch product).** Complete product (96 lib files, 182 tests, 168
 > migrations, 28 edge functions, live customer Jigsy's + services vertical).

@@ -11,7 +11,7 @@ cited to a file the auditor opened or explicitly marked unverified. The first
 draft of this plan was wrong in four material ways; the corrections are marked
 ⚠️ and the original estimates are struck rather than deleted.
 
-Related: [[DECISIONS]], [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]],
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[DECISIONS]], [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]],
 [[NOW]], [[hot]]
 
 ---

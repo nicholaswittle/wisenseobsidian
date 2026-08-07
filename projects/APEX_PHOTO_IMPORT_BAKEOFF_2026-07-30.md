@@ -164,3 +164,7 @@ would otherwise have been made, and the comment matched the code.
 - [[APEX_V2_LIVE_CATALOG_SWEEP_2026-07-29]] — the other "audit the running
   thing, not the description of it" finding
 - [[APEX_SESSION_2026-07-29_30_FULL_RECORD]]
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_AI_SUPPORT_AGENT_PLAN_2026-08-01]] · [[hot]] · [[NOW]] · [[index]]

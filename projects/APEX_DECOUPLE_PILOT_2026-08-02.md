@@ -10,7 +10,7 @@ Apex is multi-tenant underneath and single-customer on the surface. This is the
 plan to fix the surface. **It is on the critical path to restaurant customer #2
 — the actual year-one goal — and has nothing to do with verticals.**
 
-Related: [[projects/APEX_MULTI_VERTICAL_PLAN_2026-08-02]], [[DECISIONS]], [[NOW]]
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_MULTI_VERTICAL_PLAN_2026-08-02]], [[DECISIONS]], [[NOW]]
 
 ---
 

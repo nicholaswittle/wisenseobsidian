@@ -258,3 +258,7 @@ or the owner's availability.
 - `apex_v2/docs/PAYMENTS_AND_POS_BUILD_PLAN_2026-07-31.md` — 33 payment tasks
 - `apex_v2/docs/SQUARE_DAY_ONE_LIVE_VALIDATION.md` — first-merchant runbook
 - `jigsys_site/LAUNCH_CHECKLIST.md` — pre-launch blockers for the pilot
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] · [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]] · [[projects/APEX_AI_SUPPORT_AGENT_PLAN_2026-08-01]] · [[hot]] · [[NOW]] · [[index]]

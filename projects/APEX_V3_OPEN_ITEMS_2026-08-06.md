@@ -673,3 +673,7 @@ Remediation, when picked up (one migration + one gate, not piecemeal):
 
 `apex_charge_ai_call` (20260806190500) is written in the hardened shape
 already and is the template.
+
+---
+
+Related: [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] · [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] · [[projects/APEX_V3_SESSION_2026-08-06]] · [[hot]] · [[NOW]] · [[index]]

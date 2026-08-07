@@ -128,3 +128,7 @@ Only two files were touched by both sides since the split:
 
 **Do not deploy either branch's migrations before the merge.** The five
 reverted fixes include a live money bug.
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]] · [[projects/APEX_MASTER_PLAN]] · [[hot]] · [[NOW]] · [[index]]

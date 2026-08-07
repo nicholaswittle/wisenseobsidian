@@ -10,7 +10,7 @@ Post-pickup SMS that asks every guest, identically, for a Google review or a
 private note to the owner. Symmetric by design: the branch is what would make
 it illegal, and the branch is worth almost nothing.
 
-Related: [[DECISIONS]], [[projects/JIGSYS_PILOT_LAUNCH_STRATEGY_2026-07-31]],
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[DECISIONS]], [[projects/JIGSYS_PILOT_LAUNCH_STRATEGY_2026-07-31]],
 [[projects/APEX_AI_SUPPORT_AGENT_PLAN_2026-08-01]], [[NOW]]
 
 ---

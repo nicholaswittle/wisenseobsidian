@@ -15,6 +15,7 @@ updated: 2026-08-02
 
 - [[hot]] — recent-context cache, read first
 - [[NOW]] — weekly scorecard + task board, read second
+- [[Inbox]] — dump a thought here so it's out of your head (no format, no rules)
 - [[index]] — this file
 - [[agents]] — AI agent operating protocol
 - [[CLAUDE]] — thin always-on schema
@@ -40,6 +41,8 @@ updated: 2026-08-02
 - [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] — v3 rebuild: plan, review rounds, Phase 0 status
 - [[projects/APEX_V3_OPEN_ITEMS_2026-08-06]] — v3 running open-items list (private; moved out of public repo)
 - [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] — honest v3-vs-v2 + v2 current-state read
+- [[projects/apex_family_ecosystem]] — the 10-app ecosystem vision (Apex as a spine; Sun Strategy + API play)
+- [[projects/APEX_PUBLIC_API_SKETCH_2026-08-07]] — the v3 operations layer IS the API; how a satellite (Supply) plugs in
 - [[projects/APEX_AUDIT_FABLE5_2026-08-03]] — Fable 5 deep audit (v2/services, grade C+)
 - [[projects/APEX_AUDIT_TEMPLATE_TO_PRODUCT_2026-08-04]] — ChatGPT branch audit (B+ code / D shipping)
 - [[projects/APEX_SERVICES_COMPETITIVE_BUILD_MAP]] — services build plan vs Jobber

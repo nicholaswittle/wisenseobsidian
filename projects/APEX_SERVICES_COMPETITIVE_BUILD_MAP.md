@@ -190,3 +190,7 @@ choice defensible rather than accidental.
 Phase 1 is the one that cannot be skipped, and **recurring jobs is the item most
 likely to be underestimated** — it is a week, not an evening, and skipping it
 means the first real landscaper churns in their second week.
+
+---
+
+Related: [[projects/Apex v2 — Restaurant OS Build]] · [[projects/APEX_SERVICES_BUILD_PLAN_CANONICAL]] · [[projects/APEX_AUDIT_FABLE5_2026-08-03]] · [[hot]] · [[NOW]] · [[index]]

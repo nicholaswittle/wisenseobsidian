@@ -590,3 +590,51 @@ platforms, and only the untested one is the one the pitch describes.**
   second developer.
 - **Per-venue AI spend attribution** — photo imports cost ~$0.02 each, untracked,
   and grow with the best customers.
+
+---
+
+## Related — the v2 cluster
+
+This note is the hub for Apex v2. The sub-notes below are the same app; link
+here from any of them to keep the cluster connected.
+
+**Plans & strategy**
+- [[projects/APEX_MASTER_PLAN]] — single ordered view of state and work queue
+- [[projects/APEX_GO_LIVE_SEQUENCE_2026-07-30]] — pre-launch checklist
+- [[projects/APEX_MULTI_VERTICAL_PLAN_2026-08-02]] — multi-vertical decision
+- [[projects/APEX_DECOUPLE_PILOT_2026-08-02]] — decouple pilot from Jigsy's
+- [[projects/APEX_GUEST_FOLLOW_UP_PLAN_2026-08-02]] — guest review follow-up
+- [[projects/WISENSE_LLC_APEX_FLAGSHIP_PIVOT_PLAN_2026-07-28]] — flagship pivot
+
+**Payments & money**
+- [[projects/APEX_PAYMENTS_AND_POS_STRATEGY_2026-07-31]] — payments roadmap
+- [[projects/APEX_PLATFORM_FEE_ECONOMICS_2026-07-30]] — fee model economics
+- [[projects/APEX_SQUARE_PROVIDER_DECISION_2026-07-30]] — Square as second provider
+
+**Self-serve & onboarding**
+- [[projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]] — self-serve funnel revisions
+- [[projects/APEX_V2_SELF_SERVE_FUNNEL_AUDIT_2026-07-28]] — funnel audit
+- [[projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] — self-serve gameplan
+- [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]] — template-to-product gaps
+- [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] — first outside user, the toddler bar
+
+**Services vertical**
+- [[projects/APEX_SERVICES_BUILD_PLAN_CANONICAL]] — services vertical plan
+- [[projects/APEX_SERVICES_VERTICAL_FULL_BUILD_2026-08-02]] — services vertical build
+- [[projects/APEX_SERVICES_COMPETITIVE_BUILD_MAP]] — services build plan vs Jobber
+
+**AI & support**
+- [[projects/APEX_AI_SUPPORT_AGENT_PLAN_2026-08-01]] — AI support agent design
+- [[projects/APEX_PHOTO_IMPORT_BAKEOFF_2026-07-30]] — photo import model bakeoff
+
+**Audits**
+- [[projects/APEX_AUDIT_FABLE5_2026-08-03]] — Fable 5 deep audit (grade C+)
+- [[projects/APEX_AUDIT_TEMPLATE_TO_PRODUCT_2026-08-04]] — ChatGPT branch audit
+
+**Customers & revenue**
+- [[projects/JIGSYS_PILOT_LAUNCH_STRATEGY_2026-07-31]] — pilot launch plan
+- [[projects/JIGSYS_BUSINESS_NUMBERS_AND_REVENUE_MODEL_2026-08-01]] — Jigsy revenue
+
+**v3 (the rebuild this feeds)**
+- [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] — v3 rebuild status
+- [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] — v3 vs v2 assessment
