@@ -1,7 +1,7 @@
 ---
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
-updated: 2026-08-02
+updated: 2026-08-06
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -13,8 +13,8 @@ updated: 2026-08-02
 | Field | Value |
 |-------|-------|
 | Stage | REVENUE / PILOT LIVE — FIRST CUSTOMER (Jigsy's Brewpub) |
-| Focus | Build 9 SHIPPED + tip pool LIVE — next is Phase A testing |
-| #1 metric | Run Phase A testing; strip payroll money columns; `time_entries.shift_id NOT NULL` |
+| Focus | v2 FROZEN (fixes only). v3 Phase 1 ~half built — onboarding, orders, schedule, operation contract. |
+| #1 metric | Three cold-user tests on v3 onboarding (2026-08-07): can a stranger set up a business unaided? |
 | Working stack | Claude CLI + Ollama + Cursor + Hermes Agent |
 
 ## Scorecard

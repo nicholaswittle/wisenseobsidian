@@ -8,6 +8,41 @@ status: active
 
 # Apex v3 vs v2 — Honest Assessment
 
+> **STATUS UPDATE 2026-08-06.** The strategic verdict below still holds, but the
+> factual state has moved. v3's Phase 0 is now **closed** (not "not closed" as
+> this note's 08-05 snapshot says), and v2 has hardened its money path. Updated
+> comparison with grades, grounded in both repos at HEAD 08-06:
+>
+> **v2 — B+ (launch product).** Complete product (96 lib files, 182 tests, 168
+> migrations, 28 edge functions, live customer Jigsy's + services vertical).
+> Cold-test rework in. **Deposit cap fixed** (`100/3`), **refund-binding security
+> fix in** (`acac08c` — closes the exact shared-Stripe hole v3 flagged). Two-branch
+> situation resolved (`services-merged` + `template-to-product` merged into
+> release). Repo private. **Drag: process/trust C+** — 46 branches, `main` 127
+> commits behind the release branch, ledger-drift history. Launchable, but the
+> process debt is why v3 exists.
+>
+> **v3 — B+ (foundation).** 82 commits, 69 migrations, 248 RLS assertions, 12 CI
+> gates green, 173 tests. Phase 0 closed (all 3 blockers proved). Money path
+> deployed (15/28 functions). Phase 1 started: onboarding conveyor, auth, Toddler
+> Bar as compile error, operations layer (D26). **Process/trust A-** — gates test
+> reachability, red-then-green discipline, repo↔ledger md5 parity. **Completeness
+> C+** — foundation, not product; no feature screens, no real payment taken.
+>
+> **The two B+ grades mean opposite things:** v2 is a complete product with a
+> process problem; v3 is a clean process with an incomplete product. Exactly the
+> trade the plan makes — v2 carries revenue and the customer, v3 carries trust.
+>
+> **Three things that matter most now:**
+> 1. v2's refund-binding fix (`acac08c`) de-risks the shared-Stripe-platform debt
+>    — confirm it's deployed to v2 prod, not just committed.
+> 2. The v2 nightly drift alarm is still deferred (needs a read-only credential).
+>    Pull it forward — v2 is the launch product being actively changed.
+> 3. v3's Phase 1 gate ("real order paid") will hit the shared Stripe platform.
+>    Decide the own-platform question before that gate, not after.
+
+---
+
 A candid read of the rebuild versus the incumbent, and of v2's current state.
 Written 2026-08-05 alongside [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] and
 [[projects/APEX_AUDIT_FABLE5_2026-08-03]]. Intended as the reasoning behind the

@@ -178,3 +178,13 @@ Entry format: **date · decision · status · rationale · consequences**. Statu
 ---
 
 Related: [[Home]], [[index]], [[log]], [[hot]], [[company/WiSense Governance — Rules and Protocols]], [[Fork Reconciliation]], [[Abandoned Projects — Lessons]]
+
+## 2026-08-06 · Apex v3 — the AI is a peer actor, and the contract that enforces it — `ACTIVE`
+- **Decision**: Every capability in Apex v3 must exist as a named operation callable by the app and by an assistant identically — same RLS, same guards, same metering, never a service-role shortcut. Nick's framing: *"AI could do this whole thing itself but we are using a human to do it… they feel smart but in reality AI is doing the heavy lifting."*
+- **Rationale**: If any capability lives only in a widget's tap handler, the assistant cannot perform it and the app silently stops being AI-operable — discovered only once the guiding feature ships and stalls halfway. Close to free at a dozen operations; brutal at a hundred.
+- **Consequences**: The confirmation tier is **derived from four risk facts, never declared**, so it cannot be forgotten (D28). Where a tier feels wrong the honest moves are *change reality or accept the ceremony*, never re-answer the fact (D29) — which is why an undo was built rather than an exception granted, twice. A CI gate fails the build on any unregistered mutation in `lib/`. Guests turned out to be a **third actor class** the registry cannot describe, declared separately. Full detail in `apex_v3/docs/decisions.md` D26–D30 and `docs/operations_contract.md`.
+
+## 2026-08-06 · Apex v3 — search is an accelerator, not the onboarding path — `ACTIVE`
+- **Decision**: Keep Google Places business search in onboarding, but treat the manual questions as the main path for services businesses.
+- **Rationale**: First live run, two real businesses. Jigsy's — established, listed — was found correctly. JR Property Maintenance, a working landscaping business with no online presence, returned nothing. **The businesses search helps are the ones that need Apex least**; the target owner is frequently the one Google cannot find.
+- **Consequences**: "I'm just starting out" must read as normal rather than as failure, since for the target owner it is the *first* thing that happens. Search pays most in the restaurant vertical, where listings and hours are reliable — design that flow around it, do not assume the same lift for services.

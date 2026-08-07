@@ -268,3 +268,44 @@ Related: [[index]], [[Home]], [[agents]], [[hot]], [[NOW]], [[projects/APEX_V3_V
 - **[OPEN]**: The launch wizard is still a checklist of seven nouns. The toddler version is a conveyor — one question per screen, one Next button. Biggest remaining swing; deserves its own session with the bar pinned at the top.
 
 Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISIONS]], [[hot]], [[index]], [[NOW]]
+
+## 2026-08-06 (late) — v3 Phase 0 closed; v2 vs v3 graded; vault reconciled to repo
+
+- **[VAULT RECONCILED TO REPO]** The vault's v3 notes were 40+ commits stale (they
+  still said "Phase 0 NOT closed, 3 blockers"). Audited both repos directly at
+  HEAD 08-06 and updated the vault to match reality.
+- **[V3 — PHASE 0 CLOSED]** All three round-5 BLOCKERs (QR flood, unbounded open
+  punches, self-promotion to super admin) closed and proved by attack tests.
+  H-DML closed (11 direct-DML ops → RPCs, replacement paths built first, 41
+  assertions red-then-green). Money path deployed (15/28 edge functions;
+  `create-guest-payment`, webhooks, `refund-order` reserve-before-provider race
+  closed). `pg_cron`/`pg_net` installed, 3 scheduled jobs running, `domain_events`
+  drain done. Repo↔ledger 62/62 by md5. 12 CI gates green, 248 RLS assertions,
+  173 Flutter tests. Phase 1 STARTED: onboarding conveyor, auth, Toddler Bar as
+  compile error, operations layer (D26/D28). Authoritative plan is now
+  `apex_v3/docs/MASTER_PLAN.md` (canonical 08-06); open-items list moved to the
+  private vault `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
+- **[V2 — HARDENED]** Deposit cap fixed (`100/3`, extracted to tested file).
+  **Refund-binding security fix in** (`acac08c` — binds refund writes to the
+  account the event came from; closes the exact shared-Stripe hole v3 flagged).
+  Two-branch situation resolved (`services-merged` + `template-to-product` merged
+  into `release/services-plus-counter`). Repo private. **Wart: `main` is 127
+  commits behind the release branch** (main last touched 08-02) — all real work
+  lives on `release/services-plus-counter`.
+- **[GRADES]** v2 = **B+** launch product (complete, hardened money path, but
+  process/trust C+ — 46 branches, main 127 behind, ledger-drift history). v3 =
+  **B+** foundation (process/trust A-, completeness C+). The two B+ grades mean
+  opposite things: v2 is a complete product with a process problem; v3 is a clean
+  process with an incomplete product. v2 carries revenue + customer; v3 carries trust.
+- **[THREE PRIORITIES]** (1) Confirm v2's `acac08c` refund-binding fix is deployed
+  to v2 prod, not just committed. (2) Pull the v2 nightly drift alarm forward
+  (deferred, needs a read-only credential) — v2 is the launch product being
+  actively changed. (3) Decide v3's own-Stripe-platform question before the Phase
+  1 gate ("real order paid"), not after — a v3 payment fans out to v2's Connect
+  webhooks.
+- **[FILES UPDATED]** `projects/APEX_V3_BUILD_AND_STATUS_2026-08-05.md` (status
+  header), `projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05.md` (status header +
+  grades), `hot.md` (v3 section + Last Updated).
+
+## 2026-08-06 · Apex v3 build session
+38 commits. The AI gate was silently dead since the project began — six functions called an RPC no migration defined. Fixed, plus the CI check that was blind to it. Auth, persistence, onboarding (search-first + manual), restaurant menu flow, staff orders, guest ordering, schedule authoring, and the operation contract (D26–D30, 15 operations, CI-gated). Both AI paths made their first real calls: Google Places found Jigsy's, Anthropic wrote a landscaper's description. parse-menu scored zero wrong prices across five runs on a real menu photo. Three review agents found the reveal's "your site is live" claim was false three ways — verified against the live catalog and corrected the night before three cold-user tests. See [[projects/APEX_V3_SESSION_2026-08-06]].

@@ -44,40 +44,44 @@ recorded in the ledger, `.sql` files never written (classifier blocked the
 directory). With the pre-existing ledger drift, **`supabase db push` stays
 forbidden** and the repo no longer describes production.
 
-## Apex v3 rebuild — Phase 0 IN PROGRESS, 2026-08-05
+## Apex v3 rebuild — Phase 0 CLOSED, Phase 1 STARTED, 2026-08-06
 
 Full note: [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]]. New repo
 `C:\development\projects\apex_v3`, new Supabase project **apex-v3-prod**
 `fnsonnhumcvxdnyarguv`. v2's project is a different live product — off-limits.
 
-🔴 **Phase 0 is NOT closed and v3 is NOT ready to build an app on.** Five
-adversarial review rounds. Round five ran as four parallel scoped reviewers and
-returned **3 BLOCKERs + ~12 HIGHs**; database-tier remediation is in flight.
+🟢 **Phase 0 met its written gate 2026-08-05 and remediation ran through 08-06.**
+All three round-5 BLOCKERs (QR flood, unbounded open punches, self-promotion to
+super admin) are **closed and proved by attack tests**. H-DML closed (11 direct-DML
+operations → RPCs, each with replacement path built first, 41 assertions red-then-green).
+**Money path deployed** (15/28 edge functions; `create-guest-payment`, webhooks,
+`refund-order` with the reserve-before-provider race closed). `pg_cron`/`pg_net`
+installed, 3 scheduled jobs running, `domain_events` drain done. Repo↔ledger 62/62
+by md5. 12 CI gates green, 248 RLS assertions, 173 Flutter tests.
 
-**Three root causes, not twelve bugs:**
-1. Every guard lives inside RPCs while `authenticated` holds direct
-   INSERT/UPDATE/DELETE via PostgREST on `time_entries`, `online_orders`,
-   `organization_members`, `daily_revenue`, `server_tips`, `swaps`. A manager
-   can rewrite or delete any employee's hours with no trace.
-2. The audit-table lockdown used `revoke insert, update, delete` — leaving
-   `TRUNCATE`, which **ignores RLS entirely** on `domain_events` and
-   `tip_eligibility_audit`.
-3. **27 edge functions, zero deployed, zero tested, zero gated** — and they run
-   as `service_role`, which the money guard exempts unconditionally. No
-   `pg_cron`/`pg_net`, so `domain_events` has a producer and no drain.
+🟢 **Phase 1 STARTED**: onboarding conveyor (4 questions → site reveal → payment
+offer), auth (sign in / route by session), the **Toddler Bar enforced as a compile
+error** in `lib/toddler_bar/`, and the **operations layer (D26/D28)** with
+`publish_site` as reference implementation. The authoritative plan is now
+`apex_v3/docs/MASTER_PLAN.md` (canonical 08-06); the running open-items list lives
+in the private vault at `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
 
-**The project's signature failure: four consecutive rounds each introduced the
-next round's defect.** Every gate tested a rule's *text*, never its
-*reachability* — the money-guard gate stayed green with the trigger dropped.
-Countermeasure now mandatory: every fix ships with an assertion watched FAIL
-before and PASS after.
+⚠️ **Open risks** (full list in the private open-items note): v3 shares v2's Stripe
+platform (behavioral isolation only — v2's refund-binding fix `acac08c` de-risks
+it, confirm deployed); v3 returns paying guests to v2 (hardcoded fallback URL);
+the `service_role` exemption is load-bearing across five guards; edge-function
+CONTENT drift ungated. Blocked on Nick: Sentry connector, function secrets
+re-issue, `APEX_V3_SERVICE_ROLE_KEY`. **UI still gated** — design-system + flow
+proposal to Nick before any screen ports.
 
-⚠️ **UI is gated** — Nicholas is to be notified and review a design-system +
-flow proposal before any screen is ported.
+**v2 vs v3 (graded 08-06):** v2 = **B+** launch product (complete, hardened money
+path, but process/trust C+ — 46 branches, `main` 127 behind release). v3 = **B+**
+foundation (clean process A-, incomplete product C+). v2 carries revenue + customer;
+v3 carries trust. See [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]].
 
 ## Last Updated
 
-2026-08-03. Apex main synced; `build-9` at `2c448ff`, 141 tests green, analyze clean. Build 9 installed + verified on device. Tip pool **live** (migrations applied + hardened). Jigsy's is the only live customer.
+2026-08-06. v3 Phase 0 CLOSED, Phase 1 started (onboarding conveyor, auth, Toddler Bar as compile error, operations layer). v2 = B+ launch product, v3 = B+ foundation. See the v3 section above.
 
 ## Services vertical + build 10 — 2026-08-03 (evening)
 
@@ -259,3 +263,9 @@ Live compliance: tip pools include managers/owners, which PA law bars when a tip
 - Parked: payroll export (stale branch, needs rebase), services vertical (gated on vertical one paying)
 
 [[NOW]] · [[index]] · [[projects/Apex v2 — Restaurant OS Build]]
+
+## Apex v3 — as of 2026-08-06
+- Phase 1 roughly half built. Onboarding, staff orders, guest ordering, schedule authoring, operation contract all in. Dashboard, admin, capacity, entitlements, refunds not started.
+- **No public site exists for a services business.** Every anon RLS policy is restaurant-pack; there is none on organizations or venues. Largest open gap.
+- Restaurant onboarding is deliberately BLOCKED before the vertical write — that column allows exactly one write and gates which modules an org can ever unlock.
+- Next: three cold-user tests, then the adversarial review of what a confident-but-wrong assistant can do with the owner's rights.

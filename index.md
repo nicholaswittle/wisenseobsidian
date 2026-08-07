@@ -38,6 +38,7 @@ updated: 2026-08-02
 
 - [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] — first outside user, the toddler bar, the 08-06 rework
 - [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] — v3 rebuild: plan, review rounds, Phase 0 status
+- [[projects/APEX_V3_OPEN_ITEMS_2026-08-06]] — v3 running open-items list (private; moved out of public repo)
 - [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] — honest v3-vs-v2 + v2 current-state read
 - [[projects/APEX_AUDIT_FABLE5_2026-08-03]] — Fable 5 deep audit (v2/services, grade C+)
 - [[projects/APEX_AUDIT_TEMPLATE_TO_PRODUCT_2026-08-04]] — ChatGPT branch audit (B+ code / D shipping)
@@ -117,3 +118,4 @@ updated: 2026-08-02
 - New Horizon (dormant): `C:\development\projects\wisense_new_horizon`
 
 Related: [[hot]], [[NOW]], [[log]]
+- [[projects/APEX_V3_SESSION_2026-08-06]] — 38 commits: the dead AI gate, the operation contract (D26–D30), and the reveal's false claim caught before cold-user testing.
