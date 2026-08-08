@@ -124,3 +124,4 @@ updated: 2026-08-02
 Related: [[hot]], [[NOW]], [[log]]
 - [[projects/APEX_V3_SESSION_2026-08-06]] — 38 commits: the dead AI gate, the operation contract (D26–D30), and the reveal's false claim caught before cold-user testing.
 - [[projects/APEX_V3_SESSION_2026-08-07]] — the services pack (schema, 11 operations, the redesigned quote screen), and the settled answer on porting v2 into v3.
+- [[projects/APEX_HUB_DESIGN_2026-08-08]] — accepted owner hub design: money hero + health strip + needs-you + bottom-bar nav with the AI agent.

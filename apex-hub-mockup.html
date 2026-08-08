@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Hub — Owner / Employee</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#1a1c1e; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:1120px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .phone { background:#202326; border-radius:20px; padding:20px; border:1px solid #2e3134; }
+  .phone h2 { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:16px; text-align:center; }
+  .greeting { font-size:20px; font-weight:700; margin-bottom:2px; }
+  .subline { font-size:12px; color:#9aa0a6; margin-bottom:16px; }
+  /* assistant bar — prominent */
+  .assistant { background:#23262a; border:1px solid #2e3134; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .assistant .orb { width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,#f97316,#ea580c); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:15px; }
+  .assistant .txt { flex:1; }
+  .assistant .q { font-size:12px; color:#d1d5db; font-weight:500; }
+  .assistant .hint { font-size:10px; color:#6b7280; }
+  .assistant .mic { color:#f97316; font-size:14px; }
+  /* the ONE thing — money */
+  .hero { background:#26292d; border:1px solid #2e3134; border-radius:14px; padding:16px; margin-bottom:16px; }
+  .hero .lbl { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:6px; }
+  .hero .num { font-size:30px; font-weight:700; line-height:1; }
+  .hero .num small { font-size:15px; color:#9aa0a6; font-weight:500; }
+  .hero .why { font-size:11px; color:#f97316; margin-top:6px; font-weight:500; }
+  /* needs attention */
+  .attn { margin-bottom:16px; }
+  .attn .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .attn .item { background:#26292d; border:1px solid #2e3134; border-left:3px solid #f97316; border-radius:8px; padding:10px 12px; margin-bottom:6px; }
+  .attn .item .t { font-size:13px; font-weight:600; }
+  .attn .item .d { font-size:11px; color:#9aa0a6; margin-top:2px; }
+  /* doors — clean list, not cards */
+  .doors .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .door { display:flex; align-items:center; gap:12px; padding:11px 12px; border-radius:8px; margin-bottom:4px; }
+  .door:hover { background:#26292d; }
+  .door .ic { width:30px; height:30px; border-radius:8px; background:#2a2d31; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
+  .door .t { font-size:13px; font-weight:500; }
+  .door .s { font-size:11px; color:#6b7280; }
+  .door .arrow { margin-left:auto; color:#4b4f54; }
+  /* bottom nav */
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; }
+  .nav .n.act { color:#f97316; }
+  .nav .n .i { font-size:17px; }
+  .nav .n .l { font-size:9px; margin-top:3px; }
+  .note { grid-column:1/-1; font-size:11px; color:#6b7280; line-height:1.6; margin-top:8px; padding:14px; background:#202326; border-radius:10px; border:1px dashed #2e3134; }
+  .note b { color:#d1d5db; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Hub — the same shape, cleaned up, role-aware, assistant front and center</h1>
+  <div class="sub">Owner leads with MONEY. Employee leads with THEIR day. Both lead with the AI assistant. No card feed — a clean, professional screen.</div>
+
+  <div class="row">
+    <!-- OWNER -->
+    <div class="phone">
+      <h2>Owner</h2>
+      <div class="greeting">Good afternoon, Nick</div>
+      <div class="subline">Jigsy's Old Forge Pizza · Thursday</div>
+
+      <div class="assistant">
+        <div class="orb">✦</div>
+        <div class="txt">
+          <div class="q">What do you need done today?</div>
+          <div class="hint">Ask it anything — it runs the business like you</div>
+        </div>
+        <div class="mic">🎤</div>
+      </div>
+
+      <div class="hero">
+        <div class="lbl">Taken through the app today</div>
+        <div class="num">$412<small>.50</small></div>
+        <div class="why">3 orders paid · one awaiting payment for 40 min</div>
+      </div>
+
+      <div class="attn">
+        <div class="h">Needs you</div>
+        <div class="item">
+          <div class="t">1 order awaiting payment</div>
+          <div class="d">Waiting over 30 minutes · open orders</div>
+        </div>
+      </div>
+
+      <div class="doors">
+        <div class="h">Go to</div>
+        <div class="door"><div class="ic">📅</div><div class="t">Schedule</div><div class="s">Who's working, and when</div><div class="arrow">›</div></div>
+        <div class="door"><div class="ic">🧾</div><div class="t">Orders</div><div class="s">What guests have ordered</div><div class="arrow">›</div></div>
+        <div class="door"><div class="ic">📊</div><div class="t">Everything else</div><div class="s">Team, labor, pay, settings</div><div class="arrow">›</div></div>
+      </div>
+
+      <div class="nav">
+        <div class="n act"><div class="i">⌂</div><div class="l">Home</div></div>
+        <div class="n"><div class="i">📅</div><div class="l">Schedule</div></div>
+        <div class="n"><div class="i">✦</div><div class="l">Ask</div></div>
+        <div class="n"><div class="i">☰</div><div class="l">More</div></div>
+      </div>
+    </div>
+
+    <!-- EMPLOYEE -->
+    <div class="phone">
+      <h2>Employee</h2>
+      <div class="greeting">Hey Emily</div>
+      <div class="subline">Your shift · Thursday</div>
+
+      <div class="assistant">
+        <div class="orb">✦</div>
+        <div class="txt">
+          <div class="q">Need a shift covered?</div>
+          <div class="hint">Ask it anything — swaps, time off, your pay</div>
+        </div>
+        <div class="mic">🎤</div>
+      </div>
+
+      <div class="hero">
+        <div class="lbl">Your next shift</div>
+        <div class="num">THU 13</div>
+        <div class="why">5:00 – 10:00 pm · Bar</div>
+      </div>
+
+      <div class="attn">
+        <div class="h">Your week</div>
+        <div class="item">
+          <div class="t">82.8 hrs · $249 est. pay</div>
+          <div class="d">$650 my tips this period</div>
+        </div>
+      </div>
+
+      <div class="doors">
+        <div class="h">Go to</div>
+        <div class="door"><div class="ic">📅</div><div class="t">Schedule</div><div class="s">My shifts</div><div class="arrow">›</div></div>
+        <div class="door"><div class="ic">🔁</div><div class="t">Swap shift</div><div class="s">Cover for each other</div><div class="arrow">›</div></div>
+      </div>
+
+      <div class="nav">
+        <div class="n act"><div class="i">⌂</div><div class="l">Home</div></div>
+        <div class="n"><div class="i">📅</div><div class="l">Schedule</div></div>
+        <div class="n"><div class="i">✦</div><div class="l">Ask</div></div>
+        <div class="n"><div class="i">☰</div><div class="l">More</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>What changed vs Claude's current hub:</b> (1) <b>One hero figure</b> — the single most important thing for the role (owner = money taken today; employee = their next shift). Not a feed of cards. (2) <b>The AI assistant is a bar at the top, not buried in help.</b> Persistent, always visible, in the bottom nav too. (3) <b>Three clean doors</b>, not a card list — Schedule, Orders, Everything else. (4) <b>Setup disappears</b> once done — no permanent furniture. (5) <b>Same shape as v2</b> (greeting, one thing, doors, bottom nav) but with whitespace and no clutter.
+  </div>
+</div>
+</body>
+</html>

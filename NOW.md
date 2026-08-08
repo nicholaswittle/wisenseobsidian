@@ -1,7 +1,7 @@
 ---
 title: NOW — Weekly Scorecard
 tags: [meta, tasks, scorecard, now]
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 # NOW — Weekly Scorecard & Task Board
@@ -36,13 +36,14 @@ updated: 2026-08-07
 1. [ ] **Set `NEXT_PUBLIC_SHOWCASE_VENUE=jigsys-enola-7c2a` in Vercel project settings.** Landing page links now read this env var instead of a hardcoded token; unset, they render nothing.
 2. [ ] **When Twilio A2P 10DLC campaign clears:** note the approved use case type. Low Volume Mixed or Customer Care covers services vertical too. Anything narrower registers a second campaign against the same brand. Pending campaigns cannot be edited. SHAFT bars firearms content — a gun-shop tenant is email/`tel:` only.
 3. [ ] **App icon — still the Flutter default.** One 1024x1024 PNG generates all 15 iOS sizes plus Android. Build 8 reaches seven people at Jigsy's and the first thing each sees is the Flutter logo.
-4. [ ] **Payroll Lite: strip the four money columns** before `feat/payroll-export` merges — `base_pay_cents`, `overtime_pay_cents`, `gross_estimate_cents`, `tip_credit_shortfall_cents`. See [[DECISIONS]] 2026-08-02. Branch is stale, needs rebase.
-5. [ ] Before Square go-live: obtain owner authorization, complete OAuth, verify `square_environment=production`, POS order creation, printer profile, and fee receipt.
-6. [ ] Gate C assets: feature graphic 1024x500, screenshots (both apps)
-7. [ ] Host privacy policy URLs (Apex + COMMS LINK)
-8. [ ] Create Android upload keystores
-9. [ ] Add `com.nicholaswittle.apex://` to Supabase allowed redirect URLs (iOS login)
-10. [ ] Buy Google Play ($25) account — Apple Developer ($99) purchased 2026-07-31
+4. [ ] **Apex v3 deposit cap — get a qualified opinion before v3 goes live.** It ships as implemented (one third, on contracts over $1,000 — 73 P.S. 517.7 as v2's code states it). TWO things unverified: the $1,000 floor (v2 caps every job regardless of size; the threshold is my reading of the statute v2 cites), and the jurisdiction — the cap is per-business but nothing asks a new business what law governs it, so every org silently inherits Pennsylvania's. Also unclear whether these trades are "home improvement contractors" under the Act at all; a mobile groomer is currently capped as though they were. The ARITHMETIC is verified and does not need re-checking. Full list: `apex_v3/docs/pre_launch_checklist.md`.
+5. [ ] **Payroll Lite: strip the four money columns** before `feat/payroll-export` merges — `base_pay_cents`, `overtime_pay_cents`, `gross_estimate_cents`, `tip_credit_shortfall_cents`. See [[DECISIONS]] 2026-08-02. Branch is stale, needs rebase.
+6. [ ] Before Square go-live: obtain owner authorization, complete OAuth, verify `square_environment=production`, POS order creation, printer profile, and fee receipt.
+7. [ ] Gate C assets: feature graphic 1024x500, screenshots (both apps)
+8. [ ] Host privacy policy URLs (Apex + COMMS LINK)
+9. [ ] Create Android upload keystores
+10. [ ] Add `com.nicholaswittle.apex://` to Supabase allowed redirect URLs (iOS login)
+11. [ ] Buy Google Play ($25) account — Apple Developer ($99) purchased 2026-07-31
 
 ### Build 9 — ship window
 

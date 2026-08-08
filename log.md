@@ -399,6 +399,37 @@ Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISION
   collects the 1.5% via `app_fee_money`. The blocker is config + the day-one
   validation, not a build.
 
+## 2026-08-08 — Owner hub design accepted
+
+- **[DESIGN]** `projects/APEX_HUB_DESIGN_2026-08-08.md` — the owner home screen,
+  iterated with Nick until accepted. Mockups at `apex-hub-owner.html`,
+  `apex-schedule-mockup.html`, `apex-hub-mockup.html`.
+- **[RULES]** Hub = most-desired buttons per role + data they need (NOT capped at
+  3). The "3 buttons max" rule lives INSIDE each destination screen (schedule:
+  Add / Edit / Publish-Pause). 2-year-old test governs everything. Bottom bar IS
+  the navigation — NO "Go to" section (that duplicated the bar). AI agent lives
+  in the bottom bar as an orange-highlighted "Ask" tab + a slim affordance at top.
+- **[OWNER LAYOUT]** Greeting → assistant affordance → money hero ($412.50) →
+  health strip (orders today / on shift 3-4 / labor 18%, color-meaningful) →
+  "Needs you" (real count, headline + reason) → bottom nav Home·Schedule·Orders·Team·Ask.
+- **[GLANCE]** Owner opens it and knows: am I making money (hero), am I staffed
+  (on-shift stat), are orders moving (orders stat + needs-you).
+- **[STATUS]** Owner hub locked. Employee hub (leaner set) not yet built.
+
+## 2026-08-08 (later) — Health strip is now the owner's choice (widgets)
+
+- **[WIDGETS]** Nick's idea: make the 3-slot health strip configurable like phone
+  widgets, so the owner picks which 3 stats matter most to THEIR business. Nick:
+  *"it makes each app feel like they are totally in control of it."* Accepted and
+  folded into `projects/APEX_HUB_DESIGN_2026-08-08.md`. Mockup:
+  `apex-hub-widgets.html`.
+- **[MECHANISM]** 3 slots always (2-year-old shape preserved); each widget has a
+  pencil; picker sheet "What matters most to you — pick up to 3"; options include
+  Labor, Open shifts, Sales this week, Orders today, On shift, My tips; defaults
+  = Orders today / On shift / Labor. No accumulation — 3 slots only.
+- **[WHY]** retention lever — the app feels like the owner runs it, not a rented
+  tool. What's "most important" differs per owner; let them pick.
+
 ## 2026-08-07 · Apex v3 — the services pack
 
 Cold-user testing on v3's onboarding, then the strategic question settled: v2 is

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Hub — configurable health widgets</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#1a1c1e; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:1120px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+  .phone { background:#202326; border-radius:20px; padding:20px; border:1px solid #2e3134; display:flex; flex-direction:column; min-height:600px; }
+  .phone h2 { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:4px; }
+  .phone .sc { font-size:12px; color:#9aa0a6; margin-bottom:16px; }
+  .greeting { font-size:20px; font-weight:700; margin-bottom:2px; }
+  .subline { font-size:12px; color:#9aa0a6; margin-bottom:16px; }
+  .assist { background:#23262a; border:1px solid #2e3134; border-radius:12px; padding:11px 14px; display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .assist .orb { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#f97316,#ea580c); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; }
+  .assist .txt { flex:1; }
+  .assist .q { font-size:12px; color:#d1d5db; font-weight:500; }
+  .assist .mic { color:#f97316; font-size:14px; }
+  .hero { background:#26292d; border:1px solid #2e3134; border-radius:14px; padding:16px; margin-bottom:12px; }
+  .hero .lbl { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:4px; }
+  .hero .num { font-size:30px; font-weight:700; line-height:1; }
+  .hero .num small { font-size:15px; color:#9aa0a6; font-weight:500; }
+  /* health widgets — editable */
+  .health { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
+  .widget { background:#23262a; border:1px solid #2e3134; border-radius:10px; padding:12px 8px; text-align:center; position:relative; }
+  .widget .v { font-size:18px; font-weight:700; line-height:1; }
+  .widget .l { font-size:9px; color:#6b7280; text-transform:uppercase; letter-spacing:.6px; margin-top:4px; }
+  .widget.warn { border-color:#4a3a1a; }
+  .widget.warn .v { color:#f97316; }
+  .widget.ok .v { color:#6fcf97; }
+  .widget .edit { position:absolute; top:4px; right:6px; font-size:10px; color:#4b4f54; cursor:pointer; }
+  .widget .edit:hover { color:#f97316; }
+  .addwidget { display:flex; align-items:center; justify-content:center; gap:6px; border:1px dashed #3a3d41; border-radius:10px; padding:12px 8px; color:#6b7280; font-size:11px; cursor:pointer; }
+  .addwidget:hover { border-color:#f97316; color:#f97316; }
+  .attn .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .attn .item { background:#26292d; border:1px solid #2e3134; border-left:3px solid #f97316; border-radius:8px; padding:10px 12px; margin-bottom:6px; }
+  .attn .item .t { font-size:13px; font-weight:600; }
+  .attn .item .d { font-size:11px; color:#9aa0a6; margin-top:2px; }
+  .spacer { flex:1; }
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; padding:4px 0; }
+  .nav .n.act { color:#f97316; }
+  .nav .n .i { font-size:19px; line-height:1; }
+  .nav .n .l { font-size:9px; margin-top:4px; }
+  .nav .n.ask .i { font-size:21px; }
+  .nav .n.ask .l { color:#f97316; }
+  /* picker sheet */
+  .sheet { background:#17191b; border:1px solid #2e3134; border-radius:16px; padding:18px; }
+  .sheet h3 { font-size:14px; font-weight:700; margin-bottom:4px; }
+  .sheet .sh { font-size:11px; color:#6b7280; margin-bottom:14px; }
+  .pick { display:flex; align-items:center; gap:10px; background:#1e2023; border:1px solid #2e3134; border-radius:9px; padding:10px 12px; margin-bottom:6px; cursor:pointer; }
+  .pick .chk { width:18px; height:18px; border-radius:4px; border:2px solid #3a3d41; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; color:#fff; }
+  .pick.sel .chk { background:#f97316; border-color:#f97316; }
+  .pick .t { font-size:12px; font-weight:500; }
+  .pick .d { font-size:10px; color:#6b7280; }
+  .note { grid-column:1/-1; font-size:11px; color:#6b7280; line-height:1.6; margin-top:8px; padding:14px; background:#202326; border-radius:10px; border:1px dashed #2e3134; }
+  .note b { color:#d1d5db; }
+  .note .k { color:#f97316; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Hub — the 3 widgets are the owner's choice</h1>
+  <div class="sub">The health strip isn't fixed. The owner picks which 3 stats matter most — like phone widgets. Layout stays clean, content is theirs.</div>
+
+  <div class="row">
+    <!-- Result -->
+    <div class="phone">
+      <h2>Owner · Home</h2>
+      <div class="sc">Nick's custom 3 — labor, open shifts, sales</div>
+      <div class="greeting">Good afternoon, Nick</div>
+      <div class="subline">Jigsy's Old Forge Pizza · Thursday 13</div>
+
+      <div class="assist">
+        <div class="orb">✦</div>
+        <div class="txt"><div class="q">What do you need done today?</div></div>
+        <div class="mic">🎤</div>
+      </div>
+
+      <div class="hero">
+        <div class="lbl">Taken through the app today</div>
+        <div class="num">$412<small>.50</small></div>
+      </div>
+
+      <div class="health">
+        <div class="widget ok"><div class="v">18%</div><div class="l">Labor</div><div class="edit">✎</div></div>
+        <div class="widget warn"><div class="v">2</div><div class="l">Open shifts</div><div class="edit">✎</div></div>
+        <div class="widget ok"><div class="v">$1,204</div><div class="l">This week</div><div class="edit">✎</div></div>
+      </div>
+
+      <div class="attn">
+        <div class="h">Needs you</div>
+        <div class="item"><div class="t">No one on the bar tonight</div><div class="d">Shift at 6pm not covered</div></div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="nav">
+        <div class="n act"><div class="i">⌂</div><div class="l">Home</div></div>
+        <div class="n"><div class="i">📅</div><div class="l">Schedule</div></div>
+        <div class="n"><div class="i">🧾</div><div class="l">Orders</div></div>
+        <div class="n"><div class="i">👥</div><div class="l">Team</div></div>
+        <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+      </div>
+    </div>
+
+    <!-- Picker -->
+    <div class="phone">
+      <h2>Owner · Edit my 3</h2>
+      <div class="sc">Tap the pencil on any widget, or add a 4th</div>
+      <div class="sheet">
+        <h3>What matters most to you</h3>
+        <div class="sh">Pick up to 3. They'll sit under your money figure.</div>
+        <div class="pick sel"><div class="chk">✓</div><div><div class="t">Labor</div><div class="d">Hours vs sales — are you overstaffed?</div></div></div>
+        <div class="pick sel"><div class="chk">✓</div><div><div class="t">Open shifts</div><div class="d">Slots nobody's covering</div></div></div>
+        <div class="pick sel"><div class="chk">✓</div><div><div class="t">Sales this week</div><div class="d">Revenue vs last week</div></div></div>
+        <div class="pick"><div class="chk"></div><div><div class="t">Orders today</div><div class="d">How many have come in</div></div></div>
+        <div class="pick"><div class="chk"></div><div><div class="t">On shift</div><div class="d">Who's clocked in right now</div></div></div>
+        <div class="pick"><div class="chk"></div><div><div class="t">My tips</div><div class="d">What's owed to you</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Why this works:</b> the layout stays the 2-year-old shape (always <span class="k">3 slots</span>, money hero above, needs-you below). But the owner picks which 3 stats live there — like adding widgets to a phone home screen. Tap a pencil to change one, or add a 4th and drop one. The bottom bar (Home·Schedule·Orders·Team·Ask) never changes. <b>Default</b> = orders today, on shift, labor — sensible for anyone who never touches it.
+  </div>
+</div>
+</body>
+</html>

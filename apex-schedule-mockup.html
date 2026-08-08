@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Schedule — 3 buttons max</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#1a1c1e; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:1120px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .phone { background:#202326; border-radius:20px; padding:20px; border:1px solid #2e3134; }
+  .phone h2 { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:4px; }
+  .screen { font-size:12px; color:#9aa0a6; margin-bottom:14px; }
+  /* back + title */
+  .top { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .back { width:30px; height:30px; border-radius:8px; background:#26292d; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .top .t { font-size:18px; font-weight:700; }
+  .top .badge { margin-left:auto; font-size:10px; background:#2a2d31; color:#9aa0a6; padding:4px 8px; border-radius:6px; }
+  /* draft notice */
+  .draft { background:#2a2416; border:1px solid #4a3a1a; border-radius:10px; padding:10px 12px; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+  .draft .dot { width:8px; height:8px; border-radius:50%; background:#f97316; flex-shrink:0; }
+  .draft .txt { font-size:12px; color:#e8d5a8; flex:1; }
+  .draft .txt b { color:#f97316; }
+  /* week strip */
+  .week { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:14px; }
+  .day { background:#23262a; border:1px solid #2e3134; border-radius:8px; padding:8px 4px; text-align:center; }
+  .day.today { border-color:#f97316; }
+  .day .d { font-size:9px; color:#6b7280; text-transform:uppercase; }
+  .day .n { font-size:15px; font-weight:700; margin-top:2px; }
+  .day .count { font-size:9px; color:#f97316; margin-top:2px; }
+  /* schedule rows */
+  .sched .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .shift { background:#26292d; border:1px solid #2e3134; border-radius:10px; padding:10px 12px; margin-bottom:6px; display:flex; align-items:center; gap:12px; }
+  .shift .who { width:34px; height:34px; border-radius:50%; background:#2a2d31; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; flex-shrink:0; }
+  .shift .info { flex:1; }
+  .shift .name { font-size:13px; font-weight:600; }
+  .shift .role { font-size:11px; color:#6b7280; }
+  .shift .when { font-size:12px; font-weight:500; color:#d1d5db; }
+  .shift .new { font-size:9px; background:#3a2c1a; color:#f97316; padding:2px 6px; border-radius:5px; }
+  /* the 3 buttons */
+  .actions { margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .actions .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:10px; }
+  .btn { display:flex; align-items:center; gap:12px; border-radius:10px; padding:12px 14px; margin-bottom:8px; font-size:14px; font-weight:600; }
+  .btn .ic { font-size:16px; }
+  .btn .sub { font-size:11px; font-weight:400; color:#9aa0a6; }
+  .btn .arrow { margin-left:auto; font-size:18px; }
+  .btn.add { background:#f97316; color:#1a140d; }
+  .btn.add .sub { color:#4a2c0a; }
+  .btn.ghost { background:#26292d; border:1px solid #2e3134; color:#e8eaed; }
+  .btn.pub { background:#1f5136; color:#d1fae5; }
+  .note { grid-column:1/-1; font-size:11px; color:#6b7280; line-height:1.6; margin-top:8px; padding:14px; background:#202326; border-radius:10px; border:1px dashed #2e3134; }
+  .note b { color:#d1d5db; }
+  .note .k { color:#f97316; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Schedule — the whole job done with 3 buttons</h1>
+  <div class="sub">The rule, applied inside the screen: to MAKE and EDIT a schedule, an owner never needs more than three buttons.</div>
+
+  <div class="row">
+    <!-- DRAFT / EDITING view -->
+    <div class="phone">
+      <h2>Manager · Schedule</h2>
+      <div class="screen">Editing this week — draft, not yet live</div>
+
+      <div class="top">
+        <div class="back">‹</div>
+        <div class="t">This week</div>
+        <div class="badge">draft</div>
+      </div>
+
+      <div class="draft">
+        <div class="dot"></div>
+        <div class="txt"><b>3 shifts drafted</b> · nobody has been told yet. Publish to tell them.</div>
+      </div>
+
+      <div class="week">
+        <div class="day"><div class="d">Mon</div><div class="n">10</div><div class="count">3</div></div>
+        <div class="day"><div class="d">Tue</div><div class="n">11</div></div>
+        <div class="day"><div class="d">Wed</div><div class="n">12</div></div>
+        <div class="day today"><div class="d">Thu</div><div class="n">13</div><div class="count">2</div></div>
+        <div class="day"><div class="d">Fri</div><div class="n">14</div></div>
+        <div class="day"><div class="d">Sat</div><div class="n">15</div></div>
+        <div class="day"><div class="d">Sun</div><div class="n">16</div></div>
+      </div>
+
+      <div class="sched">
+        <div class="h">Thursday 13</div>
+        <div class="shift"><div class="who">E</div><div class="info"><div class="name">Emily</div><div class="role">Server</div></div><div class="when">5–10pm</div><div class="new">new</div></div>
+        <div class="shift"><div class="who">A</div><div class="info"><div class="name">Avi</div><div class="role">Kitchen</div></div><div class="when">4–9pm</div><div class="new">new</div></div>
+        <div class="shift"><div class="who">+</div><div class="info"><div class="name">Open shift</div><div class="role">Bartender</div></div><div class="when">6–11pm</div><div class="new">new</div></div>
+      </div>
+
+      <!-- THE 3 BUTTONS -->
+      <div class="actions">
+        <div class="h">What you can do here</div>
+        <div class="btn add"><div class="ic">＋</div>Add a shift<div class="sub">Put someone on the board</div><div class="arrow">›</div></div>
+        <div class="btn ghost"><div class="ic">✎</div>Edit a shift<div class="sub">Tap a row to change it</div><div class="arrow">›</div></div>
+        <div class="btn pub"><div class="ic">✓</div>Publish this week<div class="sub">Tells everyone at once</div><div class="arrow">›</div></div>
+      </div>
+    </div>
+
+    <!-- PUBLISHED / VIEWING view -->
+    <div class="phone">
+      <h2>Manager · Schedule</h2>
+      <div class="screen">Published — everyone's been told</div>
+
+      <div class="top">
+        <div class="back">‹</div>
+        <div class="t">This week</div>
+        <div class="badge" style="color:#6fcf97;background:#1f3228;border:1px solid #2a4a36;">live</div>
+      </div>
+
+      <div class="week">
+        <div class="day"><div class="d">Mon</div><div class="n">10</div><div class="count" style="color:#6fcf97">3</div></div>
+        <div class="day"><div class="d">Tue</div><div class="n">11</div></div>
+        <div class="day"><div class="d">Wed</div><div class="n">12</div></div>
+        <div class="day today"><div class="d">Thu</div><div class="n">13</div><div class="count" style="color:#6fcf97">2</div></div>
+        <div class="day"><div class="d">Fri</div><div class="n">14</div></div>
+        <div class="day"><div class="d">Sat</div><div class="n">15</div></div>
+        <div class="day"><div class="d">Sun</div><div class="n">16</div></div>
+      </div>
+
+      <div class="sched">
+        <div class="h">Thursday 13</div>
+        <div class="shift"><div class="who">E</div><div class="info"><div class="name">Emily</div><div class="role">Server</div></div><div class="when">5–10pm</div></div>
+        <div class="shift"><div class="who">A</div><div class="info"><div class="name">Avi</div><div class="role">Kitchen</div></div><div class="when">4–9pm</div></div>
+        <div class="shift"><div class="who">+</div><div class="info"><div class="name">Open shift</div><div class="role">Bartender</div></div><div class="when">6–11pm</div></div>
+      </div>
+
+      <!-- THE 3 BUTTONS — same 3, different state -->
+      <div class="actions">
+        <div class="h">What you can do here</div>
+        <div class="btn add"><div class="ic">＋</div>Add a shift<div class="sub">Put someone on the board</div><div class="arrow">›</div></div>
+        <div class="btn ghost"><div class="ic">✎</div>Edit a shift<div class="sub">Tap a row to change it</div><div class="arrow">›</div></div>
+        <div class="btn ghost"><div class="ic">⏸</div>Pause this week<div class="sub">Something came up</div><div class="arrow">›</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>The rule, made concrete:</b> to make and edit a schedule, an owner gets exactly <span class="k">3 buttons</span> — <b>Add a shift, Edit a shift, Publish/Pause this week</b>. Not a toolbar, not a menu, not a list of twelve actions. The draft model does the heavy lifting: shifts pile up invisibly, and the single "Publish this week" button is the one place everyone gets told. When there's a draft, the button says <span class="k">Publish</span> (orange); when it's live, it becomes <span class="k">Pause</span>. Same three buttons, every state, nothing to hunt for.
+  </div>
+</div>
+</body>
+</html>
