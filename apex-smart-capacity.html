@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Smart Capacity</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#141517; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:420px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .phone { background:#1a1b1d; border-radius:20px; padding:20px; border:1px solid #2e3134; display:flex; flex-direction:column; min-height:700px; }
+  .top { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .back { width:30px; height:30px; border-radius:8px; background:#232528; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .top .t { font-size:17px; font-weight:700; }
+  .top .badge { margin-left:auto; font-size:10px; background:#1c2b22; color:#8fe3b4; border:1px solid #2c4a38; padding:4px 8px; border-radius:6px; }
+  .top .badge.paused { background:#3a1f24; color:#fecdd3; border-color:#5a2c34; }
+  /* status + capacity */
+  .cap { background:#232528; border:1px solid #2e3134; border-radius:14px; padding:16px; margin-bottom:12px; }
+  .cap .row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .cap .row:last-child { margin-bottom:0; }
+  .cap .l { font-size:11px; color:#6b7280; }
+  .cap .v { font-size:15px; font-weight:700; }
+  .cap .v.good { color:#6fcf97; }
+  .cap .v.warn { color:#ff7f50; }
+  .cap .pctbar { height:8px; background:#1a1b1d; border-radius:4px; overflow:hidden; margin-top:4px; }
+  .cap .pctfill { height:100%; width:72%; background:#ff7f50; border-radius:4px; }
+  /* toggles + steppers */
+  .ctl { background:#232528; border:1px solid #2e3134; border-radius:12px; padding:14px; margin-bottom:12px; }
+  .ctl .row { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+  .ctl .row:last-child { margin-bottom:0; }
+  .ctl .l { font-size:13px; font-weight:500; }
+  .ctl .d { font-size:10px; color:#6b7280; margin-top:2px; }
+  .ctl .toggle { width:44px; height:26px; border-radius:13px; background:#ff7f50; position:relative; flex-shrink:0; }
+  .ctl .toggle::after { content:""; position:absolute; top:3px; right:3px; width:20px; height:20px; border-radius:50%; background:#fff; }
+  .ctl .stepper { display:flex; align-items:center; gap:10px; }
+  .ctl .stepbtn { width:28px; height:28px; border-radius:8px; background:#1a1b1d; border:1px solid #3a3d41; display:flex; align-items:center; justify-content:center; font-size:16px; color:#e8eaed; }
+  .ctl .stepval { font-size:15px; font-weight:700; min-width:20px; text-align:center; }
+  .ctl .pause { background:#3a1f24; color:#fecdd3; border:1px solid #5a2c34; border-radius:8px; padding:10px; text-align:center; font-weight:700; font-size:13px; }
+  /* events log */
+  .events .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .ev { font-size:11px; color:#9aa0a6; padding:8px 0; border-bottom:1px solid #2a2c2f; line-height:1.5; }
+  .ev b { color:#e8eaed; font-weight:600; }
+  .ev .t { color:#4b4f54; font-size:10px; }
+  .spacer { flex:1; }
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; padding:4px 0; }
+  .nav .n.act { color:#ff7f50; }
+  .nav .n .i { font-size:19px; line-height:1; }
+  .nav .n .l { font-size:9px; margin-top:4px; }
+  .nav .n.ask .i { font-size:21px; }
+  .nav .n.ask .l { color:#ff7f50; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Smart Capacity</h1>
+  <div class="sub">The mechanical one. Auto-pauses when short-staffed — and every decision is logged with the numbers that caused it.</div>
+
+  <div class="phone">
+    <div class="top">
+      <div class="back">‹</div>
+      <div class="t">Smart capacity</div>
+      <div class="badge">Open</div>
+    </div>
+
+    <div class="cap">
+      <div class="row"><div class="l">Staff on shift</div><div class="v warn">0</div></div>
+      <div class="row"><div class="l">Orders last hour</div><div class="v">6</div></div>
+      <div class="row"><div class="l">Capacity</div><div class="v good">72%</div></div>
+      <div class="pctbar"><div class="pctfill"></div></div>
+    </div>
+
+    <div class="ctl">
+      <div class="row">
+        <div><div class="l">Auto-pause when short-staffed</div><div class="d">Ordering stops below the minimum</div></div>
+        <div class="toggle"></div>
+      </div>
+      <div class="row">
+        <div><div class="l">Minimum staff to stay open</div></div>
+        <div class="stepper"><div class="stepbtn">−</div><div class="stepval">3</div><div class="stepbtn">+</div></div>
+      </div>
+      <div class="row">
+        <div><div class="l">Max orders/hour per staff</div></div>
+        <div class="stepper"><div class="stepbtn">−</div><div class="stepval">12</div><div class="stepbtn">+</div></div>
+      </div>
+    </div>
+
+    <div class="events">
+      <div class="h">What it's decided</div>
+      <div class="ev"><b>Auto-paused</b> — staff on shift (0) below threshold (3) <span class="t">· 2:41 pm</span></div>
+      <div class="ev"><b>Manually reopened</b> — Nick tapped resume <span class="t">· 1:05 pm</span></div>
+      <div class="ev"><b>Auto-paused</b> — staff on shift (1) below threshold (3) <span class="t">· 12:10 pm</span></div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="nav">
+      <div class="n"><div class="i">⌂</div><div class="l">Home</div></div>
+      <div class="n"><div class="i">🕐</div><div class="l">Clock</div></div>
+      <div class="n act"><div class="i">⚙</div><div class="l">Capacity</div></div>
+      <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
