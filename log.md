@@ -438,6 +438,22 @@ Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISION
   2-year-old test, charcoal+orange) so it stops improvising. Includes what to
   change per screen and what to verify when Claude returns.
 
+## 2026-08-08 — v3 remaining modules roadmap + first mockup
+
+- **[NEW] `projects/APEX_V3_REMAINING_MODULES_2026-08-08.md`** — the v2→v3 gap,
+  in build order. Already built: scheduling, shiftSwaps, orders, notifications,
+  serviceRequests, operations, team, onboarding, hub. Not built: time clock,
+  labor cost, labor vs revenue, smart capacity, menu/86 board, QR wall, tip
+  pool, my tips, team chat, call-outs, log book, sidework. Payroll export never
+  existed in v2 — skip. **Dependency chain: clock → labor cost → labor vs
+  revenue** (the $99/mo killer feature needs punches first).
+- **[MOCKUP] `apex-time-clock.html`** — the time clock (foundation module). Big
+  clock, 3 buttons (Clock in / Start a break / Fix a punch), today's punches,
+  bottom nav Home·Clock·My pay·Ask. Coral #ff7f50.
+- **[NOTE]** Claude was burning weekly quota on v2 fixes + v3 builds. Design
+  system (charcoal+coral, 3-slot widgets, 3-buttons rule, 2-year-old test) is
+  locked so I can mock up screens for Claude to implement, reducing its drift.
+
 ## 2026-08-07 · Apex v3 — the services pack
 
 Cold-user testing on v3's onboarding, then the strategic question settled: v2 is

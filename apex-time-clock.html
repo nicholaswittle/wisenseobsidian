@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Time Clock</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#141517; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:420px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .phone { background:#1a1b1d; border-radius:20px; padding:20px; border:1px solid #2e3134; display:flex; flex-direction:column; min-height:640px; }
+  .greeting { font-size:20px; font-weight:700; margin-bottom:2px; }
+  .subline { font-size:12px; color:#9aa0a6; margin-bottom:20px; }
+  /* the big clock */
+  .clockwrap { text-align:center; margin-bottom:16px; }
+  .clock { width:170px; height:170px; border-radius:50%; border:4px solid #ff7f50; margin:0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .clock .time { font-size:30px; font-weight:700; letter-spacing:1px; }
+  .clock .ampm { font-size:12px; color:#9aa0a6; }
+  .clock .state { font-size:11px; font-weight:600; margin-top:4px; color:#ff7f50; }
+  .clock.out { border-color:#3a3d41; }
+  .clock.out .state { color:#6b7280; }
+  /* the 3 buttons */
+  .actions { margin-bottom:20px; }
+  .btn { border-radius:12px; padding:14px; text-align:center; font-size:15px; font-weight:700; margin-bottom:8px; }
+  .btn.primary { background:#ff7f50; color:#241510; }
+  .btn.ghost { background:#232528; border:1px solid #2e3134; color:#e8eaed; }
+  .btn.warn { background:#3a1f24; color:#fecdd3; border:1px solid #5a2c34; }
+  .btn .s { font-size:11px; font-weight:400; color:#9aa0a6; }
+  /* today's punches */
+  .list .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .punch { background:#232528; border:1px solid #2e3134; border-radius:10px; padding:10px 12px; margin-bottom:6px; display:flex; align-items:center; justify-content:space-between; }
+  .punch .t { font-size:13px; font-weight:600; }
+  .punch .d { font-size:11px; color:#6b7280; }
+  .punch .r { font-size:12px; font-weight:600; color:#6fcf97; }
+  .spacer { flex:1; }
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; padding:4px 0; }
+  .nav .n.act { color:#ff7f50; }
+  .nav .n .i { font-size:19px; line-height:1; }
+  .nav .n .l { font-size:9px; margin-top:4px; }
+  .nav .n.ask .i { font-size:21px; }
+  .nav .n.ask .l { color:#ff7f50; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Time Clock</h1>
+  <div class="sub">The foundation module. Clock in/out with 3 buttons. The punch record feeds labor cost.</div>
+
+  <div class="phone">
+    <div class="greeting">Hey Emily</div>
+    <div class="subline">Thursday 13 · you're working 5:00–10:00</div>
+
+    <div class="clockwrap">
+      <div class="clock">
+        <div class="time">4:42</div>
+        <div class="ampm">pm</div>
+        <div class="state">Off the clock</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="btn primary">Clock in<span class="s" style="color:#4a2c0a"> — start your shift</span></div>
+      <div class="btn ghost">Start a break<span class="s"> — pause the clock</span></div>
+      <div class="btn ghost">Fix a punch<span class="s"> — wrong time? correct it</span></div>
+    </div>
+
+    <div class="list">
+      <div class="h">Today's punches</div>
+      <div class="punch"><div><div class="t">You're not in yet</div><div class="d">Tap Clock in when you arrive</div></div></div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="nav">
+      <div class="n act"><div class="i">⌂</div><div class="l">Home</div></div>
+      <div class="n"><div class="i">🕐</div><div class="l">Clock</div></div>
+      <div class="n"><div class="i">💵</div><div class="l">My pay</div></div>
+      <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

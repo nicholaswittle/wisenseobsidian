@@ -78,6 +78,16 @@ widgets. This is the accepted version.
 - **Defaults** = Orders today, On shift, Labor — sensible for anyone who never
   touches it.
 
+**EVERY ROLE gets the configurable 3-slot strip** — owner, employee, and
+services owner. Same widget mechanism, same pencil, same "pick up to 3" sheet,
+same 3-slot cap. Only the DEFAULTS differ by role:
+- **Owner** default: Orders today / On shift / Labor
+- **Employee** default: My tips / Hours this week / Open shift
+- **Services owner** default: Open quotes / Jobs this week / Crew out
+
+Nobody is stuck with the defaults — the pencil lets anyone swap their 3 to what
+matters to them.
+
 **Why it works (Nick's words):** *"it makes each app feel like they are totally
 in control of it."* What's "most important" differs per owner (labor % vs open
 shifts vs tips). Letting them pick means the hub is right for *their* business,

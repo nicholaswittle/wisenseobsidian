@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Design System — Charcoal + Coral</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#141517; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:1100px; margin:0 auto; }
+  h1 { font-size:18px; font-weight:700; color:#f8fafc; margin-bottom:6px; }
+  .sub { font-size:12px; color:#9aa0a6; margin-bottom:28px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .card { background:#1a1b1d; border:1px solid #2a2c2f; border-radius:14px; padding:20px; }
+  .card h2 { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:#9aa0a6; margin-bottom:16px; }
+  /* palette swatches */
+  .swatches { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .sw { border-radius:10px; padding:14px; text-align:center; }
+  .sw .n { font-size:12px; font-weight:600; color:#fff; }
+  .sw .h { font-size:10px; color:rgba(255,255,255,.7); margin-top:2px; }
+  .sw .use { font-size:9px; color:rgba(255,255,255,.55); margin-top:6px; }
+  .sw.bg { background:#141517; border:1px solid #2a2c2f; }
+  .sw.bg .n, .sw.bg .h, .sw.bg .use { color:#e8eaed; }
+  .sw.surf { background:#1a1b1d; border:1px solid #2a2c2f; }
+  .sw.surf .n, .sw.surf .h, .sw.surf .use { color:#e8eaed; }
+  .sw.cardbg { background:#232528; border:1px solid #2e3134; }
+  .sw.cardbg .n, .sw.cardbg .h, .sw.cardbg .use { color:#e8eaed; }
+  .sw.border { background:#1a1b1d; border:1px solid #3a3d41; }
+  .sw.border .n, .sw.border .h, .sw.border .use { color:#e8eaed; }
+  .sw.coral { background:#ff7f50; }
+  .sw.coraldeep { background:#f0653e; }
+  .sw.green { background:#6fcf97; }
+  .sw.green .use { color:rgba(0,0,0,.6); }
+  .sw.text { background:#e8eaed; }
+  .sw.text .n, .sw.text .h, .sw.text .use { color:#141517; }
+  .sw.mute { background:#6b7280; }
+  .sw.mute .use { color:rgba(255,255,255,.7); }
+  /* component rows */
+  .comp { margin-bottom:18px; }
+  .comp .lbl { font-size:10px; color:#6b7280; text-transform:uppercase; letter-spacing:.8px; margin-bottom:8px; }
+  .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .btn { padding:11px 18px; border-radius:10px; font-size:13px; font-weight:600; }
+  .btn.primary { background:#ff7f50; color:#241510; }
+  .btn.ghost { background:#232528; border:1px solid #2e3134; color:#e8eaed; }
+  .btn.success { background:#1f5136; color:#d1fae5; }
+  .btn.danger { background:#3a1f24; color:#fecdd3; border:1px solid #5a2c34; }
+  .chip { padding:4px 10px; border-radius:6px; font-size:11px; font-weight:500; }
+  .chip.warn { background:#2a2620; color:#ffb88c; border:1px solid #4a3a2a; }
+  .chip.ok { background:#1c2b22; color:#8fe3b4; border:1px solid #2c4a38; }
+  .chip.info { background:#1c2430; color:#8fb8e3; border:1px solid #2c3a4a; }
+  .widget { width:96px; background:#232528; border:1px solid #2e3134; border-radius:10px; padding:12px 8px; text-align:center; }
+  .widget .v { font-size:17px; font-weight:700; }
+  .widget .l { font-size:9px; color:#6b7280; text-transform:uppercase; letter-spacing:.5px; margin-top:3px; }
+  .widget.warn { border-color:#4a3a2a; }
+  .widget.warn .v { color:#ff7f50; }
+  .widget.ok .v { color:#6fcf97; }
+  .surface { background:#232528; border:1px solid #2e3134; border-radius:10px; padding:12px 14px; }
+  .surface .t { font-size:13px; font-weight:600; }
+  .surface .d { font-size:11px; color:#9aa0a6; margin-top:2px; }
+  .assist { background:#232528; border:1px solid #2e3134; border-radius:10px; padding:10px 12px; display:flex; align-items:center; gap:10px; }
+  .assist .orb { width:26px; height:26px; border-radius:50%; background:linear-gradient(135deg,#ff7f50,#f0653e); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; }
+  .assist .q { font-size:12px; color:#e8eaed; font-weight:500; }
+  .assist .hint { font-size:10px; color:#6b7280; }
+  .note { grid-column:1/-1; font-size:12px; color:#9aa0a6; line-height:1.7; padding:16px; background:#1a1b1d; border:1px dashed #3a3d41; border-radius:10px; margin-top:24px; }
+  .note b { color:#e8eaed; }
+  .note .c { color:#ff7f50; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Design System — Neutral Charcoal + Coral</h1>
+  <div class="sub">The full palette and every recurring component. Surfaces are neutral charcoal; coral is the accent only. No warm-tinted darks.</div>
+
+  <div class="grid">
+    <!-- Palette -->
+    <div class="card">
+      <h2>Color palette</h2>
+      <div class="swatches">
+        <div class="sw bg"><div class="n">#141517</div><div class="h">App bg</div><div class="use">page background</div></div>
+        <div class="sw surf"><div class="n">#1a1b1d</div><div class="h">Surface</div><div class="use">cards, sheets</div></div>
+        <div class="sw cardbg"><div class="n">#232528</div><div class="h">Card bg</div><div class="use">widgets, buttons</div></div>
+        <div class="sw border"><div class="n">#2e3134</div><div class="h">Border</div><div class="use">dividers, outlines</div></div>
+        <div class="sw coral"><div class="n">#ff7f50</div><div class="h">Coral</div><div class="use">primary accent</div></div>
+        <div class="sw coraldeep"><div class="n">#f0653e</div><div class="h">Coral deep</div><div class="use">hover, emphasis</div></div>
+        <div class="sw green"><div class="n">#6fcf97</div><div class="h">Green</div><div class="use">healthy / good</div></div>
+        <div class="sw text"><div class="n">#e8eaed</div><div class="h">Text</div><div class="use">primary text</div></div>
+        <div class="sw mute"><div class="n">#6b7280</div><div class="h">Muted</div><div class="use">labels, hints</div></div>
+      </div>
+      <div style="font-size:10px;color:#6b7280;margin-top:12px;">Text-on-coral uses deep charcoal (#241510). Coral is never a surface — only an accent.</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="card">
+      <h2>Buttons</h2>
+      <div class="comp"><div class="lbl">Actions</div>
+        <div class="row">
+          <div class="btn primary">Primary · Add a shift</div>
+          <div class="btn ghost">Ghost · Edit a shift</div>
+          <div class="btn success">Success · Publish week</div>
+          <div class="btn danger">Danger · Call it off</div>
+        </div>
+      </div>
+      <div class="comp"><div class="lbl">Status chips</div>
+        <div class="row">
+          <div class="chip warn">Needs attention</div>
+          <div class="chip ok">Booked</div>
+          <div class="chip info">Waiting on them</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widgets -->
+    <div class="card">
+      <h2>Health widgets (the configurable 3)</h2>
+      <div class="row">
+        <div class="widget ok"><div class="v">$650</div><div class="l">My tips ✎</div></div>
+        <div class="widget"><div class="v">12.5</div><div class="l">Hrs this week ✎</div></div>
+        <div class="widget warn"><div class="v">1</div><div class="l">Open shift ✎</div></div>
+      </div>
+      <div style="font-size:10px;color:#6b7280;margin-top:10px;">Coral = needs attention · Green = healthy · Pencil top-right to change.</div>
+    </div>
+
+    <!-- Surfaces & assistant -->
+    <div class="card">
+      <h2>Surfaces &amp; assistant</h2>
+      <div class="comp"><div class="lbl">Alert / needs-you card</div>
+        <div class="surface" style="border-left:3px solid #ff7f50;">
+          <div class="t">1 order awaiting payment</div>
+          <div class="d">Waiting over 30 minutes</div>
+        </div>
+      </div>
+      <div class="comp"><div class="lbl">AI assistant bar</div>
+        <div class="assist">
+          <div class="orb">✦</div>
+          <div><div class="q">What do you need done today?</div><div class="hint">Ask it anything</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>The rule:</b> everything is neutral charcoal (<span class="c">#141517 → #2e3134</span>). Coral (<span class="c">#ff7f50</span>) is the accent — buttons, the AI orb, the "needs you" left-border, warnings. Green (<span class="c">#6fcf97</span>) means healthy. There are <b>no warm-tinted dark surfaces</b> — every background is charcoal, never brown/orange-tinted. This is what Nick wants and what keeps Claude from "making everything orange."
+  </div>
+</div>
+</body>
+</html>
