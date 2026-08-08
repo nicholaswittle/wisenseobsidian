@@ -379,5 +379,52 @@ Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISION
   yet, 30% cut optimistic, sequence = v3 earns customers → expose API → build one
   satellite (Supply) → open to third parties.
 
+## 2026-08-07 (late) — Square day-one checklist filed
+
+- **[NEW] `projects/APEX_SQUARE_DAY_ONE_CHECKLIST_2026-08-07.md`** — runnable
+  Square go-live checklist grounded in `SQUARE_DAY_ONE_LIVE_VALIDATION.md` +
+  `SQUARE_ONLINE_TIP_ONBOARDING.md`. Covers: (0) the money-safety check
+  (`square_environment` sandbox vs production — fee only lands in production),
+  (1) owner OAuth (`jigsy895@yahoo.com`, Emily has no Square authority),
+  (2) POS/printer setup (PICKUP fulfillment routes the print), (3) the live test
+  with Jigsy's present (test order → real order → confirm `app_fee_money` in
+  Square Banking), (4) tip policy (Pool tips per transaction, owner written
+  confirmation), (5) pointing the Vercel site at Jigsy's domain (custom domain
+  on project **apex-site**, update `site_url` on the row, NOT the global
+  `APEX_VENUE_SITE_URL`). Definition of done = Jigsy's is a paying venue on the
+  Square rail, not a free pilot.
+- **[CONTEXT]** Dimmsville Armory parked (owner hasn't brought it up since).
+  Jigsy's stays on Square (won't switch to Stripe) — the Square rail already
+  pushes orders into their real account, prints on their existing printer, and
+  collects the 1.5% via `app_fee_money`. The blocker is config + the day-one
+  validation, not a build.
+
+## 2026-08-07 · Apex v3 — the services pack
+
+Cold-user testing on v3's onboarding, then the strategic question settled: v2 is
+the authority on WHAT to build and what it costs to get it wrong; v3 is the
+authority on how it is wired. Proven on one table — v2's `mode` column would have
+forced every services business to be quote-only or fixed-price, while v2's A2P
+10DLC consent fields and town-at-intake finding could never have been invented
+from scratch. No third audit: `apex_v2/docs/` already holds the scorecard, and
+what it missed (what the SCREENS do) is now written down.
+
+Built: the super-admin fleet console (on/off/inherit per module); entitled-vs-built
+split on the plan screen, which had been ticking Payroll export and Time clock for
+features that exist in neither version; and the services pack — five tables, eleven
+operations, and the redesigned quote screen. Price-fixedness is a property of the
+SERVICE, not the business, so a landscaper can list "$60 mowing" beside "land
+clearing, depends" in one pipeline. Booking is last, enforced in the database.
+
+The finding worth keeping: v2 had already reached the one-button conclusion, written
+it down in `quote_actions.dart`, and rendered five more buttons around it anyway. The
+fix was real in one place and absent where it was written for — the same shape as
+almost every serious defect this week. v3's version returns EVERY control the screen
+may draw, with a test asserting exactly two states carry a second one. Also: a
+cross-org security check failed for the wrong reason (it had picked the super-admin
+account), and now asserts its own subject is not exempt first.
+
+467 tests, every gate green, three migrations live. See [[projects/APEX_V3_SESSION_2026-08-07]].
+
 ## 2026-08-06 · Apex v3 build session
 38 commits. The AI gate was silently dead since the project began — six functions called an RPC no migration defined. Fixed, plus the CI check that was blind to it. Auth, persistence, onboarding (search-first + manual), restaurant menu flow, staff orders, guest ordering, schedule authoring, and the operation contract (D26–D30, 15 operations, CI-gated). Both AI paths made their first real calls: Google Places found Jigsy's, Anthropic wrote a landscaper's description. parse-menu scored zero wrong prices across five runs on a real menu photo. Three review agents found the reveal's "your site is live" claim was false three ways — verified against the live catalog and corrected the night before three cold-user tests. See [[projects/APEX_V3_SESSION_2026-08-06]].

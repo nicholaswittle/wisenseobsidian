@@ -44,57 +44,55 @@ recorded in the ledger, `.sql` files never written (classifier blocked the
 directory). With the pre-existing ledger drift, **`supabase db push` stays
 forbidden** and the repo no longer describes production.
 
-## Apex v3 rebuild — Phase 0 CLOSED, Phase 1 WELL UNDERWAY, 2026-08-07
+## Apex v3 rebuild — Phase 1 MET, services pack built, 2026-08-07
 
 Full note: [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]]. New repo
 `C:\development\projects\apex_v3`, new Supabase project **apex-v3-prod**
 `fnsonnhumcvxdnyarguv`. v2's project is a different live product — off-limits.
 
 🟢 **Phase 0 CLOSED** (met its written gate 08-05, remediation through 08-06).
-All three round-5 BLOCKERs proved by attack tests; H-DML closed (11 direct-DML
-ops → RPCs); money path deployed (15/28 edge functions); `pg_cron`/`pg_net`
-installed + scheduled jobs running; `domain_events` drain done; repo↔ledger
+All three round-5 BLOCKERs proved by attack tests; H-DML closed; money path
+deployed; `pg_cron`/`pg_net` installed; `domain_events` drain done; repo↔ledger
 62/62 by md5; 12 CI gates green.
 
-🟢 **Phase 1 WELL UNDERWAY** (08-07, 116 commits, +34 since 08-06). Tests doubled
-173→339, lib files doubled, 16 registered operations. Built since 08-06:
-- **Onboarding conveyor** iterated twice against real feedback ("what two real
-  people could not do")
-- **Restaurant menu flow** — photograph, check, confirm
-- **Guest ordering** live — venue link → guest flow, cart, order status
-- **Schedule** — author-as-draft / publish-as-one-decision, photo import with
-  v2's defenses, staff self-serve
-- **Staff console** — one console, vocabulary by vertical (D32/D33)
-- **Operations layer is now real** — 16 registered ops (order lifecycle split by
-  facts D29, refund as ONE atom with reserve/settle/void protocol D34,
-  idempotency via client_token), not just a contract
-- **parse-menu scoring harness** ported from v2 (`scripts/score_menu.mjs`) — the
-  Phase 1 gate deliverable
-- **Synthetic restaurant seed** — repeatable, drives real signup trigger
+🟢 **Phase 1 MET (2026-08-07)** — all four gate clauses proven live, not just
+declared:
+- **Money leg** — real Stripe Connect charge in test mode, webhook flipped to
+  "Paid online", full + partial refunds verified (action retires / stays active).
+- **Assistant clause** — the assistant placed/accepted/ready/completed an order
+  through the exact `ci/operations.json` registry; DB stamped it `assistant`,
+  zero `system` (no service-role lane). **The peer-actor architecture is real.**
+- **Photo → published schedule** — MET, three real defects found live.
+- **parse-menu scored** — 0 wrong prices on 35/37 items, scoring the deployed fn.
 
-⚠️ **Payment gate amended honestly (08-07):** now reads "real order placed →
-paid → refunded **in Stripe test mode**" — the plan says what test mode proves
-(payment intent, Connect charge, 1.5% fee, webhook, refund path) and what it
-can't (real bank arrival, KYC, chargebacks). Prevents premature real-money.
+**Services pack built (08-07):** five tables (`service_offerings`,
+`service_requests`, `service_request_items`, `request_quotes`, `request_ai_runs`),
+**eleven operations** (28 assertions red-then-green), and the redesigned quote
+screen. Price-fixedness is a property of the SERVICE, not the business. Booking
+is last, enforced in the database. Super-admin fleet console (on/off/inherit).
+**467 tests, analyzer clean, every CI gate green.**
+
+**Strategic question settled (08-07):** v2 is the authority on WHAT to build and
+what it costs to get wrong; v3 is the authority on how it's wired. Proven on one
+table — v2's `mode` column would have forced every services business to be
+quote-only or fixed-price, while v2's A2P 10DLC consent and town-at-intake could
+never have been invented from scratch. See [[projects/APEX_V3_SESSION_2026-08-07]].
 
 ⚠️ **Still open / largest structural weakness:** the `service_role` exemption is
-load-bearing across five guards (edge functions run as service_role, auth.uid()
-null, mitigation is procedural: functions call RPCs never write tables). Shared
-Stripe platform with v2 still behavioral isolation. **Blocked on Nick:** Sentry
-connector, function secrets re-issue (Twilio/FCM/AI/Stripe/Square),
-`APEX_V3_SERVICE_ROLE_KEY`, v2 nightly drift alarm (needs `V2_READONLY_DB_URL`).
+load-bearing across five guards. Shared Stripe platform with v2 still behavioral
+isolation. **Blocked on Nick:** Sentry connector, function secrets re-issue,
+`APEX_V3_SERVICE_ROLE_KEY`, v2 nightly drift alarm (`V2_READONLY_DB_URL`).
+**Phase 2 (Jigsy's employee loop) is next** — the retention test.
 
-**Grade (08-07): A- as a Phase-1 foundation.** Architecture A (operations layer
-real), process A- (12 gates, red-then-green, drift alarms), velocity A- (doubled
-test/lib in ~24h, all gates green). Not yet a product — no real payment, no real
-customer, **the "same order placed by the assistant" gate unproven** (that's the
-make-or-break). Authoritative plan: `apex_v3/docs/MASTER_PLAN.md` (canonical
-08-06, Status section is stale — repo is ahead). Open items: private vault
-`Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
+**Grade (08-07): A- to A as a Phase-1 foundation.** The assistant clause being
+met is the milestone that makes v3 genuinely different from v2 — a peer-actor
+system, not a rebuild. Authoritative plan: `apex_v3/docs/MASTER_PLAN.md`
+(canonical 08-06; its top Status table is stale — repo is ahead). Open items:
+private vault `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
 
 ## Last Updated
 
-2026-08-07. v3 Phase 1 WELL UNDERWAY (116 commits, 339 tests, 16 ops). v3 graded A- as Phase-1 foundation. See the v3 section above.
+2026-08-07. v3 Phase 1 MET (all four gate clauses proven live), services pack built (11 ops), 467 tests. v3 graded A- to A as Phase-1 foundation. See the v3 section above.
 
 ## Services vertical + build 10 — 2026-08-03 (evening)
 

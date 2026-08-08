@@ -52,6 +52,7 @@ updated: 2026-08-02
 - [[projects/APEX_PAYMENTS_AND_POS_STRATEGY_2026-07-31]] — payments roadmap
 - [[projects/APEX_PLATFORM_FEE_ECONOMICS_2026-07-30]] — fee model economics
 - [[projects/APEX_SQUARE_PROVIDER_DECISION_2026-07-30]] — Square as second provider
+- [[projects/APEX_SQUARE_DAY_ONE_CHECKLIST_2026-08-07]] — runnable Square go-live checklist + Vercel domain setup
 - [[projects/APEX_PHOTO_IMPORT_BAKEOFF_2026-07-30]] — photo import model bakeoff
 - [[projects/APEX_AI_SUPPORT_AGENT_PLAN_2026-08-01]] — AI support agent design
 - [[projects/APEX_SELF_SERVE_PLAN_REVISIONS_2026-08-01]] — self-serve funnel revisions
@@ -122,3 +123,4 @@ updated: 2026-08-02
 
 Related: [[hot]], [[NOW]], [[log]]
 - [[projects/APEX_V3_SESSION_2026-08-06]] — 38 commits: the dead AI gate, the operation contract (D26–D30), and the reveal's false claim caught before cold-user testing.
+- [[projects/APEX_V3_SESSION_2026-08-07]] — the services pack (schema, 11 operations, the redesigned quote screen), and the settled answer on porting v2 into v3.

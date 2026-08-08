@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Family — Roadmap & Gates</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#020617; color:#e2e8f0; font-family:'JetBrains Mono',monospace; padding:40px 24px; }
+  .wrap { max-width:1200px; margin:0 auto; }
+  .header { display:flex; align-items:center; gap:14px; margin-bottom:8px; }
+  .dot { width:10px; height:10px; border-radius:50%; background:#22d3ee; box-shadow:0 0 12px #22d3ee; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  h1 { font-size:20px; font-weight:700; color:#f8fafc; }
+  .sub { color:#94a3b8; font-size:11px; margin-bottom:28px; }
+  .card { background:#0f172a; border:1px solid #1e293b; border-radius:12px; padding:24px; margin-bottom:20px; }
+  .card h2 { font-size:13px; color:#22d3ee; margin-bottom:14px; letter-spacing:.5px; }
+  .card h2 .n { color:#64748b; margin-right:6px; }
+  .grid { display:grid; grid-template-columns:repeat(5,1fr); gap:0; }
+  .phase { background:rgba(8,51,68,.4); border:1.5px solid #22d3ee; border-radius:8px; padding:14px; min-height:230px; position:relative; }
+  .phase .tag { font-size:9px; color:#22d3ee; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+  .phase h3 { font-size:13px; color:#f8fafc; margin-bottom:10px; line-height:1.3; }
+  .phase ul { list-style:none; }
+  .phase li { font-size:10px; color:#cbd5e1; line-height:1.5; padding-left:12px; position:relative; margin-bottom:5px; }
+  .phase li:before { content:"▸"; position:absolute; left:0; color:#22d3ee; }
+  .phase .status { position:absolute; top:12px; right:12px; font-size:8px; padding:2px 6px; border-radius:4px; }
+  .st-now { background:#22d3ee; color:#020617; }
+  .st-next { background:#1e293b; color:#94a3b8; border:1px solid #334155; }
+  .st-later { background:#0f172a; color:#475569; border:1px dashed #334155; }
+  .gate { display:flex; align-items:center; justify-content:center; padding:0 6px; }
+  .gate-inner { background:#0f172a; border:1.5px solid #fbbf24; border-radius:6px; padding:10px 8px; text-align:center; width:100%; }
+  .gate .g-label { font-size:8px; color:#fbbf24; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .gate .g-goal { font-size:9px; color:#fef3c7; line-height:1.4; }
+  .gate .g-num { font-size:16px; color:#fbbf24; font-weight:700; }
+  .arrow { display:flex; align-items:center; justify-content:center; }
+  .arrow svg { width:100%; }
+  .legend { display:flex; gap:20px; flex-wrap:wrap; margin-top:16px; font-size:10px; color:#94a3b8; }
+  .legend span { display:flex; align-items:center; gap:6px; }
+  .sw { width:10px; height:10px; border-radius:3px; display:inline-block; }
+  .sw-now { background:#22d3ee; }
+  .sw-next { background:#334155; }
+  .sw-later { background:#0f172a; border:1px dashed #475569; }
+  .sw-gate { background:#fbbf24; }
+  .note { font-size:10px; color:#94a3b8; line-height:1.6; margin-top:16px; }
+  .note b { color:#e2e8f0; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px; }
+  .card-mini { background:#0f172a; border:1px solid #1e293b; border-radius:10px; padding:16px; }
+  .card-mini h4 { font-size:11px; color:#34d399; margin-bottom:8px; }
+  .card-mini p { font-size:10px; color:#cbd5e1; line-height:1.6; }
+  .card-mini .k { color:#fbbf24; }
+  @media (max-width:900px){ .grid{grid-template-columns:1fr;} .gate{flex-direction:column;} .cards{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header"><div class="dot"></div><h1>Apex Family — Roadmap &amp; Release Gates</h1></div>
+  <div class="sub">How the ecosystem unfolds, and the goal you must hit before each new thing ships. North star stays $300/mo, three venues.</div>
+
+  <div class="card">
+    <h2><span class="n">01</span>THE SEQUENCE — SUN FIRST, THEN SATELLITES</h2>
+    <div class="grid">
+      <!-- Phase 1 -->
+      <div class="phase">
+        <span class="status st-now">NOW</span>
+        <div class="tag">Phase 1</div>
+        <h3>Apex v2<br>Launch &amp; Earn</h3>
+        <ul>
+          <li>Ship v2, fixes only</li>
+          <li>Jigsy's paying</li>
+          <li>Cold-test the funnel</li>
+          <li>Prove the daily loop</li>
+        </ul>
+      </div>
+      <div class="gate">
+        <div class="gate-inner">
+          <div class="g-label">Gate A</div>
+          <div class="g-num">$300/mo</div>
+          <div class="g-goal">3 paying venues,<br>retention proven</div>
+        </div>
+      </div>
+      <!-- Phase 2 -->
+      <div class="phase">
+        <span class="status st-next">NEXT</span>
+        <div class="tag">Phase 2</div>
+        <h3>Apex v3<br>Becomes the Spine</h3>
+        <ul>
+          <li>Close Phase 1 gate</li>
+          <li>Assistant places order</li>
+          <li>v3 does everything a<br>paying customer touches</li>
+          <li>Handoff from v2</li>
+        </ul>
+      </div>
+      <div class="gate">
+        <div class="gate-inner">
+          <div class="g-label">Gate B</div>
+          <div class="g-num">v3 = v2</div>
+          <div class="g-goal">v3 can do all a<br>paying customer touches</div>
+        </div>
+      </div>
+      <!-- Phase 3 -->
+      <div class="phase">
+        <span class="status st-next">NEXT</span>
+        <div class="tag">Phase 3</div>
+        <h3>Expose the<br>Operations Layer as API</h3>
+        <ul>
+          <li>Third-party OAuth</li>
+          <li>API keys / rate limits</li>
+          <li>Webhook delivery</li>
+          <li>Docs from operations.json</li>
+        </ul>
+      </div>
+      <div class="gate">
+        <div class="gate-inner">
+          <div class="g-label">Gate C</div>
+          <div class="g-num">API live</div>
+          <div class="g-goal">First real customers<br>on v3, API documented</div>
+        </div>
+      </div>
+      <!-- Phase 4 -->
+      <div class="phase">
+        <span class="status st-later">LATER</span>
+        <div class="tag">Phase 4</div>
+        <h3>First Satellite<br>Apex Supply</h3>
+        <ul>
+          <li>Inventory + vendors</li>
+          <li>Calls Core ops</li>
+          <li>Registers new ops</li>
+          <li>Proves the model</li>
+        </ul>
+      </div>
+      <div class="gate">
+        <div class="gate-inner">
+          <div class="g-label">Gate D</div>
+          <div class="g-num">1 satellite</div>
+          <div class="g-goal">Supply earns,<br>model proven</div>
+        </div>
+      </div>
+      <!-- Phase 5 -->
+      <div class="phase">
+        <span class="status st-later">LATER</span>
+        <div class="tag">Phase 5</div>
+        <h3>Open to<br>Third Parties</h3>
+        <ul>
+          <li>App Store model</li>
+          <li>Devs build satellites</li>
+          <li>Fleet, Pulse, Hire...</li>
+          <li>Ecosystem compounds</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legend">
+      <span><span class="sw sw-now"></span> Now</span>
+      <span><span class="sw sw-next"></span> Next</span>
+      <span><span class="sw sw-later"></span> Later</span>
+      <span><span class="sw sw-gate"></span> Gate (goal to hit before proceeding)</span>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card-mini">
+      <h4>THE RULE</h4>
+      <p>Each phase closes against a <span class="k">written gate</span> — a goal you can measure, not a feeling. No new thing ships until the gate before it is met. This is the Sun Strategy: the core earns before any satellite is built.</p>
+    </div>
+    <div class="card-mini">
+      <h4>THE TRAP TO AVOID</h4>
+      <p>Building satellites as a "platform" with no customers. The failure mode is 10 apps, zero revenue. <span class="k">One strong product → one satellite → then the family.</span> Each step proves the next.</p>
+    </div>
+    <div class="card-mini">
+      <h4>THE FIRST SATELLITE</h4>
+      <p>Pick <span class="k">Supply</span> (inventory) or <span class="k">Pulse</span> (reputation/loyalty) — closest to the transaction without being regulated. <span class="k">Avoid Capital &amp; Guard early</span> (lending/insurance need licenses + compliance).</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>North star:</b> $300/mo, three venues. The ecosystem is the eventual shape, not today's goal. Keep the vision; let the gates drive the sequence. The v3 operations layer (17 registered ops, domain_events, actor_kind) is already 80% of the API — Phase 3 is mostly packaging, not building.
+  </div>
+</div>
+</body>
+</html>
