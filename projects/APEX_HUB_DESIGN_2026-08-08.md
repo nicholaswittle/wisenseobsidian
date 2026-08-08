@@ -94,7 +94,9 @@ test is lost.
   input is missing, and a stat with nothing behind it is not rendered (v3's
   hardcoded-22.4% rule).
 - Setup cards disappear once there's nothing left to do (no permanent furniture).
-- Colors: neutral charcoal surfaces + orange accents (Nick rejects warm-tinted
-  dark surfaces; orange accent only).
+- Colors: neutral charcoal surfaces, **coral accents only** (Nick changed this
+  from orange to coral on 2026-08-08 — orange kept confusing Claude into making
+  everything orange). No warm-tinted dark surfaces; charcoal + coral only.
+  Coral accent hexes: `#ff7f50` (primary), `#f0653e` (deep).
 
 Related: [[projects/APEX_V3_SESSION_2026-08-07]] · [[projects/Apex v2 — Restaurant OS Build]] · [[Inbox]] · [[hot]] · [[NOW]] · [[index]]

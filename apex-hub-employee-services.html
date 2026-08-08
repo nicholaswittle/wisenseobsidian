@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Hub — Employee & Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#1a1c1e; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:1120px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+  .phone { background:#202326; border-radius:20px; padding:20px; border:1px solid #2e3134; display:flex; flex-direction:column; min-height:600px; }
+  .phone h2 { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:4px; }
+  .phone .sc { font-size:12px; color:#9aa0a6; margin-bottom:16px; }
+  .greeting { font-size:20px; font-weight:700; margin-bottom:2px; }
+  .subline { font-size:12px; color:#9aa0a6; margin-bottom:16px; }
+  .assist { background:#23262a; border:1px solid #2e3134; border-radius:12px; padding:11px 14px; display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .assist .orb { width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#ff7f50,#f0653e); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; }
+  .assist .txt { flex:1; }
+  .assist .q { font-size:12px; color:#d1d5db; font-weight:500; }
+  .assist .hint { font-size:10px; color:#6b7280; }
+  .assist .mic { color:#ff7f50; font-size:14px; }
+  .hero { background:#26292d; border:1px solid #2e3134; border-radius:14px; padding:16px; margin-bottom:12px; }
+  .hero .lbl { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:4px; }
+  .hero .num { font-size:26px; font-weight:700; line-height:1; }
+  .hero .num small { font-size:14px; color:#9aa0a6; font-weight:500; }
+  .hero .why { font-size:11px; color:#6fcf97; margin-top:6px; font-weight:500; }
+  .health { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
+  .widget { background:#23262a; border:1px solid #2e3134; border-radius:10px; padding:12px 8px; text-align:center; position:relative; }
+  .widget .v { font-size:18px; font-weight:700; line-height:1; }
+  .widget .l { font-size:9px; color:#6b7280; text-transform:uppercase; letter-spacing:.6px; margin-top:4px; }
+  .widget.warn { border-color:#3a3d41; }
+  .widget.warn .v { color:#ff7f50; }
+  .widget.ok .v { color:#6fcf97; }
+  .widget .edit { position:absolute; top:4px; right:6px; font-size:10px; color:#4b4f54; }
+  .attn .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .attn .item { background:#26292d; border:1px solid #2e3134; border-left:3px solid #ff7f50; border-radius:8px; padding:10px 12px; margin-bottom:6px; }
+  .attn .item .t { font-size:13px; font-weight:600; }
+  .attn .item .d { font-size:11px; color:#9aa0a6; margin-top:2px; }
+  .spacer { flex:1; }
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; padding:4px 0; }
+  .nav .n.act { color:#ff7f50; }
+  .nav .n .i { font-size:19px; line-height:1; }
+  .nav .n .l { font-size:9px; margin-top:4px; }
+  .nav .n.ask .i { font-size:21px; }
+  .nav .n.ask .l { color:#ff7f50; }
+  .note { grid-column:1/-1; font-size:11px; color:#6b7280; line-height:1.6; margin-top:8px; padding:14px; background:#202326; border-radius:10px; border:1px dashed #2e3134; }
+  .note b { color:#d1d5db; }
+  .note .k { color:#ff7f50; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Hub — Employee &amp; Services owner</h1>
+  <div class="sub">Same shape as the restaurant owner hub. Each role's glance leads with what they open the app for, and the 3-slot strip is theirs to choose.</div>
+
+  <div class="row">
+    <!-- EMPLOYEE -->
+    <div class="phone">
+      <h2>Restaurant employee</h2>
+      <div class="sc">Emily · Server · their 3 picks</div>
+      <div class="greeting">Hey Emily</div>
+      <div class="subline">Your day · Thursday 13</div>
+
+      <div class="assist">
+        <div class="orb">✦</div>
+        <div class="txt"><div class="q">Need a shift covered?</div><div class="hint">Ask it anything — swaps, time off, your pay</div></div>
+        <div class="mic">🎤</div>
+      </div>
+
+      <div class="hero">
+        <div class="lbl">Your next shift</div>
+        <div class="num">5:00 – 10:00<span style="font-size:12px;color:#6b7280;font-weight:500"> pm · Bar</span></div>
+        <div class="why">Tonight · clock in when you get here</div>
+      </div>
+
+      <div class="health">
+        <div class="widget ok"><div class="v">$650</div><div class="l">My tips</div><div class="edit">✎</div></div>
+        <div class="widget ok"><div class="v">12.5</div><div class="l">Hrs this week</div><div class="edit">✎</div></div>
+        <div class="widget warn"><div class="v">1</div><div class="l">Open shift</div><div class="edit">✎</div></div>
+      </div>
+
+      <div class="attn">
+        <div class="h">Handoff from last crew</div>
+        <div class="item"><div class="t">"Kegs low on the house IPA — order more"</div><div class="d">From the closing note</div></div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="nav">
+        <div class="n act"><div class="i">⌂</div><div class="l">Home</div></div>
+        <div class="n"><div class="i">📅</div><div class="l">Schedule</div></div>
+        <div class="n"><div class="i">💵</div><div class="l">My pay</div></div>
+        <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+      </div>
+    </div>
+
+    <!-- SERVICES OWNER -->
+    <div class="phone">
+      <h2>Services owner</h2>
+      <div class="sc">Landscaper · their 3 picks</div>
+      <div class="greeting">Good afternoon, Dan</div>
+      <div class="subline">Green &amp; Sons Landscaping · Thursday 13</div>
+
+      <div class="assist">
+        <div class="orb">✦</div>
+        <div class="txt"><div class="q">What do you need done today?</div><div class="hint">Ask it anything — quotes, crews, jobs</div></div>
+        <div class="mic">🎤</div>
+      </div>
+
+      <div class="hero">
+        <div class="lbl">Owed for work agreed</div>
+        <div class="num">$2,840<small>.00</small></div>
+        <div class="why">4 jobs booked · 2 waiting on a reply</div>
+      </div>
+
+      <div class="health">
+        <div class="widget warn"><div class="v">2</div><div class="l">Open quotes</div><div class="edit">✎</div></div>
+        <div class="widget ok"><div class="v">4</div><div class="l">Jobs this week</div><div class="edit">✎</div></div>
+        <div class="widget ok"><div class="v">3/3</div><div class="l">Crew out</div><div class="edit">✎</div></div>
+      </div>
+
+      <div class="attn">
+        <div class="h">Needs you</div>
+        <div class="item"><div class="t">2 quotes waiting on a reply</div><div class="d">Sent Thursday — text the link</div></div>
+        <div class="item"><div class="t">No one on the mowing route Friday</div><div class="d">Open slot · 6 jobs</div></div>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="nav">
+        <div class="n act"><div class="i">⌂</div><div class="l">Home</div></div>
+        <div class="n"><div class="i">🧾</div><div class="l">Jobs</div></div>
+        <div class="n"><div class="i">📅</div><div class="l">Schedule</div></div>
+        <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Employee:</b> leads with <span class="k">their next shift</span>, 3-slot strip defaults to <span class="k">My tips / Hours / Open shift</span>, and the handoff note surfaces where it's read. Bottom nav is leaner — Home·Schedule·My pay·Ask.<br><br>
+    <b>Services owner:</b> leads with <span class="k">owed for work agreed</span> (not "taken today" — a landscaper's money is booked jobs, not counter sales), strip defaults to <span class="k">Open quotes / Jobs / Crew out</span>, and the bottom nav swaps Orders→<span class="k">Jobs</span> (a services business has jobs, not counter orders). The 2-year-old shape, the configurable 3-slot strip, and the AI agent in the bottom bar are identical across all three.
+  </div>
+</div>
+</body>
+</html>

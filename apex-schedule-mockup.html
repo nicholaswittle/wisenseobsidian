@@ -21,17 +21,17 @@
   .top .t { font-size:18px; font-weight:700; }
   .top .badge { margin-left:auto; font-size:10px; background:#2a2d31; color:#9aa0a6; padding:4px 8px; border-radius:6px; }
   /* draft notice */
-  .draft { background:#2a2416; border:1px solid #4a3a1a; border-radius:10px; padding:10px 12px; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
-  .draft .dot { width:8px; height:8px; border-radius:50%; background:#f97316; flex-shrink:0; }
+  .draft { background:#26292d; border:1px solid #3a3d41; border-radius:10px; padding:10px 12px; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+  .draft .dot { width:8px; height:8px; border-radius:50%; background:#ff7f50; flex-shrink:0; }
   .draft .txt { font-size:12px; color:#e8d5a8; flex:1; }
-  .draft .txt b { color:#f97316; }
+  .draft .txt b { color:#ff7f50; }
   /* week strip */
   .week { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:14px; }
   .day { background:#23262a; border:1px solid #2e3134; border-radius:8px; padding:8px 4px; text-align:center; }
-  .day.today { border-color:#f97316; }
+  .day.today { border-color:#ff7f50; }
   .day .d { font-size:9px; color:#6b7280; text-transform:uppercase; }
   .day .n { font-size:15px; font-weight:700; margin-top:2px; }
-  .day .count { font-size:9px; color:#f97316; margin-top:2px; }
+  .day .count { font-size:9px; color:#ff7f50; margin-top:2px; }
   /* schedule rows */
   .sched .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
   .shift { background:#26292d; border:1px solid #2e3134; border-radius:10px; padding:10px 12px; margin-bottom:6px; display:flex; align-items:center; gap:12px; }
@@ -40,7 +40,7 @@
   .shift .name { font-size:13px; font-weight:600; }
   .shift .role { font-size:11px; color:#6b7280; }
   .shift .when { font-size:12px; font-weight:500; color:#d1d5db; }
-  .shift .new { font-size:9px; background:#3a2c1a; color:#f97316; padding:2px 6px; border-radius:5px; }
+  .shift .new { font-size:9px; background:#2a2d31; color:#ff7f50; padding:2px 6px; border-radius:5px; }
   /* the 3 buttons */
   .actions { margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
   .actions .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:10px; }
@@ -48,13 +48,13 @@
   .btn .ic { font-size:16px; }
   .btn .sub { font-size:11px; font-weight:400; color:#9aa0a6; }
   .btn .arrow { margin-left:auto; font-size:18px; }
-  .btn.add { background:#f97316; color:#1a140d; }
-  .btn.add .sub { color:#4a2c0a; }
+  .btn.add { background:#ff7f50; color:#1a140d; }
+  .btn.add .sub { color:#f0653e; }
   .btn.ghost { background:#26292d; border:1px solid #2e3134; color:#e8eaed; }
   .btn.pub { background:#1f5136; color:#d1fae5; }
   .note { grid-column:1/-1; font-size:11px; color:#6b7280; line-height:1.6; margin-top:8px; padding:14px; background:#202326; border-radius:10px; border:1px dashed #2e3134; }
   .note b { color:#d1d5db; }
-  .note .k { color:#f97316; }
+  .note .k { color:#ff7f50; }
 </style>
 </head>
 <body>
@@ -144,7 +144,7 @@
   </div>
 
   <div class="note">
-    <b>The rule, made concrete:</b> to make and edit a schedule, an owner gets exactly <span class="k">3 buttons</span> — <b>Add a shift, Edit a shift, Publish/Pause this week</b>. Not a toolbar, not a menu, not a list of twelve actions. The draft model does the heavy lifting: shifts pile up invisibly, and the single "Publish this week" button is the one place everyone gets told. When there's a draft, the button says <span class="k">Publish</span> (orange); when it's live, it becomes <span class="k">Pause</span>. Same three buttons, every state, nothing to hunt for.
+    <b>The rule, made concrete:</b> to make and edit a schedule, an owner gets exactly <span class="k">3 buttons</span> — <b>Add a shift, Edit a shift, Publish/Pause this week</b>. Not a toolbar, not a menu, not a list of twelve actions. The draft model does the heavy lifting: shifts pile up invisibly, and the single "Publish this week" button is the one place everyone gets told. When there's a draft, the button says <span class="k">Publish</span> (coral); when it's live, it becomes <span class="k">Pause</span>. Same three buttons, every state, nothing to hunt for.
   </div>
 </div>
 </body>

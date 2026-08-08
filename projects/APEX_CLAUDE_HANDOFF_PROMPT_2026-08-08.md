@@ -42,8 +42,9 @@ Implement it under these rules:
    input is missing; don't render a blank or a hardcoded figure.
 6. The 2-year-old test governs: one obvious named next action, no jargon, no
    dead ends. This is Nick's standing bar.
-7. Colors: neutral charcoal surfaces, orange accents only. No warm-tinted dark
-   backgrounds.
+7. Colors: neutral charcoal surfaces, CORAL accents only — NOT orange. Use
+   coral #ff7f50 (primary) / #f0653e (deep). Do not make everything coral; it is
+   an accent. No warm-tinted dark surfaces — keep surfaces neutral charcoal.
 
 Show me the finished screen when it's done, and confirm it follows the 3-slot +
 bottom-nav layout from the mockup.
