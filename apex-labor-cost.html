@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Labor Cost</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#141517; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:420px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .phone { background:#1a1b1d; border-radius:20px; padding:20px; border:1px solid #2e3134; display:flex; flex-direction:column; min-height:660px; }
+  .top { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .back { width:30px; height:30px; border-radius:8px; background:#232528; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .top .t { font-size:17px; font-weight:700; }
+  .top .badge { margin-left:auto; font-size:10px; background:#1c2b22; color:#8fe3b4; border:1px solid #2c4a38; padding:4px 8px; border-radius:6px; }
+  /* the big number — refusal state */
+  .big { background:#232528; border:1px solid #2e3134; border-radius:14px; padding:16px; margin-bottom:12px; }
+  .big .lbl { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .big .refuse { font-size:18px; font-weight:700; color:#ffb88c; }
+  .big .why { font-size:12px; color:#9aa0a6; margin-top:8px; line-height:1.5; }
+  /* projected sales entry */
+  .entry { background:#232528; border:1px solid #2e3134; border-radius:12px; padding:14px; margin-bottom:16px; }
+  .entry .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .entry .field { display:flex; gap:8px; }
+  .entry input { flex:1; background:#1a1b1d; border:1px solid #3a3d41; border-radius:8px; padding:11px 12px; color:#e8eaed; font-size:14px; }
+  .entry .apply { background:#ff7f50; color:#241510; border:none; border-radius:8px; padding:11px 16px; font-weight:700; font-size:13px; }
+  .entry .note { font-size:10px; color:#6b7280; margin-top:8px; }
+  /* comparison rows */
+  .comp { margin-bottom:16px; }
+  .row { display:flex; justify-content:space-between; background:#1e2023; border:1px solid #2e3134; border-radius:8px; padding:10px 12px; margin-bottom:6px; }
+  .row .n { font-size:13px; font-weight:600; }
+  .row .v { font-size:13px; font-weight:600; }
+  .row.sched .v { color:#e8eaed; }
+  .row.act .v { color:#6fcf97; }
+  .row.var .v { color:#ffb88c; }
+  /* warning */
+  .warn { background:#2a2416; border:1px solid #4a3a2a; border-radius:10px; padding:10px 12px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+  .warn .dot { width:8px; height:8px; border-radius:50%; background:#ff7f50; flex-shrink:0; }
+  .warn .txt { font-size:11px; color:#e8d5a8; flex:1; }
+  .spacer { flex:1; }
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; padding:4px 0; }
+  .nav .n.act { color:#ff7f50; }
+  .nav .n .i { font-size:19px; line-height:1; }
+  .nav .n .l { font-size:9px; margin-top:4px; }
+  .nav .n.ask .i { font-size:21px; }
+  .nav .n.ask .l { color:#ff7f50; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Labor Cost</h1>
+  <div class="sub">v2's best screen, built right. Refuses a number it can't compute — names the missing input.</div>
+
+  <div class="phone">
+    <div class="top">
+      <div class="back">‹</div>
+      <div class="t">Labor cost</div>
+      <div class="badge">this week</div>
+    </div>
+
+    <div class="big">
+      <div class="lbl">Labor cost</div>
+      <div class="refuse">Can't work this out yet</div>
+      <div class="why">"Labor cost % needs a sales figure. Order sales aren't in yet — enter a projected figure below to unlock the %."</div>
+    </div>
+
+    <div class="entry">
+      <div class="h">Enter projected sales</div>
+      <div class="field">
+        <input type="text" placeholder="$ 0.00" value="$3,200">
+        <button class="apply">Apply</button>
+      </div>
+      <div class="note">You entered $3,200. The % unlocks once you Apply.</div>
+    </div>
+
+    <div class="comp">
+      <div class="row sched"><div class="n">Scheduled</div><div class="v">$36.00 · 12 hrs</div></div>
+      <div class="row act"><div class="n">Actual</div><div class="v">$0.00 · 0 hrs</div></div>
+      <div class="row var"><div class="n">Variance</div><div class="v">—</div></div>
+    </div>
+
+    <div class="warn">
+      <div class="dot"></div>
+      <div class="txt">Emily is still clocked in — their hours aren't in the actual yet.</div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="nav">
+      <div class="n"><div class="i">⌂</div><div class="l">Home</div></div>
+      <div class="n"><div class="i">🕐</div><div class="l">Clock</div></div>
+      <div class="n act"><div class="i">📊</div><div class="l">Labor</div></div>
+      <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

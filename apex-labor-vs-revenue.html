@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Labor vs Revenue</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#141517; color:#e8eaed; font-family:'Inter',sans-serif; padding:32px; }
+  .wrap { max-width:420px; margin:0 auto; }
+  h1 { font-size:15px; font-weight:600; color:#9aa0a6; letter-spacing:.3px; margin-bottom:6px; }
+  .sub { font-size:12px; color:#6b7280; margin-bottom:24px; }
+  .phone { background:#1a1b1d; border-radius:20px; padding:20px; border:1px solid #2e3134; display:flex; flex-direction:column; min-height:680px; }
+  .top { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+  .back { width:30px; height:30px; border-radius:8px; background:#232528; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .top .t { font-size:17px; font-weight:700; }
+  .top .badge { margin-left:auto; font-size:10px; background:#1c2b22; color:#8fe3b4; border:1px solid #2c4a38; padding:4px 8px; border-radius:6px; }
+  /* the band */
+  .band { background:#232528; border:1px solid #2e3134; border-radius:14px; padding:16px; margin-bottom:12px; }
+  .band .lbl { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:6px; }
+  .band .pct { font-size:34px; font-weight:700; color:#6fcf97; }
+  .band .tag { display:inline-block; font-size:11px; font-weight:600; background:#1c2b22; color:#8fe3b4; border:1px solid #2c4a38; border-radius:6px; padding:3px 8px; margin-top:6px; }
+  .band .why { font-size:11px; color:#9aa0a6; margin-top:8px; }
+  /* three money numbers */
+  .moneys { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
+  .m { background:#1e2023; border:1px solid #2e3134; border-radius:10px; padding:12px 10px; text-align:center; }
+  .m .v { font-size:17px; font-weight:700; }
+  .m .l { font-size:9px; color:#6b7280; text-transform:uppercase; letter-spacing:.5px; margin-top:4px; }
+  .m.rev .v { color:#6fcf97; }
+  /* entry */
+  .entry { background:#232528; border:1px solid #2e3134; border-radius:12px; padding:14px; margin-bottom:16px; }
+  .entry .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .entry .field { display:flex; gap:8px; }
+  .entry input { flex:1; background:#1a1b1d; border:1px solid #3a3d41; border-radius:8px; padding:11px 12px; color:#e8eaed; font-size:14px; }
+  .entry .apply { background:#ff7f50; color:#241510; border:none; border-radius:8px; padding:11px 16px; font-weight:700; font-size:13px; }
+  .entry .note { font-size:10px; color:#6b7280; margin-top:8px; }
+  /* recent orders */
+  .orders .h { font-size:10px; text-transform:uppercase; letter-spacing:1.2px; color:#6b7280; margin-bottom:8px; }
+  .o { display:flex; justify-content:space-between; background:#1e2023; border:1px solid #2e3134; border-radius:8px; padding:10px 12px; margin-bottom:6px; }
+  .o .n { font-size:12px; font-weight:500; }
+  .o .v { font-size:12px; color:#9aa0a6; }
+  .o .v.paid { color:#6fcf97; }
+  .spacer { flex:1; }
+  .nav { display:flex; justify-content:space-around; margin-top:16px; padding-top:14px; border-top:1px solid #2e3134; }
+  .nav .n { text-align:center; color:#6b7280; padding:4px 0; }
+  .nav .n.act { color:#ff7f50; }
+  .nav .n .i { font-size:19px; line-height:1; }
+  .nav .n .l { font-size:9px; margin-top:4px; }
+  .nav .n.ask .i { font-size:21px; }
+  .nav .n.ask .l { color:#ff7f50; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Apex Labor vs Revenue</h1>
+  <div class="sub">The ratio — with a healthy band, and a refusal when it can't be computed.</div>
+
+  <div class="phone">
+    <div class="top">
+      <div class="back">‹</div>
+      <div class="t">Labor vs revenue</div>
+      <div class="badge">this week</div>
+    </div>
+
+    <div class="band">
+      <div class="lbl">Labor cost</div>
+      <div class="pct">19%</div>
+      <div><span class="tag">Healthy — under 25%</span></div>
+      <div class="why">Revenue: $114 · only 5 orders so far this week.</div>
+    </div>
+
+    <div class="moneys">
+      <div class="m rev"><div class="v">$1,240</div><div class="l">Revenue</div></div>
+      <div class="m"><div class="v">$236</div><div class="l">Labor</div></div>
+      <div class="m"><div class="v">$1,004</div><div class="l">Margin</div></div>
+    </div>
+
+    <div class="entry">
+      <div class="h">Enter today's sales</div>
+      <div class="field">
+        <input type="text" placeholder="$ 0.00" value="$640">
+        <button class="apply">Apply</button>
+      </div>
+      <div class="note">Order sales aren't in Supabase yet — entering a figure keeps the % honest.</div>
+    </div>
+
+    <div class="orders">
+      <div class="h">This week's orders</div>
+      <div class="o"><div class="n">Order #1024 · pick-up</div><div class="v paid">$42.50</div></div>
+      <div class="o"><div class="n">Order #1023 · counter</div><div class="v paid">$18.00</div></div>
+      <div class="o"><div class="n">Order #1022 · waiting</div><div class="v">$24.00</div></div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="nav">
+      <div class="n"><div class="i">⌂</div><div class="l">Home</div></div>
+      <div class="n"><div class="i">🕐</div><div class="l">Clock</div></div>
+      <div class="n act"><div class="i">📊</div><div class="l">Labor</div></div>
+      <div class="n ask"><div class="i">✦</div><div class="l">Ask</div></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
