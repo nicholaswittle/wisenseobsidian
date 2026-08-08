@@ -430,6 +430,14 @@ Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISION
 - **[WHY]** retention lever — the app feels like the owner runs it, not a rented
   tool. What's "most important" differs per owner; let them pick.
 
+## 2026-08-08 (later) — Reusable Claude handoff prompt
+
+- **[NEW] `projects/APEX_CLAUDE_HANDOFF_PROMPT_2026-08-08.md`** — a copy-paste
+  prompt for handing accepted designs to Claude. Points it at the spec + mockups
+  and pins the rules (no Go-to section, 3-slot widgets, read-or-refuse,
+  2-year-old test, charcoal+orange) so it stops improvising. Includes what to
+  change per screen and what to verify when Claude returns.
+
 ## 2026-08-07 · Apex v3 — the services pack
 
 Cold-user testing on v3's onboarding, then the strategic question settled: v2 is
