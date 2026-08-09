@@ -438,15 +438,21 @@ Related: [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]], [[DECISION
   2-year-old test, charcoal+orange) so it stops improvising. Includes what to
   change per screen and what to verify when Claude returns.
 
+## 2026-08-08 — v3 merged to main + live-testing fixes list
+
+- **[NEW] `projects/APEX_V3_FIXES_LIST_2026-08-08.md`** — Nick's live-testing
+  fixes list. Website won't show jobs / update quote form; no AI monitor; AI
+  agent spits generic "can't see your apex"; super admin not split by
+  restaurant/services; no color choices; no AI suggest on blank boxes; no photo
+  upload feedback; two non-talking services portals; services pricing cents-only;
+  clock-in code placement; remove home-page AI block (keep Ask in bottom bar);
+  v2 website builder nicer. **Headline: backend is an A, v2's UI features are
+  better designed — port v2's feature design onto v3's cleaner UI.**
+- **[MERGE]** `feat/hermes-screens` merged to `main` via PR #2 (origin/main HEAD
+  `ec4711e`). 120 commits landed. Suite green (605 tests), analyzer clean.
+
 ## 2026-08-08 — v3 remaining modules roadmap + first mockup
 
-- **[NEW] `projects/APEX_V3_REMAINING_MODULES_2026-08-08.md`** — the v2→v3 gap,
-  in build order. Already built: scheduling, shiftSwaps, orders, notifications,
-  serviceRequests, operations, team, onboarding, hub. Not built: time clock,
-  labor cost, labor vs revenue, smart capacity, menu/86 board, QR wall, tip
-  pool, my tips, team chat, call-outs, log book, sidework. Payroll export never
-  existed in v2 — skip. **Dependency chain: clock → labor cost → labor vs
-  revenue** (the $99/mo killer feature needs punches first).
 - **[MOCKUP] `apex-time-clock.html`** — the time clock (foundation module). Big
   clock, 3 buttons (Clock in / Start a break / Fix a punch), today's punches,
   bottom nav Home·Clock·My pay·Ask. Coral #ff7f50.

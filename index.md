@@ -127,3 +127,4 @@ Related: [[hot]], [[NOW]], [[log]]
 - [[projects/APEX_HUB_DESIGN_2026-08-08]] — accepted owner hub design: money hero + health strip + needs-you + bottom-bar nav with the AI agent.
 - [[projects/APEX_CLAUDE_HANDOFF_PROMPT_2026-08-08]] — reusable copy-paste prompt for handing accepted designs to Claude (spec + mockups + rules).
 - [[projects/APEX_V3_REMAINING_MODULES_2026-08-08]] — v3 gap list vs v2, in build order (time clock → labor → capacity → money → comms).
+- [[projects/APEX_V3_FIXES_LIST_2026-08-08]] — live-testing fixes: website/services/AI/admin gaps. Backend is an A, v2's UI features are better designed.
