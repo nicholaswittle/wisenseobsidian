@@ -181,4 +181,19 @@ no authority to commit it.
 **The funnel fit is worth noting:** their Square report shows labor tracking at
 **0.0%** and orders **−14%**. The free tier addresses the first with something
 they have no substitute for; the OS tier addresses the second. The wedge is the
-free scheduling, not the ordering — ordering is the upsell.
+The free scheduling, not the ordering — ordering is the upsell.
+
+---
+
+## Update 2026-08-11 — separate Jigsy's website, launch prep underway
+
+Jigsy's brought up the website and wants to start getting it ready for launch —
+this is Nicholas's current priority and the driver behind getting v3 correct.
+
+**Setup:** there is a **separate Jigsy's site on Vercel** that **v3 can also
+control** — i.e. two coordinated surfaces: the Jigsy's storefront (being built
+for launch) + v3 behind it (scheduling/timeclock/labor) once the pilot is live.
+
+Known launch blocker (from NOW.md): `NEXT_PUBLIC_SHOWCASE_VENUE=jigsys-enola-7c2a`
+not yet set in Vercel — unset, landing-page links render nothing. Set it before
+launch.
