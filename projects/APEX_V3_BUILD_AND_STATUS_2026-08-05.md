@@ -8,6 +8,14 @@ status: active
 
 # Apex v3 — Build Plan and Status
 
+> **STATUS UPDATE 2026-08-11 — V3 ON TESTFLIGHT.** V3 is officially on
+> TestFlight (confirmed by Nicholas 2026-08-11). In testing phase; GitHub CI
+> runners are on hold (account billing hold — jobs fail with "payments have
+> failed" before starting), but local `flutter analyze` + full suite remain
+> the ground truth and stay green. Migration-ledger watchdog live (cron
+> `8f47b44492b0` 30min) — caught a transient rename drift on the AI
+> control-plane migrations (2026081104xxx), which self-resolved to match prod.
+
 > **STATUS UPDATE 2026-08-07 — Phase 1 WELL UNDERWAY.** The vault snapshot below
 > (written 08-05) is 60+ commits out of date. The authoritative plan is now
 > `apex_v3/docs/MASTER_PLAN.md` (canonical 08-06; its Status section is itself
