@@ -20,6 +20,15 @@ in `projects/`, `business/`, `company/`, etc. You don't do that here.
 **How to use it:** append a new dated entry at the bottom. One idea per entry is
 fine, three is fine, a sentence is fine, a page is fine.
 
+**The weekly harvest (see [[NOW]])** turns these raw notes into proper vault notes
+in `projects/`, `business/`, `company/`, etc. You don't do that here.
+
+**Automated since 2026-08-10:** Hermes runs the harvest every Monday 9am (cron
+`8f47b44492b0`) and files unfiled entries into proper notes, keeping
+`index.md`/`hot.md`/`NOW.md`/`log.md` in sync. You can also just dump a thought
+in Telegram and Hermes captures it here for you. See the `wisense-vault-intake`
+skill.
+
 ---
 
 ## Capture log
