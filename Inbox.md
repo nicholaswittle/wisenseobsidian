@@ -56,3 +56,8 @@ skill.
   test passed. Also had a strong "surprise factor" reaction on first seeing the
   website — 2nd person now who thought it was really cool. Two independent
   reactions = pattern, not fluke. Design language is landing.
+- **Onboarding usability win #2 (9-year-old)** — Nick's 9-year-old went through
+  onboarding today, understood ~90%, needed very minimal instruction. Strongest
+  "grandma test" yet. Bonus: Nick told his son NOTHING about what he was doing or
+  what the app is — son didn't even realize he was making a site. That's the
+  "it just works" moment. Onboarding is genuinely intuitive.
