@@ -49,3 +49,10 @@ skill.
   "$10B / operating system" framing (genius trap — keep $300/mo north star); avoid
   regulated satellites early (Capital/lending, Guard/insurance) — go Supply or Pulse
   first. Duplicate copy exists in the OneDrive vault — decide canonical vault.
+
+## 2026-08-11
+- **Onboarding usability win (validation)** — Nick's son (no job/business
+  experience) did the Apex onboarding and sailed through it. Fresh-eyes usability
+  test passed. Also had a strong "surprise factor" reaction on first seeing the
+  website — 2nd person now who thought it was really cool. Two independent
+  reactions = pattern, not fluke. Design language is landing.
