@@ -75,6 +75,14 @@ website — the **2nd person** now who thought it was really cool (the landscape
 was the 1st, §1). Two independent reactions = a pattern, not a fluke. The
 design language is landing.
 
+**The son's own words, asked for his honest opinion of the onboarding:**
+> "That it made the whole website for you, and it was easy to use."
+
+That is the product thesis verbatim from a non-user. "It made the whole website
+for you" = the demo is the product, setup became edits to something that already
+exists. "Easy to use" = the Toddler Bar holding. Both halves of the §1 implication
+confirmed by the freshest possible eyes.
+
 **Read together:** the 08-06 cold-user failure (near-uninstall) and the 08-11
 double pass bracket the rework. The fixes shipped on 08-06 — Suggest buttons,
 "Next: <first unfinished step>", plain-language Stripe copy, the site preview
