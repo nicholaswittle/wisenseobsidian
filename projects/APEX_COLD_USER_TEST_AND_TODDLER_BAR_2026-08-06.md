@@ -1,7 +1,7 @@
 ---
 title: "Apex — Cold-User Test, the Toddler Bar, and the 2026-08-06 Rework"
 tags: [apex, services, ux, cold-user-test, design-bar, v2]
-updated: 2026-08-06
+updated: 2026-08-11
 ---
 
 # Apex — Cold-User Test, the Toddler Bar, and the 2026-08-06 Rework
@@ -56,6 +56,32 @@ commercially useful half of it:
 
 Read together: **the demo is the product.** The site preview is the hook and
 online pay is the want; the checklist standing between them is the problem.
+
+## 1b. The 2026-08-11 follow-up — the bar holds
+
+Two fresh-eyes tests on 2026-08-11, both clean passes against the Toddler Bar:
+
+1. **Nicholas's son** (no job or business experience) did the onboarding and
+   sailed through it. Nicholas told him *nothing* about what he was doing or
+   what the app is — the son didn't even realize he was making a site. That is
+   the "it just works" moment: the funnel converted setup into something that
+   already exists and is *his*, exactly the §1 implication.
+2. **Nicholas's 9-year-old** went through onboarding the same day, understood
+   ~90%, needed very minimal instruction. The strongest "grandma test" yet — a
+   kid with zero context, no politeness, no assumptions.
+
+Also: the son had a strong "surprise factor" reaction on first seeing the
+website — the **2nd person** now who thought it was really cool (the landscaper
+was the 1st, §1). Two independent reactions = a pattern, not a fluke. The
+design language is landing.
+
+**Read together:** the 08-06 cold-user failure (near-uninstall) and the 08-11
+double pass bracket the rework. The fixes shipped on 08-06 — Suggest buttons,
+"Next: <first unfinished step>", plain-language Stripe copy, the site preview
+as the payoff — demonstrably moved the funnel from "would have uninstalled" to
+"a 9-year-old gets 90% with no help." The Toddler Bar is working; the biggest
+remaining swing (§6.1, the seven-noun checklist → one-question conveyor) is
+still the one to chase.
 
 ## 2. The Toddler Bar — the governing rule
 
