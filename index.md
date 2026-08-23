@@ -37,10 +37,16 @@ updated: 2026-08-02
 
 ## Projects — Apex (active)
 
+- [[projects/APEX_CORE_AND_COMMS_2026-08-23]] — **START HERE** the two apps, the seam between them, the naming, and what actually gates launch. Supersedes the `APEX_V3_*` notes as *status*; they remain as history.
+
 - [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] — first outside user, the toddler bar, the 08-06 rework
 - [[projects/APEX_V3_BUILD_AND_STATUS_2026-08-05]] — v3 rebuild: plan, review rounds, Phase 0 status
 - [[projects/APEX_V3_OPEN_ITEMS_2026-08-06]] — v3 running open-items list (private; moved out of public repo)
 - [[projects/APEX_V3_VS_V2_ASSESSMENT_2026-08-05]] — honest v3-vs-v2 + v2 current-state read
+- [[projects/APEX_V3_VS_V2_AUDIT_2026-08-09]] — product/UX audit (backend A, UI features C+)
+- [[projects/APEX_V3_REMEDIATION_PLAN_2026-08-09]] — **START HERE** full fix plan (Week 1–4)
+- [[projects/APEX_V3_FIXES_LIST_2026-08-08]] — live-test gap list that drove the 08-09 audit
+- [[projects/APEX_V3_REMAINING_MODULES_2026-08-08]] — module build order (clock → labor → …)
 - [[projects/apex_family_ecosystem]] — the 10-app ecosystem vision (Apex as a spine; Sun Strategy + API play)
 - [[projects/APEX_PUBLIC_API_SKETCH_2026-08-07]] — the v3 operations layer IS the API; how a satellite (Supply) plugs in
 - [[projects/APEX_AUDIT_FABLE5_2026-08-03]] — Fable 5 deep audit (v2/services, grade C+)

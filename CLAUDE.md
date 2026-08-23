@@ -26,8 +26,14 @@ Curated static reference for cross-project decisions, launch planning, governanc
 
 ## Active apps (paths only — status in [[hot]])
 
+> **Apex Core is the product formerly called Apex v3.** The folder and bundle
+> id still say `v3` on purpose — see [[projects/APEX_CORE_AND_COMMS_2026-08-23]].
+> Live status is `apex_v3/docs/STATE.md`, not this vault.
+
 | App | Path |
 |-----|------|
+| **Apex Core** (icon says *Apex*) | `C:\development\projects\apex_v3` |
+| **Apex Comms** | `C:\development\projects\apex_comms` |
 | Apex v2 | `C:\development\projects\apex_v2` |
 | Apex v2 build/site | `C:\development\projects\apex_v2_build` |
 | Apex Scheduler (dormant) | `C:\development\projects\apex\apex` |

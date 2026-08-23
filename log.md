@@ -10,6 +10,24 @@ Append-only event log of all AI agent ingestions, queries, and structural vault 
 
 ---
 
+- **[TEST KITCHEN VENUE WEEK CLOSED]** (2026-08-21): Phase 5 §D closed. Seven consecutive Test Kitchen operating days were 12–18 Aug (order + nightly AI every day; punches only 12–13, which was the stated minimum). Extra dogfood 19–21 Aug is not remaining week. Optional Ask-read and Accept-and-print never required. Jigsy’s was out of scope (zero orders). Source: `docs/PHASE_5_TESTFLIGHT_VENUE_WEEK.md`.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN — VENUE WEEK COMPLETE]** (2026-08-21): Live product use, measured on `apex-v3-prod`. Cron wrote 11 `ai_shadow_reviews` for review_date 2026-08-21 (~10:50 UTC / 06:50 ET). Nicholas graded **useful** at 12:58 ET: JR Property Maintenance (1) and Test Kitchen (2 proposals). Ungraded: WiSense llc (1), Jigsy's (4), test url, test web, momma Jon's, plus ZZ retired rows. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 12:58 ET, `completed` in 4s. Zero Jigsy's orders that ET day. Eighth consecutive logged day (14–21 Aug). Test Kitchen venue week is **7/7** (runbook days 1–7 were 12–18 Aug). Shadow reviews stay proposals-only.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN]** (2026-08-20): Live product use, measured on `apex-v3-prod`. Cron wrote 11 `ai_shadow_reviews` for review_date 2026-08-20 (~10:49 UTC / 06:49 ET). Nicholas graded **useful** at 23:21 ET: Test Kitchen (2 proposals), WiSense llc (1), JR Property Maintenance (1). Ungraded: Jigsy's (4), test url, test web, momma Jon's, plus ZZ retired rows. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 18:55 ET, accepted then `completed` by 18:55 (16s). Zero Jigsy's orders that ET day. Seventh consecutive operating day (14–20 Aug). Shadow reviews stay proposals-only.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN]** (2026-08-19): Live product use, measured on `apex-v3-prod`. Cron wrote 11 `ai_shadow_reviews` for review_date 2026-08-19 (~10:48 UTC / 06:48 ET). Nicholas graded **useful** at 10:08 ET: JR Property Maintenance (1) and WiSense llc (1). Ungraded: Test Kitchen (2 proposals), Jigsy's (4), test url, test web, momma Jon's, plus ZZ retired rows. No `test quote` row today. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 10:08 ET, `completed` in 3s. Zero Jigsy's orders that ET day. Sixth consecutive operating day (14–19 Aug). Shadow reviews stay proposals-only.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN]** (2026-08-18): Live product use, measured on `apex-v3-prod`. Cron wrote 11 `ai_shadow_reviews` for review_date 2026-08-18 (~10:48 UTC / 06:48 ET). Nicholas graded **useful** at 18:38–18:45 ET: Test Kitchen (2 proposals) and test quote (1). Ungraded: JR Property Maintenance (1), Jigsy's (4), test url, test web, momma Jon's, plus ZZ retired rows. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 18:44 ET, `completed` in 4s. Zero Jigsy's orders that ET day. Fifth consecutive operating day (14–18 Aug). Shadow reviews stay proposals-only.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN — WEEKLY DOGFOOD]** (2026-08-17): Live product use, measured on `apex-v3-prod`. Cron wrote 11 `ai_shadow_reviews` for review_date 2026-08-17 (~10:49 UTC / 06:49 ET). Nicholas graded **useful** at 13:56–13:57 ET: Test Kitchen (2 proposals), JR Property Maintenance (1), test quote (1). Ungraded: Jigsy's (4), test url, test web, momma Jon's, plus ZZ retired rows. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 13:56 ET, `completed` in 5s. Zero Jigsy's orders that ET day. Fourth consecutive operating day (14–17 Aug). Shadow reviews stay proposals-only.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN]** (2026-08-16): Live product use, measured on `apex-v3-prod`. Cron wrote 10 `ai_shadow_reviews` for review_date 2026-08-16 (~10:42 UTC / 06:42 ET). Nicholas graded Test Kitchen (2) and JR **useful** at 18:06–18:07 ET. Jigsy's (4), test url, test web, momma Jon's still ungraded. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 18:05 ET, accepted then `completed` by 18:06. Zero Jigsy's orders that ET day. Done the same evening as the live services deposit; the vault log was not written until 17 Aug — the product use was not missed.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDER RAN]** (2026-08-15): Live product use, measured on `apex-v3-prod`. Cron wrote 8 `ai_shadow_reviews` for review_date 2026-08-15 (~10:42 UTC / 06:42 ET). Live orgs: Test Kitchen (2 proposals), JR Property Maintenance (1), Jigsy's (4), test url (1); four ZZ retired orgs also got rows. Nicholas graded Test Kitchen and JR **useful** at 12:46 ET; Jigsy's and test url still ungraded. Kitchen: **1** `online_orders` at Apex Test Kitchen, submitted 12:47 ET, `completed` in 15s. Zero Jigsy's orders that ET day. Shadow reviews stay proposals-only.
+
+- **[NIGHTLY AI GRADED; TEST KITCHEN ORDERS RAN]** (2026-08-14): Live product use, measured on `apex-v3-prod`. GitHub cron wrote 8 `ai_shadow_reviews` for review_date 2026-08-14 (~11:09 UTC / 07:09 ET). Live orgs: Test Kitchen (2 proposals), JR Property Maintenance (1), Jigsy's (4), test url (1); four ZZ retired orgs also got rows. Nicholas graded Test Kitchen and JR **useful** at 21:23–21:24 ET; Jigsy's and test url still ungraded (`outcome` null). Kitchen: **2** `online_orders` at Apex Test Kitchen, both submitted ~21:23 ET — one `completed` in 6s, one left `accepted`. Zero Jigsy's orders that ET day. Shadow reviews stay proposals-only; nothing auto-executed.
+
 - **[ONBOARDING DOUBLE PASS — TODDLER BAR HOLDS]** (2026-08-11): Two fresh-eyes tests both passed clean against the Toddler Bar. Nicholas's son (no job/business experience) sailed through onboarding — told *nothing* about what he was doing, didn't even realize he was making a site. Nicholas's 9-year-old understood ~90% with minimal instruction. Son also had a strong "surprise factor" on first seeing the website — 2nd person (after the 08-06 landscaper) to react that way. Brackets the 08-06 near-uninstall: the rework moved the funnel from "would have uninstalled" to "a 9-year-old gets 90% with no help." Filed to [[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] §1b; Inbox entries marked filed.
 
 - **[APEX V3 VS V2 PRODUCT/UX AUDIT]** (2026-08-09): Ran the Cursor audit prompt against `apex_v3` + `apex_v2` code. Grades: Build A, Completeness B-, UX C+, Launch C. Owner through-line supported. Fleet R/S split FALSE-in-code (`fleet_screen.dart:152-180`); cents pricing CONFIRMED; Ask Apex advice-only by system prompt (`ask-apex/index.ts:87`); push `push_transport_unported`. Remediation P0–P2 in [[projects/APEX_V3_VS_V2_AUDIT_2026-08-09]]. Hot cache updated.
@@ -493,3 +511,28 @@ account), and now asserts its own subject is not exempt first.
 
 ## 2026-08-06 · Apex v3 build session
 38 commits. The AI gate was silently dead since the project began — six functions called an RPC no migration defined. Fixed, plus the CI check that was blind to it. Auth, persistence, onboarding (search-first + manual), restaurant menu flow, staff orders, guest ordering, schedule authoring, and the operation contract (D26–D30, 15 operations, CI-gated). Both AI paths made their first real calls: Google Places found Jigsy's, Anthropic wrote a landscaper's description. parse-menu scored zero wrong prices across five runs on a real menu photo. Three review agents found the reveal's "your site is live" claim was false three ways — verified against the live catalog and corrected the night before three cold-user tests. See [[projects/APEX_V3_SESSION_2026-08-06]].
+
+## 2026-08-23 · Apex Core + Apex Comms filed; the vault did not know either app existed
+
+The Active apps table in [[CLAUDE]] listed Apex v2, a dormant scheduler and
+three dormant projects. **Neither the app that is about to launch nor its
+sibling was in it**, and [[hot]] — the boot cache every agent reads first —
+stopped at 2026-08-09. Two weeks of the most eventful work was invisible to
+anything booting from this vault.
+
+Filed [[projects/APEX_CORE_AND_COMMS_2026-08-23]] as the orientation note:
+what each app is, apart and together, and the seam by which Comms acts inside
+Core as a revocable service user rather than as the owner. Four decisions
+appended to [[DECISIONS]] — the naming and why identifiers stay put, the
+service-user shape, the venue-set deposit cap (settled with counsel, do not
+re-open), and the iOS 18 Tap to Pay floor.
+
+Deliberately did NOT copy live status into the vault. It lives in
+`apex_v3/docs/STATE.md`, which is machine-refreshed and goes red in CI when
+stale — a second hand-maintained copy would rot, and this vault's own rule is
+never to invent live project status. The notes point at it instead.
+
+The number worth carrying: five real-money transactions in Core's entire
+history, **under $17**, zero paying customers, and nobody who is not Nicholas
+has ever used the app. 1165 tests are engineering evidence, not traction.
+

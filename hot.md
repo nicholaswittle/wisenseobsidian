@@ -2,12 +2,59 @@
 type: meta
 title: "Hot Cache"
 tags: [meta, hot-cache, context]
-updated: 2026-08-02
+updated: 2026-08-23
 ---
 
 # Recent Context
 
 > **DISPATCH FROM [[projects/APEX_MASTER_PLAN]].** It is the single ordered view of state, constraints and the work queue. If it disagrees with a tool's memory, the master plan wins.
+
+## Apex Core + Apex Comms — START HERE — 2026-08-23
+
+**Canonical note:** [[projects/APEX_CORE_AND_COMMS_2026-08-23]].
+**Live status is NOT in this vault** — it is `apex_v3/docs/STATE.md`, machine
+refreshed, and CI goes red when it is over seven days stale. Read that before
+asserting anything about state. Everything below is orientation.
+
+**Apex v3 is now Apex Core.** The icon says just **Apex**; "Core" only
+distinguishes it from **Apex Comms** in writing. The folder and bundle id keep
+the `v3` spelling deliberately (App Store record + a live Apple entitlement
+request).
+
+**Two apps.** Core is the business's own app — quotes, jobs, a free hosted
+website, three ways to take money. Comms answers a customer's **text at 3am**
+and books the job into Core through a scoped, revocable partner key. The Core
+half of that seam is deployed; the Comms half that consumes it is not built.
+
+**Honest numbers, 2026-08-23:** five real-money transactions in Core's entire
+history, **under $17 total**. Zero paying customers. Not launched. Two pilots
+committed, not started. ~1165 tests and ~293 migrations are engineering
+evidence, **not traction** — an outside audit graded it B overall, A− on
+engineering, **C+ on UX for a non-technical owner**.
+
+**Nobody who is not Nicholas has ever used it.** The 12–18 Aug venue week
+proved the machine runs seven days; he operated it himself. The
+[[projects/APEX_COLD_USER_TEST_AND_TODDLER_BAR_2026-08-06]] fixes have never
+been re-tested on a cold user. That is the single biggest open risk.
+
+**What gates launch: legal only.** Terms/privacy, SMS consent, Connect
+posture. Tap to Pay does not gate it — the store build ships without the
+entitlement and the card button refuses in plain words.
+
+**The defect class to know before reading any Apex code:** *a failure
+returning the reassuring answer.* Seven found in one week, each writing a
+false reason into a ledger somebody would later read. Now CI-gated.
+
+---
+
+## Apex v3 remediation plan — HISTORY — 2026-08-09
+
+**Plan:** [[projects/APEX_V3_REMEDIATION_PLAN_2026-08-09]] ← execute from this.
+**Audit:** [[projects/APEX_V3_VS_V2_AUDIT_2026-08-09]]
+
+**Grades:** Build A · Completeness B- · UX C+ · Launch C. Through-line holds.
+**Remediation Weeks 1–4 shipped 2026-08-09** — PR https://github.com/nicholaswittle/apex_v3/pull/4 · `feat/v3-remediation-ux-parity` · ask-apex live.
+**Nick left:** W1f device/Vercel twin check · FCM for real push · optional full support-agent.
 
 ## 🔴 THE TODDLER BAR — governing UX rule, 2026-08-06
 
@@ -92,7 +139,7 @@ private vault `Notes/projects/APEX_V3_OPEN_ITEMS_2026-08-06.md`.
 
 ## Last Updated
 
-2026-08-07. v3 Phase 1 MET (all four gate clauses proven live), services pack built (11 ops), 467 tests. v3 graded A- to A as Phase-1 foundation. See the v3 section above.
+2026-08-09. v3-vs-v2 product/UX audit filed — Build A / UX C+ / Launch C. See audit section above. Prior: 08-07 Phase 1 MET, services pack, foundation A-.
 
 ## Services vertical + build 10 — 2026-08-03 (evening)
 
