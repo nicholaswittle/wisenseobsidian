@@ -68,6 +68,7 @@ updated: 2026-08-02
 - [[projects/APEX_DECOUPLE_PILOT_2026-08-02]] — decouple pilot from Jigsy's
 - [[projects/APEX_GUEST_FOLLOW_UP_PLAN_2026-08-02]] — guest review follow-up
 - [[projects/APEX_V2_SELF_SERVE_FUNNEL_AUDIT_2026-07-28]] — funnel audit
+- [[projects/ANTHEM_RESEARCH_2026-08-30]] — Anthem deep-dive: Frostbite failure, flight design, MMO/instancing architecture, clone feasibility for our looter
 - [[projects/APEX_V2_SELF_SERVE_OS_GAMEPLAN_2026-07-28]] — self-serve gameplan
 - [[projects/APEX_V2_TEMPLATE_TO_PRODUCT_GAP_MAP_2026-07-31]] — template-to-product gaps
 - [[projects/JIGSYS_PILOT_LAUNCH_STRATEGY_2026-07-31]] — pilot launch plan

@@ -1,3 +1,5 @@
+- **[ANTHEM RESEARCH]**: Full deep-dive on Anthem (BioWare) filed → [[projects/ANTHEM_RESEARCH_2026-08-30]]. Engine-mismatch postmortem, what players loved (flight), hybrid hub/shard/instance architecture rec, PvP normalization, micro-raid scope, clone-difficulty table. Companion: combined-game design report (Immortal/Helldivers/WoW/Destiny) + AETHER PROTOCOL playable slice in `C:\development\projects\ollama game\`.
+
 ---
 title: Vault Audit Log
 tags: [log, audit, history, mindstudio]
